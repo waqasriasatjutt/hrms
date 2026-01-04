@@ -51,37 +51,37 @@ patch(PosStore.prototype, {
     },
 
 
-    // async sendOrderInPreparation(order, cancelled = false) {
-    //     let isPrinted = false;
-    //             const orderChange = changesToOrder(
-    //                 order,
-    //                 false,
-    //                 this.orderPreparationCategories,
-    //                 cancelled
-    //             );
-    //             isPrinted = await this.printChanges(order, orderChange);
-    //     if (this.printers_category_ids_set.size) {
-    //         try {
-    //             const orderChange = changesToOrder(
-    //                 order,
-    //                 false,
-    //                 this.orderPreparationCategories,
-    //                 cancelled
-    //             );
-    //             isPrinted = await this.printChanges(order, orderChange);
-    //         } catch (e) {
-    //             console.info("Failed in printing the changes in the order", e);
-    //         }
-    //     }
+    async sendOrderInPreparation(order, cancelled = false) {
+        let isPrinted = false;
+                const orderChange = changesToOrder(
+                    order,
+                    false,
+                    this.orderPreparationCategories,
+                    cancelled
+                );
+                isPrinted = await this.printChanges(order, orderChange);
+        if (this.printers_category_ids_set.size) {
+            try {
+                const orderChange = changesToOrder(
+                    order,
+                    false,
+                    this.orderPreparationCategories,
+                    cancelled
+                );
+                isPrinted = await this.printChanges(order, orderChange);
+            } catch (e) {
+                console.info("Failed in printing the changes in the order", e);
+            }
+        }
 
-    //     order.updateLastOrderChange();
-    //     // Ensure that other devices are aware of the changes
-    //     // Otherwise several devices can print the same changes
-    //     // We need to check if a preparation display is configured to avoid unnecessary sync
-    //     if (isPrinted && !this.config["<-pos_preparation_display.display.pos_config_ids"]?.length) {
-    //         await this.syncAllOrders({ orders: [order] });
-    //     }
-    // },
+        order.updateLastOrderChange();
+        // Ensure that other devices are aware of the changes
+        // Otherwise several devices can print the same changes
+        // We need to check if a preparation display is configured to avoid unnecessary sync
+        if (isPrinted && !this.config["<-pos_preparation_display.display.pos_config_ids"]?.length) {
+            await this.syncAllOrders({ orders: [order] });
+        }
+    },
 
     async printChanges(order, orderChange) {
         let isPrinted = false;
