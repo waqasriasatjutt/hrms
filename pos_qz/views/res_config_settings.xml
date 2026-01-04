@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.wt_pos_access_right</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+
+            <!--            <xpath expr="//block[@id='pos_restrict_section']" position="inside">-->
+            <!--                <field name="qz_printer_name"/>-->
+            <!--            </xpath>-->
+
+            <xpath expr="//block[@id='pos_interface_section']" position="after">
+
+                <block title="QZ Tray Printer Settings">
+                    <div class="mt16" id="qz_printer_section">
+
+                        <div class="row mt8">
+                            <label for="qz_kitchen_printer_ids" class="col-lg-4 o_light_label"/>
+                            <field name="qz_kitchen_printer_ids" class="col-lg-8" widget="many2many_tags"/>
+                        </div>
+
+                        <div class="row mt8">
+                            <label for="qz_report_printer_id" class="col-lg-4 o_light_label"/>
+                            <field name="qz_report_printer_id" class="col-lg-8"/>
+                        </div>
+
+                        <div class="row mt8">
+                            <label for="qz_receipt_printer_id" class="col-lg-4 o_light_label"/>
+                            <field name="qz_receipt_printer_id" class="col-lg-8"/>
+                        </div>
+
+                        <!--                        <div class="row">-->
+                        <!--                            <label for="qz_printer_name"-->
+                        <!--                                   string="QZ Tray Printer"-->
+                        <!--                                   class="col-lg-4 o_light_label"/>-->
+                        <!--                            &lt;!&ndash;                        <h3>QZ Tray Printer Settings</h3>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;                            <div class="row mt8">&ndash;&gt;-->
+                        <!--&lt;!&ndash;                                <div class="col-6">&ndash;&gt;-->
+                        <!--                                    <field name="qz_printer_name"/>-->
+                        <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                        <!--                        </div>-->
+                    </div>
+                </block>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

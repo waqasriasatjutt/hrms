@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="assets_pos_qz_templates">
+
+    <t t-name="pos_qz.GeneralNoteReceipt">
+        <div class="pos-receipt">
+            <div t-attf-class="center bold"><t t-esc="orderType"/></div>
+            <div t-attf-class="center">Time: <t t-esc="timeStr"/></div>
+            <div t-attf-class="center">By: <t t-esc="cashierName"/></div>
+            <div t-attf-class="center bold"># <t t-esc="orderName"/></div>
+            <div class="line" style="border-top:1px dashed #000; margin:6px 0;"></div>
+            <div t-attf-class="center bold">Message</div>
+            <div class="message-body" style="white-space: pre-wrap; word-wrap: break-word;">
+                <t t-esc="note"/>
+            </div>
+        </div>
+    </t>
+
+</templates>

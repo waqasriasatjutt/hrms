@@ -1,0 +1,140 @@
+<!-- booking_request_system/views/booking_views.xml -->
+<odoo>
+
+    <!-- ROOM VIEWS -->
+    <record id="view_hotel_room_tree" model="ir.ui.view">
+        <field name="name">hotel.room.tree</field>
+        <field name="model">hotel.room</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hotel_room_form" model="ir.ui.view">
+        <field name="name">hotel.room.form</field>
+        <field name="model">hotel.room</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- BOOKING REQUEST TREE -->
+    <record id="view_booking_request_tree" model="ir.ui.view">
+        <field name="name">booking.request.tree</field>
+        <field name="model">booking.request</field>
+        <field name="arch" type="xml">
+            <tree default_order="check_in asc">
+                <field name="room_id"/>
+                <field name="customer"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- BOOKING REQUEST FORM (buttons guarded by Manager group) -->
+    <record id="view_booking_request_form" model="ir.ui.view">
+        <field name="name">booking.request.form</field>
+        <field name="model">booking.request</field>
+        <field name="arch" type="xml">
+            <form string="Booking">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            groups="booking_request_system.group_booking_manager"
+                            states="draft" class="btn-primary"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            groups="booking_request_system.group_booking_manager"
+                            states="draft,confirmed" class="btn-secondary"/>
+                    <button name="action_restore" type="object" string="Restore"
+                            groups="booking_request_system.group_booking_manager"
+                            states="canceled" class="btn-secondary"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,confirmed,canceled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="room_id"/>
+                        <field name="customer"/>
+                        <field name="check_in"/>
+                        <field name="check_out"/>
+                        <field name="comment" placeholder="Notes..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- BOOKING REQUEST SEARCH (filters + search) -->
+    <record id="view_booking_request_search" model="ir.ui.view">
+        <field name="name">booking.request.search</field>
+        <field name="model">booking.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="customer" string="Customer"/>
+                <filter string="Draft" name="status_draft" domain="[('status','=','draft')]"/>
+                <filter string="Confirmed" name="status_confirmed" domain="[('status','=','confirmed')]"/>
+                <filter string="Canceled" name="status_canceled" domain="[('status','=','canceled')]"/>
+                <filter string="This Week" name="this_week"
+                        domain="[('check_in','&gt;=', (context_today().replace(hour=0, minute=0, second=0, microsecond=0) - datetime.timedelta(days=(context_today().weekday())))), 
+                                 ('check_in','&lt;', (context_today().replace(hour=0, minute=0, second=0, microsecond=0) + datetime.timedelta(days=(7-context_today().weekday()))))]"/>
+                <filter string="By Room" name="by_room" context="{'group_by':'room_id'}"/>
+                <group expand="0" string="Group By">
+                    <filter string="Room" name="grp_room" context="{'group_by':'room_id'}"/>
+                    <filter string="Status" name="grp_status" context="{'group_by':'status'}"/>
+                    <filter string="Check-in Day" name="grp_day" context="{'group_by':'check_in:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- CALENDAR VIEW (appointments-like) -->
+    <record id="view_booking_request_calendar" model="ir.ui.view">
+        <field name="name">booking.request.calendar</field>
+        <field name="model">booking.request</field>
+        <field name="arch" type="xml">
+            <calendar
+                string="Bookings"
+                date_start="check_in"
+                date_stop="check_out"
+                color="color"
+                mode="week"
+                create="true"
+                edit="true">
+                <field name="room_id"/>
+                <field name="customer"/>
+                <field name="status"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- GANTT VIEW (rental-like, shows all rooms via group_expand) -->
+    <record id="view_booking_request_gantt" model="ir.ui.view">
+        <field name="name">booking.request.gantt</field>
+        <field name="model">booking.request</field>
+        <field name="arch" type="xml">
+            <gantt
+                string="Bookings"
+                date_start="check_in"
+                date_stop="check_out"
+                default_group_by="room_id"
+                create="true"
+                write="true"
+                allow_drag="true"
+                allow_resize="true"
+                scale="week">
+                <field name="room_id"/>
+                <field name="customer"/>
+                <field name="status"/>
+            </gantt>
+        </field>
+    </record>
+
+</odoo>

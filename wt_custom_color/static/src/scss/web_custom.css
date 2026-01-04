@@ -1,0 +1,28 @@
+.o_footer {
+    background-color: #421f77;
+}
+
+/*
+Change website footer background-color
+*/
+
+.navbar-light {
+    background-color: rgb(203 218 249) !important;
+    color: #212529;
+}
+
+/*
+Change website header background-color
+*/
+
+
+.o_cc2 {
+    background-color: rgb(211 243 227) !important;
+}
+body {
+    background-color: rgb(211 243 227) !important;
+}
+
+/*
+Change website body background-color
+*/

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <style>
+                .pos-receipt-tax-summary {
+                    border-top: 1px dashed black;
+                    margin-top: 10px;
+                    padding-top: 10px;
+                }
+                .pos-receipt-amount {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 5px 0;
+                }
+            </style>
+        </xpath>
+    </template>
+</odoo>

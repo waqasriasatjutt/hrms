@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="online_users_visibility_group_param" model="ir.config_parameter">
+            <field name="key">online_users.visibility_group</field>
+            <field name="value">base.group_system</field>
+        </record>
+    </data>
+</odoo>

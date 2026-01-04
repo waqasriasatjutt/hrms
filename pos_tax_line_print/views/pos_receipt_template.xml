@@ -1,0 +1,27 @@
+<!-- pos_receipt_template.xml -->
+<odoo>
+    <template id="pos_receipt" inherit_id="point_of_sale.receipt">
+        <!-- Modify line items to show tax indicator -->
+        <xpath expr="//t[@t-foreach='orderlines']" position="inside">
+            <t t-if="line.tax_ids">
+                <span>(T)</span>
+            </t>
+        </xpath>
+
+        <!-- Add tax summary before the total -->
+        <xpath expr="//div[contains(@class, 'pos-receipt-amount')]" position="before">
+            <div class="pos-receipt-tax-summary">
+                <div class="pos-receipt-amount">
+                    <span>Sub total</span>
+                    <span t-esc="order.amount_total - order.amount_tax" 
+                          t-options='{"widget": "float", "precision": 2}'/>
+                </div>
+                <div class="pos-receipt-amount">
+                    <span>Tax</span>
+                    <span t-esc="order.amount_tax" 
+                          t-options='{"widget": "float", "precision": 2}'/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

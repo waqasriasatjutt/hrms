@@ -1,0 +1,13 @@
+<!-- booking_request_system/security/booking_security.xml -->
+<odoo>
+    <!-- Groups -->
+    <record id="group_booking_manager" model="res.groups">
+        <field name="name">Booking Manager</field>
+        <field name="category_id" ref="base.module_category_hidden"/> <!-- or create your own category -->
+    </record>
+
+    <record id="group_booking_staff" model="res.groups">
+        <field name="name">Booking Staff</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

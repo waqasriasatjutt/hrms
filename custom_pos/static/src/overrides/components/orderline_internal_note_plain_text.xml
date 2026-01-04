@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Change Internal Notes to plain text instead of badges on Customer Receipt -->
+    <t t-name="custom_pos.Orderline"
+       t-inherit="point_of_sale.Orderline"
+       t-inherit-mode="extension"
+       owl="1">
+
+        <!-- Replace the internal note container with plain text styling - Use pt for thermal printer -->
+        <xpath expr="//div[@class='internal-note-container d-flex gap-2']" position="replace">
+            <div class="internal-note-container d-flex flex-column gap-1" style="margin-top: 4px;">
+                <t t-foreach="line.internalNote?.split?.('\n') or []" t-as="note" t-key="note_index">
+                    <span t-if="note.trim() !== ''"
+                          class="internal-note"
+                          style="font-size: 18pt; font-weight: normal; color: inherit; background: none; padding: 0; border: none; display: block; line-height: 1.4;">
+                        <t t-esc="note"/>
+                    </span>
+                </t>
+            </div>
+        </xpath>
+
+    </t>
+
+</templates>
+

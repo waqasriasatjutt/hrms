@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Fix Customer Receipt: Remove duplicate Customer Note, add Printed Note (Message) -->
+    <t t-name="custom_pos.OrderReceipt"
+       t-inherit="point_of_sale.OrderReceipt"
+       t-inherit-mode="extension"
+       owl="1">
+
+
+
+
+        <!-- Safely remove total discount block -->
+        <xpath expr="//t[@t-if='props.data.total_discount']" position="replace"/>
+
+        <!-- Remove generalNote from OrderWidget (we'll show it separately below) -->
+        <xpath expr="//OrderWidget[@t-if='props.data.orderlines?.length']" position="attributes">
+            <attribute name="generalNote">''</attribute>
+        </xpath>
+
+        <!-- Note: Customer note is already omitted in base template with omit(scope.line, 'customerNote') -->
+        <!-- So we don't need to remove it with xpath -->
+
+        <!-- Add Printed Note (Message) after orderlines, before footer -->
+        <!-- Note: Customer Note stays inside orderlines (we don't add it here) -->
+        <xpath expr="//OrderWidget" position="after">
+            <!-- Printed Note (Message) - generalNote -->
+            <!-- Use pt instead of px for better thermal printer compatibility -->
+            <!-- Hide "Message:" title if this is Message Paper (no orderlines) -->
+            <t t-if="props.data.generalNote and props.data.generalNote.trim()">
+
+                    <div class="text-center" style="margin-top: 10px; margin-bottom: 10px;">--------------------------------</div>
+                <div class="pos-receipt-order-data mb-2 printed-note-container"
+                     t-att-class="props.data.isMessagePaper ? 'message-paper-only' : ''"
+                     style="font-size: 18pt; font-weight: bold; margin-top: 12px;">
+                    <strong t-if="!props.data.isMessagePaper"
+                            class="printed-note-header"
+                            style="font-size: 18pt; display: block; margin-bottom: 4px;">
+                        Message:
+                    </strong>
+                    <div class="printed-note-text"
+                         style="font-size: 18pt; font-weight: normal; margin-left: 16px; margin-top: 4px; display: block;">
+                        <t t-esc="props.data.generalNote"/>
+                    </div>
+                </div>
+<!--                <t t-if="!props.data.isMessagePaper">-->
+<!--                    <div class="text-center" style="margin-top: 10px; margin-bottom: 10px;">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
+<!--                </t>-->
+            </t>
+
+
+            <t t-if="props.data.total_discount">
+                <div class="text-center">--------------------------------</div>
+                <div class="text-big-2 fw-bolder text-wrap d-flex justify-content-between">
+                    <t>Total Discount:</t>
+                    <span t-esc="props.formatCurrency(props.data.total_discount)"
+                          class="pos-receipt-right-align"/>
+                </div>
+            </t>
+
+        </xpath>
+
+
+
+<!--        <xpath expr="//OrderWidget" position="after">-->
+
+<!--            <t t-if="props.data.total_discount">-->
+<!--            <div class="text-center">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
+<!--                <div class="text-big-2 fw-bolder text-wrap d-flex justify-content-between">-->
+<!--                    <t>Total Discount:</t>-->
+<!--                    <span t-esc="props.formatCurrency(props.data.total_discount)"-->
+<!--                          class="pos-receipt-right-align"/>-->
+<!--                </div>-->
+<!--            </t>-->
+
+<!--        </xpath>-->
+
+
+    </t>
+
+</templates>
+

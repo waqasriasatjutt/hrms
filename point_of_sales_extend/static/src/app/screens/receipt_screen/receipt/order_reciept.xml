@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="pos_sale.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+    <xpath expr="//span[@t-esc='line.productName']" position="after">
+        <span class="mx-1" t-if="line.taxes and line.taxes.length > 0">(<b>T</b>)</span>
+        <span class="mx-1" t-else="">(<b>Z</b>)</span>
+    </xpath>
+    <xpath expr="//li[hasclass('price-per-unit')]" position="after">
+        <t t-foreach="line.taxes" t-as="tax" t-key="tax.id">
+            <div class="me-2">
+                <span class="float-start" t-esc="tax.name"/>
+                <span class="float-end" t-esc="tax.amount"/>
+            </div>
+        </t>
+    </xpath>
+
+</t>
+</templates>
+
+

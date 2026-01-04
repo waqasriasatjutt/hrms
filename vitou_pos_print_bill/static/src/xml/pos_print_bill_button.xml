@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<!--    <t t-name="vitou_pos_print_slip.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">-->
+<!--        <xpath expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton" position="after">-->
+<!--             <button class="btn btn-secondary btn-lg py-5" t-on-click="() => this.VitouPOSPrintSlip()">-->
+<!--                 <i class="fa fa-pencil-square me-1" role="img" aria-label="Bill" title="Bill Near your hand"/>Print Slip-->
+<!--             </button>-->
+<!--        </xpath>-->
+<!--    </t>-->
+
+     <t t-name="vitou_pos_print_slip_main.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']" position="after">
+
+
+            <t t-if="pos.config.module_pos_restaurant">
+                <!-- All buttons always displayed -->
+                <t t-if="pos.config.iface_printbill">
+                    <button t-att-class="buttonClass"
+                        t-att-disabled="!pos.get_order()?.get_orderlines()?.length"
+                        t-on-click="clickPrintBill">
+                        <i class="fa fa-print me-1"></i>Bill
+                    </button>
+                </t>
+
+            </t>
+
+
+<!--             <button class="btn btn-light btn-lg flex-shrink-0 ms-auto" t-if="!props.showRemainingButtons and !ui.isSmall and props.onClickMore" t-on-click="() => this.onClickQuotation()">-->
+<!--                Bill-->
+<!--             </button>-->
+
+        </xpath>
+    </t>
+</templates>

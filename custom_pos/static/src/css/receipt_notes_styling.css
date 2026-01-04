@@ -1,0 +1,262 @@
+/**
+ * Receipt Notes Styling - Fonts, Sizing & Layout Fix
+ * Uses pt (points) for thermal printer compatibility - screen and print will match
+ */
+
+/* General Note on Customer Receipt - Use pt for thermal printer */
+.pos-receipt .general-note-container,
+.pos-receipt .pos-receipt-order-data strong[style*="text-transform: uppercase"] {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    line-height: 1.5;
+}
+
+.pos-receipt .general-note-text,
+.pos-receipt .pos-receipt-order-data div[style*="margin-top: 6px"],
+.pos-receipt .pos-receipt-order-data div[style*="margin-top: 8px"] {
+    font-size: 18pt !important;
+    line-height: 1.5;
+    margin-top: 8px !important;
+}
+
+/* Message (Printed Note) on Customer Receipt - Use pt */
+.pos-receipt .printed-note-container {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    margin-top: 12px !important;
+    display: block !important;
+}
+
+.pos-receipt .printed-note-header,
+.pos-receipt .pos-receipt-order-data b[style*="Message"],
+.pos-receipt .pos-receipt-order-data strong[style*="Message"] {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    display: block !important;
+    margin-bottom: 4px !important;
+}
+
+.pos-receipt .printed-note-text {
+    font-size: 18pt !important;
+    font-weight: normal !important;
+    display: block !important;
+    margin-left: 0 !important;
+    margin-top: 4px !important;
+}
+
+/* Customer Note on Customer Receipt - Make bigger */
+.pos-receipt .pos-receipt-order-data strong[style*="Customer Note"] {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+}
+
+.pos-receipt .orderline .customer-note {
+    font-size: 18pt !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+
+/* Internal Notes on Customer Receipt - Make bigger, indented */
+.pos-receipt .internal-note,
+.internal-note-container .internal-note {
+    font-size: 18pt !important;
+    font-weight: normal !important;
+    color: inherit !important;
+    background: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+    margin-left: 16px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    display: block !important;
+    line-height: 1.4 !important;
+}
+
+.pos-receipt .orderline .internal-note-container {
+    margin-left: 16px !important;
+    margin-top: 4px !important;
+}
+
+/* Customer Address - Make bigger */
+.pos-receipt .pos-receipt-center-align div[style*="font-size: 16px"] {
+    font-size: 18pt !important;
+}
+
+.pos-receipt .pos-receipt-center-align div:has(span[style*="Address"]) {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+}
+
+/* Kitchen Paper - General Note - REDUCED (was too big) */
+.pos-receipt-body div[style*="General Note"] {
+    font-size: 130% !important;
+    font-weight: bold !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+}
+
+/* Kitchen Paper - Message - REDUCED (was too big) */
+.pos-receipt-body div[style*="Message:"] {
+    font-size: 130% !important;
+    font-weight: bold !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+}
+
+/* Kitchen Paper - Hide Customer Note header (should only appear under orderlines) */
+.pos-receipt-body div[style*="Customer Note"] strong,
+.pos-receipt-body div[style*="Customer Note"] {
+    display: none !important;
+}
+
+/* Kitchen Paper - Internal Notes (line.note) - Make bigger, same size as Customer Note */
+.pos-receipt-body div[style*="fst-italic"] {
+    font-size: 18pt !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    margin-left: 16px !important;
+    line-height: 1.4 !important;
+}
+
+/* Kitchen Paper - Customer Note under orderlines - Same size as Internal Note */
+.pos-receipt-body .kitchen-customer-note,
+.pos-receipt-body .orderline .kitchen-customer-note {
+    font-size: 18pt !important;
+    font-weight: normal !important;
+    margin-left: 16px !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+    line-height: 1.4 !important;
+}
+
+/* Improve spacing between sections */
+.pos-receipt .text-center[style*="--------------------------------"] {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Hide duplicate separator lines - ensure only one separator appears after each note */
+/* Strategy: Hide any separator that appears immediately after another separator (adjacent only) */
+/* Only target adjacent siblings to avoid breaking receipt rendering */
+.pos-receipt .text-center[style*="--------------------------------"] + .text-center[style*="--------------------------------"] {
+    display: none !important;
+}
+
+/* Ensure proper line height for all note text */
+.pos-receipt-order-data div {
+    line-height: 1.5 !important;
+}
+
+/* Kitchen Paper - improve spacing */
+.pos-receipt-body > div {
+    margin-bottom: 8px;
+}
+
+.pos-receipt-body > div:last-child {
+    margin-bottom: 0;
+}
+
+/* Kitchen Paper: Hide default order_note (plain text), show our custom "MESSAGE:" section */
+/* Message Paper: Show default order_note, hide our custom "MESSAGE:" section */
+/* Strategy: Hide default order_note when our custom section exists (kitchen paper) */
+.pos-receipt-body .pb-5:has(.custom-printed-note-message) > div:not(.mt-4):not(.custom-printed-note-message):not(:has(strong)):not(.orderline):not(:has(.orderline)) {
+    display: none !important;
+}
+/* Note: Template condition ensures custom Message section only renders on kitchen paper */
+/* No CSS rule needed to hide it on message paper - template won't render it */
+
+/* Hide Message/General Note in OrderWidget on customer receipt (we show it separately below) */
+.pos-receipt .OrderWidget div[style*="Message"] {
+    display: none !important;
+}
+
+/* Fix empty spaces and ensure product names appear properly */
+.pos-receipt .product-name {
+    min-height: auto !important;
+    line-height: 1.4 !important;
+}
+
+.pos-receipt .orderline {
+    margin-bottom: 8px !important;
+    min-height: auto !important;
+}
+
+/* Hide any customer notes that appear as general notes (should only appear in orderlines) */
+.pos-receipt .pos-receipt-order-data:not(.orderline) .customer-note,
+.pos-receipt .pos-receipt-order-data:not(:has(.orderline)) .customer-note {
+    display: none !important;
+}
+
+/* Message Paper - hide "Message:" title when it's a message-only receipt (no orderlines) */
+.pos-receipt .message-paper-only .printed-note-header,
+.pos-receipt .message-paper-only strong[style*="Message:"] {
+    display: none !important;
+}
+
+/* Hide duplicate Message if it appears twice */
+.pos-receipt .printed-note-container ~ .printed-note-container {
+    display: none !important;
+}
+
+/* Price alignment fix - minimal changes only */
+/* For LTR (English): price should be on right */
+.pos-receipt .orderline .pos-receipt-right-align {
+    text-align: right !important;
+    direction: ltr !important;
+}
+
+/* For RTL (Arabic): price should be on left */
+[dir="rtl"] .pos-receipt .orderline .pos-receipt-right-align {
+    text-align: left !important;
+}
+
+/* Qty × Unit Price alignment */
+.pos-receipt .orderline .qty-price {
+    text-align: right !important;
+    direction: ltr !important;
+}
+
+[dir="rtl"] .pos-receipt .orderline .qty-price {
+    text-align: left !important;
+}
+
+/* Internal Notes on POS Interface (UX) - Make smaller */
+/* This affects the POS screen, not the receipt */
+.internal-note-container .internal-note:not(.pos-receipt .internal-note) {
+    font-size: 12px !important;
+}
+
+/* Orderline in POS interface - make internal notes smaller */
+.orderline .internal-note-container:not(.pos-receipt .internal-note-container) .internal-note {
+    font-size: 12px !important;
+}
+
+/* Normal browser / screen receipt */
+.receipt-contact-fix,
+.receipt-partner-fix {
+    font-family: monospace;
+    font-size: 16pt;
+    line-height: 1.3;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-width: 550px;
+    text-align: center;
+}
+/* IoT / canvas printing fix */
+@media print {
+    .receipt-contact-fix,
+    .receipt-partner-fix {
+        font-size: 36px !important;
+        width: 550px;
+    }
+}
+.pos-receipt .pos-receipt-contact {
+    text-align: center;
+    font-size: 140%;
+}
+.pos-receipt .pos-receipt-contactcustomer {
+    text-align: center;
+    font-size: 120%;
+}

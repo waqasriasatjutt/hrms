@@ -1,0 +1,6 @@
+# booking_request_system/security/ir.model.access.csv
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+booking_room_manager,booking_room_manager,model_hotel_room,booking_request_system.group_booking_manager,1,1,1,1
+booking_room_staff,booking_room_staff,model_hotel_room,booking_request_system.group_booking_staff,1,0,0,0
+booking_req_manager,booking_req_manager,model_booking_request,booking_request_system.group_booking_manager,1,1,1,1
+booking_req_staff,booking_req_staff,model_booking_request,booking_request_system.group_booking_staff,1,0,0,0

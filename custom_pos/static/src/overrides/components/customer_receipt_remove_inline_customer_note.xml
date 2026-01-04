@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Remove Customer Note from inside orderlines on Customer Receipt -->
+    <!-- (We show them all together under orderlines instead) -->
+    <!-- Use CSS to hide inline customer notes since xpath removal causes errors when element doesn't exist -->
+    <t t-name="custom_pos.OrderReceipt"
+       t-inherit="point_of_sale.OrderReceipt"
+       t-inherit-mode="extension"
+       owl="1">
+        <!-- Hide inline customer notes with CSS instead of xpath removal -->
+    </t>
+
+</templates>

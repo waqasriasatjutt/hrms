@@ -1,0 +1,7 @@
+<!-- security/api_security.xml -->
+<odoo>
+    <record id="param_api_token" model="ir.config_parameter">
+        <field name="key">custom_api.token</field>
+        <field name="value">YOUR_SECRET_TOKEN_HERE</field>
+    </record>
+</odoo>

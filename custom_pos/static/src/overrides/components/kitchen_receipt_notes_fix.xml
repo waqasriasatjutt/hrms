@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- Kitchen Paper: All notes in one template to avoid conflicts -->
+    <t t-name="custom_pos.OrderChangeReceipt"
+       t-inherit="point_of_sale.OrderChangeReceipt"
+       t-inherit-mode="extension"
+       owl="1">
+
+    <!-- <xpath expr="//div[@class='pos-receipt m-0 p-0']" position="replace">
+
+        <div class="pos-receipt m-0 p-0">
+            <div class="receipt-header text-center">
+                <div class="kit-receipt-header-center">
+                    <t t-if="changes.diningModeUpdate">
+                        <t t-if="changes.takeaway">Dine In -&gt; Take Out</t>
+                        <t t-else="">Take Out -&gt; Dine In</t>
+                    </t>
+                    <t t-else="">
+                        <t t-if="changes.takeaway">Take Out</t>
+                        <t t-else="">Dine In</t>
+                    </t>
+                </div>
+                <div class="kit-receipt-header-center" style="font-size: 128%;">
+                    <span><t t-esc="changes.config_name"/> : <t t-esc="changes.time"/></span><br/>
+                    <span>By: <t t-esc="changes.employee_name"/></span>
+                </div>
+                <span class="kit-receipt-header-center" style="font-size: 120%;">
+                    <t t-if="changes.table_name">Table <strong><t t-esc="changes.table_name"/></strong></t>
+                    <t t-if="changes.tracking_number" class="fw-light my-3"> # <strong><t t-esc="changes.tracking_number"/></strong></t>
+                </span>
+            </div>
+            <hr style="border: none; border-top: 4px dashed black;"/>
+
+            <div class="pos-receipt-body pb-5" >
+                <t t-if="operational_title">
+                    <div class="kit-receipt-header-center" t-esc="operational_title" />
+                </t>
+                <div t-foreach="changedlines" t-as="line" t-key="change_index" class="kit-receipt-header">
+                    <div t-attf-class="orderline #{line.isCombo ? 'mx-5 px-2' : 'mx-1'}">
+                        <div class="d-flex medium">
+                            <span class="me-3" t-esc="line.quantity"/> <span class="product-name" t-esc="line.display_name"/>
+                        </div>
+                        <div t-if="line.attribute_value_ids?.length" class="mx-5 kit-receipt-header" >
+                            <t t-foreach="line.attribute_value_ids" t-as="attribute" t-key="attribute.id">
+                                <p class="p-0 m-0">
+                                    - <t t-esc="attribute.name" /><br/>
+                                </p>
+                            </t>
+                        </div>
+                        <div t-if="line.note" class="kit-receipt-header" >
+                            <t t-esc="line.note.split('\n').join(', ')"/><br/>
+                        </div>
+            <t t-if="line.customerNote">
+                <li class="customer-note w-100 p-2 rounded bg-warning bg-opacity-25 text-break">
+                    <i class="fa fa-sticky-note me-1"/>
+                    <t t-esc="line.customerNote"/>
+                </li>
+            </t>
+
+
+            <t t-if="line and line.customerNote and line.customerNote.trim()">
+                <div class="kitchen-customer-note" style="margin-left: 16px; margin-top: 4px; font-size: 18pt; font-weight: normal; line-height: 1.4;">
+                    <t t-esc="line.customerNote"/>
+                </div>
+            </t>
+
+                    </div>
+                </div>
+
+            <t t-if="changes.custom_note and changes.custom_note.length">
+                <div class="kit-receipt-header-center">
+                    <strong class="kit-receipt-header-center">General Note:</strong><br/>
+                    <div class="kit-receipt-text">
+                        <t t-esc="changes.custom_note.split('\n').join(', ')"/><br/>
+                    </div>
+                </div>
+            </t>
+
+
+                <t t-if="(!changedlines.length or fullReceipt) and changes.order_note.length">
+                    <div class="kit-receipt-header-center">
+                        <t t-if="changes.order_note">
+                    <strong class="kit-receipt-header-center">Printed Note:</strong><br/>
+                    <div class="kit-receipt-text">
+                            <t t-esc="changes.order_note.split('\n').join(', ')"/><br/>
+                        </div>
+                        </t>
+                    </div>
+                </t>
+
+            </div>
+        </div>
+
+</xpath> -->
+
+
+        <!-- Add customer notes under each orderline (no header, just the note text) -->
+        <!-- Customer notes are added to each changedline in kitchen_receipt_variant_order_patch.js -->
+        <!-- Add customer notes after internal notes (fst-italic divs) in each orderline -->
+        <xpath expr="//div[@class='pos-receipt-body pb-5']//div[@class='fst-italic']" position="after">
+            <t t-if="line and line.customerNote and line.customerNote.trim()">
+                <div class="kitchen-customer-note" style="margin-left: 16px; margin-top: 4px; font-size: 18pt; font-weight: normal; line-height: 1.4;">
+                    <t t-esc="line.customerNote"/>
+                </div>
+            </t>
+        </xpath>
+
+
+
+<xpath expr="//div[@class='mt-5 fst-italic']" position="replace">
+<!--removed-->
+</xpath>
+
+        <!-- Add all notes after order lines (only once each) - BIGGER FONTS for thermal printer -->
+        <!-- Note: Default order_note is hidden with CSS to prevent duplication (we show it with "MESSAGE:" header below) -->
+        <xpath expr="//div[@class='pos-receipt-body pb-5']" position="after">
+            <t t-if="changes.custom_note and changes.custom_note.length">
+                <div class="mt-4 mb-3" style="font-size: 100%; font-weight: bold;">
+                    <strong style="font-size: 100%; text-align: center; text-transform: uppercase;">General Note:</strong><br/>
+                    <div style="margin-top: 8px; font-size: 100%; font-weight: normal; line-height: 1.4;">
+                        <t t-esc="changes.custom_note.split('\n').join(', ')"/><br/>
+                    </div>
+                </div>
+            </t>
+            
+                <t t-if="(!changedlines.length or fullReceipt) and changes.order_note.length">
+                <div class="mt-4 mb-3" style="font-size: 100%; font-weight: bold;">
+                        <t t-if="changes.order_note">
+                    <strong style="font-size: 100%;text-align: center; text-transform: uppercase;">Printed Note:</strong><br/>
+                    <div style="margin-top: 8px; font-size: 100%; font-weight: normal; line-height: 1.4;">
+                            <t t-esc="changes.order_note.split('\n').join(', ')"/><br/>
+                        </div>
+
+                        </t>
+                    </div>
+                </t> 
+            <!-- <t t-if="changes.order_note and changes.order_note.length and changes.changedlines and changes.changedlines.length > 0">
+                <div class="mt-4 mb-3 custom-printed-note-message" style="font-size: 200%; font-weight: bold;">
+                    <strong style="font-size: 200%; text-transform: uppercase;">Message::::</strong><br/>
+                    <div style="margin-top: 8px; font-size: 200%; font-weight: normal; line-height: 1.4;">
+                        <t t-esc="changes.order_note.split('\n').join(', ')"/><br/>
+                    </div>
+                </div>
+            </t> -->
+         </xpath>
+
+    </t>
+
+</templates>

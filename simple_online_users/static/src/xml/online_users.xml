@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="simple_online_users.OnlineUsersSystray" owl="1">
+        <div t-if="state.isVisible" class="o_online_users o_systray_item d-flex align-items-center position-relative"
+             t-on-mouseenter="onSystrayHover"
+             t-on-mouseleave="onSystrayLeave">
+            <div class="d-flex align-items-center text-white"
+                 t-att-class="state.error ? 'text-danger' : 'text-white'"
+                 t-att-title="tooltip"
+                 style="cursor: default; padding: 8px; line-height: 1;">
+                <i class="fa fa-users" aria-hidden="true" style="margin-right: 4px; font-size: 14px;"/>
+                <span t-esc="state.error ? '?' : state.count" style="font-size: 13px;"/>
+            </div>
+
+            <!-- Popup -->
+            <div t-if="state.showPopup" 
+                 class="dropdown-menu dropdown-menu-end show position-absolute"
+                 style="top: 100%; right: 0; min-width: 280px; max-height: 350px; overflow-y: auto; z-index: 1050;">
+                
+                <div class="dropdown-header py-2">
+                    <span class="fw-bold">Online Users</span>
+                </div>
+                <div class="dropdown-divider" style="margin: 0;"/>
+
+                <div t-if="state.users.length === 0" class="dropdown-item-text text-muted text-center py-3">
+                    No users currently online
+                </div>
+
+                <div t-foreach="state.users" t-as="user" t-key="user.id" 
+                     class="dropdown-item d-flex align-items-center py-2 px-3" 
+                     style="white-space: normal; border-bottom: 1px solid #f0f0f0; cursor: default;">
+                    
+                    <!-- Avatar -->
+                    <img t-att-src="user.avatar_url" 
+                         class="rounded-circle me-2 flex-shrink-0" 
+                         style="width: 28px; height: 28px;" 
+                         t-att-alt="user.name"/>
+
+                    <!-- User Info -->
+                    <div class="flex-grow-1 min-width-0">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="fw-medium text-truncate me-2" 
+                                  t-esc="user.name" 
+                                  style="font-size: 13px; max-width: 140px;"/>
+                            <div class="d-flex align-items-center flex-shrink-0">
+                                <i t-att-class="getStatusIcon(user.status)" style="font-size: 8px; margin-right: 4px;"/>
+                                <small class="text-muted" t-esc="user.status_text" style="font-size: 11px;"/>
+                            </div>
+                        </div>
+                        <div class="text-muted text-truncate" style="font-size: 11px;">
+                            <t t-esc="user.login"/>
+                            <t t-if="user.is_current_user"> (You)</t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

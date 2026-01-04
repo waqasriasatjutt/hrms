@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+   <t t-name="pos_orderline_items_count.OrderReceipt"
+      t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+      
+      <xpath expr="//Orderline[@line]" position="inside">
+          <t t-if="line.taxName">
+              <div class="pos-receipt-tax-details">
+                  <span t-esc="line.taxName"/> : <span t-esc="line.taxAmount"/>
+              </div>
+          </t>
+      </xpath>
+   </t>
+</templates>

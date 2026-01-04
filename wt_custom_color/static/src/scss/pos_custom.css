@@ -1,0 +1,23 @@
+.bg-white
+ {
+    background-color: rgb(203 218 249) !important;
+}
+/*
+Change top menue/bar background-color
+*/
+
+.bg-200, .text-bg-200 {
+    --background-color: RGBA(231, 233, 237, var(--bg-opacity, 1));
+    background-color: rgb(211 243 227) !important;
+}
+/*
+Change body background-color
+*/
+
+.bg-light {
+    background-color: rgb(226,143,77,255) !important;
+}
+/*
+Change selected products list background-color
+*/
+

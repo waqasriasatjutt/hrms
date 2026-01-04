@@ -1,0 +1,38 @@
+.o_main_navbar {
+    background: rgb(203 218 249) !important;
+    font-size: 0.875rem;
+}
+
+/*
+Change header background-color
+*/
+.o_web_client {
+    background-color: #d3f3e3; !important;
+}
+
+/*
+Change body background-color
+*/
+.o_control_panel{
+    background-color: rgb(203 218 249) !important;
+}
+
+/*
+Change top bar background-color
+*/
+
+
+
+/*
+.o_form_view .o_form_sheet {
+    background-color: #7d5f5f;
+}
+
+.o_notebook_content tab-content {
+    background-color: #7d5f5f;
+}
+
+.nav-link {
+    background-color: #7d5f5f;
+}
+*/
