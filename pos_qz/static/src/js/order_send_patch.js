@@ -173,7 +173,10 @@ for (const kitchen of kitchenIds) {
     if (printer) {
         console.log("🍳 Kitchen Printer:", printer.id, printer.name);
         const printerName = printer.name;
-                const response = await fetch("http://127.0.0.1:5045/print-image", {
+    const ip_print_server = this.config.central_printer_server_ip || "127.0.0.1"
+    console.log("🎯 Sending print to:", ip_print_server);
+
+    const response = await fetch("http://"+ip_print_server+":5045/print-image", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({

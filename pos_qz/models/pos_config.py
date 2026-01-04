@@ -26,6 +26,8 @@ class PosConfig(models.Model):
     )
 
 
+    central_printer_server_ip =fields.Char("Central Printer Server IP Address",default="127.0.0.1")
+
     # @api.model
     # def _load_pos_data_fields(self, config_id):
     #     fields = super()._load_pos_data_fields(config_id)

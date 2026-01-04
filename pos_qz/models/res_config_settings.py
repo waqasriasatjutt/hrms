@@ -30,6 +30,12 @@ class ResConfigSettings(models.TransientModel):
     #     readonly=False
     # )
 
+
+    central_printer_server_ip = fields.Char(
+        string="Central Printer Server IP Address",
+        related="pos_config_id.central_printer_server_ip",
+        readonly=False)
+
     qz_kitchen_printer_ids = fields.Many2many(
         'qz.printer',
         string="Kitchen Printers",
@@ -50,7 +56,7 @@ class ResConfigSettings(models.TransientModel):
         related="pos_config_id.qz_receipt_printer_id",
         readonly=False
     )
-    
+
     @api.model
     def _load_pos_data_fields(self, config_id):
         fields = super()._load_pos_data_fields(config_id)

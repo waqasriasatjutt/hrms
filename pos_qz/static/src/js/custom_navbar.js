@@ -88,16 +88,18 @@ patch(Navbar.prototype, {
 const printers = this.pos.models["qz.printer"];
 
 const printer = printers?.get(this.pos.config.qz_report_printer_id?.id);
+const ip_print_server = this.pos.config.central_printer_server_ip || "127.0.0.1"
 
 const printerName = printer?.name || "Default Printer";
 
+    console.log("🎯 Sending print to:", ip_print_server);
 
 
         // const printerName = this.pos.config.qz_report_printer || "Default Printer";
 
 // 8️⃣ PRIORITY 3: Python Print Server fallback
 try {
-    const response = await fetch("http://127.0.0.1:5045/print-image", {
+    const response = await fetch("http://"+ip_print_server+":5045/print-image", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -29,6 +29,12 @@
                             <label for="qz_receipt_printer_id" class="col-lg-4 o_light_label"/>
                             <field name="qz_receipt_printer_id" class="col-lg-8"/>
                         </div>
+                        <div class="row mt8">
+                            <label for="central_printer_server_ip" class="col-lg-4 o_light_label"/>
+                            <field name="central_printer_server_ip" class="col-lg-8"/>
+                        </div>
+
+
 
                         <!--                        <div class="row">-->
                         <!--                            <label for="qz_printer_name"-->
