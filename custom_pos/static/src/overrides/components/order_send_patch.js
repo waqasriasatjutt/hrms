@@ -8,20 +8,13 @@ patch(PosStore.prototype, {
     async sendOrderInPreparationUpdateLastChange(order, cancelled = false) {
         if (!order) return;
 
-        if (this.data.network.offline) {
-            this.data.network.warningTriggered = false;
-            throw new ConnectionLostError();
-        }
-
-        // 1️⃣ Original kitchen send logic
-        await this.checkPreparationStateAndSentOrderInPreparation(order, cancelled);
-
+        // Only run your custom code: mark order as sent to kitchen
         if (!cancelled) {
             order.markAsSentToKitchen();
-            console.log("✅ Order sent to kitchen:", order.uid);
+            console.log("✅ Order marked as sent to kitchen:", order.uid);
         }
 
-        // 2️⃣ Main kitchen receipt print
-
+        // Call original method for all other behavior
+        return this.__proto__.__proto__.sendOrderInPreparationUpdateLastChange.call(this, order, cancelled);
     },
 });
