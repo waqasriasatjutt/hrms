@@ -6,15 +6,13 @@ import { OrderReceipt } from "@point_of_sale/app/screens/receipt_screen/receipt/
 
 patch(PosStore.prototype, {
     async sendOrderInPreparationUpdateLastChange(order, cancelled = false) {
-        if (!order) return;
+        // 🔹 Call original Odoo method (IMPORTANT)
+        await this._super(order, cancelled);
 
-        // Only run your custom code: mark order as sent to kitchen
-        if (!cancelled) {
+        // 🔹 Your custom logic only
+        if (order && !cancelled) {
             order.markAsSentToKitchen();
-            console.log("✅ Order marked as sent to kitchen:", order.uid);
+            console.log("✅ Marked as sent to kitchen:", order.uid);
         }
-
-        // Call original method for all other behavior
-        return this.__proto__.__proto__.sendOrderInPreparationUpdateLastChange.call(this, order, cancelled);
     },
 });
