@@ -22,7 +22,7 @@ patch(BasePrinter.prototype, {
     console.log("🎯 Sending print to:", this.ip_print_server);
 
 
-            await fetch("https://"+this.ip_print_server+"/print-image", {
+            await fetch("http://"+this.ip_print_server+":5045/print-image", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

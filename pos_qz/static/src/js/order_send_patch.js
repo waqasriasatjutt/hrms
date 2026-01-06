@@ -27,6 +27,7 @@ create_printer(config) {
     return new HWPrinter({
         url,
         printer_name: config.name,   // ✅ EXPLICIT
+        printer_name: config.name,   // ✅ EXPLICIT
         ip_print_server: this.config.central_printer_server_ip || "127.0.0.1",
 
 
