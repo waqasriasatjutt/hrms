@@ -50,10 +50,10 @@ class ResConfigSettings(models.TransientModel):
         readonly=False
     )
 
-    qz_receipt_printer_id = fields.Many2one(
+    qz_receipt_printer_ids = fields.Many2many(
         'qz.printer',
-        string="Receipt Printer",
-        related="pos_config_id.qz_receipt_printer_id",
+        string="Receipt Printers",
+        related="pos_config_id.qz_receipt_printer_ids",
         readonly=False
     )
 
@@ -61,7 +61,7 @@ class ResConfigSettings(models.TransientModel):
     def _load_pos_data_fields(self, config_id):
         fields = super()._load_pos_data_fields(config_id)
         fields += [
-            'qz_receipt_printer_id',
+            'qz_receipt_printer_ids',
             'qz_report_printer_id',
             'qz_kitchen_printer_ids',
         ]

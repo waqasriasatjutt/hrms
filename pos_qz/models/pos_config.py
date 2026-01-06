@@ -19,10 +19,10 @@ class PosConfig(models.Model):
         help='Select a printer from QZ printers for POS Reports.'
     )
 
-    qz_receipt_printer_id = fields.Many2one(
+    qz_receipt_printer_ids = fields.Many2many(
         'qz.printer',
-        string='Receipt Printer',
-        help='Select a printer from QZ printers for Customer Receipts.'
+        string='Receipt Printers',
+        help='Select one or multiple printerz from QZ printers for Customer Receipts.'
     )
 
 

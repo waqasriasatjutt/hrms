@@ -99,18 +99,34 @@ if (!printerModel) {
 }
 
 
+// const printers = this.models["qz.printer"];
+
+// const printer = printers?.get(this.config.qz_receipt_printer_id?.id);
+
+// const printerName = printer?.name || "Default Printer";
+
+// const ip_print_server = this.config.central_printer_server_ip || "127.0.0.1"
+
+
+// const printers = this.models["qz.printer"];
 const printers = this.models["qz.printer"];
+const receiptIds = this.config.qz_receipt_printer_ids || [];
 
-const printer = printers?.get(this.config.qz_receipt_printer_id?.id);
+// If Many2many is returned as objects like [{id: 1}, {id: 2}]
+for (const receiptprinter of receiptIds) {
+    const printerId = receiptprinter?.id || receiptprinter; // support both {id: 1} or just 1
+    const printer = printers?.get(printerId);
 
-const printerName = printer?.name || "Default Printer";
+    if (printer) {
+        console.log("🍳 Receipt Printer:", printer.id, printer.name);
+        const printerName = printer.name;
+    const ip_print_server = this.config.central_printer_server_ip || "127.0.0.1"
 
-const ip_print_server = this.config.central_printer_server_ip || "127.0.0.1"
 
 
     console.log("🎯 Sending print to:", ip_print_server);
 
-    const response = await fetch("http://"+ip_print_server+":5045/print-image", {
+    const response = await fetch("https://"+ip_print_server+"/print-image", {
 
                 method: "POST",
                 headers: {
@@ -134,7 +150,7 @@ const ip_print_server = this.config.central_printer_server_ip || "127.0.0.1"
             console.log(
                 `✅ Receipt printed via Python (${result.printer})`
             );
-
+        }}
         } catch (err) {
             console.error("❌ Receipt print error:", err);
         }
