@@ -126,7 +126,7 @@ for (const receiptprinter of receiptIds) {
 
     console.log("🎯 Sending print to:", ip_print_server);
 
-    const response = await fetch("http://"+ip_print_server+":5045/print-image", {
+    const response = await fetch("https://"+ip_print_server+"/print-image", {
 
                 method: "POST",
                 headers: {
