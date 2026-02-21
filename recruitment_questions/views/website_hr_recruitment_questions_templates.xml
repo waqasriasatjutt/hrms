@@ -1,0 +1,224 @@
+<odoo>
+    <template id="apply_with_questions" inherit_id="website_hr_recruitment.apply">
+
+        <xpath expr="//div[contains(@class, 's_website_form_submit')]" position="before">
+
+            <div class="mb-4">
+                <h3>Interview Questions</h3>
+            </div>
+
+            <t t-foreach="job.sudo().question_ids.sorted('sequence')" t-as="question">
+
+                <div class="card mb-3 p-3">
+
+                    <!-- PAGE TITLE -->
+                    <t t-if="question.is_page">
+                        <h4 t-esc="question.title"/>
+                    </t>
+
+                    <t t-else="">
+
+                        <!-- QUESTION TITLE -->
+                        <p>
+                            <strong>
+                                <t t-esc="question.title"/>
+                                <t t-if="question.constr_mandatory">
+                                    <span class="text-danger">*</span>
+                                </t>
+                            </strong>
+                        </p>
+
+                        <!-- ===================== -->
+                        <!-- SIMPLE CHOICE (RADIO) -->
+                        <!-- ===================== -->
+                        <t t-if="question.question_type == 'simple_choice'">
+                            <t t-foreach="question.answer_ids" t-as="answer">
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           t-att-name="'question_%s' % question.id"
+                                           t-att-value="answer.id"
+                                           t-att-required="question.constr_mandatory and loop.first"/>
+
+                                    <label class="form-check-label">
+                                        <t t-esc="answer.value"/>
+                                    </label>
+                                </div>
+                            </t>
+                            <t t-if="question.constr_mandatory">
+                                <div class="invalid-feedback">
+                                    Please select a value.
+                                </div>
+                            </t>
+                        </t>
+
+                        <!-- ===================== -->
+                        <!-- MULTIPLE CHOICE -->
+                        <!-- ===================== -->
+                        <t t-if="question.question_type == 'multiple_choice'">
+                            <t t-foreach="question.answer_ids" t-as="answer">
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           t-att-name="'question_%s_%s' % (question.id, answer.id)"
+                                           t-att-value="answer.id"
+                                           t-att-required="question.constr_mandatory and loop.first"/>
+
+                                    <label class="form-check-label">
+                                        <t t-esc="answer.value"/>
+                                    </label>
+                                </div>
+                            </t>
+                            <t t-if="question.constr_mandatory">
+                                <div class="invalid-feedback">
+                                    Please select a value.
+                                </div>
+                            </t>
+                        </t>
+
+                        <!-- ===================== -->
+                        <!-- TEXT / CHAR -->
+                        <!-- ===================== -->
+                        <t t-if="question.question_type in ['text_box', 'char_box']">
+                            <input type="text"
+                                   t-att-name="'question_%s' % question.id"
+                                   t-att-required="question.constr_mandatory"
+                                   class="form-control mb-2"/>
+
+                            <div class="invalid-feedback">
+                                This question is required.
+                            </div>
+                        </t>
+
+                        <!-- ===================== -->
+                        <!-- NUMERICAL -->
+                        <!-- ===================== -->
+                        <t t-if="question.question_type == 'numerical_box'">
+                            <input type="number"
+                                   t-att-name="'question_%s' % question.id"
+                                   t-att-required="question.constr_mandatory"
+                                   class="form-control mb-2"/>
+
+                            <t t-if="question.constr_mandatory">
+                                <div class="invalid-feedback">
+                                    Please select a value.
+                                </div>
+                            </t>
+                        </t>
+
+                        <!-- ===================== -->
+                        <!-- SCALE -->
+                        <!-- ===================== -->
+                        <t t-if="question.question_type == 'scale'">
+
+                            <div class="btn-group mb-2" role="group">
+
+                                <t t-foreach="question.answer_ids.sorted('sequence')" t-as="answer" t-key="answer.id">
+
+                                    <input type="radio"
+                                           class="btn-check"
+                                           t-att-name="'question_%s' % question.id"
+                                           t-att-value="answer.id"
+                                           t-att-required="question.constr_mandatory and loop.first"
+                                           t-att-id="'scale_%s_%s' % (question.id, answer.id)"/>
+
+                                    <label class="btn btn-outline-secondary me-1"
+                                           t-att-for="'scale_%s_%s' % (question.id, answer.id)">
+                                        <t t-esc="answer.value"/>
+                                    </label>
+
+                                </t>
+
+                            </div>
+
+                            <t t-if="question.constr_mandatory">
+                                <div class="invalid-feedback">
+                                    Please select a value.
+                                </div>
+                            </t>
+
+                        </t>
+
+                        <!-- ===================== -->
+                        <!-- DATE -->
+                        <!-- ===================== -->
+                        <t t-if="question.question_type == 'date'">
+                            <input type="date"
+                                   t-att-name="'question_%s' % question.id"
+                                   t-att-required="question.constr_mandatory"
+                                   class="form-control mb-2"/>
+
+                            <t t-if="question.constr_mandatory">
+                                <div class="invalid-feedback">
+                                    Please select a value.
+                                </div>
+                            </t>
+                        </t>
+
+                        <!-- ===================== -->
+                        <!-- DATETIME -->
+                        <!-- ===================== -->
+                        <t t-if="question.question_type == 'datetime'">
+                            <input type="datetime-local"
+                                   t-att-name="'question_%s' % question.id"
+                                   t-att-required="question.constr_mandatory"
+                                   class="form-control mb-2"/>
+
+                            <t t-if="question.constr_mandatory">
+                                <div class="invalid-feedback">
+                                    Please select a value.
+                                </div>
+                            </t>
+                        </t>
+
+                    </t>
+                </div>
+
+            </t>
+
+        </xpath>
+
+        <!-- ============================= -->
+        <!-- FRONTEND VALIDATION SCRIPT -->
+        <!-- ============================= -->
+        <xpath expr="//form[@id='hr_recruitment_form']" position="inside">
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function () {
+                const form = document.getElementById("hr_recruitment_form");
+
+                if (form) {
+                form.addEventListener("submit", function (e) {
+
+                let isValid = true;
+
+                form.querySelectorAll("[required]").forEach(function (input) {
+
+                if ((input.type === "radio" || input.type === "checkbox")) {
+                const group = form.querySelectorAll('[name="' + input.name + '"]');
+                const checked = Array.from(group).some(el => el.checked);
+                if (!checked) {
+                isValid = false;
+                group.forEach(el => el.classList.add("is-invalid"));
+                }
+                } else {
+                if (!input.value) {
+                input.classList.add("is-invalid");
+                isValid = false;
+                } else {
+                input.classList.remove("is-invalid");
+                }
+                }
+                });
+
+                if (!isValid) {
+                e.preventDefault();
+                e.stopPropagation();
+                }
+                });
+                }
+                });
+            </script>
+        </xpath>
+
+    </template>
+</odoo>

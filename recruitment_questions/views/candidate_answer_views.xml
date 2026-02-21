@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_candidate_answer_tree" model="ir.ui.view">
+        <field name="model">recruitment.candidate.answer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="applicant_id"/>
+                <field name="question_id"/>
+                <field name="selected_answer_id"/>
+            </list>
+        </field>
+    </record>
+</odoo>

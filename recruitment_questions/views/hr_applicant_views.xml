@@ -1,0 +1,58 @@
+<odoo>
+    <!-- Candidate Answers Tree View -->
+    <record id="view_candidate_answer_tree" model="ir.ui.view">
+        <field name="name">candidate.answer.tree</field>
+        <field name="model">recruitment.candidate.answer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="question_id"/>
+                <field name="selected_answer_id"/>
+                <field name="text_answer"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Candidate Answers Form View -->
+    <record id="view_candidate_answer_form" model="ir.ui.view">
+        <field name="name">candidate.answer.form</field>
+        <field name="model">recruitment.candidate.answer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="question_id"/>
+                        <field name="selected_answer_id"/>
+                        <field name="text_answer"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Add Candidate Answers Tab on Applicant Form -->
+    <record id="view_hr_applicant_form_inherit_answers" model="ir.ui.view">
+        <field name="name">hr.applicant.form.inherit.answers</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Interview Answers">
+                    <field name="candidate_answer_ids">
+                        <list>
+                            <field name="question_id"/>
+                            <field name="selected_answer_id"/>
+                            <field name="text_answer"/>
+                        </list>
+                        <form>
+                            <group>
+                                <field name="question_id"/>
+                                <field name="selected_answer_id"/>
+                                <field name="text_answer"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

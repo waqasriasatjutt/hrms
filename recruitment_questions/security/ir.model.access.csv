@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_recruitment_question,recruitment.question,model_recruitment_question,base.group_user,1,1,1,1
+access_recruitment_question_public,recruitment.question public,model_recruitment_question,base.group_public,1,0,0,0
+hr_job,hr.job,model_hr_job,base.group_user,1,1,1,1
+recruitment_candidate_answer,recruitment.candidate.answer,model_recruitment_candidate_answer,base.group_user,1,1,1,1
+recruitment_question_answer,recruitment.question.answer,model_recruitment_question_answer,base.group_user,1,1,1,1

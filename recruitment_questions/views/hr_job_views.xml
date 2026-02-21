@@ -1,0 +1,23 @@
+<odoo>
+    <record id="hr_job_form_inherit_questions" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.interview.questions</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Interview Questions">
+                    <field name="question_ids"
+                           context="{'default_job_ids': [id]}"
+                           options="{'no_create_edit': False}">
+                        <list>
+                            <field name="sequence"/>
+                            <field name="title"/>
+                            <field name="question_type"/>
+                            <field name="constr_mandatory"/>
+                        </list>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
