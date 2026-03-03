@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem id="menu_laboratory" name="Laboratory" sequence="35" web_icon="acs_hms_laboratory,static/description/icon.png" groups="acs_hms_laboratory.group_hms_lab_user"/> 
+    <menuitem id='menu_lab_requestss' parent='menu_laboratory' action='hms_action_lab_test_request' sequence="1"/>
+    <menuitem id='menu_lab_test_result' action='action_lab_result' parent='menu_laboratory'/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_hms_lab_cofig" name="Configuration" parent="menu_laboratory" groups="acs_hms.group_hms_manager,acs_hms_laboratory.group_hms_lab_manager" sequence="100"/>
+
+    <menuitem id='hos_lab_test' parent='menu_hms_lab_cofig' action='hms_action_form_test'/>
+
+</odoo>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Commission -->
+    <record id="acs_hms_commission_search_view" model="ir.ui.view">
+        <field name="name">acs.hms.commission.search</field>
+        <field name="model">acs.hms.commission</field>
+        <field name="arch" type="xml">
+            <search string="Business Commission">
+                <field name="name" string="Business Commissions"/>
+                <field name="partner_id" string="Customer"/>
+                <filter name="not_invoiced" string="Not Invoiced" domain="[('invoice_line_id','=',False)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_partner" string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+                    <filter name="group_by_state" string="State" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="acs_hms_commission_form_view" model="ir.ui.view">
+        <field name="name">acs.hms.commission.form</field>
+        <field name="model">acs.hms.commission</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_done" string="Done" type="object" class="btn-primary" states="draft"/>
+                    <button name="action_draft" string="Set to Draft" type="object" states="cancel,done"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="draft,visited"/>
+                    <field name="state" widget="statusbar" statusbar_visible=""/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Commission Title" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Business Commission"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="commission_on"/>
+                            <field name="commission_percentage"/>
+                            <field name="commission_amount"/>
+                            <field name="payment_invoice_id"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                            <field name="invoice_id"/>
+                            <field name="invoice_line_id"/>
+                            <field name="invoice_status"/>
+                        </group>
+                    </group>
+                    <field name="note"/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="acs_hms_commission_list_view" model="ir.ui.view">
+        <field name="name">acs.hms.commission.list</field>
+        <field name="model">acs.hms.commission</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Business Commissions">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="commission_on"/>
+                <field name="commission_percentage"/>
+                <field name="commission_amount"/>
+                <field name="state"/>
+                <field name="invoice_id"/>
+                <field name="payment_invoice_id"/>
+                <field name="invoice_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="acs_hms_commission_action" model="ir.actions.act_window">
+        <field name="name">Business Commission</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">acs.hms.commission</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add new Business Commission.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_acs_hms_commission" name="Business Commissions"
+        sequence="20" parent="acs_hms.menu_hms" action="acs_hms_commission_action"/>
+
+    <menuitem id="menu_invoice_acs_hms_commission" name="Business Commissions"
+        sequence="4" parent="account.menu_finance" action="acs_hms_commission_action"/>
+
+</odoo>

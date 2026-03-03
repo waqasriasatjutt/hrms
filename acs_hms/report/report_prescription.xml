@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_hms_prescription_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.patient_id.lang})"/>
+            <div class="page">
+
+                <center>
+                    <h2>Medical Prescription</h2>
+                </center>
+                <h3>Prescription: <span t-field="doc.name"/></h3>
+                <center>
+                    <table style="width:900px;height:100px;margin:10 10 10 10">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b>Patient:</b>
+                                </td>
+                                <td>
+                                    <span t-field="doc.patient_id"/>
+                                </td>
+                                <td>
+                                    <b>Prescription Date:</b>
+                                </td>
+                                <td>
+                                    <span t-field="doc.prescription_date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Age:</b></td>
+                                <td>
+                                    <span t-field="doc.patient_age"/>
+                                </td>
+                                <td>
+                                    <b>Prescribing Doctor:</b>
+                                </td>
+                                <td>
+                                    <span t-field="doc.physician_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Disease:</b></td>
+                                <td>
+                                    <span t-field="doc.diseases_id"/>
+                                </td>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+                <p t-if="doc.pregnancy_warning" style="font-weight: bold; color: red">Patient is Pregnant</p><br/>
+
+                <t t-call="acs_hms.report_prescription_table">
+                    <t t-set="prescription" t-value="doc"/>
+                </t>
+
+                <br/><br/><br/>
+                <p>
+                    <b>Comment(If Any):</b>
+                    <br/>
+                    <span t-field="doc.notes"/>
+                </p>
+                <br/>
+                <p>
+                    <b>Doctor’s Stamp/Signature</b>
+                </p>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_hms_prescription">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="acs_hms.report_hms_prescription_document" t-lang="doc.patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+
+    <report id="report_hms_prescription_id"
+        string="Prescription Order"
+        model="prescription.order"
+        report_type="qweb-pdf"
+        file="acs_hms.report_hms_prescription" 
+        name="acs_hms.report_hms_prescription"
+        groups="acs_hms.group_hms_receptionist"/>
+</odoo>

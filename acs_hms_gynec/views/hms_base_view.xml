@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Patient View with gynec features-->
+     <record model="ir.ui.view" id="view_hms_patient_form_gynec">
+        <field name="name">hms.patient.view.inherit.gynec</field>
+        <field name="model">hms.patient</field>
+        <field name="inherit_id" ref="acs_hms.view_patient_form" />
+        <field name="arch" type="xml">
+            <button name='view_invoices' position="after">
+                <button name="action_view_patient_delivery" groups="acs_hms.group_hms_jr_doctor" type="object" class="oe_stat_button" icon="fa-id-card-o" attrs="{'invisible':[('gender','!=', 'female')]}">
+                    <field string="Deliveries" name="child_birth_count" widget="statinfo"/>
+                </button>
+            </button>
+            <field name='occupation' position="after">
+                <field name="education" colspan="2" attrs="{'invisible':[('gender','!=', 'female')]}"/>
+            </field>
+            <field name='marital_status' position="after">
+                <field name="husband_name" colspan="2" attrs="{'invisible':[('gender','!=', 'female')]}"/>
+                <field name="husband_edu" colspan="2" attrs="{'invisible':[('gender','!=', 'female')]}" />
+                <field name="husband_business" colspan="2" attrs="{'invisible':[('gender','!=', 'female')]}"/>
+            </field>
+            <notebook position="inside">
+                <page string="Gyneco / Obs" attrs="{'invisible':[('gender','!=', 'female')]}" groups="acs_hms_gynec.group_hms_user_gynec">
+                    <group>
+                        <group>
+                            <field name="hb"/>
+                            <field name="urine"/>
+                            <field name="rbs"/>
+                        </group>
+                        <group>
+                            <field name="screatinine"/>
+                            <field name="hiv"/>
+                            <field name="hbsag"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Gyneco" >
+                            <group colspan="4" col="6" string="General" >
+                                <field name="fertile"/>
+                                <field name="aml"/>
+                                <field name="currently_pregnant"/>
+                                <field name="menarche"/>
+                                <field name="menopause"/>
+                                <!-- <field name="menorrhagia"/>
+                                <field name="oligomenorrhea"/>
+                                <field name="dymenorreha"/>
+                                <field name="amenorrhea"/> -->
+                                <field name="tl_done"/>
+                                <!-- <field name="leucorrhoea"/> -->
+                                <field name="urinary_problem"/> 
+                                <newline/>
+                                <field name="dispareunia"/>
+                                <!-- <field name="other"/> -->
+                            </group>
+                            <group colspan="4" string="Mestrual History">
+                                <field name="menstrual_history_ids" nolabel="1" colspan="4">
+                                    <tree editable="top" string='Menstrual History'>
+                                        <field name="lmp"/>
+                                        <field name="lmp_length"/>
+                                        <field name="frequency"/>
+                                        <field name="volume"/>
+                                        <field name="is_regular"/>
+                                        <field name="dysmenorrhea"/>                    
+                                    </tree>
+                                    <form string="Patient Menstrual History">
+                                        <group>
+                                            <group>
+                                                <field name="patient_id"/>
+                                                <field name="lmp"/>
+                                                <field name="lmp_length"/>
+                                                <field name="frequency"/>
+                                            </group>
+                                            <group>
+                                                <field name="volume"/>
+                                                <field name="is_regular"/>
+                                                <field name="dysmenorrhea"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Obstetrics" >
+                            <group>
+                                <group name="gravida_details">
+                                    <field name="gravida"/>
+                                    <field name="premature"/>
+                                </group>
+                                <group>
+                                    <field name="abortions"/>
+                                    <field name="stillbirths"/>
+                                </group>
+                            </group>
+                            <group string="Pregnancy History" name="pregnancy_history">
+                                <field name="pregnancy_history_ids" nolabel="1">
+                                    <tree string='Pregnancies' >
+                                        <field name="gravida"/>
+                                        <field name="lmp"/>
+                                        <field name="current_pregnancy"/>
+                                        <field name="pregnancy_end_date"/>
+                                        <field name="pregnancy_end_result"/>
+                                        <field name="iugr"/>
+                                        <field name="fetus"/>
+                                        <field name="warning"/>
+                                    </tree>
+                                    <form string="Pregnancies">
+                                        <group id="group_pregnancy_header" colspan="4" col="4">
+                                            <field name="gravida"/>
+                                            <field name="lmp"/>
+                                            <field name="pdd"/>
+                                            <field name="current_pregnancy"/>
+                                        </group>
+
+                                        <newline/>
+                                        <group colspan="4" string="Prenatal Evaluations" name="prenatal_evaluation">
+                                            <field colspan="4" name="prenatal_evaluation_ids" nolabel="1">
+                                                <tree string='Prenatal Evaluations'>
+                                                    <field name="fundal_height"/>
+                                                    <field name="fetus_heart_rate"/>
+                                                    <field name="gestational_weeks"/>
+                                                </tree>
+                                                <form string="Prenatal Evaluation">
+                                                    <group  colspan="4" col="4">
+                                                        <field name="gestational_weeks" required="1"/>
+                                                    </group>
+                                                    <group string="Mother Information"  colspan="4" col="4">
+                                                        <field name="hypertension"/>
+                                                        <field name="preeclampsia"/>
+                                                        <field name="overweight"/>
+                                                        <field name="diabetes"/>
+                                                    </group>
+                                                    <group string="Placenta"  colspan="2" col="2">
+                                                        <field name="placenta_previa"/>
+                                                        <field name="invasive_placentation"/>
+                                                        <field name="vasa_previa"/>
+                                                    </group>
+                                                    <newline/>
+                                                    <group string="Fetus Information"  colspan="2" col="2">
+                                                        <field name="fundal_height"/>
+                                                        <field name="fetus_heart_rate"/>
+                                                        <field name="efw"/>
+                                                    </group>
+                                                    <group name="fetal" colspan="2" string="Fetal Biometry" >
+                                                        <field name="fetal_bpd"/>
+                                                        <field name="fetal_hc"/>
+                                                        <field name="fetal_ac"/>
+                                                        <field name="fetal_fl"/>
+                                                    </group>
+                                                </form>
+                                            </field>
+                                        </group>
+                                        <newline/>
+                                        <group colspan="4" string="Perinatal">
+                                            <field name="perinatal_ids" colspan="4" nolabel="1" >
+                                                <tree string='Perinatal and Intrapartum Information'>
+                                                    <field name="admission_date"/>
+                                                    <field name="gestational_weeks"/>
+                                                </tree>
+                                                <form string="Perinatal and Intrapartum Information">
+                                                    <notebook>
+                                                        <page string="Main" >
+                                                            <group colspan="4" col="6">
+                                                                <field name="gestational_weeks" required="1"/>
+                                                                <field name="admission_date" required="1"/>
+                                                                <field name="admission_code"/>
+                                                            </group>
+                                                            <newline/>
+                                                            <group >
+                                                                <field name="start_labor_mode"/>
+                                                                <field name="fetus_presentation"/>
+                                                            </group>
+                                                            <newline/>
+                                                            <group string="Monitoring" colspan="4">
+                                                                <field colspan="4" name="monitoring_ids" nolabel="1">
+                                                                    <tree string='Perinatal Monitor'>
+                                                                        <field name="date"/>
+                                                                        <field name="dilation"/>
+                                                                        <field name="systolic"/>
+                                                                        <field name="diastolic"/>
+                                                                        <field name="frequency"/>
+                                                                        <field name="fetus_position"/>
+                                                                        <field name="f_frequency"/>
+                                                                        <field name="bleeding"/>
+                                                                        <field name="meconium"/>
+                                                                    </tree>
+                                                                    <form string="Perinatal Monitor">
+                                                                        <group colspan="4" string="Mother" id="group_perinatal_mother_monitor">
+                                                                            <field name="date" required="1"/>
+                                                                            <newline/>
+                                                                            <field name="systolic"/>
+                                                                            <field name="diastolic"/>
+                                                                            <field name="frequency"/>
+                                                                            <newline/>
+                                                                            <field name="contractions"/>
+                                                                            <field name="dilation"/>
+                                                                            <field name="fundal_height"/>
+                                                                            <newline/>
+                                                                        </group>
+                                                                        <newline/>
+                                                                        <group colspan="4" string="Fetus" >
+                                                                            <field name="fetus_position"/>
+                                                                            <field name="f_frequency"/>
+                                                                            <newline/>
+                                                                        </group>
+                                                                        <newline/>
+                                                                        <group colspan="4" string="Complications">
+                                                                            <field name="bleeding"/>
+                                                                            <field name="meconium"/>
+                                                                        </group>
+                                                                        <newline/>
+                                                                    </form>
+                                                                </field>
+                                                            </group>
+                                                            <newline/>
+                                                            <separator colspan="4" string="Notes" />
+                                                            <field name="notes" nolabel="1"/>
+                                                        </page>
+
+
+                                                        <page  string="Additional Info">
+
+                                                            <group colspan="4" col="8" id="group_misc">
+                                                                <field name="dystocia"/>
+                                                                <field name="episiotomy"/>
+                                                                <field name="laceration"/>                                
+                                                                <field name="hematoma"/>                                
+                                                            </group>
+
+                                                            <newline/>
+                                                            <separator colspan="4" string="Placenta anomalies"/>
+                                                            <newline/>
+                                                            
+                                                            <group colspan="4" col="10" id="group_placenta">
+                                                                <field name="placenta_incomplete"/>
+                                                                <field name="placenta_retained"/>
+                                                                <field name="abruptio_placentae"/>
+                                                            </group>
+                                                        </page>
+
+                                                    </notebook>
+                                                </form>
+
+                                            </field>
+                                            </group>
+                                            <group colspan="4" string="Puerperium">
+                                                <field name="puerperium_monitor_ids" colspan="4" nolabel="1">
+                                                    <tree string='Puerperium Monitor'>
+                                                        <field name="date"/>
+                                                        <field name="uterus_involution"/>
+                                                        <field name="lochia_amount"/>
+                                                        <field name="lochia_color"/>
+                                                        <field name="lochia_odor"/>
+                                                    </tree>
+                                                </field>
+                                            </group>
+                                            <newline/>
+
+                                            <group id="group_pregnancy_footer1" colspan="2" col="2">
+                                                <field name="fetus"/>
+                                                <field name="monozygotic"/>
+                                                <field name="iugr"/>
+                                                <field name="warning"/>
+                                            </group>
+                                            <newline/>
+                                            <group id="group_pregnancy_footer2" colspan="2" col="2">
+                                                <field name="pregnancy_end_date"/>
+                                                <field name="pregnancy_end_result"/>
+                                            </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </page>
+                <page string="Sonography" attrs="{'invisible':[('gender','!=', 'female')]}" groups="acs_hms_gynec.group_hms_user_gynec">
+                    <separator string="Sonography Pelvis Reports" colspan="4"/>
+                    <field name="sonography_pelvis_ids" nolabel="1"/>
+                    <separator string="Follicular Study Reports" colspan="4"/>
+                    <field name="sonography_follical_ids" nolabel="1"/>
+                    <separator string="Sonography Obstetric Reports" colspan="4"/>
+                    <field name="sonography_obstetric_ids" nolabel="1"/>
+                </page>
+                <page string="Systemic Examinations" attrs="{'invisible':[('gender','!=', 'female')]}" groups="acs_hms_gynec.group_hms_user_gynec">
+                    <separator string="Systemic Examinations" colspan="4"/>
+                    <field name="examination_ids" nolabel="1"/>
+                    <separator string="Mamography Tests" colspan="4"/>
+                    <group>
+                        <p>
+                            A mammography, or mammogram, is an X-ray of the breast. It’s a screening tool used to detect and diagnose breast cancer.
+                        </p>
+                    </group>
+                    <field name="mammography_history_ids" nolabel="1">
+                        <tree string="Mamography Tests" editable="bottom">
+                            <field name="last_mammography"/>
+                            <field name="result"/>
+                            <field name="comments"/>
+                        </tree>
+                    </field>
+                    <separator string="Pap Details" colspan="4"/>
+                    <group>
+                        <p>
+                            A Pap test is a test your doctor or nurse does to check your cervix for any cells that are not normal. The cervix is the lower part of the uterus (womb), which opens into the vagina. Abnormal cervical cells, if not found and treated, can lead to cervical cancer.
+                        </p>
+                    </group>
+                    <field name="pap_history_ids" nolabel="1">
+                        <tree string="Pap Tests" editable="bottom">
+                            <field name="last_pap"/>
+                            <field name="result"/>
+                            <field name="comments"/>
+                        </tree>
+                    </field>
+                    <separator string="Colposcopy Details" colspan="4"/>
+                    <group>
+                        <p>
+                            Procedure to closely examine your cervix, vagina and vulva for signs of disease.
+                        </p>
+                    </group>
+                    <field name="colposcopy_history_ids" nolabel="1">
+                        <tree string="Colposcopy Tests" editable="bottom">
+                            <field name="last_colposcopy"/>
+                            <field name="result"/>
+                            <field name="comments"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="hms_action_female_patient" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="res_model">hms.patient</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain" eval="[('gender','=','female')]"/>
+    </record>
+
+</odoo>

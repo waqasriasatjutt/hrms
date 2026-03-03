@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+	<menuitem name="Gynecology" id="menu_acs_gynecology" sequence="5" groups="acs_hms_gynec.group_hms_user_gynec" web_icon="acs_hms_gynec,static/description/icon.png"/>
+    <menuitem name="Childbirth Register" id="menu_acs_childbirth" parent="menu_acs_gynecology" action="hms_action_form_delivery" sequence="2"/>
+    <menuitem name="Patients" id="menu_acs_patient" parent="menu_acs_gynecology" action="hms_action_female_patient" sequence="1"/>
+    
+    <menuitem name="Pregnancies" id="menu_acs_pregnancy" parent='menu_acs_gynecology' sequence="3" action="hms_action_pregnancies" groups="acs_hms.group_hms_nurse,acs_hms.group_hms_jr_doctor"/>
+    <menuitem name="Sonographies" id="menu_acs_sonography" parent='menu_acs_gynecology' sequence="3" groups="acs_hms.group_hms_jr_doctor"/>
+    <menuitem name="Examinations" id="menu_acs_abdominal" parent='menu_acs_sonography' sequence="3" action="hms_action_abdominal"/>
+    <menuitem name="Pelvis Sonography" id="menu_acs_pelvis" parent='menu_acs_sonography' sequence="4" action="hms_action_pelvis"/>
+    <menuitem name="Folical Sonogrpahy" id="menu_acs_folical" parent='menu_acs_sonography' sequence="5" action="hms_action_folical"/>
+    <menuitem name="Obstetric Sonography" id="menu_acs_obstetric" parent='menu_acs_sonography' sequence="6" action="hms_obstetric_sonography"/>
+
+</odoo>

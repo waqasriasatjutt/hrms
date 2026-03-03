@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_acs_hms_commission,acs.hms.commission,model_acs_hms_commission,,1,0,0,0
+access_acs_hms_commission_manager,acs.hms.commission.manager,model_acs_hms_commission,account.group_account_invoice,1,1,1,1

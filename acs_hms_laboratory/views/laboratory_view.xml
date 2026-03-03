@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Lab Test type -->
+    <record model="ir.ui.view" id="hms_test_view">
+        <field name="name">Laboratory Test</field>
+        <field name="model">acs.lab.test</field>
+        <field name="arch" type="xml">
+            <form string="Lab Tests">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="product_id" domain="[('type','=','service'), ('hospital_product_type', 'in', ['pathology', 'radiology'])]" context="{'default_type': 'service', 'default_hospital_product_type': 'pathology'}"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <field name="critearea_ids" colspan="4" nolabel="1" widget="section_and_note_one2many">
+                        <tree editable="bottom" string="Test Cases">
+                            <control>
+                                <create string="Add a line"/>
+                                <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                            </control>
+                            <field name="sequence" widget="handle"/> 
+                            <field name="display_type" invisible="1"/>
+                            <field name="name" required="1" widget="section_and_note"/>
+                            <field name="normal_range" attrs="{ 'required': [('display_type', '=', False)]}"/>
+                            <field name="uom_id"/>
+                            <field name="remark"/>
+                        </tree>
+                    </field>
+                    <field name="description" placeholder="Description"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hms_test_tree">
+        <field name="name">Lab Tests</field>
+        <field name="model">acs.lab.test</field>
+        <field name="arch" type="xml">
+            <tree string="Lab test type">
+                <field name="name"></field>
+                <field name="code"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hms_action_form_test">
+        <field name="name">Lab Tests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">acs.lab.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add new Lab Test.
+            </p>
+        </field>
+    </record>
+
+</odoo>

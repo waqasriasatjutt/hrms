@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form" model="ir.ui.view" >
+        <field name="name">res.partner.form.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <div class="oe_right mt16" name="check_progress">
+                    <span class="fa fa-camera mr4" aria-label="Take Picture" style="color: #875a7b !important;"/>
+                    <field name="acs_webcam_url" widget="url" text="Take Picture" class="oe_bold oe_inline" nolabel="1"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_form" model="ir.ui.view" >
+        <field name="name">res.users.form.inherited</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <div class="oe_right mt16" name="check_progress">
+                    <span class="fa fa-camera mr4" aria-label="Take Picture" style="color: #875a7b !important;"/>
+                    <field name="acs_webcam_url" widget="url" text="Take Picture" class="oe_bold oe_inline" nolabel="1"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

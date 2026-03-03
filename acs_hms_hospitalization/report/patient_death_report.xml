@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_acs_death_patient_template">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.patient_id.lang})"/>
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="col-12 mt32 mb8" id="informations" >
+                    <table class="table" style="margin-top:30px !important">
+                        <tr>
+                            <td style="border: none;">
+                                <strong>Patient:</strong>
+                                <span t-field="doc.patient_id.name"/>
+                            </td>
+                            <td style="border: none;">
+                                <strong>Age:</strong>
+                                <span t-field="doc.patient_id.age"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--Start Patient death  Report-->
+                <h3 style="text-align:center">Patient Death Report</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td style="width: 30%;">
+                            <strong style="font-size: 17px;">
+                                <span>Patient :</span>
+                            </strong>
+                            <span t-field="doc.patient_id"/>
+                        </td>
+                        <td style="width: 40%;">
+                            <strong style="font-size: 17px;">
+                                <span>Hospitalization :</span>
+                            </strong>
+                            <span t-field="doc.hospitalizaion_id"/>
+                        </td>
+                        <td style="width: 30%;">
+                            <strong style="font-size: 17px;">
+                                <span>Date of Death :</span>
+                            </strong>
+                            <span t-field="doc.date_of_death"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <!--Patient Details Section-->
+                <div style="width: 100%;">
+                    <table class="table table-condensed" style="border: 1px solid black;">
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid black; width: 25%;">
+                                    <strong>Age</strong>
+                                </td>
+                                <td style="border: 1px solid black; width: 25%;">
+                                    <strong>Gender</strong>
+                                </td>
+                                <td style="border: 1px solid black;width: 25%;">
+                                    <strong>Physician</strong>
+                                </td>
+                                <td style="border: 1px solid black; width: 25%;">
+                                    <strong>Hospital</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black; width: 20%;">
+                                    <p class="m-0" t-field="doc.patient_age"/>
+                                </td>
+                                <td style="border: 1px solid black; width: 15%;">
+                                    <p class="m-0" t-field="doc.patient_sex"/>
+                                </td>
+                                <td style="border: 1px solid black;width: 15%;">
+                                    <p class="m-0" t-field="doc.physician_id"/>
+                                </td>
+                                <td style="border: 1px solid black; width: 25%;">
+                                    <p class="m-0" t-field="doc.company_id"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Death Reason</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-raw="doc.reason"/>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Remarks</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span t-raw="doc.extra_info"/>
+                        </td>
+                    </tr>
+                </table>
+<!--                <div class="col-12 mb32 mt150" style="margin-top: 350px">-->
+<!--                    <span>-->
+<!--                        <u><b>Doctor's Stamp / Signature</b></u>-->
+<!--                    </span>-->
+<!--                </div>-->
+                <div class="oe_structure"/>
+                <p style="page-break-before:always;">
+                </p>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_acs_death_patient">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="acs_hms_hospitalization.report_acs_death_patient_template" t-lang="doc.patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <report
+            id="action_patient_death_report"
+            string="Patient Death Report"
+            model="patient.death.register"
+            report_type="qweb-pdf"
+            file="acs_hms_hospitalization.report_acs_death_patient"
+            name="acs_hms_hospitalization.report_acs_death_patient"
+            groups="acs_hms.group_hms_receptionist"
+    />
+
+</odoo>

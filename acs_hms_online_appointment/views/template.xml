@@ -1,0 +1,230 @@
+<odoo>
+
+    <!-- Invoice Template -->
+    <!-- Just removed opend state from condition -->
+    <template id="account_payment.portal_invoice_page_inherit_payment" name="Payment on My Invoices" inherit_id="account.portal_invoice_page">
+        <xpath expr="//t[@t-call='portal.portal_record_sidebar']//div[hasclass('o_download_pdf')]" position="before">
+            <t t-set="tx_ids" t-value="invoice.transaction_ids.filtered(lambda tx: tx.state in ('pending', 'authorized', 'done'))"/>
+            <t t-set="pending_manual_txs" t-value="tx_ids.filtered(lambda tx: tx.state == 'pending' and tx.acquirer_id.provider in ('transfer', 'manual'))"/>
+            <div>
+                <a href="#" t-if="invoice.amount_total and invoice.type == 'out_invoice' and (pending_manual_txs or not tx_ids)"
+                    class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#pay_with">
+                    <i class="fa fa-fw fa-arrow-circle-right"/> Pay Now
+                </a>
+                <div t-if="tx_ids and not pending_manual_txs and invoice.state != 'paid'" class="alert alert-info py-1 mb-2" >
+                    <i class="fa fa-fw fa-check-circle"/> Pending
+                </div>
+                <div t-if="invoice.state == 'paid'" class="alert alert-success py-1 mb-2" >
+                    <i class="fa fa-fw fa-check-circle"/> Paid
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='invoice_content']//div[hasclass('o_portal_html_view')]" position="before">
+            <div t-if="invoice.transaction_ids and invoice.amount_total and not success and not error" class="o_account_payment_tx_status" t-att-data-invoice-id="invoice.id">
+                <t t-call="payment.payment_confirmation_status">
+                    <t t-set="payment_tx_id" t-value="invoice.get_portal_last_transaction()"/>
+                    <t t-set="reference" t-value="invoice.reference"/>
+                </t>
+            </div>
+            <t t-set="tx_ids" t-value="invoice.transaction_ids.filtered(lambda tx: tx.state in ('authorized', 'done'))"/>
+            <div t-if="not tx_ids and invoice.amount_total" id="portal_pay">
+                <div t-if="pms or acquirers" id="payment_method">
+                    <t t-call="account_payment.portal_invoice_payment"/>
+                </div>
+            </div>
+            <div class="panel-body" t-if="existing_token">
+                <div class="offset-lg-3 col-lg-6">
+                    <i class="fa fa-info"></i> You have credits card registered, you can log-in to be able to use them.
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="account_payment.portal_invoice_payment" name="Invoice Payment">
+        <div class="row" t-if="not tx_ids and invoice.amount_total" id="portal_pay">
+            <div class="modal fade" id="pay_with" role="dialog">
+                <div class="modal-dialog modal-content">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Pay with</h3>
+                            <button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div t-if="pms or acquirers" id="payment_method" class="text-left col-md-13">
+                                <t t-call="payment.payment_tokens_list">
+                                    <t t-set="mode" t-value="'payment'"/>
+                                    <t t-set="partner_id" t-value="invoice.partner_id.id"/>
+                                    <t t-set="success_url" t-value="invoice.get_portal_url()"/>
+                                    <t t-set="error_url" t-value="invoice.get_portal_url()"/>
+                                    <t t-set="access_token" t-value="access_token or ''"/>
+                                    <t t-set="callback_method" t-value="''"/>
+                                    <t t-set="form_action" t-value="'/invoice/pay/' + str(invoice.id) + '/s2s_token_tx/'"/>
+                                    <t t-set="prepare_tx_url" t-value="'/invoice/pay/' + str(invoice.id) + '/form_tx/'"/>
+                                    <t t-set="submit_txt">Pay Now</t>
+                                    <t t-set="icon_class" t-value="'fa-lock'"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Portal View -->
+    <template id="assets_frontend" inherit_id="website.assets_frontend"
+        name="Website Portal Sale">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/acs_hms_online_appointment/static/src/js/hms_portal.js"/>
+        </xpath>
+    </template>
+
+    <template id="my_appointments" name="Appointments" inherit_id="acs_hms_portal.my_appointments" priority="30">
+        
+        <xpath expr="//t[@t-call='portal.portal_searchbar']" position="replace">
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Appointments</t>
+                <xpath expr="//div[hasclass('navbar-toggler')]" position="before">
+                    <a href="/create/appointment" class="btn btn-default">
+                        <span class="fa fa-plus"> Create New</span>
+                    </a>
+                </xpath>
+            </t>
+        </xpath>
+
+    </template>
+
+    <template id="portal_my_home" name="Portal My Home: HMS entries" inherit_id="portal.portal_my_home" priority="30">
+                
+        <xpath expr="//h3" position="inside">
+            <a href="/create/appointment" class="btn btn-default pull-right">
+                <span class="fa fa-plus"> Create New Appointment</span>
+            </a>
+        </xpath>
+
+    </template>
+
+    <template id="appointment_details" name="Online Appoitnment Booking ACS HMS">
+        <t t-call="portal.portal_layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="text-center mt32 mb32">
+                        <h1>Appointment Details</h1>
+                    </div>
+                    <p t-if="appointment_tz">Timezone: <strong><span id="appointment_tz"/></strong></p>
+                    <form action="/save/appointment" method="post" role="form"
+                        class="tag_text js_website_submit_form acs_create_appointment">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <div class="row o_website_appointment_details">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div t-if="error_message" class="alert alert-danger">
+                                            <t t-foreach="error_message" t-as="err">
+                                                <t t-esc="err" />
+                                                <br />
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div t-if="not slots" class="row">
+                                    <div class="col-12 mt32">
+                                        <div class="alert alert-danger">
+                                            <span>There are no slots available to book appointment please check later or contact with Management.</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="row">
+                                    <div
+                                        t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="contact_name">Your Name</label>
+                                        <input type="text" readonly="True" name="name" class="form-control" t-att-value="name or partner.name" />
+                                    </div>
+
+                                    <div t-attf-class="form-group #{error.get('mobile') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="mobile">Mobile</label>
+                                        <input  required="True" type="tel" name="mobile" class="form-control"
+                                            t-att-value="mobile or partner.mobile" />
+                                    </div>
+                    
+                                    <div t-attf-class="form-group #{error.get('department_id') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="department_id">Department</label>
+                                        <select name="department_id" class="form-control" id="department_id">
+                                            <option value=""></option>
+                                            <t t-foreach="department_ids or []" t-as="dept">
+                                                <option t-att-value="dept.id">
+                                                    <t t-esc="dept.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+
+                                    <div t-attf-class="form-group #{error.get('physician_id') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="physician_id">Physician</label>
+                                        <select name="physician_id" class="form-control"  id="physician_id">
+                                            <option value=""></option>
+                                            <t t-foreach="physician_ids or []" t-as="phy">
+                                                <option t-att-value="phy.id">
+                                                    <t t-esc="phy.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                   
+                                    <!-- Slot Date field-->
+                                    <div t-attf-class="slotchanged form-group #{error.get('slot_date') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="slot_date">Appointment Date</label>
+                                        <select class="form-control" id="slot_date" required="True" name="slot_date">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+
+                                    <div t-attf-class="form-group #{error.get('slot_line') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="slot_date">Available Slots</label>
+                                        <select class="form-control" id="schedule_slot_id" required="True" name="schedule_slot_id">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <div class="clearfix" />
+                                    <input type="hidden" name="redirect" t-att-value="redirect" />
+                                </div>
+                
+                                <div class="clearfix text-center mt32 mb32">
+                                    <button type="submit"
+                                        class="btn btn-default btn-primary mb32 ">
+                                        Confirm
+                                        <span class="fa fa-long-arrow-right" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="appointment_thank_you" name="Appintment Thank You">
+        <t t-call="portal.portal_layout">
+            <div id="wrap" class="oe_structure oe_empty">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb16 mt16">
+                                    <div style="text-align: center; color:green;font-size: 55px;">
+                                        Thank You!
+                                    </div><br/>
+                                    <div style="text-align: center; color:green;font-size: 25px;">
+                                        Your Appointment request has been successfully submitted, we will get back to you soon. Your reference number for this request is: <strong> <span t-field="appointment.name"/> </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+</odoo>

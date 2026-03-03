@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <menuitem name="Ophthalmology" id="menu_acs_main_ophthalmology" sequence="15" groups="acs_hms_ophthalmology.group_hms_ophthalmology" web_icon="acs_hms_ophthalmology,static/description/icon.png"/>
+
+    <menuitem name="Ophthalmology" id="menu_acs_ophthalmology" parent="menu_acs_main_ophthalmology" action="action_acs_ophthalmology_evaluation" sequence="1"/>
+
+</odoo>

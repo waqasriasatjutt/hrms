@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_sono_pelvis_document">
+        <t t-call="web.external_layout">
+            <div class="page col-xs-offset-2"
+                style="margin-left:50px: !important;margin-right:30px !important;">
+                <div class="mt64 oe_structure" />
+
+                <div class="col-md-12 mt32">
+                    <font color="white">...</font>
+                </div>
+
+                <div class="row mt32 mb32">
+                    <div class="col-md-12" style="border: 1px solid black; border-radius: 25px;">
+                        <table class="table">
+                            <tr>
+                                <td style="border: none;">
+                                    <strong>Name: </strong>
+                                    <span t-field="o.patient_id.name" />
+                                </td>
+                                <td style="border: none;">
+                                    <strong>Date: </strong>
+                                    <span t-field="o.date" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: none;">
+                                    <strong>LMP: </strong>
+                                    <span t-field="o.lmp" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb32">
+                    <div class="col-xs-7 col-xs-offset-3 text-center">
+                        <h3>
+                            <strong>
+                                <u>
+                                    <i>ULTRASONOGRAPHY PELVIS</i>
+                                </u>
+                            </strong>
+                        </h3>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>Uterus is</span>
+                            <strong>
+                                <span t-field="o.uterus" />
+                            </strong>
+                            <span> measures</span>
+                            <strong>
+                                <span t-field="o.uterus_size" />
+                            </strong>
+                            <span> mm in size</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>Endometrial echo is seen Centrally</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>Endometrial thickness is</span>
+                            <strong>
+                                <span t-field="o.endometrial_thickness" />
+                            </strong>
+                            <span> mm</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>There is no evidence of intrauterine or extrauterine mass
+                                or gestation.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>Left Ovary measures</span>
+                            <strong>
+                                <span t-field="o.left_ovary_size" />
+                            </strong>
+                            <span> mm</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>Right Ovary measures</span>
+                            <strong>
+                                <span t-field="o.right_ovary_size" />
+                            </strong>
+                            <span> mm</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>There is no free fluid in POD</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: none;">
+                            &#x25cf;
+                            <font color="white">..</font>
+                            <span>Cerix appears to be normal</span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="col-md-12 mt8 mb32">
+                    <span>
+                        <u>
+                            <b>Conclusion</b>
+                        </u>
+                        :
+                    </span>
+                    <font color="white">...</font>
+                    <span t-field="o.conclusion" />
+                </div>
+
+                <div class="oe_structure" />
+            </div>
+        </t>
+    </template>
+
+    <template id="report_sono_pelvis">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="acs_hms_gynec.report_sono_pelvis_document" />
+            </t>
+        </t>
+    </template>
+
+    <report id="report_sono_pelvis_id" 
+        string="Sonography Pelvis Report"
+        model="hms.appointment.sonography.pelvis" 
+        report_type="qweb-pdf"
+        file="acs_hms_gynec.report_sono_pelvis" 
+        name="acs_hms_gynec.report_sono_pelvis" />
+
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Appointment View-->
+    <record model="ir.ui.view" id="view_hms_appointment_form_inherit_gynec_1">
+        <field name="name">hms.appointment.view.inherit</field>
+        <field name="model">hms.appointment</field>
+        <field name="inherit_id" ref="acs_hms.view_hms_appointment_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Systemic Examination" attrs="{'invisible':[('gender','!=', 'female')]}" groups="acs_hms_gynec.group_hms_user_gynec">
+                    <separator string="Per Abdominal, P/R Examination and P/V Examination" colspan="4"/>
+                    <field name="examination_ids" nolabel="1"/>
+                    <separator string="External Genitals"/>
+                    <field name="external_genitals" placeholder="External Genitals..."/>
+                    <separator string="R/S"/>
+                    <field name="rs" placeholder="R/S..."/>
+                    <separator string="C.V.S"/>
+                    <field name="cvs" placeholder="C.V.S..."/>
+                    <separator string="C.N.S"/>
+                    <field name="cns" placeholder="C.N.S..."/>
+                    <separator string="Back Spine"/>
+                    <field name="back_spine" placeholder="Back Spine..."/>
+                    <separator string="Peripheral Pulsation"/>
+                    <field name="peripheral_pulsation" placeholder="Peripheral Pulsation..."/>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='physician_id']" position="after">
+                <field name="lmp" attrs="{'invisible':[('gender','!=', 'female')]}"/>
+            </xpath>
+            <field name="age" position="after">
+                <field name="gender" invisible="1"/>
+            </field>
+            <xpath expr="//notebook/page[@name='advice']" position="after">
+                <page string="Sonography" attrs="{'invisible':[('gender','!=', 'female')]}" groups="acs_hms_gynec.group_hms_user_gynec">
+                    <separator string="Sonography Pelvis Reports" colspan="4"/>
+                    <field name="sonography_pelvis_ids" nolabel="1" context="{'default_lmp':lmp, 'default_patient_id':patient_id}">
+                        <tree string="Sonography Pelvis Reports">
+                            <field name="date" />
+                            <field name="uterus" />
+                            <field name="endometrial_thickness" />
+                            <field name="left_ovary_size" />
+                            <field name="right_ovary_size" />
+                            <button name="print_sono_elvis_report" string="Print Report" type="object" class="oe_highlight" />
+                        </tree>
+                    </field>
+                    <separator string="Follicular Study Reports" colspan="4"/>
+                    <field name="sonography_follical_ids" nolabel="1" context="{'default_lmp':lmp, 'default_patient_id':patient_id}">
+                        <tree string="Follical Study Reports">
+                            <field name="date" />
+                            <field name="conclusion" />
+                            <field name="advice" />
+                            <button name="print_sono_follical_report" string="Print Report" type="object" class="oe_highlight" />
+                        </tree>
+                    </field>
+                    <separator string="Sonography Obstetric Reports" colspan="4"/>
+                    <field name="sonography_obstetric_ids" nolabel="1" context="{'default_lmp':lmp, 'default_patient_id':patient_id}">
+                        <tree string="Sonography Obstetric Reports">
+                            <field name="date" />
+                            <field name="fetues" />
+                            <field name="presentation" />
+                            <field name="placenta" />
+                            <button name="print_sono_obstetric_report" string="Print Report" type="object" class="oe_highlight" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

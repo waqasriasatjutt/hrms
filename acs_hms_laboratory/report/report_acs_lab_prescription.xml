@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_acs_lab_prescription">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2 class="text-center mt32">Lab Test Request</h2>
+                        <h4 class="text-center mt32">Lab Test Request</h4>
+                        <div style="width: 100%;">
+                            <table class="table table-condensed" style="border: 1px solid black;">
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid black; width: 33%;">
+                                            <strong>Patient</strong>
+                                        </td>
+                                        <td style="border: 1px solid black; width: 34%;">
+                                            <strong>Prescribing Doctor</strong>
+                                        </td>
+                                        <td style="border: 1px solid black;width: 33%;">
+                                            <strong>Prescription Date</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; width: 33%;">
+                                            <p class="m-0" t-field="doc.patient_id"/>
+                                        </td>
+                                        <td style="border: 1px solid black; width: 34%;">
+                                            <p class="m-0" t-field="doc.physician_id"/>
+                                        </td>
+                                        <td style="border: 1px solid black;width: 33%;">
+                                            <p class="m-0" t-field="doc.date"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div style="width: 100%;">
+                            <table class="table table-condensed" style="border: 1px solid black;">
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid black; width: 33%;">
+                                            <strong>Test Name</strong>
+                                        </td>
+                                        <td style="border: 1px solid black; width: 34%;">
+                                            <strong>Test Description</strong>
+                                        </td>
+                                        <td style="border: 1px solid black;width: 33%;">
+                                            <strong>Sale Price</strong>
+                                        </td>
+                                    </tr>
+                                    <t t-foreach="doc.line_ids" t-as="line">
+                                        <tr>
+                                            <td style="border: 1px solid black; width: 33%;">
+                                                <span class="m-0" t-esc="line.test_id.name"/>
+                                            </td>
+                                            <td style="border: 1px solid black; width: 34%;">
+                                                <span class="m-0" t-esc="line.instruction"/>
+                                            </td>
+                                            <td style="border: 1px solid black;width: 33%;">
+                                                <span class="m-0" t-esc="line.sale_price    "/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt16">
+                            <b>Doctor’s Stamp/Signature</b>
+                        </p>
+                        <br/>
+                        <br/>
+                        <h4 class="text-center mt32" style="margin-top: 25px">Lab Test Request</h4>
+                        <div style="width: 100%;">
+                            <table class="table table-condensed" style="border: 1px solid black;">
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid black; width: 33%;">
+                                            <strong>Patient</strong>
+                                        </td>
+                                        <td style="border: 1px solid black; width: 34%;">
+                                            <strong>Prescribing Doctor</strong>
+                                        </td>
+                                        <td style="border: 1px solid black;width: 33%;">
+                                            <strong>Prescription Date</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid black; width: 33%;">
+                                            <p class="m-0" t-field="doc.patient_id"/>
+                                        </td>
+                                        <td style="border: 1px solid black; width: 34%;">
+                                            <p class="m-0" t-field="doc.physician_id"/>
+                                        </td>
+                                        <td style="border: 1px solid black;width: 33%;">
+                                            <p class="m-0" t-field="doc.date"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div style="width: 100%;">
+                            <table class="table table-condensed" style="border: 1px solid black;">
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid black; width: 33%;">
+                                            <strong>Test Name</strong>
+                                        </td>
+                                        <td style="border: 1px solid black; width: 34%;">
+                                            <strong>Test Description</strong>
+                                        </td>
+                                        <td style="border: 1px solid black;width: 33%;">
+                                            <strong>Sale Price</strong>
+                                        </td>
+                                    </tr>
+                                    <t t-foreach="doc.line_ids" t-as="line">
+                                        <tr>
+                                            <td style="border: 1px solid black; width: 33%;">
+                                                <span class="m-0" t-esc="line.test_id.name"/>
+                                            </td>
+                                            <td style="border: 1px solid black; width: 34%;">
+                                                <span class="m-0" t-esc="line.instruction"/>
+                                            </td>
+                                            <td style="border: 1px solid black;width: 33%;">
+                                                <span class="m-0" t-esc="line.sale_price    "/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="mt16">
+                            <b>Doctor’s Stamp/Signature</b>
+                        </p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <report id="report_acs_lab_prescription_id"
+            string="Lab Request"
+            model="acs.laboratory.request"
+            report_type="qweb-pdf"
+            file="acs_hms_laboratory.report_acs_lab_prescription"
+            name="acs_hms_laboratory.report_acs_lab_prescription"/>
+
+</odoo>

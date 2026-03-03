@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Specialty -->
+    <record id="view_physician_specialty_tree" model="ir.ui.view">
+        <field name="name">physician.specialty.tree</field>
+        <field name="model">physician.specialty</field>
+        <field name="arch" type="xml">
+            <tree string="Medicament Specialty">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_acs_physician_specialty_form" model="ir.ui.view">
+        <field name="name">physician.specialty.form</field>
+        <field name="model">physician.specialty</field>
+        <field name="arch" type="xml">
+            <form string="Medicament Specialtys">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Medicament Specialty"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_physician_specialty">
+        <field name="name">Specialty</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">physician.specialty</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add a Specialty.
+            </p>
+        </field>
+    </record>
+
+    <!-- Physician Degree -->
+    <record id="view_physician_degree_tree" model="ir.ui.view">
+        <field name="name">physician.degree.tree</field>
+        <field name="model">physician.degree</field>
+        <field name="arch" type="xml">
+            <tree string="Physician Degree">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_acs_physician_degree_form" model="ir.ui.view">
+        <field name="name">physician.degree.form</field>
+        <field name="model">physician.degree</field>
+        <field name="arch" type="xml">
+            <form string="Physician Degree">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="MBBS"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_physician_degree">
+        <field name="name">Physician Degree</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">physician.degree</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add a Physician Degree.
+            </p>
+        </field>
+    </record>
+
+    <!-- physician -->
+    <record id="view_physician_tree" model="ir.ui.view">
+        <field name="name">physician.tree</field>
+        <field name="model">hms.physician</field>
+        <field name="arch" type="xml">
+            <tree string="Physician">
+                <field name="name"/>
+                <field name="code" string="Doctor ID"/>
+                <field name="government_id"/>
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_physician_form" model="ir.ui.view">
+        <field name="name">physician.form</field>
+        <field name="model">hms.physician</field>
+        <field name="arch" type="xml">
+            <form string="Physician">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <label for="name" string="Name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" placeholder="Doctor's Name" />
+                        </h1>
+                        <div>
+                            <label for="degree_ids" string="Education" class="oe_edit_only" />
+                            <field name="degree_ids" widget="many2many_tags" placeholder="e.g. MBBS" />
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" string="Doctor ID" style="width: 20%%" readonly="1" />
+                            <field name="user_id" required="False" invisible="1" />
+                            <field name="consul_service" required="True" domain="[('type','=','service'),('sale_ok','=',True)]" 
+                                context="{'default_type':'service','default_hospital_product_type':'consultation'}" />
+                            <field name="followup_service" domain="[('type','=','service'),('sale_ok','=',True)]" 
+                                context="{'default_type':'service','default_hospital_product_type':'consultation'}" />
+                            <field name="is_primary_surgeon" />
+                            <field name="is_consultation_doctor" />
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="government_id" />
+                            <field name="specialty" required="True" />
+                            <field name="department_ids" widget="many2many_tags" groups="acs_hms.group_allow_multi_department"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="General Information">
+                            <group>
+                                <group>
+                                    <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" groups="base.group_no_one"/>
+                                    <label for="street" string="Address" />
+                                    <div>
+                                        <field name="parent_id" invisible="1" />
+                                        <field name="street" placeholder="Street..." attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+                                        <field name="street2" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+                                        <div class="address_format">
+                                            <field name="city" placeholder="City" style="width: 40%%" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+                                            <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%%" options="{&quot;no_open&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+                                            <field name="zip" placeholder="ZIP" style="width: 20%%" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+                                        </div>
+                                        <field name="country_id" placeholder="Country" class="oe_no_button" options="{&quot;no_open&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+                                    </div>
+                                    <field name="website" />
+                                </group>
+                                <group>
+                                    <field name="phone" placeholder="e.g. +506 5555 5555" />
+                                    <field name="mobile" />
+                                    <field name="user_ids" invisible="1" />
+                                    <field name="email" widget="email" required="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Personal Information" groups="acs_hms.group_hms_manager">
+                            <separator string="Signature"/>
+                            <br/>
+                            <field name="signature" widget="image" class="oe_left oe_avatar" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_physician_search" model="ir.ui.view">
+        <field name="name">physician.search</field>
+        <field name="model">hms.physician</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <search string="Physician">
+                <field name="name"/>
+                <field name="code"/>
+                <group expand="0" string="Group By...">
+                    <filter string="Company" name="company_group" domain="[]" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_physician" model="ir.actions.act_window">
+        <field name="name">Physician</field>
+        <field name="res_model">hms.physician</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add a Physician.
+            </p>
+        </field>
+    </record>
+
+</odoo>
