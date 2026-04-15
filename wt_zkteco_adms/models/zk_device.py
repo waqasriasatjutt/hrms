@@ -20,8 +20,25 @@ class ZkDevice(models.Model):
     )
     last_seen = fields.Datetime(readonly=True)
     timezone_offset = fields.Integer(
-        'Timezone Offset (hours)', default=3,
-        help='Sent to the device in the config handshake. Saudi Arabia = 3.',
+        'Timezone Offset (hours)', default=5,
+        help='Timezone the device reports its timestamps in (hours east of UTC). '
+             'Pakistan = 5, Saudi Arabia = 3, UAE = 4. '
+             'Used to convert device-local punch times into UTC before storing. '
+             'Also sent back to the device in the config handshake so its clock '
+             'stays in sync.',
+    )
+    auto_close_hours = fields.Float(
+        'Auto-Close Stale Sessions After (h)', default=14.0,
+        help='If an employee has an open attendance older than this many hours '
+             'when a new punch arrives, the open session is auto-closed at '
+             'check_in + default_shift_hours instead of merging the new punch '
+             'into it. Prevents 72-hour attendances caused by missed check-outs. '
+             'Set to 0 to disable.',
+    )
+    default_shift_hours = fields.Float(
+        'Default Shift Length (h)', default=9.0,
+        help='Used when auto-closing stale sessions — the stale session gets '
+             'check_out = check_in + this many hours.',
     )
     note = fields.Text()
     company_id = fields.Many2one('res.company', default=lambda s: s.env.company)

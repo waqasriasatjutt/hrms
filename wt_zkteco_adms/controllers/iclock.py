@@ -14,7 +14,7 @@ All responses are plain text. The device strictly checks for an
 a failure and the device will resend on the next cycle.
 """
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from odoo import fields, http
 from odoo.http import Response, request
@@ -54,13 +54,21 @@ class IClockController(http.Controller):
             dev.write({'last_seen': fields.Datetime.now()})
         return dev
 
-    def _parse_attlog_body(self, body):
+    def _parse_attlog_body(self, body, device):
         """Yield parsed dicts from an ATTLOG body.
 
         ZKTeco format (tab-separated, one row per line):
             <pin>\\t<YYYY-MM-DD HH:MM:SS>\\t<status>\\t<verify>\\t<workcode>\\t<r1>\\t<r2>
         Extra/missing trailing columns are tolerated.
+
+        IMPORTANT: the device reports timestamps in its **local** time
+        (what the employee sees on the screen). Odoo stores all datetimes
+        as UTC. We subtract the device's timezone offset here so what gets
+        written to zk_device_punch.punch_time is proper UTC. Then Odoo's UI
+        will display it correctly in the user's timezone.
         """
+        tz_offset_hours = device.timezone_offset or 0
+        tz_delta = timedelta(hours=tz_offset_hours)
         for raw_line in (body or '').replace('\r\n', '\n').split('\n'):
             line = raw_line.strip()
             if not line:
@@ -71,13 +79,14 @@ class IClockController(http.Controller):
             pin = parts[0].strip()
             ts_str = parts[1].strip()
             try:
-                ts = datetime.strptime(ts_str, '%Y-%m-%d %H:%M:%S')
+                ts_local = datetime.strptime(ts_str, '%Y-%m-%d %H:%M:%S')
             except ValueError:
                 _logger.warning("ADMS: bad timestamp %r on line %r", ts_str, line)
                 continue
+            ts_utc = ts_local - tz_delta
             yield {
                 'pin': pin,
-                'punch_time': ts,
+                'punch_time': ts_utc,
                 'status': parts[2].strip() if len(parts) > 2 else '',
                 'verify': parts[3].strip() if len(parts) > 3 else '',
                 'workcode': parts[4].strip() if len(parts) > 4 else '',
@@ -107,7 +116,7 @@ class IClockController(http.Controller):
                 'TransTimes=00:00;14:05',
                 'TransInterval=1',
                 'TransFlag=TransData AttLog OpLog EnrollUser ChgUser EnrollFP ChgFP UserPic',
-                'TimeZone=%d' % (device.timezone_offset or 3),
+                'TimeZone=%d' % (device.timezone_offset or 5),
                 'Realtime=1',
                 'Encrypt=None',
             ]
@@ -149,11 +158,11 @@ class IClockController(http.Controller):
             _logger.info("ADMS: ATTLOG from INACTIVE device SN=%s dropped (%d bytes)",
                          device.serial_number, len(body or ''))
             # Still return the count so the device clears its buffer
-            return sum(1 for _row in self._parse_attlog_body(body))
+            return sum(1 for _row in self._parse_attlog_body(body, device))
 
         Punch = request.env['zk.device.punch'].sudo()
         count = 0
-        for row in self._parse_attlog_body(body):
+        for row in self._parse_attlog_body(body, device):
             # Idempotent: skip if this exact punch already exists
             exists = Punch.search_count([
                 ('device_id', '=', device.id),

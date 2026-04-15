@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
+from datetime import timedelta
 
 from odoo import _, api, fields, models
 
@@ -68,21 +69,24 @@ class ZkDevicePunch(models.Model):
         """Pair this punch with the employee's current open attendance,
         or open a new one.
 
-        Pairing rules (robust against real-device messiness):
+        Pairing rules (tuned for real-world device messiness):
 
-        1. Noise filter: if the most recent attendance for this employee has
-           either a check_in or check_out within 60 seconds of this punch,
-           treat it as a duplicate and skip.
-        2. If there is ANY open attendance (no check_out) for this employee,
-           close it with this punch — regardless of timestamp ordering.
-           This is safe because Odoo forbids two open attendances per employee,
-           so there's only ever one "current" session at a time.
-        3. Before creating a new attendance, double-check no other attendance
-           already covers this exact timestamp (defends against reprocess loops).
-        4. Historical backfill: if this punch is older than the employee's
-           newest attendance, we intentionally do NOT try to splice it in —
-           too ambiguous. Mark it processed with a note so it doesn't block
-           the queue.
+        1. **Noise filter** — same swipe sent multiple times in quick succession
+           (ZKTeco devices often retry a swipe 2-3 times within seconds) is
+           absorbed into the most recent attendance.
+        2. **Stale-session auto-close** — if there's an open attendance older
+           than `device.auto_close_hours` (default 14h), it's assumed the
+           employee forgot to punch out. The stale session is closed at
+           `check_in + default_shift_hours` (default 9h) and THIS punch opens
+           a fresh attendance. Prevents 72-hour overnight "sessions".
+        3. **Normal close** — if an open session exists and is recent (<14h),
+           this punch closes it. Guards against timestamps earlier than or
+           equal to check_in.
+        4. **Historical backfill** — if this punch is older than the most
+           recent closed attendance, we do not try to splice into history.
+           Marked processed with a note.
+        5. **Open new** — otherwise create a new open attendance at this punch
+           time.
         """
         self.ensure_one()
         if self.processed:
@@ -93,7 +97,7 @@ class ZkDevicePunch(models.Model):
             return
         Att = self.env['hr.attendance'].sudo()
 
-        # 1. Noise filter — same swipe sent multiple times in quick succession
+        # ── 1. Noise filter ──────────────────────────────────────────────
         recent = Att.search(
             [('employee_id', '=', emp.id)],
             order='check_in desc',
@@ -112,18 +116,53 @@ class ZkDevicePunch(models.Model):
                 })
                 return
 
-        # 2. If there's an open session, always close it (no timestamp guard)
+        # ── 2./3. Handle any open session ────────────────────────────────
         open_att = Att.search(
             [('employee_id', '=', emp.id), ('check_out', '=', False)],
             order='check_in desc',
             limit=1,
         )
         if open_att:
-            # Make sure check_out is strictly after check_in (Odoo constraint)
-            check_out_time = self.punch_time
-            if check_out_time <= open_att.check_in:
-                # Punch is earlier than or equal to the open check_in — treat
-                # as a duplicate/out-of-order retry of the check_in itself.
+            device = self.device_id
+            auto_close_hours = device.auto_close_hours or 14.0
+            default_shift = device.default_shift_hours or 9.0
+            gap = (self.punch_time - open_att.check_in).total_seconds() / 3600.0
+
+            if auto_close_hours and gap >= auto_close_hours:
+                # STALE SESSION — employee forgot to punch out yesterday.
+                # Close the stale session at check_in + default_shift,
+                # then open a new attendance for this punch.
+                stale_close = open_att.check_in + timedelta(hours=default_shift)
+                try:
+                    open_att.write({'check_out': stale_close})
+                    _logger.info(
+                        "zk.device.punch: auto-closed stale attendance %s "
+                        "(employee=%s, check_in=%s) — gap was %.1fh",
+                        open_att.id, emp.name, open_att.check_in, gap,
+                    )
+                except Exception as e:
+                    _logger.warning("Auto-close failed on attendance %s: %s",
+                                    open_att.id, e)
+                    self.write({
+                        'employee_id': emp.id,
+                        'error': _('Auto-close failed: %s') % e,
+                    })
+                    return
+                # Fall through to the "open new attendance" branch below
+            else:
+                # NORMAL CLOSE — close the open session with this punch
+                check_out_time = self.punch_time
+                if check_out_time <= open_att.check_in:
+                    # Punch is earlier than or equal to check_in — duplicate
+                    # retry of the check_in itself. Absorb silently.
+                    self.write({
+                        'employee_id': emp.id,
+                        'attendance_id': open_att.id,
+                        'processed': True,
+                        'error': False,
+                    })
+                    return
+                open_att.check_out = check_out_time
                 self.write({
                     'employee_id': emp.id,
                     'attendance_id': open_att.id,
@@ -131,17 +170,8 @@ class ZkDevicePunch(models.Model):
                     'error': False,
                 })
                 return
-            open_att.check_out = check_out_time
-            self.write({
-                'employee_id': emp.id,
-                'attendance_id': open_att.id,
-                'processed': True,
-                'error': False,
-            })
-            return
 
-        # 3. Historical backfill guard — if this punch is older than the most
-        # recent closed attendance, we'd be splicing into history. Skip it.
+        # ── 4. Historical backfill guard ─────────────────────────────────
         if recent and recent.check_in and self.punch_time < recent.check_in:
             self.write({
                 'employee_id': emp.id,
@@ -150,15 +180,13 @@ class ZkDevicePunch(models.Model):
             })
             return
 
-        # 4. Open a new attendance
+        # ── 5. Open a new attendance ─────────────────────────────────────
         try:
             new_att = Att.create({
                 'employee_id': emp.id,
                 'check_in': self.punch_time,
             })
         except Exception as e:
-            # Most likely Odoo's "hasn't checked out" guard — reload the
-            # employee and surface a readable message rather than the stack trace
             self.write({
                 'employee_id': emp.id,
                 'error': (str(e) or 'attendance create failed')[:500],
