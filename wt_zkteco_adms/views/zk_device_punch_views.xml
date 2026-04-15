@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_zk_device_punch_list" model="ir.ui.view">
+        <field name="name">zk.device.punch.list</field>
+        <field name="model">zk.device.punch</field>
+        <field name="arch" type="xml">
+            <list string="Raw Punches" decoration-danger="not processed and error"
+                  decoration-muted="processed">
+                <field name="punch_time"/>
+                <field name="device_id"/>
+                <field name="pin"/>
+                <field name="employee_id"/>
+                <field name="status"/>
+                <field name="verify"/>
+                <field name="processed" widget="boolean_toggle"/>
+                <field name="attendance_id"/>
+                <field name="error"/>
+                <button name="action_reprocess" type="object" icon="fa-refresh"
+                        string="Reprocess"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_zk_device_punch_form" model="ir.ui.view">
+        <field name="name">zk.device.punch.form</field>
+        <field name="model">zk.device.punch</field>
+        <field name="arch" type="xml">
+            <form string="Raw Punch">
+                <header>
+                    <button name="action_reprocess" type="object"
+                            string="Reprocess" class="btn-primary" icon="fa-refresh"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="device_id"/>
+                            <field name="pin"/>
+                            <field name="punch_time"/>
+                            <field name="status"/>
+                            <field name="verify"/>
+                            <field name="workcode"/>
+                        </group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="attendance_id"/>
+                            <field name="processed"/>
+                            <field name="error"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_zk_device_punch_search" model="ir.ui.view">
+        <field name="name">zk.device.punch.search</field>
+        <field name="model">zk.device.punch</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="pin"/>
+                <field name="employee_id"/>
+                <field name="device_id"/>
+                <filter string="Unprocessed" name="unprocessed"
+                        domain="[('processed','=',False)]"/>
+                <filter string="Unmatched" name="unmatched"
+                        domain="[('employee_id','=',False)]"/>
+                <filter string="With Error" name="has_error"
+                        domain="[('error','!=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Device" name="gb_device" context="{'group_by':'device_id'}"/>
+                    <filter string="Employee" name="gb_employee" context="{'group_by':'employee_id'}"/>
+                    <filter string="Day" name="gb_day" context="{'group_by':'punch_time:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_zk_device_punch" model="ir.actions.act_window">
+        <field name="name">Raw Punches</field>
+        <field name="res_model">zk.device.punch</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_unprocessed': 1}</field>
+    </record>
+
+</odoo>
