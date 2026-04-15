@@ -32,7 +32,7 @@
     'depends': [
         'acs_hms', 
         'acs_hms_barcode', 
-        'acs_hms_certification',
+        # 'acs_hms_certification',
         'acs_hms_dashboard',
         'acs_hms_hospitalization',
         'acs_hms_document',
@@ -44,7 +44,7 @@
         'acs_hms_vaccination',
         'acs_hms_portal',
         'acs_hms_commission',
-        'facility_management',
+        # 'facility_management',
         'acs_hms_online_appointment',
         'acs_hms_document_preview',
         'acs_hms_laboratory_preview',

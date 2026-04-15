@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_car_consignment_root" name="Car Consignment" parent="sale.sale_menu_root" sequence="95"/>
+    <menuitem id="menu_car_products" name="Cars" parent="menu_car_consignment_root" action="product.product_template_action"/>
+    <menuitem id="menu_car_sales_orders" name="Car Sales Orders" parent="menu_car_consignment_root" action="sale.action_quotations"/>
+</odoo>

@@ -1,0 +1,18 @@
+{
+    'name': "Custom Login Page",
+    'author': "Waqas Riasat",
+    'version': "18.0",
+    'category': 'Web',
+    'summary': 'Beautiful two-column custom login page for Odoo 18',
+    'description': 'Replaces the default Odoo login page with a branded two-column layout — company logo on the left, login form on the right.',
+    'depends': ['web'],
+    'data': ['views/login_page.xml'],
+    'license': 'LGPL-3',
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+    'price': 1.1,
+    'currency': 'USD',
+    'images': ['static/description/Screenshot_1.jpg'],
+    'support': 'waqasriasatjutt@gmail.com',
+}

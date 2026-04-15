@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ===================== CAR TREE VIEW ===================== -->
+    <record id="view_product_template_car_tree" model="ir.ui.view">
+        <field name="name">product.template.car.tree</field>
+        <field name="model">product.template</field>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <list string="Cars">
+                <field name="name"/>
+                <field name="make"/>
+                <field name="model"/>
+                <field name="year"/>
+                <field name="color"/>
+                <field name="owner_id"/>
+                <field name="target_price"/>
+                <field name="default_code"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ===================== STANDALONE CAR FORM ===================== -->
+    <record id="view_product_template_car_form" model="ir.ui.view">
+        <field name="name">product.template.car.form</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+
+            <form string="Car Details" class="o_form_view" create="true" edit="true">
+                <!-- 🧭 Header with title and chatter features -->
+                <header>
+                    <field name="active" invisible="1"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sold"/>
+                    <button name="action_mark_as_sold"
+                            type="object"
+                            string="Mark as Sold"
+                            class="btn-primary"
+                            icon="fa-check"
+                            invisible="state == 'sold'"/>
+                    <button name="action_set_to_draft"
+                            type="object"
+                            string="Set to Draft"
+                            class="btn-secondary"
+                            icon="fa-lock-open"
+                            invisible="state == 'draft'"/>
+                    <button name="action_view_invoice"
+                            type="object"
+                            string="View Invoice"
+                            class="btn-info"
+                            icon="fa-file-invoice"
+                            invisible="invoice_id == False"/>
+                    <!--                    <button name="action_view_expenses"-->
+                    <!--                            type="object"-->
+                    <!--                            class="oe_stat_button"-->
+                    <!--                            icon="fa-money-bill">-->
+                    <!--                            attrs="{'invisible': [('id', '=', False)]}">-->
+                    <!--                        <field string="Expenses" name="expense_count" widget="statinfo"/>-->
+                    <!--                    </button>-->
+                </header>
+
+                <sheet>
+                    <!-- 🏷️ Title -->
+                    <h1>
+                        <field name="name" class="oe_inline" readonly="0" placeholder="Car Name"/>
+                    </h1>
+
+                    <!-- 📎 Attachments (Documents) -->
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                name="action_open_documents"
+                                type="object"
+                                icon="fa-paperclip">
+                            <field string="Attachments" name="product_document_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button"
+                                name="action_view_invoices"
+                                type="object"
+                                icon="fa-file-invoice">
+                            <field string="Invoices" name="invoice_ids" widget="statinfo"/>
+                        </button>
+                        <!--                        <button name="action_view_expenses"-->
+                        <!--                                type="object"-->
+                        <!--                                class="oe_stat_button"-->
+                        <!--                                icon="fa-money-bill"-->
+                        <!--                                invisible="id == False">-->
+                        <!--                            <field string="Expenses" name="expense_count" widget="statinfo"/>-->
+                        <!--                        </button>-->
+                    </div>
+
+                    <!-- 🖼️ Image -->
+                    <div class="oe_avatar">
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
+                    </div>
+
+                    <!-- 🧩 Groups -->
+                    <group>
+                        <group string="Basic Info" readonly="is_locked == True">
+                            <field name="is_consignment" readonly="is_locked == True"/>
+                            <field name="owner_id" options="{'no_create': False, 'no_edit': False}"
+                                   context="{'default_is_company': False}" readonly="is_locked == True"/>
+                            <field name="target_price" readonly="is_locked == True"/>
+                            <field name="default_code" readonly="is_locked == True"/>
+                            <field name="sale_price" readonly="is_locked == True"
+                                   required="state == 'sold'"/>
+                            <field name="commission_amount" readonly="is_locked == True"/>
+                        </group>
+
+                        <group string="Car Specs">
+                            <field name="make" readonly="is_locked == True"/>
+                            <field name="model" readonly="is_locked == True"/>
+                            <field name="year" readonly="is_locked == True"/>
+                            <field name="color" readonly="is_locked == True"/>
+                            <field name="vin_number" readonly="is_locked == True"/>
+                            <field name="registration_number" readonly="is_locked == True"/>
+                            <field name="engine_number" readonly="is_locked == True"/>
+                            <field name="mileage" readonly="is_locked == True"/>
+                            <field name="body_type" readonly="is_locked == True"/>
+                        </group>
+
+                        <group string="Additional Info">
+                            <field name="fuel_type" readonly="is_locked == True"/>
+                            <field name="transmission" readonly="is_locked == True"/>
+                            <field name="doors" readonly="is_locked == True"/>
+                            <field name="seats" readonly="is_locked == True"/>
+                            <field name="public_categ_ids" readonly="is_locked == True" widget="many2many_tags"
+                                   string="Categories"/>
+                            <!--                            <field name="public_categ_ids" readonly="is_locked == True" string="Categories" />-->
+                            <field name="condition" readonly="is_locked == True"/>
+                            <field name="purchase_date" readonly="is_locked == True"/>
+                            <field name="sale_date" readonly="True"/>
+                            <field name="remarks" readonly="is_locked == True"/>
+                        </group>
+                        <group string="Purchaser Info">
+                            <field name="purchaser_id" options="{'no_create': False, 'no_edit': False}"/>
+                            <field name="purchaser_phone" readonly="1"/>
+                            <field name="purchaser_email" readonly="1"/>
+                        </group>
+
+                        <group string="Upsell &amp; Cross-Sell">
+                            <field name="accessory_product_ids" widget="many2many_tags" invisible="not sale_ok"
+                                   string="Suggested Accessories"
+                                   placeholder="Suggested accessories in the eCommerce cart"/>
+
+                            <field name="alternative_product_ids" widget="many2many_tags"
+                                   domain="[('id', '!=', id), '|', ('company_id', '=', company_id), ('company_id', '=', False)]"
+                                   context="{'search_product_product': True}"
+                                   invisible="not sale_ok"
+                                   string="Alternative Products"
+                                   placeholder="Displayed in bottom of product pages"/>
+
+                            <field name="optional_product_ids" widget="many2many_tags"
+                                   string="Optional Products"
+                                   placeholder="Optional add-ons for this product"/>
+                        </group>
+                        <group name="extra_info" string="Ecommerce Shop">
+                            <field name="is_published"/>
+                            <field
+                                    name="website_id"
+                                    options="{'no_create': True}"
+                                    groups="website.group_multi_website"
+                                    placeholder="All"
+                            />
+                            <field name="website_sequence" groups="base.group_no_one"/>
+                            <field name="public_categ_ids" widget="many2many_tags" string="Categories"/>
+                            <field
+                                    name="website_ribbon_id"
+                                    groups="base.group_no_one"
+                                    options="{'no_quick_create': True}"
+                            />
+                        </group>
+                        
+                        <group string="Ecommerce Description" name="ecom_description">
+                            <field
+                                    colspan="2"
+                                    name="description_ecommerce"
+                                    nolabel="1"
+                                    placeholder="A detailed,formatted description to promote your product on
+                                             this page. Use '/' to discover more features."
+                            />
+                        </group>
+
+
+                    </group>
+
+
+                    <field name="description_ecommerce"
+                           invisible="1"/>         <!-- Adding this field as we needed in product_barcodelookup module to store value in this field -->
+                    <group colspan="2" name="product_template_images" string="eCommerce Media" invisible="not sale_ok">
+                        <field
+                                colspan="2"
+                                name="product_template_image_ids"
+                                class="o_website_sale_image_list"
+                                context="{'default_name': name}"
+                                mode="kanban"
+                                add-label="Add Media"
+                                nolabel="1"
+                                widget="x2_many_media_viewer"
+                                options="{'convert_to_webp': True}"
+                        />
+                    </group>
+
+                </sheet>
+
+                <!--                <notebook position="inside">-->
+            </form>
+
+
+        </field>
+    </record>
+
+    <record id="view_product_template_car_kanban" model="ir.ui.view">
+        <field name="name">product.template.car.kanban</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="owner_id" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="image_1920"/>
+                <field name="owner_id"/>
+                <field name="target_price"/>
+                <field name="condition"/>
+                <field name="is_consignment"/>
+                <field name="color"/>
+                <field name="year"/>
+
+
+                <!--                <templates>-->
+                <!--                    <t t-name="kanban-box">-->
+                <!--                        <div class="oe_kanban_global_click o_kanban_record_body">-->
+                <!--                            &lt;!&ndash; 🖼️ Car Image &ndash;&gt;-->
+                <!--                            <div class="o_kanban_image">-->
+                <!--                                <img t-att-src="kanban_image('product.template', 'image_1920', record.id.raw_value)"-->
+                <!--                                     alt="Car Image" class="rounded shadow-sm"-->
+                <!--                                     style="width:100%; border-radius:8px;"/>-->
+                <!--                            </div>-->
+
+                <!--                            &lt;!&ndash; 🚗 Basic Info &ndash;&gt;-->
+                <!--                            <div class="o_kanban_details mt-2">-->
+                <!--                                <strong t-esc="record.name.value" class="d-block"/>-->
+                <!--                                <span t-if="record.owner_id.value">-->
+                <!--                                    <i class="fa fa-user"/>-->
+                <!--                                    <t t-esc="record.owner_id.value"/>-->
+                <!--                                </span>-->
+                <!--                                <br/>-->
+                <!--                                <span t-if="record.year.value">-->
+                <!--                                    <i class="fa fa-calendar"/>-->
+                <!--                                    <t t-esc="record.year.value"/>-->
+                <!--                                </span>-->
+                <!--                                <br/>-->
+                <!--                                <span t-if="record.color.value">-->
+                <!--                                    <i class="fa fa-paint-brush"/>-->
+                <!--                                    <t t-esc="record.color.value"/>-->
+                <!--                                </span>-->
+
+                <!--                                &lt;!&ndash; 💰 Price &ndash;&gt;-->
+                <!--                                <div t-if="record.target_price.value" class="mt-2">-->
+                <!--                                    <strong>Price:</strong>-->
+                <!--                                    <span>-->
+                <!--                                        <t t-esc="record.target_price.value"/>-->
+                <!--                                    </span>-->
+                <!--                                </div>-->
+
+                <!--                                &lt;!&ndash; ⚙️ Condition &ndash;&gt;-->
+                <!--                                <div t-if="record.condition.value">-->
+                <!--                                    <strong>Condition:</strong>-->
+                <!--                                    <span>-->
+                <!--                                        <t t-esc="record.condition.value"/>-->
+                <!--                                    </span>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--                    </t>-->
+                <!--                </templates>-->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_body bg-white shadow-sm rounded-lg overflow-hidden border border-muted"
+                             style="transition: all 0.2s ease; cursor: pointer;">
+
+                            <!-- 🖼️ Car Image -->
+                            <div class="position-relative">
+                                <img t-att-src="kanban_image('product.template', 'image_1920', record.id.raw_value)"
+                                     alt="Car Image" class="img-fluid w-100"
+                                     style="height:180px; object-fit:cover;" loading="lazy"/>
+
+                                <!-- 🏷️ Condition Badge -->
+                                <t t-if="record.condition.value">
+                                    <t t-set="badge_class"
+                                       t-value="record.condition.value == 'new' ? 'bg-success text-white' : (record.condition.value == 'used' ? 'bg-warning text-dark' : 'bg-secondary text-white')"/>
+                                    <span t-att-class="'position-absolute top-0 end-0 m-2 px-2 py-1 rounded-pill fw-bold text-uppercase small ' + badge_class">
+                                        <t t-esc="record.condition.value"/>
+                                    </span>
+                                </t>
+                            </div>
+
+                            <!-- 🚗 Car Info -->
+                            <div class="p-3">
+                                <!-- Car Name -->
+                                <h6 class="fw-bold text-dark mb-1 text-truncate" t-esc="record.name.value"/>
+
+                                <!-- Owner -->
+                                <div t-if="record.owner_id.value" class="text-muted small mb-1">
+                                    <i class="fa fa-user me-1 text-primary"/>
+                                    <t t-esc="record.owner_id.value"/>
+                                </div>
+
+                                <!-- Year and Color -->
+                                <div class="d-flex justify-content-between text-muted small mb-2">
+                                    <span t-if="record.year.value">
+                                        <i class="fa fa-calendar me-1 text-info"/>
+                                        <t t-esc="record.year.value"/>
+                                    </span>
+                                    <span t-if="record.color.value">
+                                        <i class="fa fa-paint-brush me-1 text-danger"/>
+                                        <t t-esc="record.color.value"/>
+                                    </span>
+                                </div>
+
+                                <!-- 💰 Target Price -->
+                                <div t-if="record.target_price.value"
+                                     class="border-top pt-2 mt-2 d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-secondary">Price</span>
+                                    <span class="fw-bold text-success">
+                                        <i class="fa fa-dollar-sign me-1"/>
+                                        <t t-esc="record.target_price.value"/>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+
+    <!--    <record id="view_product_template_car_form" model="ir.ui.view">-->
+    <!--        <field name="name">product.template.car.form</field>-->
+    <!--        <field name="model">product.template</field>-->
+    <!--        &lt;!&ndash; 🚫 No inherit_id here &ndash;&gt;-->
+    <!--        <field name="arch" type="xml">-->
+
+    <!--            <form string="Car Details">-->
+    <!--                <sheet>-->
+    <!--                    <div class="oe_button_box" name="button_box">-->
+    <!--                        <button class="oe_stat_button"-->
+    <!--                                name="action_open_documents"-->
+    <!--                                type="object"-->
+    <!--                                icon="fa-file-text-o">-->
+    <!--                            <field string="Documents" name="product_document_count" widget="statinfo"/>-->
+    <!--                        </button>-->
+    <!--                    </div>-->
+
+    <!--                    <div class="oe_button_box" name="button_box"/>-->
+    <!--                    <div class="oe_avatar">-->
+    <!--                        <field name="image_1920" widget="image" class="oe_avatar"/>-->
+    <!--                    </div>-->
+    <!--                    <group>-->
+    <!--                        <group string="Basic Info">-->
+    <!--                            <field name="name"/>-->
+    <!--                            <field name="is_consignment"/>-->
+    <!--                            <field name="owner_id" options="{'no_create': False, 'no_edit': False}"-->
+    <!--                                   context="{'default_is_company': False}"/>-->
+    <!--                            <field name="target_price"/>-->
+    <!--                            <field name="default_code"/>-->
+    <!--                            &lt;!&ndash;                            <field name="sale_price"/>&ndash;&gt;-->
+    <!--                            &lt;!&ndash;                            <field name="commission_amount"/>&ndash;&gt;-->
+    <!--                            &lt;!&ndash;                            <field name="message_ids" widget="mail_thread"/>&ndash;&gt;-->
+
+    <!--                        </group>-->
+    <!--                        <group string="Car Specs">-->
+    <!--                            <field name="make"/>-->
+    <!--                            <field name="model"/>-->
+    <!--                            <field name="year"/>-->
+    <!--                            <field name="color"/>-->
+    <!--                            <field name="vin_number"/>-->
+    <!--                            <field name="registration_number"/>-->
+    <!--                            <field name="engine_number"/>-->
+    <!--                            <field name="mileage"/>-->
+    <!--                        </group>-->
+    <!--                        &lt;!&ndash;                    </group>&ndash;&gt;-->
+    <!--                        <group string="Additional Info">-->
+    <!--                            <field name="fuel_type"/>-->
+    <!--                            <field name="transmission"/>-->
+    <!--                            <field name="doors"/>-->
+    <!--                            <field name="seats"/>-->
+    <!--                            <field name="condition"/>-->
+    <!--                            <field name="purchase_date"/>-->
+    <!--                            <field name="sale_date"/>-->
+    <!--                            <field name="remarks"/>-->
+    <!--                        </group>-->
+    <!--                    </group>-->
+
+
+    <!--                </sheet>-->
+
+    <!--            </form>-->
+
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!-- 📊 Graph View for Car Products -->
+    <!--    <record id="view_product_template_car_graph" model="ir.ui.view">-->
+    <!--        <field name="name">product.template.car.graph</field>-->
+    <!--        <field name="model">product.template</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            &lt;!&ndash;            <graph string="Car Analysis" type="bar">&ndash;&gt;-->
+    <!--            &lt;!&ndash;                &lt;!&ndash; Group by car make &ndash;&gt;&ndash;&gt;-->
+    <!--            &lt;!&ndash;                <field name="make" type="row"/>&ndash;&gt;-->
+    <!--            &lt;!&ndash;                &lt;!&ndash; Measure to analyze &ndash;&gt;&ndash;&gt;-->
+    <!--            &lt;!&ndash;                <field name="list_price" type="measure"/>&ndash;&gt;-->
+    <!--            &lt;!&ndash;                <field name="target_price" type="measure"/>&ndash;&gt;-->
+    <!--            &lt;!&ndash;                <field name="year" type="row"/>&ndash;&gt;-->
+    <!--            &lt;!&ndash;            </graph>&ndash;&gt;-->
+    <!--            <graph string="Car Performance" type="bar">-->
+    <!--                &lt;!&ndash; Group cars by status or make &ndash;&gt;-->
+    <!--                <field name="make" type="row"/>-->
+
+    <!--                &lt;!&ndash; Computed measure fields &ndash;&gt;-->
+    <!--                <field name="commission_amount" type="measure"/>-->
+    <!--                <field name="target_price" type="measure"/>-->
+    <!--                <field name="list_price" type="measure"/>-->
+    <!--            </graph>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!-- ===================== ACTION (USES ONLY THESE VIEWS) ===================== -->
+    <record id="action_product_template_car" model="ir.actions.act_window">
+        <field name="name">Car Management</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="domain">[('is_consignment', '=', True)]</field>
+        <field name="context">{'default_is_consignment': True}</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+    </record>
+
+    <!-- Link both views to the action -->
+    <record id="action_product_template_car_views" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+        <field name="act_window_id" ref="action_product_template_car"/>
+    </record>
+
+    <record id="action_product_template_car_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_template_car_form"/>
+        <field name="act_window_id" ref="action_product_template_car"/>
+    </record>
+
+    <record id="action_product_template_car_kanban_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_product_template_car_kanban"/>
+        <field name="act_window_id" ref="action_product_template_car"/>
+    </record>
+
+    <!--    <record id="action_product_template_car_graph_view" model="ir.actions.act_window.view">-->
+    <!--        <field name="sequence" eval="2"/>-->
+    <!--        <field name="view_mode">graph</field>-->
+    <!--        <field name="view_id" ref="view_product_template_car_graph"/>-->
+    <!--        <field name="act_window_id" ref="action_product_template_car"/>-->
+    <!--    </record>-->
+
+
+    <!-- ===================== MENU ===================== -->
+    <menuitem id="menu_car_management_root"
+              name="Car Management"
+              action="action_product_template_car"
+              sequence="10"
+              web_icon="wt_car_consignment,static/description/car_icon.png"/>
+
+
+    <!-- ========== CHILD MENUS UNDER CAR MANAGEMENT ========== -->
+
+    <!-- Available Cars -->
+    <record id="action_product_template_available_cars" model="ir.actions.act_window">
+        <field name="name">Available Cars</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_consignment', '=', True), ('sale_date', '=', False), ('state', '=', 'draft')]</field>
+        <field name="context">{'default_is_consignment': True}</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+    </record>
+
+    <!-- Link both views to the action -->
+    <record id="action_product_template_available_cars_views" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+        <field name="act_window_id" ref="action_product_template_available_cars"/>
+    </record>
+
+    <record id="action_product_template_available_cars_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_template_car_form"/>
+        <field name="act_window_id" ref="action_product_template_available_cars"/>
+    </record>
+
+    <menuitem id="menu_available_cars"
+              name="Available Cars"
+              parent="menu_car_management_root"
+              action="action_product_template_available_cars"
+              sequence="10"/>
+
+    <!-- Sold Cars -->
+    <record id="action_product_template_sold_cars" model="ir.actions.act_window">
+        <field name="name">Sold Cars</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_consignment', '=', True), ('sale_date', '!=', False), ('state', '=', 'sold')]</field>
+        <field name="context">{'default_is_consignment': True}</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+    </record>
+
+
+    <!-- Link both views to the action -->
+    <record id="action_product_template_sold_cars_list_views" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+        <field name="act_window_id" ref="action_product_template_sold_cars"/>
+    </record>
+
+    <record id="action_product_template_sold_cars_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_template_car_form"/>
+        <field name="act_window_id" ref="action_product_template_sold_cars"/>
+    </record>
+
+    <menuitem id="menu_sold_cars"
+              name="Sold Cars"
+              parent="menu_car_management_root"
+              action="action_product_template_sold_cars"
+              sequence="20"/>
+
+    <!-- Damaged Cars -->
+    <record id="action_product_template_damaged_cars" model="ir.actions.act_window">
+        <field name="name">Damaged Cars</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_consignment', '=', True), ('condition', '=', 'damaged')]</field>
+        <field name="context">{'default_is_consignment': True}</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+    </record>
+
+
+    <!-- Link both views to the action -->
+    <record id="action_product_template_damaged_cars_list_views" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_product_template_car_tree"/>
+        <field name="act_window_id" ref="action_product_template_damaged_cars"/>
+    </record>
+
+    <record id="action_product_template_damaged_cars_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_template_car_form"/>
+        <field name="act_window_id" ref="action_product_template_damaged_cars"/>
+    </record>
+
+    <menuitem id="menu_damaged_cars"
+              name="Damaged Cars"
+              parent="menu_car_management_root"
+              action="action_product_template_damaged_cars"
+              sequence="30"/>
+
+
+    <!-- ===================== ACTION ===================== -->
+    <record id="action_car_sales" model="ir.actions.act_window">
+        <field name="name">Car Sales</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_car_sale', '=', True)]</field>
+        <field name="context">{'default_is_car_sale': True}</field>
+    </record>
+
+    <!-- ===================== MENU ===================== -->
+    <!--    <menuitem id="menu_car_sale"-->
+    <!--              name="Car Sales"-->
+    <!--              parent="menu_car_management_root"-->
+    <!--              action="action_car_sales"-->
+    <!--              sequence="40"/>-->
+
+
+</odoo>

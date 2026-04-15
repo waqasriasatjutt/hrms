@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="CrmDashboard">
+<div class="wt-crm-dashboard">
+<div class="wt-scroll-body">
+
+    <div class="wt-topbar">
+        <div class="wt-topbar-left">
+            <i class="fa fa-phone wt-logo-icon"/>
+            <div>
+                <div class="wt-title">CRM Analytics</div>
+                <div class="wt-subtitle" t-if="state.period_label"><t t-esc="state.period_label"/></div>
+            </div>
+        </div>
+        <div class="wt-filters">
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">Period</label>
+                <select class="wt-select" t-on-change="onPeriodChange">
+                    <t t-foreach="state.period_options" t-as="opt" t-key="opt.key">
+                        <option t-att-value="opt.key" t-att-selected="state.period === opt.key"><t t-esc="opt.label"/></option>
+                    </t>
+                </select>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">From</label>
+                <input type="date" class="wt-input-date" t-model="state.date_from" t-on-change="onCustomDateChange"/>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">To</label>
+                <input type="date" class="wt-input-date" t-model="state.date_to" t-on-change="onCustomDateChange"/>
+            </div>
+            <button class="wt-btn-refresh" t-on-click="refresh">
+                <i class="fa fa-refresh" t-att-class="{'fa-spin': state.loading}"/>
+                <span>Refresh</span>
+            </button>
+            <span class="wt-last-updated" t-if="state.last_updated">Updated <t t-esc="state.last_updated"/></span>
+        </div>
+    </div>
+
+    <div class="wt-loading-bar" t-if="state.loading"/>
+
+    <!-- KPI Cards -->
+    <div class="wt-kpi-grid">
+        <div class="wt-kpi wt-kpi-1" t-on-click="onClickLeads" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-star"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.new_leads"/></div>
+                <div class="wt-kpi-name">New Leads</div>
+                <div class="wt-kpi-sub">created this period</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-2" t-on-click="onClickOpps" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-filter"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.new_opportunities"/></div>
+                <div class="wt-kpi-name">Opportunities</div>
+                <div class="wt-kpi-sub">created this period</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-3" t-on-click="onClickWon" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-trophy"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.won_count"/></div>
+                <div class="wt-kpi-name">Won Deals</div>
+                <div class="wt-kpi-sub"><t t-esc="state.won_revenue"/></div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-4" t-on-click="onClickLost" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-times-circle"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.lost_count"/></div>
+                <div class="wt-kpi-name">Lost Deals</div>
+                <div class="wt-kpi-sub">this period</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-5" t-on-click="onClickWinRate" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-percent"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.win_rate"/></div>
+                <div class="wt-kpi-name">Win Rate</div>
+                <div class="wt-kpi-sub">won / (won + lost)</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-6" t-on-click="onClickAvgDeal" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-dollar"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.avg_deal"/></div>
+                <div class="wt-kpi-name">Avg Deal Size</div>
+                <div class="wt-kpi-sub">won deals</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-7" t-on-click="onClickPipeline" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-sitemap"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.pipeline_count"/></div>
+                <div class="wt-kpi-name">Pipeline</div>
+                <div class="wt-kpi-sub"><t t-esc="state.pipeline_value"/></div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-8" t-on-click="onClickTeam" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-users"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.team_members"/></div>
+                <div class="wt-kpi-name">Team Members</div>
+                <div class="wt-kpi-sub">active salespeople</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-9" t-on-click="onClickActivities" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-bell"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.overdue_activities"/></div>
+                <div class="wt-kpi-name">Overdue Activities</div>
+                <div class="wt-kpi-sub">need attention</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="wt-tabs">
+        <button t-att-class="'wt-tab' + (state.active_tab==='overview'    ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('overview')"><i class="fa fa-home"/> Overview</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='pipeline'    ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('pipeline')"><i class="fa fa-sitemap"/> Pipeline</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='salespeople' ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('salespeople')"><i class="fa fa-user"/> Salespeople</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='sources'     ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('sources')"><i class="fa fa-pie-chart"/> Sources</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='comparison'  ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('comparison')"><i class="fa fa-balance-scale"/> Comparison</button>
+    </div>
+
+    <!-- TAB: OVERVIEW -->
+    <div t-if="state.active_tab === 'overview'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-area-chart"/> Leads &amp; Opportunities Trend</span>
+                    <span class="wt-card-hint">Created over time</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:280px"><canvas id="crm_chart_trend"/></div>
+            </div>
+        </div>
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-clock-o"/> Recent Leads &amp; Opportunities</span><button class="wt-btn-export" t-on-click="exportLeads"><i class="fa fa-download"/> Export CSV</button></div>
+                <div class="wt-table-scroll">
+                    <table class="wt-table">
+                        <thead><tr><th>Name</th><th>Partner</th><th>Stage</th><th>Revenue</th><th>Prob</th><th>Salesperson</th><th>Created</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.recent_leads" t-as="l" t-key="l.name">
+                                <tr t-on-click="() => this.onRowClick(l.id)" style="cursor:pointer">
+                                    <td><t t-esc="l.name"/></td>
+                                    <td class="wt-td-muted"><t t-esc="l.partner"/></td>
+                                    <td><span class="wt-badge wt-badge-stage"><t t-esc="l.stage"/></span></td>
+                                    <td class="wt-pos"><t t-esc="l.revenue"/></td>
+                                    <td class="wt-td-muted"><t t-esc="l.probability"/></td>
+                                    <td class="wt-td-muted"><t t-esc="l.salesperson"/></td>
+                                    <td class="wt-td-muted"><t t-esc="l.created"/></td>
+                                </tr>
+                            </t>
+                            <tr t-if="!state.recent_leads.length"><td colspan="7" class="wt-empty">No leads in this period</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: PIPELINE -->
+    <div t-if="state.active_tab === 'pipeline'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-bar-chart"/> Opportunities by Stage</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:280px"><canvas id="crm_chart_pipeline_count"/></div>
+            </div>
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-usd"/> Expected Revenue by Stage</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:280px"><canvas id="crm_chart_pipeline_revenue"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: SALESPEOPLE -->
+    <div t-if="state.active_tab === 'salespeople'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-2">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-bar-chart"/> Top Salespeople by Won Revenue</span></div>
+                <div class="wt-chart-wrap" style="height:300px"><canvas id="crm_chart_salespeople"/></div>
+            </div>
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-user"/> Salesperson Stats</span></div>
+                <div class="wt-table-scroll">
+                    <table class="wt-table">
+                        <thead><tr><th>#</th><th>Name</th><th>Total</th><th>Won</th><th>Revenue</th><th>Win%</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.salesperson_stats" t-as="s" t-key="s.name">
+                                <tr>
+                                    <td class="wt-td-rank"><t t-esc="s_index + 1"/></td>
+                                    <td><t t-esc="s.name"/></td>
+                                    <td class="wt-td-center"><t t-esc="s.total"/></td>
+                                    <td class="wt-td-center"><t t-esc="s.won"/></td>
+                                    <td class="wt-pos"><t t-esc="s.revenue"/></td>
+                                    <td class="wt-td-muted"><t t-esc="s.win_rate"/></td>
+                                </tr>
+                            </t>
+                            <tr t-if="!state.salesperson_stats.length"><td colspan="6" class="wt-empty">No data</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: SOURCES -->
+    <div t-if="state.active_tab === 'sources'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-pie-chart"/> Leads by Source</span>
+                    <span class="wt-card-hint">Top 10 sources</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="crm_chart_sources"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: COMPARISON -->
+    <div t-if="state.active_tab === 'comparison'">
+        <div t-if="state.comparison_data">
+            <div class="wt-row">
+                <div class="wt-card wt-flex-1">
+                    <div class="wt-card-head">
+                        <span class="wt-card-title"><i class="fa fa-balance-scale"/> Lead Creation Comparison</span>
+                        <span class="wt-card-hint"><t t-esc="state.comparison_data.current_label"/> vs <t t-esc="state.comparison_data.prev_label"/></span>
+                    </div>
+                    <div class="wt-chart-wrap" style="height:300px"><canvas id="crm_chart_comparison"/></div>
+                </div>
+            </div>
+        </div>
+        <div t-if="!state.comparison_data" class="wt-empty">Loading comparison data...</div>
+    </div>
+
+</div>
+</div>
+</t>
+</templates>

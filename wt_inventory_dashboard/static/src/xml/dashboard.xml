@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="InventoryDashboard">
+<div class="wt-inv-dashboard">
+<div class="wt-scroll-body">
+
+    <div class="wt-topbar">
+        <div class="wt-topbar-left">
+            <i class="fa fa-cubes wt-logo-icon"/>
+            <div>
+                <div class="wt-title">Inventory Analytics</div>
+                <div class="wt-subtitle" t-if="state.period_label"><t t-esc="state.period_label"/></div>
+            </div>
+        </div>
+        <div class="wt-filters">
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">Period</label>
+                <select class="wt-select" t-on-change="onPeriodChange">
+                    <t t-foreach="state.period_options" t-as="opt" t-key="opt.key">
+                        <option t-att-value="opt.key" t-att-selected="state.period === opt.key"><t t-esc="opt.label"/></option>
+                    </t>
+                </select>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">From</label>
+                <input type="date" class="wt-input-date" t-model="state.date_from" t-on-change="onCustomDateChange"/>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">To</label>
+                <input type="date" class="wt-input-date" t-model="state.date_to" t-on-change="onCustomDateChange"/>
+            </div>
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">&#160;</label>
+                <button class="wt-btn-refresh" t-on-click="refresh">
+                    <i class="fa fa-refresh" t-att-class="{'fa-spin': state.loading}"/>
+                    <span>Refresh</span>
+                </button>
+            </div>
+            <div class="wt-filter-group" t-if="state.last_updated">
+                <label class="wt-filter-label">&#160;</label>
+                <span class="wt-last-updated"><i class="fa fa-clock-o"/> <t t-esc="state.last_updated"/></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="wt-loading-bar" t-if="state.loading"/>
+
+    <div class="wt-kpi-grid">
+        <div class="wt-kpi wt-kpi-1" t-on-click="onClickProducts" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-cubes"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.products_in_stock"/></div>
+                <div class="wt-kpi-name">Products in Stock</div>
+                <div class="wt-kpi-sub">internal locations</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-2" t-on-click="onClickStockValue" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-usd"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.stock_value"/></div>
+                <div class="wt-kpi-name">Stock Value</div>
+                <div class="wt-kpi-sub">valuation layers</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-3" t-on-click="onClickLowStock" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-exclamation-triangle"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.low_stock_alerts"/></div>
+                <div class="wt-kpi-name">Low Stock Alerts</div>
+                <div class="wt-kpi-sub">below reorder point</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-4" t-on-click="onClickOutOfStock" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-times-circle"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.out_of_stock"/></div>
+                <div class="wt-kpi-name">Out of Stock</div>
+                <div class="wt-kpi-sub">zero quantity</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-5" t-on-click="onClickReceipts" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-arrow-down"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.pending_receipts"/></div>
+                <div class="wt-kpi-name">Pending Receipts</div>
+                <div class="wt-kpi-sub">qty awaiting receipt</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-6" t-on-click="onClickDeliveries" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-arrow-up"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.pending_deliveries"/></div>
+                <div class="wt-kpi-name">Pending Deliveries</div>
+                <div class="wt-kpi-sub">qty to ship</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-7" t-on-click="onClickMoves" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-exchange"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.stock_moves"/></div>
+                <div class="wt-kpi-name">Stock Moves</div>
+                <div class="wt-kpi-sub">done in period</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-8" t-on-click="onClickAvgValue" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-calculator"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.avg_product_value"/></div>
+                <div class="wt-kpi-name">Avg Product Value</div>
+                <div class="wt-kpi-sub">per product in stock</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-9" t-on-click="onClickLocations" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-map-marker"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.locations_with_stock"/></div>
+                <div class="wt-kpi-name">Locations w/ Stock</div>
+                <div class="wt-kpi-sub">internal locations</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wt-tabs">
+        <button t-att-class="'wt-tab' + (state.active_tab==='overview'    ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('overview')"><i class="fa fa-home"/> Overview</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='levels'      ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('levels')"><i class="fa fa-bar-chart"/> Stock Levels</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='movements'   ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('movements')"><i class="fa fa-exchange"/> Movements</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='valuation'   ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('valuation')"><i class="fa fa-usd"/> Valuation</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='alerts'      ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('alerts')"><i class="fa fa-exclamation-triangle"/> Alerts</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='comparison'  ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('comparison')"><i class="fa fa-balance-scale"/> Comparison</button>
+    </div>
+
+    <!-- TAB: OVERVIEW -->
+    <div t-if="state.active_tab === 'overview'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-2">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-line-chart"/> Stock Movement Trend</span>
+                    <span class="wt-card-hint">Incoming vs Outgoing quantity</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:280px"><canvas id="inv_chart_trend"/></div>
+            </div>
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-pie-chart"/> Stock by Category</span></div>
+                <div class="wt-chart-wrap" style="height:280px"><canvas id="inv_chart_category"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: STOCK LEVELS -->
+    <div t-if="state.active_tab === 'levels'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-bar-chart"/> Top Products by Stock Value</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="inv_chart_top_value"/></div>
+            </div>
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-pie-chart"/> Stock by Category</span></div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="inv_chart_category2"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: MOVEMENTS -->
+    <div t-if="state.active_tab === 'movements'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-line-chart"/> Incoming vs Outgoing</span>
+                    <span class="wt-card-hint">Daily quantity moved</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:340px"><canvas id="inv_chart_movements"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: VALUATION -->
+    <div t-if="state.active_tab === 'valuation'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-usd"/> Top 10 Products by Value</span></div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="inv_chart_valuation"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: ALERTS -->
+    <div t-if="state.active_tab === 'alerts'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-exclamation-triangle"/> Low Stock Items</span>
+                    <button class="wt-btn-export" t-on-click="exportLowStock"><i class="fa fa-download"/> Export CSV</button>
+                </div>
+                <div class="wt-table-scroll">
+                    <table class="wt-table">
+                        <thead><tr><th>#</th><th>Product</th><th>On Hand</th><th>Min Qty</th><th>Max Qty</th><th>Shortage</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.low_stock_items" t-as="item" t-key="item.name">
+                                <tr t-on-click="() => this.onRowClick(item.id)" style="cursor:pointer">
+                                    <td class="wt-td-rank"><t t-esc="item_index + 1"/></td>
+                                    <td><t t-esc="item.name"/></td>
+                                    <td class="wt-td-center wt-warn"><t t-esc="item.on_hand.toFixed(1)"/></td>
+                                    <td class="wt-td-center"><t t-esc="item.min_qty.toFixed(1)"/></td>
+                                    <td class="wt-td-center"><t t-esc="item.max_qty.toFixed(1)"/></td>
+                                    <td class="wt-neg"><t t-esc="item.shortage.toFixed(1)"/></td>
+                                </tr>
+                            </t>
+                            <tr t-if="!state.low_stock_items.length"><td colspan="6" class="wt-empty">No low stock items — all products above minimum quantity</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: COMPARISON -->
+    <div t-if="state.active_tab === 'comparison'">
+        <div t-if="state.comparison_data">
+            <div class="wt-comparison-summary">
+                <t t-foreach="state.comparison_data.metrics" t-as="m" t-key="m.name">
+                    <div class="wt-cmp-card">
+                        <div class="wt-cmp-metric"><t t-esc="m.name"/></div>
+                        <div class="wt-cmp-current"><t t-esc="m.current"/></div>
+                        <div class="wt-cmp-prev">vs <t t-esc="m.prev"/></div>
+                        <div t-if="m.pct !== null" t-att-class="'wt-cmp-pct-' + (m.pct >= 0 ? 'up' : 'down')">
+                            <i t-att-class="'fa fa-' + (m.pct >= 0 ? 'arrow-up' : 'arrow-down')"/>
+                            <t t-esc="Math.abs(m.pct)"/>%
+                        </div>
+                    </div>
+                </t>
+            </div>
+            <div class="wt-row">
+                <div class="wt-card wt-flex-1">
+                    <div class="wt-card-head">
+                        <span class="wt-card-title"><i class="fa fa-balance-scale"/> Movement Comparison</span>
+                        <span class="wt-card-hint"><t t-esc="state.comparison_data.current_label"/> vs <t t-esc="state.comparison_data.prev_label"/></span>
+                    </div>
+                    <div class="wt-chart-wrap" style="height:280px"><canvas id="inv_chart_comparison"/></div>
+                </div>
+            </div>
+        </div>
+        <div t-if="!state.comparison_data" class="wt-empty">Loading comparison data...</div>
+    </div>
+
+</div>
+</div>
+</t>
+</templates>

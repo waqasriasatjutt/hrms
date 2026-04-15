@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_consignment" model="ir.ui.view">
+        <field name="name">sale.order.form.consignment</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_view_full_invoice"
+                            string="Full Sale Invoice"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-file-invoice-dollar"
+                            invisible ="not full_invoice_id"/>
+<!--                            invisible ="full_invoice_id, '=', False"/>-->
+
+                    <button name="action_view_commission_invoice"
+                            string="Commission Invoice"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-chart-line"
+                            invisible ="not commission_invoice_id"/>
+<!--                            invisible ="commission_invoice_id, '=', False"/>-->
+
+                    <button name="action_view_owner_bill"
+                            string="Owner Bill"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-file-invoice"
+                            invisible ="not owner_bill_id"/>
+<!--                            invisible ="owner_bill_id, '=', False"/>-->
+                </header>
+            </xpath>
+            <!--            <xpath expr="//field[@name='order_line']/form//field[@name='product_id']" position="after">-->
+            <!--                <field name="owner_id" />-->
+            <!--                <field name="target_price" />-->
+            <!--                <field name="commission_profit" />-->
+            <!--            </xpath>-->
+            <xpath expr="//field[@name='order_line']/list//field[@name='product_id']" position="attributes">
+                <attribute name="domain">[('is_consignment', '=', True)]</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/list//field[@name='product_id']" position="after">
+                <field name="owner_id"/>
+                <field name="target_price"/>
+                <field name="commission_profit"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+<!--access_car_sale_order,access_car_sale_order,model_sale_order,base.group_user,1,1,1,1-->

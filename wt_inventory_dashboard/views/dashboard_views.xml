@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_inventory_dashboard" model="ir.actions.client">
+        <field name="name">Inventory Dashboard</field>
+        <field name="tag">InventoryDashboard</field>
+    </record>
+
+    <menuitem id="wt_inventory_dashboard_root"
+              name="Inventory Analytics"
+              sequence="25"
+              web_icon="wt_inventory_dashboard,static/description/icon.png"
+              groups="stock.group_stock_manager,stock.group_stock_user"/>
+
+    <menuitem id="wt_inventory_dashboard_menu"
+              name="Dashboard"
+              parent="wt_inventory_dashboard_root"
+              action="action_inventory_dashboard"
+              sequence="1"/>
+</odoo>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="SaleDashboard">
+<div class="wt-sale-dashboard">
+<div class="wt-scroll-body">
+
+    <div class="wt-topbar">
+        <div class="wt-topbar-left">
+            <i class="fa fa-shopping-cart wt-logo-icon"/>
+            <div>
+                <div class="wt-title">Sales Analytics</div>
+                <div class="wt-subtitle" t-if="state.period_label"><t t-esc="state.period_label"/></div>
+            </div>
+        </div>
+        <div class="wt-filters">
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">Period</label>
+                <select class="wt-select" t-on-change="onPeriodChange">
+                    <t t-foreach="state.period_options" t-as="opt" t-key="opt.key">
+                        <option t-att-value="opt.key" t-att-selected="state.period === opt.key"><t t-esc="opt.label"/></option>
+                    </t>
+                </select>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">From</label>
+                <input type="date" class="wt-input-date" t-model="state.date_from" t-on-change="onCustomDateChange"/>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">To</label>
+                <input type="date" class="wt-input-date" t-model="state.date_to" t-on-change="onCustomDateChange"/>
+            </div>
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">&#160;</label>
+                <button class="wt-btn-refresh" t-on-click="refresh">
+                    <i class="fa fa-refresh" t-att-class="{'fa-spin': state.loading}"/>
+                    <span>Refresh</span>
+                </button>
+            </div>
+            <div class="wt-filter-group" t-if="state.last_updated">
+                <label class="wt-filter-label">&#160;</label>
+                <span class="wt-last-updated"><i class="fa fa-clock-o"/> <t t-esc="state.last_updated"/></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="wt-loading-bar" t-if="state.loading"/>
+
+    <div class="wt-kpi-grid">
+        <div class="wt-kpi wt-kpi-1" t-on-click="onClickRevenue" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-line-chart"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.total_revenue"/></div>
+                <div class="wt-kpi-name">Total Revenue</div>
+                <div class="wt-kpi-sub">confirmed orders</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-2" t-on-click="onClickOrders" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-check-circle"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.confirmed_orders"/></div>
+                <div class="wt-kpi-name">Confirmed Orders</div>
+                <div class="wt-kpi-sub">sale + done</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-3" t-on-click="onClickAvgOrder" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-calculator"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.avg_order_value"/></div>
+                <div class="wt-kpi-name">Avg Order Value</div>
+                <div class="wt-kpi-sub">per confirmed order</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-4" t-on-click="onClickQuotations" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-file-text-o"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.quotations"/></div>
+                <div class="wt-kpi-name">Quotations</div>
+                <div class="wt-kpi-sub">draft + sent</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-5" t-on-click="onClickCustomers" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-users"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.customers"/></div>
+                <div class="wt-kpi-name">Customers</div>
+                <div class="wt-kpi-sub">distinct buyers</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-6" t-on-click="onClickItems" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-cubes"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.items_sold"/></div>
+                <div class="wt-kpi-name">Items Sold</div>
+                <div class="wt-kpi-sub">total quantity</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-7" t-on-click="onClickConversion" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-percent"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.conversion_rate"/></div>
+                <div class="wt-kpi-name">Conversion Rate</div>
+                <div class="wt-kpi-sub">quote to order</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-8" t-on-click="onClickTax" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-university"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.tax_collected"/></div>
+                <div class="wt-kpi-name">Tax Collected</div>
+                <div class="wt-kpi-sub">all confirmed orders</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-9" t-on-click="onClickDelivery" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-truck"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.pending_delivery"/></div>
+                <div class="wt-kpi-name">Pending Delivery</div>
+                <div class="wt-kpi-sub">awaiting shipment</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wt-tabs">
+        <button t-att-class="'wt-tab' + (state.active_tab==='overview'      ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('overview')"><i class="fa fa-home"/> Overview</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='products'      ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('products')"><i class="fa fa-cube"/> Products</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='customers'     ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('customers')"><i class="fa fa-users"/> Customers</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='salespersons'  ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('salespersons')"><i class="fa fa-user"/> Salespersons</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='performance'   ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('performance')"><i class="fa fa-bar-chart"/> Performance</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='comparison'    ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('comparison')"><i class="fa fa-balance-scale"/> Comparison</button>
+    </div>
+
+    <!-- TAB: OVERVIEW -->
+    <div t-if="state.active_tab === 'overview'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-area-chart"/> Sales Trend</span>
+                    <span class="wt-card-hint">Revenue over time</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:280px"><canvas id="sale_chart_trend"/></div>
+            </div>
+        </div>
+        <div class="wt-row">
+            <div class="wt-card wt-flex-3">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-clock-o"/> Recent Orders</span>
+                    <button class="wt-btn-export" t-on-click="exportOrders"><i class="fa fa-download"/> Export CSV</button>
+                </div>
+                <div class="wt-table-scroll">
+                    <table class="wt-table">
+                        <thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Subtotal</th><th>Total</th><th>Status</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.recent_orders" t-as="o" t-key="o.name">
+                                <tr t-on-click="() => this.onRowClick(o.id)" style="cursor:pointer">
+                                    <td class="wt-td-muted"><t t-esc="o.name"/></td>
+                                    <td><t t-esc="o.customer"/></td>
+                                    <td class="wt-td-muted"><t t-esc="o.date"/></td>
+                                    <td><t t-esc="o.subtotal"/></td>
+                                    <td class="wt-pos"><t t-esc="o.total"/></td>
+                                    <td><span t-att-class="'wt-badge wt-badge-' + o.state.toLowerCase()"><t t-esc="o.state"/></span></td>
+                                </tr>
+                            </t>
+                            <tr t-if="!state.recent_orders.length"><td colspan="6" class="wt-empty">No orders in this period</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: PRODUCTS -->
+    <div t-if="state.active_tab === 'products'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-bar-chart"/> Top 10 Products by Qty</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:340px"><canvas id="sale_chart_prod_qty"/></div>
+            </div>
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-usd"/> Top 10 Products by Revenue</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:340px"><canvas id="sale_chart_prod_rev"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: CUSTOMERS -->
+    <div t-if="state.active_tab === 'customers'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-bar-chart"/> Top 10 Customers by Revenue</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="sale_chart_customers"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: SALESPERSONS -->
+    <div t-if="state.active_tab === 'salespersons'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-2">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-bar-chart"/> Salesperson Performance</span></div>
+                <div class="wt-chart-wrap" style="height:300px"><canvas id="sale_chart_salesperson"/></div>
+            </div>
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-user"/> Salesperson Stats</span>
+                    <button class="wt-btn-export" t-on-click="exportSalespersons"><i class="fa fa-download"/> Export CSV</button>
+                </div>
+                <div class="wt-table-scroll">
+                    <table class="wt-table">
+                        <thead><tr><th>#</th><th>Name</th><th>Orders</th><th>Revenue</th><th>Avg</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.salesperson_stats" t-as="s" t-key="s.name">
+                                <tr>
+                                    <td class="wt-td-rank"><t t-esc="s_index + 1"/></td>
+                                    <td><t t-esc="s.name"/></td>
+                                    <td class="wt-td-center"><t t-esc="s.orders"/></td>
+                                    <td class="wt-pos"><t t-esc="s.revenue"/></td>
+                                    <td class="wt-td-muted"><t t-esc="s.avg"/></td>
+                                </tr>
+                            </t>
+                            <tr t-if="!state.salesperson_stats.length"><td colspan="5" class="wt-empty">No data</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: PERFORMANCE -->
+    <div t-if="state.active_tab === 'performance'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-line-chart"/> Sales Revenue Trend</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:340px"><canvas id="sale_chart_perf_trend"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: COMPARISON -->
+    <div t-if="state.active_tab === 'comparison'">
+        <div t-if="state.comparison_data">
+            <div class="wt-comparison-summary">
+                <t t-foreach="state.comparison_data.metrics" t-as="m" t-key="m.name">
+                    <div class="wt-cmp-card">
+                        <div class="wt-cmp-metric"><t t-esc="m.name"/></div>
+                        <div class="wt-cmp-current"><t t-esc="m.current"/></div>
+                        <div class="wt-cmp-prev">vs <t t-esc="m.prev"/></div>
+                        <div t-if="m.pct !== null" t-att-class="'wt-cmp-pct-' + (m.pct >= 0 ? 'up' : 'down')">
+                            <i t-att-class="'fa fa-' + (m.pct >= 0 ? 'arrow-up' : 'arrow-down')"/>
+                            <t t-esc="Math.abs(m.pct)"/>%
+                        </div>
+                    </div>
+                </t>
+            </div>
+            <div class="wt-row">
+                <div class="wt-card wt-flex-1">
+                    <div class="wt-card-head">
+                        <span class="wt-card-title"><i class="fa fa-balance-scale"/> Sales Comparison</span>
+                        <span class="wt-card-hint"><t t-esc="state.comparison_data.current_label"/> vs <t t-esc="state.comparison_data.prev_label"/></span>
+                    </div>
+                    <div class="wt-chart-wrap" style="height:280px"><canvas id="sale_chart_comparison"/></div>
+                </div>
+            </div>
+        </div>
+        <div t-if="!state.comparison_data" class="wt-empty">Loading comparison data...</div>
+    </div>
+
+</div>
+</div>
+</t>
+</templates>

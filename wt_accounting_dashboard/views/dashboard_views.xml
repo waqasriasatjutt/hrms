@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_accounting_dashboard" model="ir.actions.client">
+        <field name="name">Accounting Dashboard</field>
+        <field name="tag">AccountingDashboard</field>
+    </record>
+
+    <menuitem id="wt_accounting_dashboard_root"
+              name="Accounting Analytics"
+              sequence="15"
+              web_icon="wt_accounting_dashboard,static/description/icon.png"
+              groups="account.group_account_manager,account.group_account_user"/>
+
+    <menuitem id="wt_accounting_dashboard_menu"
+              name="Dashboard"
+              parent="wt_accounting_dashboard_root"
+              action="action_accounting_dashboard"
+              sequence="1"/>
+</odoo>

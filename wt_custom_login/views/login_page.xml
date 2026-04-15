@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Override the login form — clean fields, gold button -->
+    <template id="login_page_form" inherit_id="web.login" name="Custom Login Form">
+        <xpath expr="//form[contains(@t-attf-class,'oe_login_form')]" position="replace">
+            <form t-attf-class="oe_login_form #{'' if login else 'd-none'}" role="form"
+                  t-attf-action="/web/login" method="post"
+                  onsubmit="this.action = '/web/login' + location.hash">
+
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                <div class="mb-3" t-if="databases and len(databases) &gt; 1">
+                    <label for="db" class="col-form-label">Database</label>
+                    <div class="input-group">
+                        <input type="text" name="db" t-att-value="request.db" id="db"
+                               class="form-control" required="required" readonly="readonly"/>
+                        <a role="button" href="/web/database/selector" class="btn btn-secondary">
+                            Select <i class="fa fa-database" role="img" aria-label="Database" title="Database"/>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mb-3 field-login">
+                    <label for="login" class="form-label">Email</label>
+                    <input type="text" placeholder="Email" name="login"
+                           t-att-value="login" id="login" class="form-control"
+                           required="required" autocapitalize="off" autocomplete="username"/>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" placeholder="Password" name="password" id="password"
+                           class="form-control" required="required"
+                           autocomplete="current-password"
+                           t-att-autofocus="'autofocus' if login else None"
+                           maxlength="4096"/>
+                </div>
+
+                <p class="alert alert-danger" t-if="error" role="alert">
+                    <t t-out="error"/>
+                </p>
+                <p class="alert alert-success" t-if="message" role="status">
+                    <t t-out="message"/>
+                </p>
+
+                <div class="oe_login_buttons d-grid gap-1 mb-1 pt-2">
+                    <button type="submit"
+                            style="background-color:#fdc444; border-color:#e6b03d; color:#1a1a1a; font-weight:600;"
+                            class="btn btn-primary w-100">Log in</button>
+                    <t t-if="debug">
+                        <button type="submit" name="redirect" value="/web/become"
+                                class="btn btn-link btn-sm">Log in as superuser</button>
+                    </t>
+                    <div class="o_login_auth"/>
+                </div>
+
+                <input type="hidden" name="type" value="password"/>
+                <input type="hidden" name="redirect" t-att-value="redirect"/>
+            </form>
+        </xpath>
+    </template>
+
+
+    <!-- Override the login layout — two-column split screen -->
+    <template id="login_page_layout" inherit_id="web.login_layout" name="Custom Login Layout">
+        <xpath expr="//div[hasclass('container','py-5')]" position="replace">
+            <div style="display:flex; min-height:100vh; width:100%;">
+
+                <!-- Left panel: icon.png as full-height background -->
+                <div style="
+                    width:50%;
+                    min-height:100vh;
+                    background-image: url('/wt_custom_login/static/description/icon.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-color: #1a1a2e;
+                    flex-shrink: 0;
+                "/>
+
+                <!-- Right panel: vertically centered narrow card -->
+                <div style="
+                    width:50%;
+                    min-height:100vh;
+                    background-color:#f6f6f7;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    padding:40px 24px;
+                ">
+                    <!-- Card — this is what controls field width -->
+                    <div style="
+                        width:100%;
+                        max-width:360px;
+                        background:#ffffff;
+                        border-radius:12px;
+                        padding:36px 32px;
+                        box-shadow:0 2px 20px rgba(0,0,0,0.08);
+                    ">
+                        <div class="text-center pb-3 border-bottom mb-4">
+                            <h4 style="color:#1a1a1a; font-weight:700; margin:0;">
+                                Sign in to <t t-out="env.company.name"/>
+                            </h4>
+                        </div>
+
+                        <t t-out="0"/>
+
+                        <div class="text-center small mt-4 pt-3 border-top"
+                             t-if="not disable_footer">
+                            <a href="https://www.odoo.com" target="_blank" style="color:#888;">
+                                Powered by <span><t t-out="env.company.name"/></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

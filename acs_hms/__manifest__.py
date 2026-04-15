@@ -75,7 +75,7 @@
     'support': 'info@almightycs.com',
     'website': 'https://www.almightycs.com',
     'license': 'OPL-1',
-    'depends': ['hr', 'account', 'product', 'stock'],
+    'depends': ['hr', 'account', 'product', 'stock', 'web_timer_widget'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',

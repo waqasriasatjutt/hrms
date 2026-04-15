@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="ProjectDashboard">
+<div class="wt-proj-dashboard">
+<div class="wt-scroll-body">
+
+    <div class="wt-topbar">
+        <div class="wt-topbar-left">
+            <i class="fa fa-tasks wt-logo-icon"/>
+            <div>
+                <div class="wt-title">Project Analytics</div>
+                <div class="wt-subtitle" t-if="state.period_label"><t t-esc="state.period_label"/></div>
+            </div>
+        </div>
+        <div class="wt-filters">
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">Project</label>
+                <select class="wt-select" t-on-change="onProjectChange">
+                    <option value="">All Projects</option>
+                    <t t-foreach="state.project_options" t-as="proj" t-key="proj.id">
+                        <option t-att-value="proj.id" t-att-selected="state.selected_project == proj.id"><t t-esc="proj.name"/></option>
+                    </t>
+                </select>
+            </div>
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">Period</label>
+                <select class="wt-select" t-on-change="onPeriodChange">
+                    <t t-foreach="state.period_options" t-as="opt" t-key="opt.key">
+                        <option t-att-value="opt.key" t-att-selected="state.period === opt.key"><t t-esc="opt.label"/></option>
+                    </t>
+                </select>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">From</label>
+                <input type="date" class="wt-input-date" t-model="state.date_from" t-on-change="onCustomDateChange"/>
+            </div>
+            <div class="wt-filter-group" t-if="state.show_custom">
+                <label class="wt-filter-label">To</label>
+                <input type="date" class="wt-input-date" t-model="state.date_to" t-on-change="onCustomDateChange"/>
+            </div>
+            <button class="wt-btn-refresh" t-on-click="refresh">
+                <i class="fa fa-refresh" t-att-class="{'fa-spin': state.loading}"/>
+                <span>Refresh</span>
+            </button>
+            <span class="wt-last-updated" t-if="state.last_updated">Updated <t t-esc="state.last_updated"/></span>
+        </div>
+    </div>
+
+    <div class="wt-loading-bar" t-if="state.loading"/>
+
+    <!-- KPI Cards -->
+    <div class="wt-kpi-grid">
+        <div class="wt-kpi wt-kpi-1" t-on-click="onClickProjects" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-folder-open"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.active_projects"/></div>
+                <div class="wt-kpi-name">Active Projects</div>
+                <div class="wt-kpi-sub">in progress</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-2" t-on-click="onClickTasks" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-list-ul"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.total_tasks"/></div>
+                <div class="wt-kpi-name">Total Tasks</div>
+                <div class="wt-kpi-sub">active tasks</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-3" t-on-click="onClickDone" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-check-circle"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.done_tasks"/></div>
+                <div class="wt-kpi-name">Done Tasks</div>
+                <div class="wt-kpi-sub"><t t-esc="state.completion_pct"/> complete</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-4" t-on-click="onClickOverdue" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-exclamation-triangle"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.overdue_tasks"/></div>
+                <div class="wt-kpi-name">Overdue Tasks</div>
+                <div class="wt-kpi-sub">past deadline</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-5" t-on-click="onClickDueToday" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-clock-o"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.due_today"/></div>
+                <div class="wt-kpi-name">Due Today</div>
+                <div class="wt-kpi-sub">deadline today</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-6" t-on-click="onClickTeam" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-users"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.team_members"/></div>
+                <div class="wt-kpi-name">Team Members</div>
+                <div class="wt-kpi-sub">assigned users</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-7" t-on-click="onClickNoDeadline" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-calendar-times-o"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.no_deadline"/></div>
+                <div class="wt-kpi-name">No Deadline</div>
+                <div class="wt-kpi-sub">open tasks</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-8" t-on-click="onClickPriority" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-flag"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.high_priority"/></div>
+                <div class="wt-kpi-name">High Priority</div>
+                <div class="wt-kpi-sub">urgent tasks</div>
+            </div>
+        </div>
+        <div class="wt-kpi wt-kpi-9" t-on-click="onClickCreated" style="cursor:pointer">
+            <div class="wt-kpi-icon"><i class="fa fa-plus-circle"/></div>
+            <div class="wt-kpi-data">
+                <div class="wt-kpi-val"><t t-esc="state.created_period"/></div>
+                <div class="wt-kpi-name">Created This Period</div>
+                <div class="wt-kpi-sub">new tasks</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="wt-tabs">
+        <button t-att-class="'wt-tab' + (state.active_tab==='overview'    ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('overview')"><i class="fa fa-home"/> Overview</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='stages'      ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('stages')"><i class="fa fa-columns"/> By Stage</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='assignees'   ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('assignees')"><i class="fa fa-user"/> By Assignee</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='completion'  ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('completion')"><i class="fa fa-bar-chart"/> Completion</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='overdue'     ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('overdue')"><i class="fa fa-exclamation-circle"/> Overdue</button>
+        <button t-att-class="'wt-tab' + (state.active_tab==='comparison'  ? ' wt-tab-active' : '')" t-on-click="() => this.setTab('comparison')"><i class="fa fa-balance-scale"/> Comparison</button>
+    </div>
+
+    <!-- TAB: OVERVIEW -->
+    <div t-if="state.active_tab === 'overview'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-area-chart"/> Task Creation Trend</span>
+                    <span class="wt-card-hint">Tasks created over time</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:280px"><canvas id="proj_chart_trend"/></div>
+            </div>
+        </div>
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head"><span class="wt-card-title"><i class="fa fa-clock-o"/> Recent Tasks</span><button class="wt-btn-export" t-on-click="exportTasks"><i class="fa fa-download"/> Export CSV</button></div>
+                <div class="wt-table-scroll">
+                    <table class="wt-table">
+                        <thead><tr><th>Task</th><th>Project</th><th>Stage</th><th>Assignee</th><th>Deadline</th><th>Pri</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.recent_tasks" t-as="t_" t-key="t_.name">
+                                <tr t-on-click="() => this.onRowClick(t_.id)" style="cursor:pointer">
+                                    <td><t t-esc="t_.name"/></td>
+                                    <td class="wt-td-muted"><t t-esc="t_.project"/></td>
+                                    <td><span class="wt-badge wt-badge-stage"><t t-esc="t_.stage"/></span></td>
+                                    <td class="wt-td-muted"><t t-esc="t_.assignee"/></td>
+                                    <td class="wt-td-muted"><t t-esc="t_.deadline"/></td>
+                                    <td><t t-esc="t_.priority"/></td>
+                                </tr>
+                            </t>
+                            <tr t-if="!state.recent_tasks.length"><td colspan="6" class="wt-empty">No tasks in this period</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: BY STAGE -->
+    <div t-if="state.active_tab === 'stages'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-pie-chart"/> Tasks by Stage</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="proj_chart_stages"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: BY ASSIGNEE -->
+    <div t-if="state.active_tab === 'assignees'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-users"/> Tasks by Assignee</span>
+                    <span class="wt-card-hint">Top 10 team members</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="proj_chart_assignees"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: COMPLETION -->
+    <div t-if="state.active_tab === 'completion'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-bar-chart"/> Project Completion Rates</span>
+                    <span class="wt-card-hint">Top 10 projects</span>
+                </div>
+                <div class="wt-chart-wrap" style="height:360px"><canvas id="proj_chart_completion"/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: OVERDUE -->
+    <div t-if="state.active_tab === 'overdue'">
+        <div class="wt-row">
+            <div class="wt-card wt-flex-1">
+                <div class="wt-card-head">
+                    <span class="wt-card-title"><i class="fa fa-exclamation-circle"/> Overdue Tasks</span>
+                    <span class="wt-card-hint">Past deadline, not completed</span>
+                    <button class="wt-btn-export" t-on-click="exportOverdue"><i class="fa fa-download"/> Export CSV</button>
+                </div>
+                <div class="wt-table-scroll">
+                    <table class="wt-table">
+                        <thead><tr><th>Task</th><th>Project</th><th>Deadline</th><th>Assignee</th><th>Pri</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.overdue_list" t-as="o" t-key="o.name">
+                                <tr t-on-click="() => this.onRowClick(o.id)" style="cursor:pointer">
+                                    <td><t t-esc="o.name"/></td>
+                                    <td class="wt-td-muted"><t t-esc="o.project"/></td>
+                                    <td class="wt-neg"><t t-esc="o.deadline"/></td>
+                                    <td class="wt-td-muted"><t t-esc="o.assignee"/></td>
+                                    <td><t t-esc="o.priority"/></td>
+                                </tr>
+                            </t>
+                            <tr t-if="!state.overdue_list.length"><td colspan="5" class="wt-empty">No overdue tasks</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: COMPARISON -->
+    <div t-if="state.active_tab === 'comparison'">
+        <div t-if="state.comparison_data">
+            <div class="wt-row">
+                <div class="wt-card wt-flex-1">
+                    <div class="wt-card-head">
+                        <span class="wt-card-title"><i class="fa fa-balance-scale"/> Task Creation Comparison</span>
+                        <span class="wt-card-hint"><t t-esc="state.comparison_data.current_label"/> vs <t t-esc="state.comparison_data.prev_label"/></span>
+                    </div>
+                    <div class="wt-chart-wrap" style="height:300px"><canvas id="proj_chart_comparison"/></div>
+                </div>
+            </div>
+        </div>
+        <div t-if="!state.comparison_data" class="wt-empty">Loading comparison data...</div>
+    </div>
+
+</div>
+</div>
+</t>
+</templates>
