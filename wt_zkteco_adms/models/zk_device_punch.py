@@ -200,6 +200,12 @@ class ZkDevicePunch(models.Model):
         })
 
     def action_reprocess(self):
-        for rec in self:
+        """Reprocess these punches into hr.attendance.
+
+        Pairing depends on chronological order — always process oldest first,
+        otherwise every new punch opens a fresh attendance because there's no
+        prior session to close.
+        """
+        for rec in self.sorted('punch_time'):
             rec._process_to_attendance()
         return True
