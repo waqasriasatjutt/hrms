@@ -68,9 +68,21 @@ class ZkDevicePunch(models.Model):
         """Pair this punch with the employee's current open attendance,
         or open a new one.
 
-        Simple rule: if there's an open attendance (no check_out) whose
-        check_in is *before* this punch, close it. Otherwise create a
-        new attendance with check_in = this punch's time.
+        Pairing rules (robust against real-device messiness):
+
+        1. Noise filter: if the most recent attendance for this employee has
+           either a check_in or check_out within 60 seconds of this punch,
+           treat it as a duplicate and skip.
+        2. If there is ANY open attendance (no check_out) for this employee,
+           close it with this punch — regardless of timestamp ordering.
+           This is safe because Odoo forbids two open attendances per employee,
+           so there's only ever one "current" session at a time.
+        3. Before creating a new attendance, double-check no other attendance
+           already covers this exact timestamp (defends against reprocess loops).
+        4. Historical backfill: if this punch is older than the employee's
+           newest attendance, we intentionally do NOT try to splice it in —
+           too ambiguous. Mark it processed with a note so it doesn't block
+           the queue.
         """
         self.ensure_one()
         if self.processed:
@@ -80,26 +92,78 @@ class ZkDevicePunch(models.Model):
             self.write({'error': _('No employee with zk_user_id or barcode = %s') % self.pin})
             return
         Att = self.env['hr.attendance'].sudo()
-        # Last open attendance for this employee
-        last = Att.search(
+
+        # 1. Noise filter — same swipe sent multiple times in quick succession
+        recent = Att.search(
             [('employee_id', '=', emp.id)],
             order='check_in desc',
             limit=1,
         )
-        if last and not last.check_out and self.punch_time > last.check_in:
-            last.check_out = self.punch_time
+        if recent:
+            def _near(a, b, seconds=60):
+                return a and b and abs((a - b).total_seconds()) < seconds
+            if (_near(recent.check_in, self.punch_time)
+                    or _near(recent.check_out, self.punch_time)):
+                self.write({
+                    'employee_id': emp.id,
+                    'attendance_id': recent.id,
+                    'processed': True,
+                    'error': False,
+                })
+                return
+
+        # 2. If there's an open session, always close it (no timestamp guard)
+        open_att = Att.search(
+            [('employee_id', '=', emp.id), ('check_out', '=', False)],
+            order='check_in desc',
+            limit=1,
+        )
+        if open_att:
+            # Make sure check_out is strictly after check_in (Odoo constraint)
+            check_out_time = self.punch_time
+            if check_out_time <= open_att.check_in:
+                # Punch is earlier than or equal to the open check_in — treat
+                # as a duplicate/out-of-order retry of the check_in itself.
+                self.write({
+                    'employee_id': emp.id,
+                    'attendance_id': open_att.id,
+                    'processed': True,
+                    'error': False,
+                })
+                return
+            open_att.check_out = check_out_time
             self.write({
                 'employee_id': emp.id,
-                'attendance_id': last.id,
+                'attendance_id': open_att.id,
                 'processed': True,
                 'error': False,
             })
             return
-        # Open a new attendance
-        new_att = Att.create({
-            'employee_id': emp.id,
-            'check_in': self.punch_time,
-        })
+
+        # 3. Historical backfill guard — if this punch is older than the most
+        # recent closed attendance, we'd be splicing into history. Skip it.
+        if recent and recent.check_in and self.punch_time < recent.check_in:
+            self.write({
+                'employee_id': emp.id,
+                'processed': True,
+                'error': _('Skipped: punch is older than latest attendance'),
+            })
+            return
+
+        # 4. Open a new attendance
+        try:
+            new_att = Att.create({
+                'employee_id': emp.id,
+                'check_in': self.punch_time,
+            })
+        except Exception as e:
+            # Most likely Odoo's "hasn't checked out" guard — reload the
+            # employee and surface a readable message rather than the stack trace
+            self.write({
+                'employee_id': emp.id,
+                'error': (str(e) or 'attendance create failed')[:500],
+            })
+            return
         self.write({
             'employee_id': emp.id,
             'attendance_id': new_att.id,

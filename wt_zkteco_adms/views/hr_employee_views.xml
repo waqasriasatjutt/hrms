@@ -6,7 +6,9 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='barcode']" position="after">
+            <!-- Add ZKTeco User ID as its own row in the identification group
+                 (HR Settings tab), right after the PIN code field. -->
+            <xpath expr="//group[@name='identification_group']/field[@name='pin']" position="after">
                 <field name="zk_user_id"/>
             </xpath>
         </field>
