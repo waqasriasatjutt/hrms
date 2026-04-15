@@ -4,9 +4,9 @@ import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
 
-const P = ["#7C3AED","#2563EB","#059669","#D97706","#DC2626",
-           "#0891B2","#DB2777","#65A30D","#EA580C","#6366F1",
-           "#14B8A6","#F59E0B","#8B5CF6","#EF4444","#06B6D4"];
+const P = ["#6C47FF","#06B6D4","#8B5CF6","#0891B2","#A855F7",
+           "#7C3AED","#0E7490","#C026D3","#4F46E5","#2DD4BF",
+           "#6366F1","#67E8F9","#818CF8","#5EEAD4","#E879A3"];
 
 function grad(ctx, color, a1 = "CC", a2 = "08") {
     const g = ctx.createLinearGradient(0, 0, 0, 350);
@@ -55,6 +55,7 @@ export class PosDashboard extends Component {
 
             loading: true,
             active_tab: "overview",
+            last_updated: "",
         });
 
         onWillStart(async () => {
@@ -70,6 +71,9 @@ export class PosDashboard extends Component {
         onMounted(async () => {
             this.state.loading = false;
             await this._renderTabCharts("overview");
+            this._autoRefreshTimer = setInterval(async () => {
+                if (!this.state.loading) await this._applyFilters();
+            }, 5 * 60 * 1000);
         });
     }
 
@@ -123,6 +127,8 @@ export class PosDashboard extends Component {
         this.state.recent_orders    = recent;
         this.state.session_status   = sessions;
         this.state.new_vs_returning = nvr;
+        const now = new Date();
+        this.state.last_updated = now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
     }
 
     // ── Tab management ────────────────────────────────────────────────────────

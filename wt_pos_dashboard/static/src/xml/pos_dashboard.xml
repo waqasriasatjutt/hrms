@@ -53,14 +53,24 @@
                 </select>
             </div>
             <!-- Refresh + Export -->
-            <button class="wt-btn-refresh" t-on-click="refresh">
-                <i class="fa fa-refresh" t-att-class="{'fa-spin': state.loading}"/>
-                <span class="wt-btn-label">Refresh</span>
-            </button>
-            <button class="wt-btn-export" t-on-click="onExportCSV">
-                <i class="fa fa-download"/>
-                <span class="wt-btn-label">Export CSV</span>
-            </button>
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">&#160;</label>
+                <button class="wt-btn-refresh" t-on-click="refresh">
+                    <i class="fa fa-refresh" t-att-class="{'fa-spin': state.loading}"/>
+                    <span class="wt-btn-label">Refresh</span>
+                </button>
+            </div>
+            <div class="wt-filter-group">
+                <label class="wt-filter-label">&#160;</label>
+                <button class="wt-btn-export" t-on-click="onExportCSV">
+                    <i class="fa fa-download"/>
+                    <span class="wt-btn-label">Export CSV</span>
+                </button>
+            </div>
+            <div class="wt-filter-group" t-if="state.last_updated">
+                <label class="wt-filter-label">&#160;</label>
+                <span class="wt-last-updated"><i class="fa fa-clock-o"/> <t t-esc="state.last_updated"/></span>
+            </div>
         </div>
     </div>
 
