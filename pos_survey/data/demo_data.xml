@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="pos_survey_record1" model="survey.survey">
+            <field name="title">POS Survey</field>
+            <field name="survey_type">pos_survey</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="scoring_type">no_scoring</field>
+            <field name="certification" eval="False"/>
+            <field name="is_time_limited" eval="False"/>
+            <field name="session_speed_rating" eval="False"/>
+        </record>
+
+        <!-- questions -->
+        <record id="pos_question_record1" model="survey.question">
+            <field name="title">Simple Choice</field>
+            <field name="question_type">simple_choice</field>
+            <field name="pos_question_type">simple_choice</field>
+            <field name="is_page" eval="False"/>
+            <field name="survey_id" ref="pos_survey.pos_survey_record1"/>
+        </record>
+        <record id="pos_question_record2" model="survey.question">
+            <field name="title">Text</field>
+            <field name="question_type">char_box</field>
+            <field name="pos_question_type">char_box</field>
+            <field name="is_page" eval="False"/>
+            <field name="survey_id" ref="pos_survey.pos_survey_record1"/>
+        </record>
+        <record id="pos_question_record3" model="survey.question">
+            <field name="title">Multi Line Text</field>
+            <field name="question_type">text_box</field>
+            <field name="pos_question_type">text_box</field>
+            <field name="is_page" eval="False"/>
+            <field name="survey_id" ref="pos_survey.pos_survey_record1"/>
+        </record>
+        <record id="pos_question_record4" model="survey.question">
+            <field name="title">Number</field>
+            <field name="question_type">numerical_box</field>
+            <field name="pos_question_type">numerical_box</field>
+            <field name="is_page" eval="False"/>
+            <field name="survey_id" ref="pos_survey.pos_survey_record1"/>
+        </record>
+
+        <!-- options -->
+        <record id="pos_option_record1" model="survey.question.answer">
+            <field name="value">Choice 1</field>
+            <field name="question_id" ref="pos_survey.pos_question_record1"/>
+        </record>
+        <record id="pos_option_record2" model="survey.question.answer">
+            <field name="value">Choice 2</field>
+            <field name="question_id" ref="pos_survey.pos_question_record1"/>
+        </record>
+        <record id="pos_option_record3" model="survey.question.answer">
+            <field name="value">Choice 3</field>
+            <field name="question_id" ref="pos_survey.pos_question_record1"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Tree para Respuestas de Redención Leal -->
+    <record id="view_leal_redeem_response_tree" model="ir.ui.view">
+        <field name="name">leal.redeem.response.tree</field>
+        <field name="model">leal.redeem.response</field>
+        <field name="arch" type="xml">
+            <list string="Respuestas de Redención" decoration-success="state=='success'" decoration-danger="state=='error'" decoration-warning="state=='invalid_otp'">
+                <field name="create_date" string="Fecha"/>
+                <field name="code" string="Código"/>
+                <field name="state" string="Estado"/>
+                <field name="no_factura" string="Factura"/>
+                <field name="id_transaccion" string="ID Transacción"/>
+                <field name="puntos" string="Puntos"/>
+                <field name="puntos_activos" string="Puntos Activos"/>
+                <field name="uid_customer" string="Cliente"/>
+                <field name="valor_redencion" string="Valor" sum="Total"/>
+                <field name="message" string="Mensaje"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Form para Respuestas de Redención Leal -->
+    <record id="view_leal_redeem_response_form" model="ir.ui.view">
+        <field name="name">leal.redeem.response.form</field>
+        <field name="model">leal.redeem.response</field>
+        <field name="arch" type="xml">
+            <form string="Respuesta de Redención" class="o_leal_redeem_response_form">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="success,error,invalid_otp,other"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="no_factura" placeholder="Número de Factura" readonly="1"/>
+                        </h1>
+                        <h2>
+                            Código: <field name="code" readonly="1"/>
+                        </h2>
+                    </div>
+
+                    <group>
+                        <group string="Información de la Transacción">
+                            <field name="id_transaccion" readonly="1"/>
+                            <field name="create_date" readonly="1"/>
+                            <field name="create_uid" readonly="1"/>
+                        </group>
+                        <group string="Puntos">
+                            <field name="puntos" readonly="1"/>
+                            <field name="puntos_activos" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Información del Cliente">
+                            <field name="uid_customer" readonly="1"/>
+                            <field name="valor_redencion" readonly="1"/>
+                        </group>
+                        <group string="Información del Premio">
+                            <field name="id_premio" readonly="1"/>
+                            <field name="codigo_premio" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Información del Comercio">
+                            <field name="id_comercio" readonly="1"/>
+                            <field name="id_sucursal" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group string="Mensaje">
+                        <field name="message" readonly="1" nolabel="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Respuesta JSON Completa">
+                            <field name="response_json" readonly="1" widget="text" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search para Respuestas de Redención Leal -->
+    <record id="view_leal_redeem_response_search" model="ir.ui.view">
+        <field name="name">leal.redeem.response.search</field>
+        <field name="model">leal.redeem.response</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Respuestas de Redención">
+                <field name="no_factura" string="Factura"/>
+                <field name="code" string="Código"/>
+                <field name="id_transaccion" string="ID Transacción"/>
+                <field name="uid_customer" string="Cliente"/>
+                <field name="message" string="Mensaje"/>
+
+                <filter name="success" string="Exitosos" domain="[('state', '=', 'success')]"/>
+                <filter name="errors" string="Errores" domain="[('state', '=', 'error')]"/>
+                <filter name="invalid_otp" string="OTP Inválido" domain="[('state', '=', 'invalid_otp')]"/>
+
+                <separator/>
+                <filter name="today" string="Hoy" domain="[('create_date', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
+                <filter name="this_week" string="Esta Semana" domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <filter name="this_month" string="Este Mes" domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+
+                <group expand="0" string="Agrupar por">
+                    <filter name="group_by_state" string="Estado" context="{'group_by': 'state'}"/>
+                    <filter name="group_by_code" string="Código" context="{'group_by': 'code'}"/>
+                    <filter name="group_by_date" string="Fecha" context="{'group_by': 'create_date:day'}"/>
+                    <filter name="group_by_customer" string="Cliente" context="{'group_by': 'uid_customer'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción para el menú -->
+    <record id="action_leal_redeem_response" model="ir.actions.act_window">
+        <field name="name">Respuestas de Redención</field>
+        <field name="res_model">leal.redeem.response</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No hay respuestas de redención registradas
+            </p>
+            <p>
+                Aquí se mostrarán todas las respuestas de las redenciones realizadas a través del sistema Leal.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú -->
+    <!-- <menuitem id="menu_leal_redeem_responses" name="Respuestas de Redención" parent="menu_leal_main" action="action_leal_redeem_response" sequence="30"/> -->
+
+</odoo>

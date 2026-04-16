@@ -1,0 +1,21 @@
+.digipay_class_qr_data {
+    padding: 5px;
+}
+
+.digipay-dialog {
+    top: 10% !important;
+    left: 50%;
+    position: absolute;
+}
+
+.class_inv_response_unpaid {
+    color: red;
+    display: block;
+    font-weight: normal;
+ }
+
+.class_inv_response_paid {
+    color: green;
+    display: block;
+    font-weight: normal;
+ }

@@ -1,0 +1,149 @@
+# 📌 Steps to delete pos_payment_method and account_journal with code 'PAYR'
+
+
+1. Open a terminal and access the database container:
+
+    docker exec -it odoo-vpc-db-1 bash
+
+2. Connect to PostgreSQL with user and database:
+
+    psql -U odoo -d Payrillium
+
+3. Execute the following SQL queries within the psql client:
+
+DELETE FROM pos_order
+WHERE session_id IN (
+    SELECT id FROM pos_session WHERE state = 'closed'
+);
+
+DELETE FROM pos_session
+WHERE state = 'closed';
+
+
+DELETE FROM pos_session
+WHERE config_id IN (
+    SELECT id FROM pos_config
+    WHERE journal_id IN (
+        SELECT id FROM account_journal WHERE code = 'PAYR'
+    )
+);
+    -- Delete payment methods associated with journal PAYR
+    DELETE FROM pos_payment_method
+    WHERE journal_id IN (
+        SELECT id FROM account_journal WHERE code = 'PAYR'
+    );
+
+    -- Delete the journal PAYR
+    DELETE FROM account_journal WHERE code = 'PAYR';
+
+4. Exit PostgreSQL:
+
+    \q
+
+5. Exit the Docker container:
+
+    exit
+
+
+
+
+    DELETE FROM pos_payment_method
+WHERE journal_id IN (
+    SELECT id FROM account_journal WHERE code = 'PAYR'
+);
+
+DELETE FROM account_journal WHERE code = 'PAYR';
+
+
+
+
+DELETE FROM pos_payment
+WHERE payment_method_id IN (
+    SELECT id FROM pos_payment_method
+    WHERE journal_id IN (
+        SELECT id FROM account_journal WHERE code = 'PAYR'
+    )
+);
+
+
+
+
+
+https://sn.mirillium.io/
+
+
+http://{{url}}/api/v1/get_terminals_by_customer?token={{token}}&code={{code}}
+
+
+
+A105
+6193354076942470
+
+
+
+
+-- 1. Delete all payments related to PAYR payment methods
+DELETE FROM pos_payment
+WHERE payment_method_id IN (
+    SELECT id FROM pos_payment_method
+    WHERE journal_id IN (
+        SELECT id FROM account_journal WHERE code = 'PAYR'
+    )
+);
+
+-- 2. Delete all POS orders (you can filter by session or delete all)
+DELETE FROM pos_order;
+
+-- 3. Delete all POS sessions
+DELETE FROM pos_session;
+
+-- 4. Delete payment methods linked to journal PAYR
+DELETE FROM pos_payment_method
+WHERE journal_id IN (
+    SELECT id FROM account_journal WHERE code = 'PAYR'
+);
+
+-- 5. Delete the journal PAYR
+DELETE FROM account_journal
+WHERE code = 'PAYR';
+
+
+
+docker exec -it odoo-vpc-db-1 psql -U odoo -d Payrillium
+-----------------------------------------
+-- 🔥 1. Delete payments from payment method 'PAYR'
+DELETE FROM pos_payment
+WHERE payment_method_id IN (
+    SELECT id FROM pos_payment_method
+    WHERE journal_id IN (
+        SELECT id FROM account_journal WHERE code = 'PAYR'
+    )
+);
+
+-- 🔥 2. Delete orphaned payments (without valid payment method)
+DELETE FROM pos_payment
+WHERE payment_method_id NOT IN (
+    SELECT id FROM pos_payment_method
+);
+
+-- 🔥 3. Delete orders without associated payments
+DELETE FROM pos_order
+WHERE id NOT IN (
+    SELECT DISTINCT pos_order_id FROM pos_payment
+);
+
+-- 🔥 4. Delete sessions without associated orders
+DELETE FROM pos_session
+WHERE id NOT IN (
+    SELECT DISTINCT session_id FROM pos_order
+);
+
+-- 🔥 5. Delete payment method associated with 'PAYR'
+DELETE FROM pos_payment_method
+WHERE journal_id IN (
+    SELECT id FROM account_journal WHERE code = 'PAYR'
+);
+
+-- 🔥 6. Delete the journal 'PAYR'
+DELETE FROM account_journal
+WHERE code = 'PAYR';

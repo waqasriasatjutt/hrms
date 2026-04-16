@@ -1,0 +1,90 @@
+<odoo>
+
+    <template id="template_profit_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <div class="page">
+                    <h2>Profit Margin Report</h2>
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Sales</th>
+                                <th>Cost</th>
+                                <th>Profit</th>
+                                <th>Margin %</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-foreach="products.items()" t-as="p">
+                                <tr>
+                                    <td>
+                                        <t t-esc="p[0].name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(p[1]['qty'])"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(p[1]['sale'])"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(p[1]['cost'])"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(p[1]['profit'])"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(p[1]['margin'])"/>
+                                        %
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </t>
+        </t>
+    </template>
+
+
+    <record id="paperformat_daily_sales" model="report.paperformat">
+        <field name="name">Daily Sales Report</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">52</field>
+        <field name="dpi">90</field>
+    </record>
+
+
+    <record id="action_profit_report" model="ir.actions.report">
+        <field name="name">Profit Margin Report</field>
+        <field name="model">profit.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">profit_margin_report.template_profit_report</field>
+        <field name="report_file">profit_margin_report.template_profit_report</field>
+        <field name="paperformat_id" ref="paperformat_daily_sales"/>
+    </record>
+
+
+    <record id="action_profit_report_xlsx" model="ir.actions.report">
+        <field name="name">Profit Margin Report XLSX</field>
+        <field name="model">profit.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">profit_margin_report.profit_margin_xlsx</field>
+    </record>
+
+
+</odoo>

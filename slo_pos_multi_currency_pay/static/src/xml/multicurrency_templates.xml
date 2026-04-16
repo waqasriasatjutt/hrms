@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="point_of_sale.PaymentScreenMethods"
+       t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('paymentmethods-container')]" position="replace">
+            <div class="paymentmethods-container overflow-y-auto flex-grow-1">
+                <t t-if="!state.showOptions">
+                    <div class="paymentmethods d-flex flex-column">
+                        <h4 class="title-category pt-3 pb-2 px-3 m-0 bg-view border-bottom border-2">Payment method</h4>
+                        <t t-foreach="payment_methods_from_config" t-as="paymentMethod" t-key="paymentMethod.id">
+                            <div class="button paymentmethod btn btn-light rounded-0 border-bottom"
+                                 t-on-click="() => this.addNewPaymentLine(paymentMethod)">
+                                <div class="payment-method-display d-flex align-items-center flex-grow-1">
+                                    <div>
+                                        <img class="payment-method-icon"
+                                             t-att-src="paymentMethodImage(paymentMethod.id)"/>
+                                    </div>
+                                    <span class="payment-name" t-esc="paymentMethod.name"/>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <PaymentScreenPaymentLines paymentLines="paymentLines" deleteLine.bind="deletePaymentLine"
+                                           sendForceDone.bind="sendForceDone"
+                                           sendPaymentReverse.bind="sendPaymentReverse"
+                                           sendPaymentCancel.bind="sendPaymentCancel"
+                                           sendPaymentRequest.bind="sendPaymentRequest"
+                                           selectLine.bind="selectPaymentLine"
+                                           updateSelectedPaymentline.bind="updateSelectedPaymentline"/>
+                </t>
+
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('paymentmethods-container')]" position="before">
+
+            <!-- Enable checkbox -->
+            <t t-if="state.enabled">
+                <div class="pos_multicurrency"
+                     style="display:flex; justify-content:center; align-items:center; gap:8px; margin:10px 0;">
+                    <input type="checkbox" t-on-click="toggleOptions"/>
+                    <h6 style="margin:0;">Allow Multi-Currency Pay</h6>
+                </div>
+            </t>
+
+            <!-- Multicurrency panel -->
+            <t t-if="state.showOptions">
+                <div class="multicurrency_container"
+                     style="
+                        display:flex;
+                        flex-direction:column;
+                        align-items:center;
+                        justify-content:center;
+                        gap:16px;
+                        padding:10px;
+                        border:1px solid #ccc;
+                        border-radius:8px;
+                        background:#f8f8f8;
+                        width:100%;
+                        max-width:100%;
+                        margin:0 auto;">
+
+                    <!-- Currency selector -->
+                    <div style="width:50%;">
+                        <select t-on-change="onCurrencyChange"
+                                style="width: 100%; padding:6px; border-radius:4px; text-align:center;">
+                            <option value="">Select Currency</option>
+                            <t t-foreach="state.currencies" t-as="cur" t-key="cur.id">
+                                <option t-att-value="cur.id">
+                                    <t t-esc="cur.display_name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+
+                    <!-- Conversion info -->
+                    <t t-if="state.currentCurrency">
+                        <div class="conversion_container"
+                             style="display:flex; flex-direction:column; align-items:center; gap:8px; width:100%;">
+
+                            <div class="rate_string" style="text-align:center; font-weight:500;">
+                                <t t-esc="state.currentCurrency.rate_string"/>
+                            </div>
+
+                            <div style="text-align:center;">
+                                Total Amount =
+                                <strong>
+                                    <t t-esc="convertedTotal.toFixed(2)"/>
+                                    <t t-esc="currencySymbol"/>
+                                </strong>
+                            </div>
+
+                            <!-- Remaining -->
+                            <t t-if="state.remainingForeign">
+                                <div class="remaining_container" style="text-align:center;">
+                                    <strong>Remaining = </strong>
+                                    <t t-esc="state.remainingForeign.toFixed(2)"/>
+                                    <t t-esc="currencySymbol"/>
+                                </div>
+                            </t>
+
+                            <!-- Change -->
+                            <t t-if="state.changeForeign">
+                                <div class="change_container" style="text-align:center;">
+                                    <strong>Change = </strong>
+                                    <t t-esc="state.changeForeign.toFixed(2)"/>
+                                    <t t-esc="currencySymbol"/>
+                                </div>
+                            </t>
+
+                            <!-- Payment input -->
+                            <div style="width:50%;">
+                                <div style="text-align:center; margin-bottom:4px;">Payment Amount</div>
+                                <input t-ref="multiCurrencyInput"
+                                       style="width: 100%; padding:6px; border-radius:4px; text-align:center;"/>
+                            </div>
+
+                            <!-- Add payment button -->
+                            <div class="button addpayment"
+                                 t-on-click="addMultiCurrencyPayment"
+                                 style="
+                                    margin-top:8px;
+                                    padding:10px 16px;
+                                    background:#2a7fff;
+                                    color:#fff;
+                                    font-weight:600;
+                                    text-align:center;
+                                    border-radius:6px;
+                                    cursor:pointer;
+                                    user-select:none;">
+                                Add Payment
+                            </div>
+
+                        </div>
+                    </t>
+
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

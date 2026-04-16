@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_pos_sequence" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit.pos.sequence</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']/setting[last()]" position="after">
+                <setting string="Order Line Sequence Number"
+                         help="Enable this option to show sequence numbers for order lines in the POS interface.">
+                    <field name="pos_show_sequence_number"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

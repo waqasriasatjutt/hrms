@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pos_product_import_wizard_form" model="ir.ui.view">
+        <field name="name">pos.product.import.wizard.form</field>
+        <field name="model">pos.product.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import POS Products from XLSX">
+                <sheet>
+                    <group>
+                        <group string="Upload File" invisible="state == 'done'">
+                            <field name="file_data" filename="file_name" widget="binary"
+                                   string="XLSX File"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                        <group string="Result" invisible="state == 'draft'">
+                            <field name="result_message" string="" nolabel="1"
+                                   widget="text" readonly="1"/>
+                        </group>
+                    </group>
+                    <group invisible="state == 'done'">
+                        <div class="alert alert-info" role="alert">
+                            <strong>Expected columns in the XLSX file (row 1 = headers):</strong>
+                            <ul>
+                                <li>Barcode <em>(required)</em></li>
+                                <li>Cost</li>
+                                <li>Sale Price <em>(required)</em></li>
+                                <li>Point of Sale Category</li>
+                                <li>Product Category</li>
+                                <li>Supplier</li>
+                                <li>Sale Taxes <em>(comma-separated names)</em></li>
+                                <li>Purchase Taxes <em>(comma-separated names)</em></li>
+                                <li>Available in POS <em>(true/false or yes/no or 1/0)</em></li>
+                            </ul>
+                            <p>Products are matched by Barcode. Existing products will be updated; new ones will be created.</p>
+                        </div>
+                    </group>
+                    <field name="state" invisible="1"/>
+                </sheet>
+                <footer>
+                    <button name="action_import" type="object" string="Import"
+                            class="btn-primary" invisible="state == 'done'"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pos_product_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import Products from XLSX</field>
+        <field name="res_model">pos.product.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

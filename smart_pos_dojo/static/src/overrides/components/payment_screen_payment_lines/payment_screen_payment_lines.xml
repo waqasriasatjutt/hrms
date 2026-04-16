@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='line and line.payment_status']/div" position="inside">
+            <t t-elif="line.payment_status == 'waitingDojo'">
+                <div class="electronic_status">
+                    Please ask the customer to continue the transaction on the Dojo payment terminal.
+                </div>
+                <div class="dojo-loader"/>
+                <div class="button send_payment_cancel_dojo" title="Cancel Payment Request" t-ref="testDojo"
+                     t-on-click="() => this.props.sendPaymentCancel(line)">
+                    Cancel
+                </div>
+            </t>
+            <t t-elif="line.payment_status == 'timedOut'">
+                <div class="electronic_status">
+                    Timed Out
+                </div>
+                <div class="button send_payment_request highlight text-bg-primary" title="Send Payment Request" t-on-click="() => this.props.sendPaymentRequest(line)">
+                    Retry
+                </div>
+                <div class="button send_payment_cancel_dojo" title="Cancel Payment Request" t-ref="testDojo"
+                     t-on-click="() => this.props.sendPaymentCancel(line)">
+                    Cancel
+                </div>
+            </t>
+            <t t-elif="line.payment_status == 'dojoDeclined'">
+                <div class="electronic_status">
+                    Declined
+                </div>
+                <div class="button send_payment_request highlight text-bg-primary" title="Send Payment Request" t-on-click="() => this.props.sendPaymentRequest(line)">
+                    Retry
+                </div>
+                <div class="button send_payment_cancel_dojo" title="Cancel Payment Request" t-ref="testDojo"
+                     t-on-click="() => this.props.sendPaymentCancel(line)">
+                    Cancel
+                </div>
+            </t>
+            <t t-elif="line.payment_status == 'dojoSignature'">
+                <div class="electronic_status">
+                    Please Validate The Signature
+                </div>
+                <div class="button signature_confirm_dojo highlight text-bg-primary" title="Confirm">
+                    Confirm
+                </div>
+                <div class="button signature_decline_dojo" title="Decline">
+                    Decline
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

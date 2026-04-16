@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_question_form" model="ir.ui.view">
+        <field name="name">pos.survey.question.form</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="pos_survey.survey_question_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="readonly">is_dynamic</attribute>
+            </xpath>
+            <xpath expr="//field[@name='question_type']" position="attributes">
+                <attribute name="readonly">is_dynamic</attribute>
+            </xpath>
+            <xpath expr="//page[@name='pos_options']//field[@name='constr_mandatory']" position="attributes">
+                <attribute name="invisible">is_dynamic</attribute>
+            </xpath>
+            <xpath expr="//field[@name='question_type']" position="after">
+                <field name="is_dynamic" invisible="survey_type!='pos_survey'"/>
+                <field name="dynamic_field_type" invisible="not is_dynamic or survey_type!='pos_survey'" required="is_dynamic"/>
+            </xpath>
+            <xpath expr="//sheet/group[2]/group[2]/div[1]" position="after">
+                    <div colspan="2" name="dynamic_time_field" invisible="dynamic_field_type!='time' or survey_type!='pos_survey'">
+                        The format must be <b>&lt;operator&gt;&lt;24h time format&gt;</b> or <b>&lt;24h time format&gt;&lt;operator&gt;&lt;24h time format&gt;</b>
+                        <br/>
+                        <span>Allowed operators:</span>
+                        <ul>
+                            <li><b>&gt;</b> greater than</li>
+                            <li><b>&lt;</b> less than</li>
+                            <li><b>&gt;=</b> greater than or equal to</li>
+                            <li><b>&lt;=</b> less than or equal to</li>
+                            <li><b>=</b> equal to</li>
+                        </ul>
+                        <span>Examples:</span>
+                        <ul>
+                            <li><b>&gt;15:00</b> evaluates to <b>greater than 15:00</b></li>
+                            <li><b>10:30&lt;&gt;13:00</b> evaluates to <b>between 10:30 and 13:00</b></li>
+                        </ul>
+                    </div>
+                    <div colspan="2" name="dynamic_guest_number_field" invisible="dynamic_field_type!='guest_number'">
+                        The format must be <b>&lt;operator&gt;&lt;Guest Number&gt; or &lt;Guest Number&gt;&lt;operator&gt;&lt;Guest Number&gt;</b>
+                        <span>Allowed operators:</span>
+                        <ul>
+                            <li><b>&gt;</b> greater than</li>
+                            <li><b>&lt;</b> less than</li>
+                            <li><b>&gt;=</b> greater than or equal to</li>
+                            <li><b>&lt;=</b> less than or equal to</li>
+                            <li><b>=</b> equal to</li>
+                        </ul>
+                        <span>Examples:</span>
+                        <ul>
+                            <li><b>&gt;1</b> evaluates to <b>greater than 1 guest</b></li>
+                            <li><b>5&lt;&gt;15</b> evaluates to <b>between 5 and 15</b></li>
+                        </ul>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

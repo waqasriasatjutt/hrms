@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sbl_pos_config_view_form_inherit" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.timesheet</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='other_devices']" position="after">
+                <setting string="Create Timesheet" help="Automatically create attendance records when POS session starts/stops">
+                    <field name="sbl_create_timesheet"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_config_timesheet,access_pos_config_timesheet,point_of_sale.model_pos_config,base.group_user,1,1,1,0
+access_pos_session_timesheet,access_pos_session_timesheet,point_of_sale.model_pos_session,base.group_user,1,1,1,0
+access_hr_attendance_pos,access_hr_attendance_pos,hr_attendance.model_hr_attendance,point_of_sale.group_pos_user,1,1,1,0
+access_hr_employee_pos,access_hr_employee_pos,hr.model_hr_employee,point_of_sale.group_pos_user,1,0,0,0

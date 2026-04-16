@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PaymentScreenPaymentLines" t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension">
+        
+        
+        
+        <xpath expr="//t[@t-if='line.isSelected()']" position="inside" mode="append">
+            
+            <!-- Always visible delete button for electronic payments -->
+            <div t-if="line.payment_method_id.use_payment_terminal === 'mpqr' and line.payment_status and ['done', 'reversed'].includes(line.payment_status)" 
+                 class="d-flex justify-content-center px-3 py-2 bg-light border rounded-3 mx-2 mt-1">
+                <button class="btn btn-outline-danger btn-sm"
+                        t-on-click="() => this.props.deleteLine(line.uuid)"
+                        aria-label="Cancelar MPQR Payment"
+                        title="Cancel MPQR Payment and Delete from Terminal">
+                    <i class="fa fa-times me-2" />
+                    Cancelar Pago MPQR
+                </button>
+            </div>
+        </xpath>
+    </t>
+</templates>

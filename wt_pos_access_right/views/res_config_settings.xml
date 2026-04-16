@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.wt_pos_access_right</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+        	<xpath expr="//block[@id='pos_interface_section']" position="after">
+        		<block title="PoS Restriction" id="pos_restrict_section" invisible="is_kiosk_mode">
+                    <div>
+                        Those settings provide selected employee to restrict pos buttons and some actions.
+                    </div>
+                    <field name="pos_module_pos_hr" invisible="1"/>
+                    <setting id="pos_restrict_controll_button_setting" title="Sected Employee can't acess controll buttons" string="Employee can't acess controll buttons" invisible="not pos_module_pos_hr">
+                    	<div class="content-group mt16">
+                    		<div class="row">
+			                    <label for="pos_restrict_quantity_employee_ids" string="Restrict Quantity" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_quantity_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+			                <div class="row">
+			                    <label for="pos_restrict_discount_employee_ids" string="Restrict discount" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_discount_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+			                <div class="row">
+			                    <label for="pos_restrict_price_employee_ids" string="Restrict Price" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_price_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+			                <div class="row">
+			                    <label for="pos_restrict_remove_line_employee_ids" string="Restrict Remove Line" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_remove_line_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+			                <div class="row">
+			                    <label for="pos_restrict_plus_minus_employee_ids" string="Restrict +/-" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_plus_minus_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+                    	</div>
+                    </setting>
+                    <setting id="pos_restrict_action_button_setting" title="Sected Employee can't acess action buttons" string="Employee can't acess action buttons" invisible="not pos_module_pos_hr">
+                    	<div class="content-group mt16">
+			                <div class="row">
+			                    <label for="pos_restrict_cancel_order_employee_ids" string="Restrict Cancel Order" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_cancel_order_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+			                <div class="row">
+			                    <label for="pos_restrict_cash_in_out_employee_ids" string="Restrict Cash In-Out" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_cash_in_out_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+			                <div class="row">
+			                    <label for="pos_restrict_refund_employee_ids" string="Restrict Refund Order" class="col-lg-4 o_light_label" />
+			                    <field name="pos_restrict_refund_employee_ids" widget="many2many_tags" placeholder="Select Employee(s)" domain="[('company_id', '=', company_id),('id','in',(pos_basic_employee_ids + pos_advanced_employee_ids))]" />
+			                </div>
+                    	</div>
+                    </setting>
+                </block>
+        	</xpath>
+        </field>
+    </record>
+</odoo>

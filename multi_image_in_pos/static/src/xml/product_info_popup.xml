@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template id="template" xml:space="preserve">
+    <t t-name="multi_image_in_pos.ProductInfoPopup" t-inherit="point_of_sale.ProductInfoPopup"
+       t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('section-inventory')]" position="before">
+            <!-- Scrollable container with Bootstrap classes -->
+            <div class="d-flex gap-3 overflow-auto">
+                <t t-foreach="images_ids[0].image_ids" t-as="image" t-key="image">
+                    <div class="image mt-2 flex-shrink-0 w-25">
+                        <img class="img-fluid w-100 h-100 object-fit-contain"
+                             t-att-src="'/web/image?model=multi.image&amp;field=image&amp;id='+image"/>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</template>

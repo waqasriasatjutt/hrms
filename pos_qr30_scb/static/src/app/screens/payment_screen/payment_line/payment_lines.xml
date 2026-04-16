@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_qr30_scb.PaymentScreenPaymentLines" t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('electronic_payment')]" position="inside">
+            <t t-elif="line.payment_status == 'waitingPayment'">
+                <div class="electronic_status">
+                    Payment pending
+                </div>
+                <div class="button send_payment_request highlight text-bg-primary" title="Send Payment Request" t-on-click="() => this.props.sendPaymentRequest(line)">
+                    Show QR
+                </div>
+            </t>
+            <t t-elif="line.payment_status == 'expired'">
+                <div class="electronic_status">
+                    QR Code Expired
+                </div>
+                <div class="button send_payment_request highlight text-bg-primary" title="Send Payment Request" t-on-click="() => this.props.sendPaymentRequest(line)">
+                    Retry
+                </div>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

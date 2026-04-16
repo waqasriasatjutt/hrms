@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="product_pos_create_item.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('before-footer')]"
+               position="before">
+            <div class="rewards_codes" style="justify-content: center; display: flex; margin-top: 10px; flex-flow: column;">
+                <strong t-if="state.qr" style="align-self: center; margin: 8px; text-align: center;">Register your ticket<br/>Rewards Codes</strong>
+                <div id="qr-code" t-ref="qr-code-container" style="align-self: center;"></div>
+            </div>
+        </xpath>
+    </t>
+</templates>

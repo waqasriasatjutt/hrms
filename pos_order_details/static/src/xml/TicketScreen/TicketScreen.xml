@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <!-- Inherit the template to add a detail button for pos order. #T6479 -->
+    <t
+        t-name="TicketScreenPosDetailsButton"
+        t-inherit="point_of_sale.TicketScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <!-- Added a details column in pso order view .#T6479-->
+        <xpath
+            expr="//div[hasclass('screen')]//div[hasclass('screen-full-width')]//div[hasclass('pane-border')]//div[hasclass('orders')]//div[hasclass('header-row')]//div[hasclass('narrow')]"
+            position="after"
+        >
+            <div
+                t-if="pos.config.order_detail_button"
+                class="col narrow p-2"
+                name="order_details"
+            >
+                Details
+            </div>
+        </xpath>
+        <xpath
+            expr="//div[hasclass('screen')]//div[hasclass('screen-full-width')]//div[hasclass('pane-border')]//div[hasclass('orders')]//div[hasclass('order-row')]//div[hasclass('narrow')]"
+            position="after"
+        >
+            <!-- Added a pos order detail button. #T6479 -->
+            <div
+                t-if="pos.config.order_detail_button"
+                class="col narrow p-2"
+                name="order detail"
+            >
+                <div>
+                    <button
+                        class="view-order-details-button"
+                        t-on-click="() => this.OpenOrderDetails(order)"
+                    >
+                        Details
+                    </button>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

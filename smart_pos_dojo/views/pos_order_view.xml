@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="order_inherited_payment_status_form_view" model="ir.ui.view">
+        <field name="name">pos.order.inherited.payment.status.view</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <field name="pos_reference" position="after">
+                <field name="payment_status" readonly="1"/>
+            </field>
+            <field name="payment_ids" position="after">
+                <separator string="Dojo Transaction"/>
+                <field name="dojo_transaction_ids">
+                    <list string="Order lines" edit="false" create="false" delete="false">
+                        <field name="transactionId"/>
+                        <field name="transactionTime"/>
+                        <field name="transactionType"/>
+                        <field name="transactionNumber"/>
+                        <field name="authCode"/>
+                        <field name="amountTotal"/>
+                        <field name="transactionResult" />
+                    </list>
+                    <form string="Dojo Transacion">
+                        <group>
+                            <group>
+                                <field name="transactionId" readonly="1"/>
+                                <field name="transactionTime" readonly="1"/>
+                                <field name="transactionType" readonly="1"/>
+                                <field name="transactionNumber" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="authCode" readonly="1"/>
+                                <field name="amountTotal" readonly="1"/>
+                                <field name="transactionResult" readonly="1"/>
+                            </group>
+                        </group>
+                    </form>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>

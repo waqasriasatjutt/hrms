@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <div class="pos-leftheader d-flex align-items-center overflow-hidden" position="after">
+            <h5><t t-esc="this.state.currentTime"></t></h5>
+        </div>
+    </t>
+
+</templates>

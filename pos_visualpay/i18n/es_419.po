@@ -1,0 +1,64 @@
+# Translation of POS VisualPay module to Spanish (Latin America)
+# Copyright (C) 2025 Odoo SA
+# This file is distributed under the same license as the Odoo POS VisualPay module.
+# FIRST AUTHOR <you@example.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo POS VisualPay\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-05 00:00+0000\n"
+"PO-Revision-Date: 2025-10-05 00:00+0000\n"
+"Last-Translator: Luis Pacheco <lpachecoby@gmail.com>\n"
+"Language-Team: Spanish (Latin America)\n"
+"Language: es_419\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+#. module: pos_visualpay
+#: model_terms:ir.ui.view,arch_db:pos_visualpay.view_pos_payment_method_form_inherit_visualpay
+msgid "VisualPay Configuration"
+msgstr "Configuración de VisualPay"
+
+#. module: pos_visualpay
+#: model:ir.model.fields,field_description:pos_visualpay.field_pos_payment_method__visualpay_image
+msgid "VisualPay Image"
+msgstr "Imagen de VisualPay"
+
+#. module: pos_visualpay
+#: model:ir.model.fields,help:pos_visualpay.field_pos_payment_method__visualpay_image
+msgid "Upload an image or QR code used for VisualPay integration."
+msgstr "Sube una imagen o código QR utilizado para la integración con VisualPay."
+
+#. module: pos_visualpay
+#: model:ir.model.fields,field_description:pos_visualpay.field_pos_payment_method__visualpay_description
+msgid "VisualPay Description"
+msgstr "Descripción de VisualPay"
+
+#. module: pos_visualpay
+#: model:ir.model.fields,help:pos_visualpay.field_pos_payment_method__visualpay_description
+msgid "Enter a description or instructions for this VisualPay method."
+msgstr "Ingresa una descripción o instrucciones para este método VisualPay."
+
+#. module: pos_visualpay
+#: model_terms:ir.ui.view,arch_db:pos_visualpay.view_pos_payment_method_form_inherit_visualpay
+msgid "Enter a description or payment instructions here..."
+msgstr "Ingresa una descripción o instrucciones de pago aquí..."
+
+
+#. module: pos_visualpay
+#: model:ir.model.fields,field_description:pos_visualpay.field_pos_payment_method__visualpay_require_confirmation
+msgid "Require Payment Confirmation"
+msgstr "Requerir Confirmación de Pago"
+
+#. module: pos_visualpay
+#: model:ir.model.fields,help:pos_visualpay.field_pos_payment_method__visualpay_require_confirmation
+msgid ""
+"Enable this option if the customer must upload a proof of payment (e.g. receipt image) before confirming the order."
+msgstr ""
+"Activa esta opción si el cliente debe subir una prueba de pago (por ejemplo, una imagen del comprobante) antes de confirmar la orden."
+
+#. module: pos_visualpay
+#: selection:pos.payment.method,payment_method_type:0
+msgid "Visual Pay"
+msgstr "Visual Pay"

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="mt_pos_subtotal_qto_qty.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton" position="after">
+            <button t-att-disabled="!pos.get_order()?.get_selected_orderline()" 
+                class="js_discount"
+                t-att-class="buttonClass"
+                t-on-click="() => this.clickSetSubTotal()">
+                <i class="fa fa-tag me-1"/>Set Sub Total
+            </button>
+        </xpath>
+    </t>
+</templates>

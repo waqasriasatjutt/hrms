@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sbl_pos_config_user,sensible_pos_speedup pos.config user,point_of_sale.model_pos_config,point_of_sale.group_pos_user,1,0,0,0
+access_sbl_pos_config_manager,sensible_pos_speedup pos.config manager,point_of_sale.model_pos_config,point_of_sale.group_pos_manager,1,1,1,1
+access_sbl_product_template_user,sensible_pos_speedup product.template user,product.model_product_template,point_of_sale.group_pos_user,1,0,0,0
+access_sbl_product_template_manager,sensible_pos_speedup product.template manager,product.model_product_template,point_of_sale.group_pos_manager,1,1,0,0
+access_sbl_product_product_user,sensible_pos_speedup product.product user,product.model_product_product,point_of_sale.group_pos_user,1,0,0,0
+access_sbl_product_product_manager,sensible_pos_speedup product.product manager,product.model_product_product,point_of_sale.group_pos_manager,1,1,0,0
+access_sbl_res_partner_user,sensible_pos_speedup res.partner user,base.model_res_partner,point_of_sale.group_pos_user,1,1,1,0
+access_sbl_res_partner_manager,sensible_pos_speedup res.partner manager,base.model_res_partner,point_of_sale.group_pos_manager,1,1,1,0

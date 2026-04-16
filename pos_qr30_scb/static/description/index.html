@@ -1,0 +1,114 @@
+<h1 id="point-of-sale-qr30-integration-scb">Point of Sale QR30 Integration - SCB</h1>
+<p>The Point of sale QR30 module provides integration with SCB&#39;s qr code payment service via Thai QR Code Tag 30 (QR 30). It allows the POS system to validate a customer payment with the callback url from the bank when a customer pays by scanning a QR code with a Thai bank&#39;s mobile application.</p>
+<p>This module collects the following data from the bank. Please check the PDPA law.</p>
+<ul>
+<li>Transaction id</li>
+<li>Payer&#39;s bank</li>
+<li>Payer account name</li>
+<li>Payer account number</li>
+</ul>
+<h2 id="supported-features">Supported features</h2>
+<ul>
+<li>Direct payment flow</li>
+<li>Automatic payment confirmation</li>
+<li>Manual payment confirmation</li>
+<li>Payment limits (min-max)</li>
+<li>Payment fee</li>
+<li>QR code on Customer Display</li>
+</ul>
+<h2 id="technical-details">Technical details</h2>
+<p>API: <a href="https://developer.scb.co.th/#/documents/documentation/qr-payment/thai-qr.html">SCB Standard Checkout</a> (https://developer.scb.co.th/#/documents/documentation/qr-payment/thai-qr.html)</p>
+<p>SDK: <a href="https://developer.scb.co.th/#/documents/documentation/basics/getting-started.html">SCB Development App</a> (https://developer.scb.co.th/#/documents/documentation/basics/getting-started.html)</p>
+<p>This module requires API key and secret from SCB. You should register with SCB to get them.</p>
+<p>When the Send button is clicked, a server-to-server API call is made to create the qr code.
+When the payment is made, the system receives notification from SCB via a callback endpoint(/pos_qr/notification) and the payment is confirmed automatically.</p>
+<p>The payment confirmation is sent to a web client via webhook. Make sure the proxy allows this.</p>
+<h3 id="compatibility">Compatibility</h3>
+<ul>
+<li>Odoo 18</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p>First, you need to create a payment for POS.
+To configure this module, you need to:</p>
+<ul>
+<li><p>Go to Point of Sale &gt; Configuration &gt; Payment Methods &gt; New </p>
+<img src="https://raw.githubusercontent.com/ncharlie/pos_qr30/refs/heads/18.0/pos_qr30_scb/static/description/setup1.png" alt="Configuration" style="width: 60%">
+</li>
+<li><p>Original setup</p>
+<ul>
+<li>Set the method name</li>
+<li>Assign a journal</li>
+<li>Integration: Select &quot;Bank App (QR Code)&quot;</li>
+<li>QR Code Format: Select &quot;QR Tag 30&quot;</li>
+</ul>
+</li>
+<li><p>Additional setup</p>
+<ul>
+<li>&quot;Bank&quot; is fixed as SCB.</li>
+<li>&quot;Name&quot; can be shop name or any text you want to display with the QR code.</li>
+<li>&quot;Enable Callback&quot; is to allow callback from SCB.</li>
+<li><p>&quot;Callback URL&quot; is the callback endpoint in Odoo system. Copy the generated value and put it in SCB configuration.</p>
+<img src="https://raw.githubusercontent.com/ncharlie/pos_qr30/refs/heads/18.0/pos_qr30_scb/static/description/setup2.png" alt="SCB Configuration" style="width: 350px"></li>
+<li>&quot;Biller ID&quot; is provided by SCB in merchant profile menu.</li>
+<li><p>&quot;Ref 3 Prefix&quot; is also in merchant profile.</p>
+</li>
+<li><p>&quot;API Key&quot; is from Application menu.</p>
+</li>
+<li><p>&quot;API Secret&quot; is also from application.</p>
+</li>
+<li><p>&quot;Base url&quot; is the url prefix to the endpoints. The default value is for sandbox environment.</p>
+</li>
+<li><p>&quot;Customer Fee&quot; is the service charge for this payment. Set it as you&#39;d like.</p>
+</li>
+<li><p>&quot;Fix Payment Product&quot; is the product to associate with &quot;Customer Fee&quot;. You can create a new service type product. This product appears in the receipt.</p>
+<img src="https://raw.githubusercontent.com/ncharlie/pos_qr30/refs/heads/18.0/pos_qr30_scb/static/description/receipt1.png" alt="Receipt" style="width: 400px"></li>
+</ul>
+</li>
+<li><p>(Optional) Click Test Connection to test the configuration.</p>
+</li>
+<li><p>Add this new payment method to your Point of Sale shop.</p>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>To use this payment,</p>
+<ul>
+<li><p>After checking out, select the payment method associated with QR tag 30 and click send.</p>
+<img src="https://raw.githubusercontent.com/ncharlie/pos_qr30/refs/heads/18.0/pos_qr30_scb/static/description/usage1.png" alt="Select Payment Method" style="width: 60%">
+</li>
+<li><p>The qrcode popup will appears.</p>
+<img src="https://raw.githubusercontent.com/ncharlie/pos_qr30/refs/heads/18.0/pos_qr30_scb/static/description/usage2.png" alt="QR Code popup" style="width: 60%">
+</li>
+<li><p>After the payment is confirmed, the system will automatically navigate to receipt screen.</p>
+<ul>
+<li>User can hide the popup and process another order while waiting for payment. In this case, the payment is marked as paid and the user can click on "Validate" to proceed to receipt screen.</li>
+<li>User can confirm the payment manually by clicking on the "Manually confirm payment" button.</li>
+</ul>
+</li>
+<li><p>The difference of closing and cancel button in qrcode popup.</p>
+<ul>
+<li>Closing popup with (X) in the top right corner is just hiding the popup. You can reopen it with the same QR code data. Customer can still pay with the same qrcode.</li>
+<li>Cancel Payment button however, voids the qr code. If the user make a payment, it does NOT register within the system. You can generate a new QR code.</li>
+</ul>
+</li>
+</ul>
+<p>To view payment history,</p>
+<p>Go to Point of Sale &gt; Orders &gt; Payment</p>
+<ul>
+<li><p>Here you can see a list of payments made group by their payment method</p>
+</li>
+<li><p>Click to view full information</p>
+<img src="https://raw.githubusercontent.com/ncharlie/pos_qr30/refs/heads/18.0/pos_qr30_scb/static/description/history1.png" alt="Full payment history" style="width: 400px">
+</li>
+</ul>
+<h2 id="module-history">Module history</h2>
+<ul>
+<li><code>18.0</code><ul>
+<li>Released</li>
+</ul>
+</li>
+</ul>
+<h2 id="testing-instructions">Testing instructions</h2>
+<p>Payments must be made using a separate <a href="https://developer.scb.co.th/#/management/apps">sandbox account</a> (https://developer.scb.co.th/#/management/apps).</p>
+<p>Read more at <a href="https://developer.scb.co.th/#/documents">https://developer.scb.co.th/#/documents</a>.</p>
+<h2 id="bug-report">Bug Report</h2>
+<p>You may report issues in <a href="https://github.com/ncharlie/pos_qr30/issues">github</a> (https://github.com/ncharlie/pos_qr30/issues).</p>

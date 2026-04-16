@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_form_low_stock_alert" model="ir.ui.view">
+        <field name="name">product.product.form.low.stock.alert</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <field name="pos_categ_ids" position="after">
+                <field name="low_stock_label"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_product_tree_low_stock_alert" model="ir.ui.view">
+        <field name="name">product.product.tree.low.stock.alert</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="low_stock_active" column_invisible="True"/>
+                <field name="low_stock_label" column_invisible="True"/>
+            </xpath>
+
+            <list position="attributes">
+                <attribute name="decoration-danger">
+                    low_stock_active == True
+                </attribute>
+            </list>
+
+        </field>
+    </record>
+</odoo>

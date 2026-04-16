@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_payment_view_form_inherit_pos_bank_api" model="ir.ui.view">
+        <field name="name">pos.payment.form.inherit.bank.api</field>
+        <field name="model">pos.payment</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="replace">
+                <sheet>
+                    <group>
+                        <field name="session_id" readonly="0"/>
+                        <field name="payment_date"/>
+                        <field name="pos_order_id"/>
+                        <field name="amount" readonly="0"/>
+                        <field name="payment_method_id"/>
+                        <field name="payment_status"/>
+                        <field name="payment_method_payment_mode" invisible="not payment_method_payment_mode"/>
+                        <field name="card_type" invisible="not card_type or not card_no"/>
+                        <field name="card_brand" string="Card's Brand" invisible="not card_brand or not card_no"/>
+                        <field name="card_no" invisible="not card_no"/>
+                        <field name="cardholder_name" invisible="not cardholder_name or not card_no"/>
+                        <field name="payment_method_issuer_bank" invisible="not payment_method_issuer_bank"/>
+                        <field name="payment_method_authcode" invisible="not payment_method_authcode"/>
+                        <field name="payment_ref_no" invisible="not payment_ref_no"/>
+                        <field name="transaction_id" invisible="not transaction_id"/>
+                    </group>
+                    <br/>
+                    <group invisible="qr_code_method != 'qr30'">
+                        <field name="qr_code_method" invisible="True"/>
+                        <field name="qr30_payer_bank"/>
+                        <field name="qr30_payer_account_name"/>
+                        <field name="qr30_payer_account_number"/>
+                        <field name="qr30_transaction_type"/>
+                        <field name="qr30_transaction_time"/>
+                        <field name="qr30_ref1"/>
+                        <field name="qr30_ref2"/>
+                        <field name="qr30_ref3"/>
+                        <field name="qr30_raw_data"/>
+                    </group>
+                </sheet>
+            </xpath>
+        </field>
+    </record>
+</odoo>

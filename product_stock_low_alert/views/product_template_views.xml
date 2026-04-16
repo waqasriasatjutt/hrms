@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_template_tree_low_stock_alert" model="ir.ui.view">
+        <field name="name">product.template.tree.low.stock.alert</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="low_stock_label_display"
+                       string=""
+                       widget="html"
+                       readonly="1"/>
+            </xpath>
+
+            <list position="attributes">
+                <attribute name="decoration-danger">low_stock_active == True</attribute>
+            </list>
+
+        </field>
+    </record>
+
+
+    <record id="view_product_template_kanban_low_stock_alert" model="ir.ui.view">
+        <field name="name">product.template.kanban.low.stock.alert</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="inside">
+                <field name="low_stock_active"/>
+                <field name="low_stock_bg_color"/>
+            </xpath>
+            <xpath expr="//t[@t-name='card']" position="replace">
+                <t t-name="card" class="flex-row position-relative">
+                    <t t-if="record.low_stock_active.raw_value">
+                        <span style="position:absolute; top:8px; right:8px; background:#e53935; color:#fff; padding:2px 8px; font-size:11px; font-weight:600; border-radius:12px; z-index:2; display:flex; align-items:center; gap:4px;">
+                            <i class="fa fa-exclamation-circle"/>
+                            LOW STOCK
+                        </span>
+                    </t>
+
+                    <div class="o_kanban_record border-0 low-stock-card"
+                         t-att-style="'background-color:' + record.low_stock_bg_color.raw_value">
+
+                        <main class="pe-2">
+                            <div class="mb-1">
+                                <div class="d-flex mb-0 h5">
+                                    <field name="is_favorite"
+                                           widget="boolean_favorite"
+                                           nolabel="1"
+                                           class="me-1"/>
+                                    <field name="name"/>
+                                </div>
+
+                                <span t-if="record.default_code.value">
+                                    [<field name="default_code"/>]
+                                </span>
+
+                                <strong t-if="record.product_variant_count.value &gt; 1">
+                                    <field name="product_variant_count"/>
+                                    Variants
+                                </strong>
+                            </div>
+
+                            <span>
+                                Price:
+                                <field name="list_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                            </span>
+
+                            <field name="product_properties" widget="properties"/>
+                        </main>
+                    </div>
+                    <aside>
+                        <field name="image_128" widget="image" alt="Product" options="{'img_class': 'w-100 object-fit-contain'}"/>
+                    </aside>
+                </t>
+            </xpath>
+        </field>
+    </record>
+</odoo>

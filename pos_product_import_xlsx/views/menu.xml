@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Adds "Import Products from XLSX" under Point of Sale > Configuration -->
+    <menuitem
+        id="menu_pos_product_import_xlsx"
+        name="Import Products from XLSX"
+        action="action_pos_product_import_wizard"
+        sequence="100"
+/>
+
+</odoo>

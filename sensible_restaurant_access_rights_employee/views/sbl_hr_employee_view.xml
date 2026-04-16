@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sbl_hr_employee_form_restaurant_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.restaurant.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="sensible_pos_access_rights_employee.sbl_hr_employee_form_inherit"/>
+        <field name="arch" type="xml">
+            <!-- Add Restaurant Settings group after Navigation Menu group -->
+            <group name="sbl_pos_navigation_menu" position="after">
+                <group name="sbl_pos_restaurant_settings" string="Restaurant Settings">
+                    <group>
+                        <field name="sbl_hide_restaurant_plan_button" widget="boolean_toggle"/>
+                        <field name="sbl_disabled_floor_ids" widget="many2many_tags" invisible="sbl_hide_restaurant_plan_button"/>
+                        <field name="sbl_hide_pos_switch_floor_view" widget="boolean_toggle" invisible="sbl_hide_restaurant_plan_button"/>
+                        <field name="sbl_hide_restaurant_order_button" widget="boolean_toggle"/>
+                        <field name="sbl_hide_pos_action_split" widget="boolean_toggle"/>
+                        <field name="sbl_hide_pos_action_guests" widget="boolean_toggle"/>
+                    </group>
+                    <group>
+                        <field name="sbl_hide_pos_action_transfer_merge" widget="boolean_toggle"/>
+                        <field name="sbl_hide_pos_action_bill" widget="boolean_toggle"/>
+                        <field name="sbl_hide_pos_action_edit_order_name" widget="boolean_toggle"/>
+                        <field name="sbl_hide_pos_action_switch_dine_takeaway" widget="boolean_toggle"/>
+                    </group>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

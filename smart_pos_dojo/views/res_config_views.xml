@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_view_form_inherit_pos_iot" model="ir.ui.view">
+        <field name="name">res.config.form.inherit.pos.iot</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block id="pos_payment_terminals_section" position="inside">
+                <setting id="dojo" title="The transactions are processed by Dojo. Set your Dojo device on the related payment method." string="Dojo" help="Accept payments with an Dojo payment terminal">
+                    <field name="dojo_payment_terminal"/>
+                    <div class="content-group" invisible="not dojo_payment_terminal">
+                        <div class="row mt16">
+                            <label for="dojo_registration_key" class="col-lg-4 o_light_label" />
+                            <field name="dojo_registration_key" readonly="1" class="col-lg-8" />
+                        </div>
+                        <div>
+                            <button name="generate_smart_dojo_key" icon="oi-arrow-right" type="object" string="Get Dojo Key" class="btn-link"/>
+                        </div>
+                    </div>
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>

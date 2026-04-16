@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bsi_pos_pane_position
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-29 10:49+0000\n"
+"PO-Revision-Date: 2023-09-29 10:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bsi_pos_pane_position
+#: model_terms:ir.ui.view,arch_db:bsi_pos_pane_position.inherit_view_pos_config_form_for_panel_config
+msgid "<span class=\"o_form_label\">Screen View</span>"
+msgstr ""
+
+#. module: bsi_pos_pane_position
+#: model:ir.model.fields.selection,name:bsi_pos_pane_position.selection__pos_config__pos_screen_view__left
+msgid "Left"
+msgstr "Izquierda"
+
+#. module: bsi_pos_pane_position
+#. odoo-javascript
+#: code:addons/bsi_pos_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml:0
+#: code:addons/bsi_pos_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml:0
+#, python-format
+msgid "More..."
+msgstr "Más..."
+
+#. module: bsi_pos_pane_position
+#. odoo-javascript
+#: code:addons/bsi_pos_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml:0
+#: code:addons/bsi_pos_pane_position/static/src/xml/Screens/ProductScreen/ProductScreen.xml:0
+#, python-format
+msgid "Payment"
+msgstr "Pago"
+
+#. module: bsi_pos_pane_position
+#: model:ir.model,name:bsi_pos_pane_position.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: bsi_pos_pane_position
+#: model:ir.model.fields.selection,name:bsi_pos_pane_position.selection__pos_config__pos_screen_view__right
+msgid "Right"
+msgstr "Derecho"
+
+#. module: bsi_pos_pane_position
+#: model:ir.model.fields,field_description:bsi_pos_pane_position.field_pos_config__pos_screen_view
+#: model_terms:ir.ui.view,arch_db:bsi_pos_pane_position.inherit_view_pos_config_form_for_panel_config
+msgid "Screen View"
+msgstr "Vista de pantalla"
+
+#. module: bsi_pos_pane_position
+#: model_terms:ir.ui.view,arch_db:bsi_pos_pane_position.inherit_view_pos_config_form_for_panel_config
+msgid "Select Left/Right to set panel position."
+msgstr "Seleccione Izquierda/Derecha para configurar la posición del panel."

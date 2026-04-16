@@ -1,0 +1,30 @@
+<odoo>
+
+    <record id="view_profit_wizard" model="ir.ui.view">
+        <field name="model">profit.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Profit Margin Report">
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="action_print_profit" type="object" string="Print PDF"/>
+                    <button name="action_print_profit_excel" type="object" string="Print Excel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_profit_wizard" model="ir.actions.act_window">
+        <field name="res_model">profit.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_profit_report"
+              name="Profit Margin Report"
+              parent="point_of_sale.menu_point_rep"
+              action="action_profit_wizard"/>
+
+</odoo>

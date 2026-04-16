@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_daily_sales_wizard" model="ir.ui.view">
+        <field name="name">daily.sales.wizard.form</field>
+        <field name="model">daily.sales.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Daily Sales Report">
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="action_print_pdf" string="PDF" type="object" class="btn-primary"/>
+                    <button name="action_print_excel" string="Excel" type="object" class="btn-success"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_daily_sales_wizard" model="ir.actions.act_window">
+        <field name="name">Daily Sales Report</field>
+        <field name="res_model">daily.sales.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_daily_sales_report"
+              name="Daily Sales Report"
+              parent="point_of_sale.menu_point_rep"
+              action="action_daily_sales_wizard"/>
+</odoo>

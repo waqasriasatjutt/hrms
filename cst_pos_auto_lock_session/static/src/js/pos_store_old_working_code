@@ -1,0 +1,54 @@
+/** @odoo-module */
+
+import { patch } from "@web/core/utils/patch";
+import { PosStore } from "@point_of_sale/app/store/pos_store";
+
+patch(PosStore.prototype, {
+    async setup() {
+        await super.setup(...arguments);
+
+        if (this.config.auto_lock_enabled) {
+            this.lastActivityTime = Date.now();
+            this.setActivityListeners();
+            this.startAutoLockTimer();
+        }
+    },
+
+    setActivityListeners() {
+        // Store the bound function so we can remove it if necessary
+        this._idleTimerSetter = this.resetActivityTimer.bind(this);
+
+        for (const event of [
+            "mousemove", "mousedown", "touchstart",
+            "touchend", "touchmove", "click",
+            "scroll", "keypress"
+        ]) {
+            window.addEventListener(event, this._idleTimerSetter);
+        }
+    },
+
+    resetActivityTimer() {
+        this.lastActivityTime = Date.now();
+    },
+
+    startAutoLockTimer() {
+        // Clear any existing interval to prevent duplicates during hot-reloads
+        if (this._autoLockInterval) {
+            clearInterval(this._autoLockInterval);
+        }
+
+        this._autoLockInterval = setInterval(() => {
+            // Check if user is logged in and feature is enabled
+            if (this.config.auto_lock_enabled && this.get_cashier()) {
+                const idleTime = Date.now() - this.lastActivityTime;
+                const lockTimeMs = this.config.auto_lock_time * 1000;
+
+                // Only trigger if idle time exceeded AND we aren't already on the LoginScreen
+                if (idleTime >= lockTimeMs) {;
+                    this.showLoginScreen();
+                    this.resetActivityTimer();
+                }
+            }
+        }, 3000);
+    },
+});

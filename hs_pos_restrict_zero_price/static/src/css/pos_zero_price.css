@@ -1,0 +1,37 @@
+/* CSS for highlighting zero price products in red */
+
+.pos-zero-price-orderline {
+    background-color: #ffebee !important;
+    border-left: 4px solid #f44336 !important;
+}
+
+.pos-zero-price-orderline .product-name,
+.pos-zero-price-orderline .product-name * {
+    color: #d32f2f !important;
+    font-weight: bold !important;
+}
+
+.pos-zero-price-orderline .price,
+.pos-zero-price-orderline .price *,
+.pos-zero-price-orderline .total,
+.pos-zero-price-orderline .total * {
+    color: #d32f2f !important;
+    font-weight: bold !important;
+}
+
+/* Additional styling for better visibility */
+.pos-zero-price-orderline:hover {
+    background-color: #ffcdd2 !important;
+}
+
+/* Style for product items in product list if they have zero price */
+.pos-zero-price-product {
+    border: 2px solid #f44336 !important;
+    background-color: #ffebee !important;
+}
+
+.pos-zero-price-product .product-name,
+.pos-zero-price-product .price {
+    color: #d32f2f !important;
+    font-weight: bold !important;
+}

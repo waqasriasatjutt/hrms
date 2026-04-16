@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_item_detail_wizard" model="ir.ui.view">
+        <field name="model">item.detail.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Item Detail Report">
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="action_print_pdf" type="object" string="PDF"/>
+                    <button name="action_print_excel" type="object" string="Excel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_item_detail_wizard" model="ir.actions.act_window">
+        <field name="res_model">item.detail.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_item_detail_report" name="Item Detail Report" parent="point_of_sale.menu_point_rep"
+              action="action_item_detail_wizard"/>
+</odoo>

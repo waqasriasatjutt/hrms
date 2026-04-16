@@ -1,0 +1,11 @@
+.reorder-button {
+    cursor: pointer;
+
+    &:hover .fa-refresh {
+        color: #007bff;
+    }
+    &:active .fa-refresh {
+        color: #007bff;
+        transform: scale(0.95);
+    }
+}

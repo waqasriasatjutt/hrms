@@ -1,0 +1,17 @@
+<odoo>
+    <record id="eg_pos_remove_orderline_res_config_settings_view_form_demo" model="ir.ui.view">
+        <field name="name">eg.pos.remove.orderline.res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="100"/>
+        <field name="inherit_id" ref="eg_app_base.eg_app_base_res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='eg_app_base']" position="after">
+                <block title="POS Remove Orderline" id="allow_remove_orderline">
+                    <setting help="eg_pos_remove_orderline" id="allow_remove_orderline">
+                        <field name="allow_remove_orderline"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//li[hasclass('orderline')]" position="attributes">
+            <attribute name="class" remove="align-items-center" add="align-items-start" separator=" "/>
+        </xpath>
+        <xpath expr="//div[hasclass('product-order')]" position="before">
+            <t t-if="this.env.services.pos.config.show_sequence_number">
+                <h5 class="me-2"><t t-esc="line.sequence_number"/>.</h5>
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_payment_method_pos_dojo_user_form" model="ir.ui.view">
+        <field name="name">pos.payment.method.dojo.form.inherit</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="get_terminal_id" icon="fa-arrow-right" type="object" string="Get Terminal Id"
+                            class="btn oe_highlight" invisible="use_payment_terminal != 'dojo' or terminal_id"/>
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='use_payment_terminal']" position="after">
+                <field name="dojo_acct_name"
+                    invisible="use_payment_terminal != 'dojo'"
+                    required="use_payment_terminal == 'dojo'"/>
+                <field name="dojo_url"
+                    invisible="use_payment_terminal != 'dojo'"
+                    required="use_payment_terminal == 'dojo'"/>
+                <field name="dojo_username"
+                    invisible="use_payment_terminal != 'dojo'"
+                    required="use_payment_terminal == 'dojo'"/>
+                <field name="dojo_key"
+                    invisible="use_payment_terminal != 'dojo'"
+                    required="use_payment_terminal == 'dojo'"/>
+                <field name="installer_id"
+                    invisible="use_payment_terminal != 'dojo'"
+                    required="use_payment_terminal == 'dojo'"/>
+                <field name="terminal_id"
+                    invisible="use_payment_terminal != 'dojo'"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

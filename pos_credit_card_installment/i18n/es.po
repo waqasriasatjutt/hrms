@@ -1,0 +1,187 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_credit_card_installment
+# 
+# Translators:
+# ADHOC - Bot <transbot@adhoc.com.ar>, 2025
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-17 18:17+0000\n"
+"PO-Revision-Date: 2025-11-08 21:01+0000\n"
+"Last-Translator: ADHOC - Bot <transbot@adhoc.com.ar>, 2025\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__bank_discount
+msgid "Bank discount"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,help:pos_credit_card_installment.field_pos_payment__bank_discount
+msgid "Bank discount in %"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__card_id
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__card_id
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment_method__card_id
+msgid "Card"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__card_type
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__card_type
+msgid "Card Type"
+msgstr "Tipo de tarjeta utilizada"
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__card_number
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__card_number
+msgid "Card number"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.ui.menu,name:pos_credit_card_installment.action_account_card
+msgid "Cards"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model,name:pos_credit_card_installment.model_account_card
+msgid "Credit Card"
+msgstr "Tarjeta de Crédito"
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__fee
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__fee
+msgid "Fee"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__instalment_id
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__instalment_id
+msgid "Instalment plan"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment_method__instalment_ids
+msgid "Instalments"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__lot_number
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__lot_number
+msgid "Lot number"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#. odoo-javascript
+#: code:addons/pos_credit_card_installment/static/src/overrides/xml/PaymentScreenPaymentLines.xml:0
+msgid "Monto total a pagar"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#. odoo-javascript
+#: code:addons/pos_credit_card_installment/static/src/overrides/xml/PaymentScreenPaymentLines.xml:0
+msgid "Plan de cuotas:"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model,name:pos_credit_card_installment.model_pos_make_payment
+msgid "Point of Sale Make Payment Wizard"
+msgstr "Asistente de pago de punto de venta"
+
+#. module: pos_credit_card_installment
+#: model:ir.model,name:pos_credit_card_installment.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del TPV"
+
+#. module: pos_credit_card_installment
+#: model:ir.model,name:pos_credit_card_installment.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de pago en el punto de venta "
+
+#. module: pos_credit_card_installment
+#: model:ir.model,name:pos_credit_card_installment.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "Pagos en el punto de venta"
+
+#. module: pos_credit_card_installment
+#: model:ir.model,name:pos_credit_card_installment.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment_method__instalment_product_id
+msgid "Producto Recargo Financiero"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__tiket_number
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__tiket_number
+msgid "Tiket number"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model,name:pos_credit_card_installment.model_account_card_installment
+msgid "amount to add for collection in installments"
+msgstr "CCantidad a añadir para cobro en cuotas"
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields.selection,name:pos_credit_card_installment.selection__pos_make_payment__card_type__credit
+#: model:ir.model.fields.selection,name:pos_credit_card_installment.selection__pos_payment__card_type__credit
+msgid "credit"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields.selection,name:pos_credit_card_installment.selection__pos_make_payment__card_type__debit
+#: model:ir.model.fields.selection,name:pos_credit_card_installment.selection__pos_payment__card_type__debit
+msgid "debit"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__discount
+msgid "discount"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,help:pos_credit_card_installment.field_pos_payment__discount
+msgid "discount in %"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__instalment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__instalment
+msgid "instalment plan"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__magnet_bar
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__magnet_bar
+msgid "magnet bar"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_make_payment__total_amount
+#: model:ir.model.fields,field_description:pos_credit_card_installment.field_pos_payment__total_amount
+msgid "total amount"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#. odoo-javascript
+#: code:addons/pos_credit_card_installment/static/src/overrides/xml/PaymentScreenPaymentLines.xml:0
+msgid "💳 Contado -"
+msgstr ""
+
+#. module: pos_credit_card_installment
+#. odoo-javascript
+#: code:addons/pos_credit_card_installment/static/src/overrides/xml/PaymentScreenPaymentLines.xml:0
+msgid "🔽 Seleccione una opción"
+msgstr ""

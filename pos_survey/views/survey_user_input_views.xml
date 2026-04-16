@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_survey_answer_list" model="ir.ui.view">
+        <field name="name">pos.survey.answer.list</field>
+        <field name="model">survey.user_input.line</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" string="Survey Answers">
+                <field name="create_date" optional="hidden"/>
+                <field name="question_id"/>
+                <field name="answer_type" optional="hidden"/>
+                <field name="display_name" string="Answer"/>
+                <field name="answer_score" sum="Score"/>
+            </list>
+        </field>
+    </record>
+</odoo>

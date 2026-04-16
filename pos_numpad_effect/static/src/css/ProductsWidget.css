@@ -1,0 +1,13 @@
+.show-number-on-screen {
+    color: black;
+    flex: 1;
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

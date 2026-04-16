@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="pos_restaurant.FloorScreen" t-inherit-mode="extension">
+        <xpath expr="//t[@t-foreach=&quot;pos.models['restaurant.floor'].getAll()&quot;]" position="attributes">
+            <attribute name="t-foreach">filtred_floors</attribute>
+        </xpath>
+
+        <xpath expr="//t[@t-if='pos.config.floor_ids?.length > 0']" position="attributes">
+            <attribute name='t-if'>filtred_floors.length > 0</attribute>
+        </xpath>
+
+        <xpath expr="//div[@t-ref='floor-map-ref']" position="attributes">
+            <attribute name="t-attf-style">
+                -webkit-touch-callout: none;
+                height: {{ state.floorHeight }} !important;
+                width: {{ state.floorWidth }} !important;
+                {{(filtred_floors and filtred_floors.length > 0 and activeFloor and activeFloor.floor_background_image and !isKanban) ? 'background-image: url(' + floorBackround + '); background-size: auto; background-repeat: no-repeat; background-attachment: local;' : ''}}
+            </attribute>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//DropdownItem[@onSelected = '() => this.pos.toggleEditMode()']" position="attributes">
+            <attribute name='t-if'>pos.mainScreen.component.name == 'FloorScreen' and pos.get_cashier()._role == 'manager'</attribute>
+        </xpath>
+        <xpath expr="//DropdownItem[@onSelected = '() => this.onSwitchButtonClick()']" position="attributes">
+            <attribute name='t-if'>pos.mainScreen.component.name == 'FloorScreen' and pos.get_cashier()._role == 'manager'</attribute>
+        </xpath>
+    </t>
+
+
+
+</templates>

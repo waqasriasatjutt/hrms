@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_qr30_scb.QR30ConfirmationDialog" t-inherit="point_of_sale.QRConfirmationDialog" t-inherit-mode="primary">
+        <xpath expr="//img" position="before">
+            <div class="text-center fw-bolder" t-if="shopName">
+                <t t-out="shopName"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('mt-1')]" position="after">
+            <div class="mt-1" t-if="state.secondBeforeExpire and state.secondBeforeExpire > 0">
+                <span class="text-warning fw-bolder">Please pay within <span t-esc="state.secondBeforeExpire"/>
+ seconds.</span>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

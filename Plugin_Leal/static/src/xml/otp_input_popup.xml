@@ -1,0 +1,61 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="Plugin_Leal.OTPInputPopup" owl="1">
+        <Dialog title="" header="false" footer="false" size="sm">
+            <div class="modal-dialog modal-sm" style="max-width: 400px;">
+                <div class="modal-content" style="border-radius: 1rem; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <div class="modal-body" style="padding: 2rem;">
+                        <div class="row m-0 p-0">
+                            <div class="col-2 p-0">
+                                <img class="img img-fluid" src="/Plugin_Leal/static/img/keyboard.png" alt="keyboard" />
+                            </div>
+                            <div class="col-10 p-1">
+                                <div class="w-100 h3 font-weight-bolder">
+                                    <t t-out="props.title"/>
+                                </div>
+                                <div class="w-100 h6 font-weight-light text-muted">
+                                    <t t-out="props.body"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py-2"></div>
+                        <!-- OTP Input Fields -->
+                        <div class="d-flex justify-content-center mb-2" style="gap: 0.75rem;">
+                            <input type="text" class="otp-input text-center" maxlength="1" t-model="state.digit1" t-on-input="onDigitInput" t-on-keydown="onKeyDown" data-index="0" autofocus="autofocus" style="width: 3rem; height: 3.5rem; border: 1px solid #9F9F9F; border-radius: 0.5rem; font-size: 1.25rem; font-weight: 600; background: #F9F8F8;" />
+                            <input type="text" class="otp-input text-center" maxlength="1" t-model="state.digit2" t-on-input="onDigitInput" t-on-keydown="onKeyDown" data-index="1" style="width: 3rem; height: 3.5rem; border: 1px solid #9F9F9F; border-radius: 0.5rem; font-size: 1.25rem; font-weight: 600; background: #F9F8F8;" />
+                            <input type="text" class="otp-input text-center" maxlength="1" t-model="state.digit3" t-on-input="onDigitInput" t-on-keydown="onKeyDown" data-index="2" style="width: 3rem; height: 3.5rem; border: 1px solid #9F9F9F; border-radius: 0.5rem; font-size: 1.25rem; font-weight: 600; background: #F9F8F8;" />
+                            <input type="text" class="otp-input text-center" maxlength="1" t-model="state.digit4" t-on-input="onDigitInput" t-on-keydown="onKeyDown" data-index="3" style="width: 3rem; height: 3.5rem; border: 1px solid #9F9F9F; border-radius: 0.5rem; font-size: 1.25rem; font-weight: 600; background: #F9F8F8;" />
+                        </div>
+
+                        <!-- Countdown Timer -->
+                        <div class="text-center mb-4 ml-4">
+                            <small class="text-muted" style="font-size: 0.85rem;">
+                                Vence en <span style="color: #446FF2; font-weight: 600;">
+                                    <t t-out="state.countdown || '00:01'"/>
+                                </span> s
+                            </small>
+                        </div>
+
+                        <!-- Resend Link -->
+                        <div class="text-center">
+                            <span class="text-muted" style="font-size: 0.9rem;">No recibí el código. </span>
+                            <a href="#" class="" style="color: #446FF2;text-decoration: none; font-weight: 500;" t-on-click="onResend" t-att-class="{'text-muted': state.isResending}">
+                                <t t-if="!state.isResending">Solicitar un código nuevo</t>
+                                <t t-if="state.isResending">Reenviando...</t>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center" style="padding: 1.5rem 2rem; border-top: none; gap: 1rem;">
+                        <button class="btn btn-outline-secondary px-4 py-2" t-on-click="cancel" style="border-radius: 0.5rem; font-weight: 500;">
+                            <t t-out="props.cancelText || 'Cancelar'"/>
+                        </button>
+
+                        <button class="btn btn-warning px-4 py-2" t-on-click="confirm" t-att-disabled="!state.isComplete" style="border-radius: 0.5rem; font-weight: 500; background-color: #ffc107; border-color: #ffc107; color: #000;">
+                            <t t-out="props.confirmText || 'Validar código'"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+</templates>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="DocumentInputPopup" owl="1">
+        <div class="popup popup-textinput document-input-popup">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <t t-out="props.title"/>
+                </h4>
+            </div>
+            <main class="modal-body">
+                <!-- <p t-if="props.body" class="text-center mb-3" t-out="props.body"/> -->
+        <p>Cliente: <b t-if="props.body" t-out="props.body" /></p>
+                
+                <div class="form-group mb-3">
+                    <label for="document_input" class="form-label d-block text-center mb-2">
+                        <i class="fa fa-id-card me-2"></i>
+                        <strong>Número de Documento:</strong>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="document_input"
+                        class="form-control form-control-lg text-center w-75 mx-auto" 
+                        t-model="state.inputValue" 
+                        t-on-input="onInputChange"
+                        t-on-keydown="onInputKeydown"
+                        t-ref="input"
+                        placeholder="Ej: 12345678, CC12345678, NIT123456789"
+                        autofocus="autofocus"
+                        maxlength="20"
+                    />
+                </div>
+                
+                <div class="alert alert-info mx-auto w-75 text-center" role="alert">
+                    <small>
+                        <i class="fa fa-info-circle me-1"></i>
+                        Ingrese el número sin espacios ni caracteres especiales
+                    </small>
+                </div>
+            </main>
+            <footer class="footer footer-flex modal-footer">
+                <div class="button confirm highlight btn btn-lg btn-primary" 
+                     t-on-click="confirm" 
+                     t-att-disabled="!state.inputValue.trim()">
+                    <i class="fa fa-search me-2"></i>
+                    <t t-out="props.confirmText"/>
+                </div>
+                <div class="button cancel btn btn-lg btn-secondary" t-on-click="cancel">
+                    <i class="fa fa-times me-2"></i>
+                    <t t-out="props.cancelText"/>
+                </div>
+            </footer>
+        </div>
+    </t>
+</templates>

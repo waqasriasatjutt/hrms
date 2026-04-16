@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-name="point_of_sale.FinancialSurchargeConfirmationDialog"
+     t-inherit="web.ConfirmationDialog"
+     t-inherit-mode="primary">
+    <xpath expr="//p" position="replace">
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <p t-out="props.body" class="text-prewrap" style="font-weight: bold;"/>
+
+                <!-- NUEVOS CAMPOS -->
+        <div class="mt-2 w-100">
+          <label><strong>Lote:</strong></label>
+          <input type="text" t-model="state.lote" class="form-control"/>
+        </div>
+        <div class="mt-2 w-100">
+          <label><strong>Cupón:</strong></label>
+          <input type="text" t-model="state.cupon" class="form-control"/>
+        </div>
+
+                <!-- CAMPO EXISTENTE -->
+        <div class="mt-1">
+          <strong>Amount: </strong><t t-out="amount"/>
+        </div>
+        <select class="installment_select form-select form-select-md"
+                t-model="state.selected_installment">
+                <option value="" disabled="true" selected="true">
+                -- Seleccione un plan de cuotas --
+                </option>
+          <t t-foreach="cards" t-as="card" t-key="card_index">
+            <optgroup t-att-label="card.name">
+              <t t-foreach="card.installments" t-as="instalment" t-key="instalment.id">
+                <option t-att-value="instalment.id"
+                        t-att-data-surcharge-coefficient="instalment.surcharge_coefficient">
+                  <t t-esc="card.name"/> – <t t-esc="instalment.name"/> cuotas de
+                  <t t-esc="formatCurrency(state.raw_amount / instalment.divisor * instalment.surcharge_coefficient)"/>
+                  (Total: <t t-esc="formatCurrency(state.raw_amount * instalment.surcharge_coefficient)"/>)
+                </option>
+              </t>
+            </optgroup>
+          </t>
+        </select>
+      </div>
+    </xpath>
+  </t>
+</templates>

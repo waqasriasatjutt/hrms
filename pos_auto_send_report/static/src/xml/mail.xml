@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="your_module.ClosePosPopupInherit" t-inherit="point_of_sale.ClosePosPopup" t-inherit-mode="extension">
+
+        <!-- Add new button after the Cash In/Out button -->
+        <xpath expr="//button[@t-on-click='() => this.cashMove()']" position="after">
+            <button type="button" t-on-click="sendmail" class="btn btn-primary">
+    Send Report to Email
+</button>
+
+        </xpath>
+
+    </t>
+</templates>

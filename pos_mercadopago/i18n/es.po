@@ -1,0 +1,991 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_mercadopago
+# 
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-09 17:23+0000\n"
+"PO-Revision-Date: 2025-09-09 00:01+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "1. Autorizar Aplicación"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "2. Intercambiar Código"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__h24
+msgid "24H"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid ""
+"<span class=\"oe_grey\" invisible=\"latitude &lt;= 0\">N </span>\n"
+"                                        <span class=\"oe_grey\" invisible=\"latitude &gt;= 0\">S </span>"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid ""
+"<span class=\"oe_grey\" invisible=\"longitude &lt;= 0\">E </span>\n"
+"                                        <span class=\"oe_grey\" invisible=\"longitude &gt;= 0\">W </span>\n"
+"                                        <span class=\"oe_grey ps-1\">) </span>"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "<span class=\"oe_grey\">( </span>"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__open_time_mon
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Abre"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Abrir URL de autorización de MercadoPago"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__mp_access_token
+msgid "Access token"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__action
+msgid "Action"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__active_range
+msgid "Active Range"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Actualizar"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__address_id
+msgid "Address ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,help:pos_mercadopago.field_mp_store_box_line__name
+msgid "An internal identification of the point of sale."
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store_box_line__category__621102
+msgid "Argentina"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__authorization_code
+msgid "Authorization Code"
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid ""
+"Authorization Code is required. Please complete the authorization flow "
+"first."
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid "Authorization code exchanged successfully. Refresh token obtained."
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__state__draft
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store_box__state__draft
+msgid "Borrador"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__box_id
+msgid "Box ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.actions.act_window,name:pos_mercadopago.action_box_mp
+#: model:ir.ui.menu,name:pos_mercadopago.menu_pos_box_mp_config
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_box_form
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_pos_mp_box_list
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_pos_mp_logs_tree
+msgid "Caja"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_notifications__status__canceled
+msgid "Cancelación"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_tree
+msgid "Card Reader"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__close_time_mon
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Cierra"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__city_name
+msgid "Ciudad"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Clave pública no disponible"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__client_id
+msgid "Client ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid "Client ID and Client Secret are required"
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid "Client ID and Redirect URI are required"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__client_secret
+msgid "Client Secret"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__close_time_fir
+msgid "Close Time Fir"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__close_time_sat
+msgid "Close Time Sat"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__close_time_sun
+msgid "Close Time Sun"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__close_time_thu
+msgid "Close Time Thu"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__close_time_tue
+msgid "Close Time Tue"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__close_time_wed
+msgid "Close Time Wed"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,help:pos_mercadopago.field_mp_credential__authorization_code
+msgid "Code received from authorization callback"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__company_id
+msgid "Compañía"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Configuración General"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_log__action__create_order
+msgid "Crear orden"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__create_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__create_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__create_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__create_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__create_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__create_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__create_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__create_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__create_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__create_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.actions.act_window,name:pos_mercadopago.action_mp_credential_form
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__credential_id
+#: model:ir.ui.menu,name:pos_mercadopago.menu_mp_credential
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Credenciales"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__category
+msgid "Código MCC"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__rrule_type__daily
+msgid "Days"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_log__action__refund_order
+msgid "Devolver orden"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_notifications__status__refunded
+msgid "Devuelto"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__display_name
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__display_name
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__display_name
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__display_name
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__display_name
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__weekday__sun
+msgid "Dom"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Domingo"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_box_form
+msgid "Editar"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_box_form
+msgid "Eliminar"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_log__action__remove_order
+msgid "Eliminar orden"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__endpoint
+msgid "Endpoint"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__status
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__state
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__state
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__active_box
+msgid "Estado"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Expira en (segundos)"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__expires_in
+msgid "Expiración en (segundos)"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__external_store_id
+msgid "External Store"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Fecha de Expiración"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Fecha de Obtención"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__token_expiry_date
+msgid "Fecha de expiración del token"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__token_obtained_date
+msgid "Fecha de obtención del token"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__fixed_amount
+msgid "Fixed amount"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__fri
+msgid "Fri"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__latitude
+msgid "Geo Latitude"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__longitude
+msgid "Geo Longitude"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Geolocalización"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Geolocation"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__header
+msgid "Header"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Horario"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__id
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__id
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__id
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__id
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__id
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "ID de Usuario"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__external_id
+msgid "Identificador Sucursal física"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__external_store_id
+msgid "Identificador del la Sucursales físicas"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__external_id
+msgid "Identificador único de la caja"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Información de Expiración"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__integrator_id
+msgid "Integrador ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Intercambiar código de autorización por tokens"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__interval
+msgid "Interval"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__weekday__thu
+msgid "Jue"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Jueves"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__write_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__write_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__write_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__write_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__write_uid
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__write_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__write_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__write_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__write_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__write_date
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__live_mode
+msgid "Live Mode"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__public_key
+msgid "Llave publica"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.actions.act_window,name:pos_mercadopago.action_pos_mp_logs
+#: model:ir.ui.menu,name:pos_mercadopago.menu_pos_mp_logs
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_pos_mp_logs_form
+msgid "Logs"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__weekday__mon
+msgid "Lun"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__mon
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Lunes"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.ui.menu,name:pos_mercadopago.menu_mp_credential_config
+msgid "MP"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_pos_payment_method__pos_mp_config_id
+msgid "MP Credentials"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_mp_store
+msgid "MP Store"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__weekday__tue
+msgid "Mar"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Martes"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Miercoles"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__weekday__wed
+msgid "Mié"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Modo Producción"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__rrule_type__monthly
+msgid "Months"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_mp_log
+msgid "Mp Log"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_mp_store_box
+msgid "Mp Store Box"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid ""
+"Must match the URL configured in your MercadoPago application's 'URLs de "
+"redireccionamiento'"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__name
+msgid "Name"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__street_name
+msgid "Nombre de calle"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__name
+msgid "Nombre de la caja"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.actions.act_window,name:pos_mercadopago.action_pos_mp_notifications
+#: model:ir.ui.menu,name:pos_mercadopago.menu_pos_mp_notifications
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_pos_mp_notifications_form
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_pos_mp_notifications_tree
+msgid "Notificaciones"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__street_number
+msgid "Número de calle"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "OAuth Configuración"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__state
+msgid "OAuth State"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_log__action__get_order
+msgid "Obtener orden"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__open_time_fir
+msgid "Open Time Fir"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__open_time_sat
+msgid "Open Time Sat"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__open_time_sun
+msgid "Open Time Sun"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__open_time_thu
+msgid "Open Time Thu"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__open_time_tue
+msgid "Open Time Tue"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__open_time_wed
+msgid "Open Time Wed"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__payment_id
+msgid "Pago Id"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Paste the code received from authorization callback"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Permisos"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__platform_id
+msgid "Plataforma ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_notifications__type__point
+msgid "Point"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_mp_credential
+msgid "Point of Sale MP Configuration"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de pago en el punto de venta "
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_mp_store_box_line
+msgid "Pos Terminal mp"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model,name:pos_mercadopago.model_mp_notifications
+msgid "Pos mp notifications"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_notifications__status__processed
+msgid "Procesado"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__state_id
+msgid "Provincia"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__state__publish
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store_box__state__publish
+msgid "Publicado"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_box_form
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Publicar"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__config_id
+msgid "Punto de venta"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__name
+msgid "Punto de venta ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_pos_config__sale_point_id
+msgid "Punto de venta MP"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_box_form
+msgid "Puntos de ventas"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_notifications__type__qr
+msgid "Qr"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,help:pos_mercadopago.field_mp_credential__state
+msgid "Random state for security"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__redirect_uri
+msgid "Redirect URI"
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid "Redirect URI is required"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__ref
+msgid "Referencia"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__name
+msgid "Referencia Externa"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Refrescar Token"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Refrescar token existente usando refresh_token"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.actions.server,name:pos_mercadopago.cron_refresh_mp_tokens_ir_actions_server
+msgid "Refresh MercadoPago OAuth Tokens"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__refresh_token
+msgid "Refresh Token"
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid "Refresh Token is required to refresh access token"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__request
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__request
+msgid "Request"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__response
+msgid "Response"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__rrule_type
+msgid "Rrule Type"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Sabado"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__sat
+msgid "Sat"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__scope
+msgid "Scope"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__session_id
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__session_id
+msgid "Sesión"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__status_code
+msgid "Status code"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__store_id
+msgid "Store"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__external_store_id
+msgid "Store ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid "Success"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__name
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__store_id
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__store_box_id
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_pos_mp_store_list
+msgid "Sucursal física"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.actions.act_window,name:pos_mercadopago.action_store_mp
+#: model:ir.ui.menu,name:pos_mercadopago.menu_pos_store_mp_config
+msgid "Sucursales físicas"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__sun
+msgid "Sun"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__weekday__sat
+msgid "Sáb"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box__box_line_ids
+msgid "Terminal Line"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,help:pos_mercadopago.field_pos_payment_method__pos_mp_config_id
+msgid "The configuration of MP used for this journal"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__thu
+msgid "Thu"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__payment_type
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_notifications__type
+msgid "Tipo"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__token_type
+msgid "Token Type"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Token de Acceso"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "Token no generado aún"
+msgstr ""
+
+#. module: pos_mercadopago
+#. odoo-python
+#: code:addons/pos_mercadopago/models/mp_credential.py:0
+msgid "Token refrescado satisfactoriamente"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__tue
+msgid "Tue"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__mp_url
+msgid "Url"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store_box_line__user_id
+msgid "User"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_credential__user_id
+msgid "Usuario ID"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__weekday__fri
+msgid "Vie"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_store_form
+msgid "Viernes"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_box_form
+msgid "Volver a borrador"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__wed
+msgid "Wed"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_store__weekday
+msgid "Weekday"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__rrule_type__weekly
+msgid "Weeks"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields,field_description:pos_mercadopago.field_mp_log__idempotency_key
+msgid "X-Idempotency-Key"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model:ir.model.fields.selection,name:pos_mercadopago.selection__mp_store__rrule_type__yearly
+msgid "Years"
+msgstr ""
+
+#. module: pos_mercadopago
+#: model_terms:ir.ui.view,arch_db:pos_mercadopago.view_mp_credential_form
+msgid "https://yourdomain.com/mercadopago/oauth/callback"
+msgstr ""

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record
+      id="res_config_settings_view_form_inherit_pos_defaults"
+      model="ir.ui.view"
+    >
+            <field
+        name="name"
+      >res.config.settings.view.form.inherit.pos.defaults</field>
+            <field name="model">res.config.settings</field>
+            <field
+        name="inherit_id"
+        ref="point_of_sale.res_config_settings_view_form"
+      />
+            <field name="arch" type="xml">
+                <xpath expr="//setting[@id='order_edit_tracking']" position="after">
+                    <setting>
+                        <label string="Client par défaut" for="pos_partner_id" />
+                                <i
+              class="fa fa-info-circle me-1"
+              title="This setting is common to all PoS."
+              pos-data-toggle="tooltip"
+            />
+                                <div class="text-muted">
+                                    Client associé à la session dans le journal des ventes.
+                                </div>
+                        <field name="pos_partner_id" colspan="4" nolabel="1" />
+                    </setting>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

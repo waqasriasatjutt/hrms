@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Cron job to refresh MercadoPago tokens every 24 hours -->
+        <record id="cron_refresh_mp_tokens" model="ir.cron">
+			<field name="name">Refresh MercadoPago OAuth Tokens</field>
+			<field name="active" eval="True" />
+			<field name="interval_number">1</field>
+			<field name="interval_type">days</field>
+			<field name="model_id" ref="pos_mercadopago.model_mp_credential" />
+			<field name="state">code</field>
+			<field name="code">model._cron_refresh_tokens()</field>
+			<field name="priority">10</field>
+		</record>
+    </data>
+</odoo>

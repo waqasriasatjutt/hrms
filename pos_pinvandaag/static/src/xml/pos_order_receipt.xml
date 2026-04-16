@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="inside">
+            <t t-if="props.data and props.data.payment_ids">
+                <div class="paymentlines" t-foreach="props.data.payment_ids" t-as="line" t-key="line.id">
+                    <br />
+                    <t t-if="line.ticket">
+                        <div class="pos-receipt-pinvandaag-ticket">
+                            <t t-raw="line.ticket"/>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

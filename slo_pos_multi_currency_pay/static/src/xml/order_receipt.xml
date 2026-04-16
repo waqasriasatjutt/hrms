@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="point_of_sale.PaymentScreenPaymentLines"
+       t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='line.selected']//span[hasclass('payment-name')]"
+               position="after">
+            <div class="payment-currency"
+                 style="margin-left: 10px;margin-right: 10px;padding: 1rem;">
+                <t t-if="line.converted_currency">
+                    (<t t-esc="line.converted_currency.amount"/>
+                    <t t-esc="line.converted_currency.symbol"/>)
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-else='']//div[hasclass('payment-amount')]"
+               position="before">
+            <div class="payment-currency"
+                 style="margin-left: 10px;margin-right: 10px;padding: 1rem;">
+                <t t-if="line.converted_currency">
+                    (<t t-esc="line.converted_currency.amount"/>
+                    <t t-esc="line.converted_currency.symbol"/>)
+                </t>
+            </div>
+        </xpath>
+    </t>
+    <t t-name="POS_multi_currency.OrderReceipt"
+       t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('paymentlines')]" position="replace">
+            <t t-if="props.data.converted_currency_total > 0">
+                <div class="paymentlines text-start" style="font-size: 100%; border-bottom: 1px dashed black;">
+                    <div  style="font-size: 100%; border-bottom: 1px dashed black; padding-top:10px;">PAYMENTS METHOD</div>
+                    <div style="font-size: 100%;">
+                        Total in Currency
+                        <span class="pos-receipt-right-align">
+                            <t t-esc="props.data.converted_currency_total.toFixed(2)"/>
+                            <t t-esc="props.data.converted_currency_symbol"/>
+                        </span>
+                    </div>
+                    <t t-foreach="props.data.paymentlines" t-as="line" t-key="line_index">
+                        <div>
+                            <t t-if="line.converted_currency_amount">
+                                <t t-esc="line.name"/>
+                                <span class="pos-receipt-right-align">
+                                    <t t-esc="line.converted_currency_amount"/><t t-esc="line.converted_currency_symbol"/>
+                                </span>
+                            </t>
+                            <t t-else="">
+                                <t t-esc="line.name"/>
+                                <span t-esc="props.formatCurrency(line.amount, false)" class="pos-receipt-right-align"/>
+                            </t>
+                        </div>
+                    </t>
+                    <div style="font-size: 100%;">
+                        CHANGE
+                        <span class="pos-receipt-right-align">
+                            <t t-esc="props.data.converted_currency_change.toFixed(2)"/>
+                            <t t-esc="props.data.converted_currency_symbol"/>
+                        </span>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('receipt-change')]" position="replace">
+                <t t-if="props.data.converted_currency_change > 0" >
+                    <div class=" receipt-change mt-2" style="display: none">
+                        CHANGE
+                        <span t-esc="props.formatCurrency(props.data.change)" class="pos-receipt-right-align"/>
+                    </div>
+                </t>
+        </xpath>
+    </t>
+</templates>

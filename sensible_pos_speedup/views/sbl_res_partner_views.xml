@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Partner Form View Enhancement - Add to Point of Sale Section -->
+    <record id="sbl_res_partner_form_speedup" model="ir.ui.view">
+        <field name="name">sbl.res.partner.form.speedup</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='point_of_sale']/field[@name='barcode']" position="after">
+                <field name="sbl_always_load_in_pos"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

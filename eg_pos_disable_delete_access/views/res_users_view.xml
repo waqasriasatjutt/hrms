@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_users_form_for_eg_pos_validation" model="ir.ui.view">
+        <field name="name">res.users.form.for.eg.pos.validation</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='account_security']" position="after">
+                <page string="Point of Sale" name="eg_pos_disable_delete_access" invisible="not is_display_details">
+                    <group>
+                        <field name="disable_delete_access"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="survey_survey_view_form" model="ir.ui.view">
+        <field name="name">survey.survey.view.form.pos</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="config_ids" widget="many2many_tags" invisible="survey_type != 'pos_survey'"/>
+            </xpath>
+            <xpath expr="//button[@name='action_send_survey']" position="attributes">
+                <attribute name="invisible">not active or survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_start_session']" position="attributes">
+                <attribute name="invisible">session_state or not active or certification or survey_type in ('survey', 'assessment') or survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_open_session_manager']" position="attributes">
+                <attribute name="invisible">not session_state or survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_end_session']" position="attributes">
+                <attribute name="invisible">session_state not in ['ready', 'in_progress'] or survey_type=='pos_survey'</attribute>
+            </xpath>
+            <!-- <xpath expr="//button[@name='action_test_survey']" position="attributes">
+                <attribute name="invisible">not active or not question_ids or survey_type=='pos_survey'</attribute>
+            </xpath> -->
+            <xpath expr="//button[@name='action_survey_user_input']" position="attributes">
+                <attribute name="invisible">access_mode == 'public' or survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='background_image']" position="attributes">
+                <attribute name="invisible">survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='survey_type']" position="attributes">
+                <attribute name="invisible">context.get('should_hide_qtype')</attribute>
+            </xpath>
+            <xpath expr="//field[@name='question_and_page_ids']//create[@name='add_section_control']" position="attributes">
+                <attribute name="invisible">parent.survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//page[@name='options']" position="before">
+                <page name="pos_options" string="Pos Options" invisible="survey_type!='pos_survey'">
+                    <group>
+                        <field name="pos_survey_timing" string="Timing" invisible="survey_type!='pos_survey'"/>
+                        <field name="enable_scoring" string="Scoring?" invisible="survey_type!='pos_survey'"/>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//page[@name='options']" position="attributes">
+                <attribute name="invisible">survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//page[@name='description']" position="attributes">
+                <attribute name="invisible">survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//page[@name='description_done']" position="attributes">
+                <attribute name="invisible">survey_type=='pos_survey'</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_survey_list" model="ir.ui.view">
+        <field name="name">pos.survey.list</field>
+        <field name="model">survey.survey</field>
+        <field name="arch" type="xml">
+            <list string="POS Survey">
+                <field name="title"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_pos_survey" model="ir.actions.act_window">
+        <field name="name">POS Survey</field>
+        <field name="res_model">survey.survey</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('survey_type', '=', 'pos_survey')]</field>
+        <field name="context">{
+            'default_survey_type': 'pos_survey',
+            'should_hide_qtype': True}</field>
+    </record>
+
+    <menuitem id="menu_pos_survey"
+        name="Survey"
+        action="action_pos_survey"
+        parent="point_of_sale.menu_point_config_product"
+        sequence="100"/>
+</odoo>

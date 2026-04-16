@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_eid_reader.PartnerListExtension" t-inherit="point_of_sale.PartnerList" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='header']/button" position="after">
+            <button class="btn btn-secondary btn-lg lh-lg ms-2" 
+                    t-on-click="scanEidAndCreatePartner"
+                    title="Scan Belgian eID card">
+                🪪 Scan ID
+            </button>
+        </xpath>
+        <xpath expr="//t[@t-set-slot='footer']//button[hasclass('btn-primary')]" position="after">
+            <button class="btn btn-secondary btn-lg lh-lg" 
+                    t-on-click="scanEidAndCreatePartner"
+                    title="Scan Belgian eID card">
+                🪪 Scan ID
+            </button>
+        </xpath>
+    </t>
+
+</templates>

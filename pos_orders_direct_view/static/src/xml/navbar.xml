@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_hr.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//OrderTabs/.." position="before">
+            <span class="list-plus-btn btn btn-secondary btn-lg me-1" t-on-click="() => this.pos.showScreen('TicketScreen')">Orders</span>
+        </xpath>
+    </t>
+</templates>

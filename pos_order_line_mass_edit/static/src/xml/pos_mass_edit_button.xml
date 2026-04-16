@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Templates to add order line edit button in POS session-->
+<templates id="template" xml:space="preserve">
+    <!-- Edit Order Line button -->
+    <t t-name="pos_order_line_mass_edit.ControlButtons"  t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//OrderlineNoteButton" position="after">
+           <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="EditOrderLine">
+               <i class="fa fa-pencil-square-o"> </i>
+               <span> </span>
+               <span> Edit Order Line</span>
+           </button>
+        </xpath>
+    </t>
+</templates>

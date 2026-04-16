@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_qr30_scb.CustomerDisplayQRPopup">
+        <Dialog title.translate="QR Code Payment" size="'md'">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <p t-out="props.body" class="text-prewrap" style="font-weight: bold;"/>
+                <div class="text-center fw-bolder" t-if="props.shopName">
+                    <span t-esc="props.shopName"/>
+                </div>
+                <img t-att-src="props.qrCode" alt="QR Code" style="width: 200px; height: 200px;"/>
+                <div class="mt-1">
+                    <strong>Amount: </strong>
+                    <t t-out="props.amount" />
+                </div>
+                <div class="mt-1" t-if="state.secondBeforeExpire and state.secondBeforeExpire > 0">
+                    <span class="text-warning fw-bolder">Please pay within <span t-esc="state.secondBeforeExpire"/>
+ seconds.</span>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+
+</templates>

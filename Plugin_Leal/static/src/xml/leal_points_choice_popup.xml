@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Plugin_Leal.LealPointsChoicePopup" owl="1">
+        <Dialog header="false" footer="false" size="sm">
+            <div class="popup popup-textinput leal-points-choice-popup">
+                <div class="modal-body">
+                    <span class="text-left font-weight-bold h3">Redimir puntos Leal</span>
+                    <div class="py-2"></div>
+                    <div class="w-100">
+                        <div class="mb-3">
+                            <span class="h5">El cliente tiene <span style="color:#007bff; font-weight:bold;"><t t-out="props.puntos" /></span> puntos disponibles (<t t-out="props.valorPesos" /> COP).</span>
+                        </div>
+                        <div class="input-group mb-3" style="background:#fafbfc; border:1.5px solid #cfd4db; border-radius:12px;">
+                            <div class="input-group-prepend py-2">
+                                <span class="input-group-text bg-transparent border-0 pr-0 pl-3 text-center" style="font-size:18px; color:#444343; background:#fafbfc; border-right:0;">
+                                    <i class="fa fa-coins"></i>
+                                </span>
+                            </div>
+                            <input type="number" class="form-control border-0 bg-transparent pl-2 py-2" placeholder="Monto a redimir (COP)" aria-label="Monto a redimir" t-model="state.montoRedimir" t-on-input="onInputChange" t-ref="input" min="1" t-att-max="props.valorPesos" style="box-shadow:none; font-size:14px; color:#888; background: #F9FAFA;" />
+                        </div>
+                        <div class="w-100 text-center mb-2">
+                            <button class="btn btn-lg btn-primary px-5 py-2" t-on-click="confirmAll" t-att-disabled="props.valorPesos === 0">Usar todos los puntos</button>
+                        </div>
+                        <div class="w-100 text-center mb-2">
+                            <button class="btn btn-lg btn-outline-primary px-5 py-2" t-on-click="confirmMonto" t-att-disabled="!state.montoRedimir || state.montoRedimir &lt;= 0 || state.montoRedimir &gt; props.valorPesos">Usar monto específico</button>
+                        </div>
+                        <div class="w-100 text-center mt-3">
+                            <button class="btn btn-secondary px-5 py-2" t-on-click="cancel">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+</templates>

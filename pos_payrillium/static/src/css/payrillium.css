@@ -1,0 +1,24 @@
+.payrillium-method {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 1.3125rem 1.225rem;
+  color: white !important;
+  font-weight: bold;
+}
+.payrillium-icon {
+  height: 24px !important;
+  width: 24px !important;
+  object-fit: contain;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.payrillium-method img.payrillium-icon {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  margin-right: 4px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}

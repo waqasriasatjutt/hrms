@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_mp_store_form" model="ir.ui.view" >
+            <field name="name">Sucursal física</field>
+            <field name="model">mp.store</field>
+            <field name="arch" type="xml">
+                <form string="Sucursal física">
+                    <header>
+                        <button name="publish_branch" type="object" string="Publicar" class="btn-primary" invisible="state != 'draft'"/>
+                        <button name="update_branch" type="object" string="Actualizar" invisible="state != 'publish'"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,publish"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                           <label for="name"/>
+                           <h1><field name="name" required="1"/></h1>
+                        </div>
+                        <group col="4">
+                            <field name="street_name" required="1"/>
+                            <field name="street_number" required="1"/>
+                            <field name="city_name" required="1"/>
+                            <field name="state_id" required="1"/>
+                            <field name="ref" required="1"/>
+                            <field name="external_store_id" invisible="1"/>
+                            <field name="external_id"/>
+                            <field name="pos_mp_config_id" required="1"/>
+                            <field name="address_id" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Horario">
+                                <group>
+                                    <label for="interval"/>
+                                    <div class="o_col">
+                                        <div class="o_row" invisible="1">
+                                            <field name="interval" class="oe_inline"/>
+                                            <field name="rrule_type"/>
+                                        </div>
+                                        <widget name="week_days"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="mon" invisible="1"/>
+                                    <field name="tue" invisible="1"/>
+                                    <field name="wed" invisible="1"/>
+                                    <field name="thu" invisible="1"/>
+                                    <field name="fri" invisible="1"/>
+                                    <field name="sat" invisible="1"/>
+                                    <field name="sun" invisible="1"/>
+                                </group>
+                                <group colspan="6" col="6">
+                                    <separator string="Lunes" invisible="not mon"/>
+                                    <group colspan="2" col="2">
+                                        <field name="open_time_mon" string="Abre" invisible="not mon" required="mon"/>
+                                    </group>
+                                    <group colspan="2" col="2">
+                                        <field name="close_time_mon" string="Cierra" invisible="not mon" required="mon"/>
+                                    </group>
+                                </group>
+                                <group colspan="6" col="6">
+                                    <separator string="Martes" invisible="not tue"/>
+                                    <group colspan="2" col="2">
+                                        <field name="open_time_tue" string="Abre" invisible="not tue" required="tue"/>
+                                    </group>
+                                    <group colspan="2" col="2">
+                                        <field name="close_time_tue" string="Cierra" invisible="not tue" required="tue"/>
+                                    </group>
+                                </group>
+                                <group colspan="6" col="6">
+                                    <separator string="Miercoles" invisible="not wed"/>
+                                    <group colspan="2" col="2">
+                                        <field name="open_time_wed" string="Abre" invisible="not wed" required="wed"/>
+                                    </group>
+                                    <group colspan="2" col="2">
+                                        <field name="close_time_wed" string="Cierra" invisible="not wed" required="wed"/>
+                                    </group>
+                                </group>
+                                <group colspan="6" col="6">
+                                    <separator string="Jueves" invisible="not thu"/>
+                                    <group colspan="2" col="2">
+                                        <field name="open_time_thu" string="Abre" invisible="not thu" required="thu"/>
+                                    </group>
+                                    <group colspan="2" col="2">
+                                        <field name="close_time_thu" string="Cierra" invisible="not thu" required="thu"/>
+                                    </group>
+                                </group>
+                                <group colspan="6" col="6">
+                                    <separator string="Viernes" invisible="not fri"/>
+                                    <group colspan="2" col="2">
+                                        <field name="open_time_fir" string="Abre" invisible="not fri" required="fri"/>
+                                    </group>
+                                    <group colspan="2" col="2">
+                                        <field name="close_time_fir" string="Cierra" invisible="not fri" required="fri"/>
+                                    </group>
+                                </group>
+                                <group colspan="6" col="6">
+                                    <separator string="Sabado" invisible="not sat"/>
+                                    <group colspan="2" col="2">
+                                        <field name="open_time_sat" string="Abre" invisible="not sat" required="sat"/>
+                                    </group>
+                                    <group colspan="2" col="2">
+                                        <field name="close_time_sat" string="Cierra" invisible="not sat" required="sat"/>
+                                    </group>
+                                </group>
+                                <group colspan="6" col="6">
+                                    <separator string="Domingo" invisible="not sun"/>
+                                    <group colspan="2" col="2">
+                                        <field name="open_time_sun" string="Abre" invisible="not sun" required="sun"/>
+                                    </group>
+                                    <group colspan="2" col="2">
+                                        <field name="close_time_sun" string="Cierra" invisible="not sun" required="sun"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Geolocalización">
+                                <group col="2">
+                                    <label for="latitude" string="Geolocation"/>
+                                    <div>
+                                        <span class="oe_grey">( </span>
+                                        <field name="latitude" class="oe_inline o_input_12ch px-1"/>
+                                        <span class="oe_grey" invisible="latitude &lt;= 0">N </span>
+                                        <span class="oe_grey" invisible="latitude &gt;= 0">S </span>
+                                        <field name="longitude" class="oe_inline o_input_12ch ps-2 pe-1"/>
+                                        <span class="oe_grey" invisible="longitude &lt;= 0">E </span>
+                                        <span class="oe_grey" invisible="longitude &gt;= 0">W </span>
+                                        <span class="oe_grey ps-1">) </span>
+                                    </div>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pos_mp_store_list" model="ir.ui.view">
+            <field name="name">Sucursal física</field>
+            <field name="model">mp.store</field>
+            <field name="arch" type="xml">
+                <list string="Sucursal física">
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_store_mp" model="ir.actions.act_window">
+            <field name="name">Sucursales físicas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mp.store</field>
+            <field name="view_mode">list,kanban,form</field>
+        </record>
+
+        <menuitem parent="pos_mercadopago.menu_mp_credential_config" action="pos_mercadopago.action_store_mp" id="menu_pos_store_mp_config" sequence="36" name="Sucursales físicas"/>
+    </data>
+</odoo>

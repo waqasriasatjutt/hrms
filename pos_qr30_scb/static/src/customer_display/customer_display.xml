@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_qr30_scb.CustomerDisplay" t-inherit="point_of_sale.CustomerDisplay" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_customer_display_sidebar')]" position="after">
+            <t t-if="order.qr30ShowOnCustomerDisplay">
+                <t t-esc="this.showQR()"/>
+            </t>
+            <t t-else="">
+                <t t-esc="this.hidePopup()"/>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

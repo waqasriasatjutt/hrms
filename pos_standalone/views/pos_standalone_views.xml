@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- POS Standalone Configuration Views -->
+    <record id="view_pos_standalone_config_list" model="ir.ui.view">
+        <field name="name">pos.standalone.config.list</field>
+        <field name="model">pos.standalone.config</field>
+        <field name="arch" type="xml">
+            <list string="POS Standalone Configurations">
+                <field name="name"/>
+                <field name="server_url"/>
+                <field name="database_name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pos_standalone_config_form" model="ir.ui.view">
+        <field name="name">pos.standalone.config.form</field>
+        <field name="model">pos.standalone.config</field>
+        <field name="arch" type="xml">
+            <form string="POS Standalone Configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_download_standalone" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-download">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Download</span>
+                                <span class="o_stat_text">Standalone</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Configuration Name"/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="Connection" name="connection">
+                            <group>
+                                <group string="Connection Settings">
+                                    <field name="server_url" readonly="1"/>
+                                    <field name="database_name" readonly="1"/>
+                                    <p class="text-muted">
+                                        <small>Server URL and Database are automatically detected from current Odoo environment</small>
+                                    </p>
+                                </group>
+                                <group string="Sync Settings">
+                                    <field name="sync_interval"/>
+                                    <field name="last_sync_date" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Security" name="security">
+                            <group>
+                                <group string="Session Security">
+                                    <field name="security_pin" password="True"/>
+                                    <p class="text-muted">
+                                        <small>PIN for locking/unlocking the POS session</small>
+                                    </p>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Display" name="display">
+                            <group>
+                                <group string="Currency" groups="base.group_multi_currency">
+                                    <field name="currency_id"/>
+                                    <field name="currency_symbol" readonly="1"/>
+                                    <field name="thousand_separator" readonly="1"/>
+                                    <field name="decimal_separator" readonly="1"/>
+                                    <p class="text-muted">
+                                        <small>Symbol and separators are automatically computed from selected currency</small>
+                                    </p>
+                                </group>
+                                <group string="Rounding">
+                                    <field name="rounding_method"/>
+                                    <field name="rounding_factor"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Business Info" name="business">
+                            <group>
+                                <group>
+                                    <field name="business_name"/>
+                                    <field name="business_phone"/>
+                                    <field name="business_email"/>
+                                </group>
+                                <group>
+                                    <field name="business_address"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Receipt" name="receipt">
+                            <group>
+                                <field name="receipt_header" widget="text"/>
+                                <field name="receipt_footer" widget="text"/>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" widget="text"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_pos_standalone_config" model="ir.actions.act_window">
+        <field name="name">Standalone Configurations</field>
+        <field name="res_model">pos.standalone.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first POS Standalone configuration
+            </p>
+            <p>
+                Configure your standalone POS settings including connection mode, security, and display preferences.
+            </p>
+        </field>
+    </record>
+    
+    <!-- Menuitem Action -->
+    <record id="menu_pos_standalone_action" model="ir.ui.menu">
+        <field name="name">Standalone</field>
+        <field name="parent_id" ref="point_of_sale.menu_point_config_product"/>
+        <field name="action" ref="action_pos_standalone_config"/>
+        <field name="sequence" eval="50"/>
+    </record>
+
+</odoo>

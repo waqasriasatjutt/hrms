@@ -1,0 +1,16 @@
+.o_field_colored_status[data-status="active"] {
+  color: green;
+  font-weight: bold;
+}
+.o_field_colored_status[data-status="paid"] {
+  color: dodgerblue;
+  font-weight: bold;
+}
+.o_field_colored_status[data-status="expired"] {
+  color: orange;
+  font-weight: bold;
+}
+.o_field_colored_status[data-status="inactive"] {
+  color: crimson;
+  font-weight: bold;
+}

@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_compago
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250320\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-07 18:04+0000\n"
+"PO-Revision-Date: 2025-11-07 15:15-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+
+#. module: pos_compago
+#: model:ir.model.fields,help:pos_compago.field_pos_payment_method__compago_api_key
+msgid ""
+"API key that authenticates Point of Sale requests to the Compago API. \n"
+"\n"
+"You can obtain this key from the Compago Admin Panel or by requesting it "
+"from your technical representative.\n"
+"\n"
+"To get the key from the Compago Admin Panel, follow these steps:\n"
+"1. Log in to your Compago account.\n"
+"2. Go to the \"Settings\" > \"Developer\" section.\n"
+"3. Generate a new API Key."
+msgstr ""
+"Clave privada que autentica las solicitudes del Punto de Venta hacia la "
+"API de Compago. \n"
+"\n"
+"Puedes obtener esta clave desde el panel de administración de Compago o "
+"solicitándola a tu representante técnico.\n"
+"\n"
+"Para obtener la clave desde el panel de administración de Compago, sigue "
+"estos pasos:\n"
+"1. Inicia sesión en tu cuenta de Compago.\n"
+"2. Dirígete a la sección de \"Configuración\" > \"Desarrollador\".\n"
+"3. Genera una nueva API Key."
+
+#. module: pos_compago
+#: model:ir.model.fields,field_description:pos_compago.field_pos_payment_method__compago_api_url
+msgid "Compago API URL"
+msgstr "URL de la API de Compago"
+
+#. module: pos_compago
+#: model:ir.model.fields,field_description:pos_compago.field_pos_payment_method__compago_api_key
+msgid "Compago API key"
+msgstr "API Key de Compago"
+
+#. module: pos_compago
+#: model:ir.model.fields,field_description:pos_compago.field_pos_payment_method__compago_environment
+msgid "Compago Environment"
+msgstr "Entorno de Compago"
+
+#. module: pos_compago
+#. odoo-javascript
+#: code:addons/pos_compago/static/src/app/payment_compago.js:0
+msgid "Compago Error"
+msgstr "Error de Compago"
+
+#. module: pos_compago
+#: model:ir.model.fields,field_description:pos_compago.field_pos_payment_method__compago_terminal_serial_number
+msgid "Compago Terminal Serial Number"
+msgstr "Número de serie del terminal de pago Compago"
+
+#. module: pos_compago
+#. odoo-python
+#: code:addons/pos_compago/models/pos_payment_method.py:0
+msgid "Could not establish the connection to the API. Error: %s"
+msgstr "No se pudo establecer la conexión con el servidor. Error: %s"
+
+#. module: pos_compago
+#: model:ir.model.fields,field_description:pos_compago.field_pos_payment_method__compago_should_deep_link_to_app
+msgid "Deep Link to Compago App"
+msgstr "Enlace directo a la aplicación de Compago"
+
+#. module: pos_compago
+#: model:ir.model.fields.selection,name:pos_compago.selection__pos_payment_method__compago_environment__demo
+msgid "Demo"
+msgstr "Demo"
+
+#. module: pos_compago
+#: model:ir.model.fields,help:pos_compago.field_pos_payment_method__compago_should_deep_link_to_app
+msgid ""
+"If enabled, the POS will attempt to open the payment processing app. This "
+"requires the app to be installed on the device."
+msgstr ""
+"Si está habilitado, el Punto de Venta intentará abrir la aplicación de "
+"procesamiento de pagos. Esto requiere que la aplicación esté instalada en "
+"el dispositivo."
+
+#. module: pos_compago
+#: model:ir.model.fields.selection,name:pos_compago.selection__pos_payment_method__compago_environment__local
+msgid "Local"
+msgstr "Local"
+
+#. module: pos_compago
+#: model:ir.model,name:pos_compago.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de pago en el punto de venta"
+
+#. module: pos_compago
+#: model:ir.model.fields.selection,name:pos_compago.selection__pos_payment_method__compago_environment__prod
+msgid "Production"
+msgstr "Producción"
+
+#. module: pos_compago
+#: model:ir.model.fields,help:pos_compago.field_pos_payment_method__compago_environment
+msgid ""
+"Select the environment that the Point of Sale will connect to::\n"
+"\n"
+"- Production: The environment for processing real payments with active "
+"terminals.\n"
+"\n"
+"- Demo: The environment for running tests or simulations; you will not "
+"receive real charges in your bank account.\n"
+"\n"
+"- Local: The environment for local development without any connection to "
+"Compago’s servers."
+msgstr ""
+"Selecciona el entorno al que se conectará el Punto de Venta:\n"
+"\n"
+"- Producción: El ambiente para procesar pagos reales con terminales "
+"activas.\n"
+"\n"
+"- Demo: El ambiente para realizar pruebas o simulacros, no recibirás "
+"cobros reales en tu cuenta bancaria.\n"
+"\n"
+"- Local: El ambiente para desarrollo local sin conexión con los "
+"servidores de Compago."
+
+#. module: pos_compago
+#: model:ir.model.fields,help:pos_compago.field_pos_payment_method__compago_terminal_serial_number
+msgid "Serial number of the physical POS terminal"
+msgstr "Número de serie del terminal físico de punto de venta"
+
+#. module: pos_compago
+#. odoo-python
+#: code:addons/pos_compago/models/pos_payment_method.py:0
+msgid "This payment terminal can only be used with MXN currency."
+msgstr "Este terminal de pago solo puede usarse con la moneda MXN."

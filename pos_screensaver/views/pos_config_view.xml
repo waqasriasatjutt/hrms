@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_pos_config_form_srb" model="ir.ui.view">
+        <field name="name">pos.config.form.srb</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form/sheet" position="inside">
+                <group string="POS Screen Saver" col="2">
+
+                    <group>
+                        <field name="screensaver_logo"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'preview_image': 'screensaver_logo'}"/>
+                    </group>
+
+                    <group>
+                        <field name="pos_navbar_logo"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'preview_image': 'pos_navbar_logo'}"/>
+                    </group>
+
+                    <group>
+                        <field name="pos_theme_color" widget="color"/>
+                    </group>
+
+                    <group>
+                        <field name="screensaver_timeout"/>
+                    </group>
+
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

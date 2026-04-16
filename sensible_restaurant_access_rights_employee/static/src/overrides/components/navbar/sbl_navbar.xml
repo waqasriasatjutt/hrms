@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sensible_restaurant_access_rights_employee.Navbar"
+       t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+
+        <!-- Set current employee variable -->
+        <xpath expr="//div[hasclass('navbar-menu')]" position="before">
+            <t t-set="sbl_current_employee" t-value="pos.get_cashier()"/>
+        </xpath>
+
+        <!-- Hide Plan Button based on employee setting -->
+        <xpath expr="//div[hasclass('navbar-menu')]/button[hasclass('back-button')]" position="attributes">
+            <attribute name="t-att-class">{'d-none': sbl_current_employee?.sbl_hide_restaurant_plan_button, 'btn-primary': screen === 'FloorScreen'}</attribute>
+        </xpath>
+
+        <!-- Hide Switch Floor View based on employee setting -->
+        <xpath expr="//DropdownItem[contains(text(), 'Switch Floor View')]" position="attributes">
+            <attribute name="t-if">pos.mainScreen.component.name == 'FloorScreen' and !sbl_current_employee?.sbl_hide_pos_switch_floor_view</attribute>
+        </xpath>
+
+    </t>
+</templates>

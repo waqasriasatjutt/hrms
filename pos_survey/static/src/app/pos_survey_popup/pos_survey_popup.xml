@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_survey.PosSurveyPopup">
+        <Dialog>
+            <t t-set-slot="header">
+                <div class="modal-header text-center">
+                    <h2><t t-esc="state.survey.survey_name"/></h2>
+                </div>
+            </t>
+            <t t-call="pos_survey.PosSurveyPopupMulti"/>
+            <t t-set-slot="footer">
+                <div class="footer footer-flex modal-footer">
+                    <div class="button confirm highlight btn btn-lg btn-primary" t-on-click="confirm">
+                        Submit
+                    </div>
+                    <div class="button cancel btn btn-lg btn-secondary" t-on-click="cancel">
+                        Discard
+                    </div>
+                </div>
+            </t>
+        </Dialog>
+    </t>
+
+    <t t-name="pos_survey.PosSurveyPopupMulti">
+        <main t-ref="root" class="modal-body">
+            <div class="survey-questions" style="width: 100%">
+                <t t-foreach="state.survey.questions" t-as="question" t-key="question.question_id">
+                    <t t-if="question.question_type == 'simple_choice'" t-call="pos_survey.simple_choice"/>
+                    <t t-if="question.question_type == 'char_box'" t-call="pos_survey.char_box"/>
+                    <t t-if="question.question_type == 'text_box'" t-call="pos_survey.text_box"/>
+                    <t t-if="question.question_type == 'numerical_box'" t-call="pos_survey.numerical_box"/>
+                    <span t-if="state.validationErrors[question.question_id]" style="color:red">
+                        <t t-out="state.validationErrors[question.question_id]"/>
+                    </span>
+                </t>
+            </div>
+        </main>
+    </t>
+
+    <!-- Integer Input -->
+    <t t-name="pos_survey.numerical_box">
+        <div class="text-break mt-3" style="text-align: left">
+            <h3><t t-esc="question.question_name"/></h3>
+        </div>
+        <div>
+            <input t-ref="input" type="number" class="form-control"
+                t-att-data-question-id="question.question_id"
+                inputmode="numeric"
+                step="1"
+                t-att-value="state.survey.answers[question.question_id]?.display_name || ''"
+                />
+        </div>
+    </t>
+
+    <!-- Multi-Choice Select Box -->
+    <t t-name="pos_survey.simple_choice">
+        <div class="text-break mt-3" style="text-align: left">
+            <h3><t t-esc="question.question_name"/></h3>
+        </div>
+        <div>
+            <select t-ref="input" class="form-select" id="options"
+                t-att-data-question-id="question.question_id">
+                <t t-foreach="question.options" t-as="option" t-key="option.option_id">
+                    <option 
+                        t-att-value="option.option_id"
+                        t-att-selected="state.survey.answers[question.question_id]?.display_name == option.option_id">
+                        <t t-out="option.option_name"/>
+                    </option>
+                </t>
+            </select>
+        </div>
+    </t>
+
+    <!-- Text Input -->
+    <t t-name="pos_survey.char_box">
+        <div class="text-break mt-3" style="text-align: left">
+            <h3><t t-esc="question.question_name"/></h3>
+        </div>
+        <div>
+            <input t-ref="input" type="text" class="form-control"
+                t-att-data-question-id="question.question_id"
+                t-att-value="state.survey.answers[question.question_id]?.display_name || ''"
+                t-att-placeholder="question.question_placeholder || ''"
+            />
+        </div>
+    </t>
+
+    <!-- Multi Text Input -->
+    <t t-name="pos_survey.text_box">
+        <div style="text-align: left" class="text-break mt-3">
+            <h3><t t-esc="question.question_name"/></h3>
+        </div>
+        <div>
+            <textarea t-ref="textarea" class="form-control"
+                t-att-data-question-id="question.question_id"
+                t-att-value="state.survey.answers[question.question_id]?.display_name || ''"
+                t-att-placeholder="question.question_placeholder || ''"
+                rows="4"
+                style="width: 100%; resize: vertical;"></textarea>
+        </div>
+    </t>
+
+</templates>

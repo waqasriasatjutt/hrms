@@ -1,0 +1,575 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * rewards_codes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-11 18:00+0000\n"
+"PO-Revision-Date: 2025-11-11 18:00+0000\n"
+"Last-Translator: ChatGPT (auto)\n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: rewards_codes
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid ""
+"<strong>Demo Mode Active</strong><br/>\n"
+"                                The system is currently running with <b>demo credentials</b> and <b>sample data</b>.<br/>\n"
+"                                Uncheck <b>“Demo Mode”</b> to connect your real Rewards Codes account."
+msgstr ""
+"<strong>Modo de demostración activo</strong><br/>\n"
+"El sistema se está ejecutando con <b>credenciales de demostración</b> y <b>datos de ejemplo</b>.<br/>\n"
+"Desmarca <b>“Modo de demostración”</b> para conectar tu cuenta real de Rewards Codes."
+
+#. module: rewards_codes
+#: model_terms:ir.actions.act_window,help:rewards_codes.action_rwc_config_form
+msgid "A Rewards Codes configuration allows you to reward your customers."
+msgstr "Una configuración de Rewards Codes te permite recompensar a tus clientes."
+
+#. module: rewards_codes
+#: code:addons/rewards_codes/models/pos_rewards_codes.py:0
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__api_key
+#, python-format
+msgid "API Key"
+msgstr "Clave API"
+
+#. module: rewards_codes
+#: model_terms:ir.actions.act_window,help:rewards_codes.action_rwc_config_form
+msgid "Add a new RwC configuration"
+msgstr "Agregar una nueva configuración de RwC"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__default_phone_code
+msgid "Default Phone Code"
+msgstr "Código telefónico predeterminado"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__demo
+msgid "Demo Mode"
+msgstr "Modo de demostración"
+
+#. module: rewards_codes
+#: code:addons/rewards_codes/models/pos_rewards_codes.py:0
+#, python-format
+msgid "Demo Mode active — using simulated credentials."
+msgstr "Modo de demostración activo: usando credenciales simuladas."
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: rewards_codes
+#: model:ir.model.fields,help:rewards_codes.field_rewardscodes_config__qr
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid ""
+"Enable this option to print a Rewards Codes QR on customer receipts or "
+"tickets."
+msgstr "Activa esta opción para imprimir un código QR de Rewards Codes en los recibos o tickets del cliente."
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__id
+msgid "ID"
+msgstr "ID"
+
+#. module: rewards_codes
+#: model:ir.model.fields,help:rewards_codes.field_rewardscodes_config__demo
+msgid "If enabled, Rewards Codes runs with demo credentials and sample data."
+msgstr "Si está habilitado, Rewards Codes se ejecuta con credenciales de demostración y datos de ejemplo."
+
+#. module: rewards_codes
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid "If enabled, Rewards Codes will run in demo mode with sample data."
+msgstr "Si está habilitado, Rewards Codes funcionará en modo demostración con datos de ejemplo."
+
+#. module: rewards_codes
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid "E-Money Mode"
+msgstr "Modo Dinero Electrónico"
+
+#. module: rewards_codes
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid "E-Money Percentage"
+msgstr "Porcentaje de Dinero Electrónico"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__mode
+msgid "Mode"
+msgstr "Modo"
+
+#. module: rewards_codes
+#: model:ir.model.constraint,message:rewards_codes.constraint_rewardscodes_config_rwc_singleton_company
+msgid "Only one Rewards Codes configuration is allowed per company."
+msgstr "Solo se permite una configuración de Rewards Codes por empresa."
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__phone
+msgid "Owner Phone"
+msgstr "Teléfono del propietario"
+
+#. module: rewards_codes
+#: code:addons/rewards_codes/models/pos_rewards_codes.py:0
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: rewards_codes
+#: model:ir.model.fields,help:rewards_codes.field_rewardscodes_config__phone
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid ""
+"Phone number used to create your account at https://partner.rewards.codes. "
+"Must include the country code, e.g. +52XXXXXXXXXX."
+msgstr "Número telefónico usado para crear tu cuenta en https://partner.rewards.codes. Debe incluir el código de país, por ejemplo: +52XXXXXXXXXX."
+
+#. module: rewards_codes
+#: model:ir.model.fields.selection,name:rewards_codes.selection__rewardscodes_config__mode__product
+msgid "Products Mode"
+msgstr "Modo por productos"
+
+#. module: rewards_codes
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__qr
+msgid "QR on Ticket"
+msgstr "QR en ticket"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/xml/order_receipt_extended.xml:0
+#, python-format
+msgid "Register your ticket"
+msgstr "Registra tu ticket"
+
+#. module: rewards_codes
+#: code:addons/rewards_codes/static/src/xml/navbar.xml:0
+#: code:addons/rewards_codes/static/src/xml/order_receipt_extended.xml:0
+msgid "Rewards Codes"
+msgstr "Rewards Codes"
+
+#. module: rewards_codes
+#: model:ir.model,name:rewards_codes.model_rewardscodes_config
+msgid "Rewards Codes Config"
+msgstr "Configuración de Rewards Codes"
+
+#. module: rewards_codes
+#: model:ir.actions.act_window,name:rewards_codes.action_rwc_config_form
+#: model:ir.ui.menu,name:rewards_codes.menu_rwc_config
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid "RwC Configuration"
+msgstr "Configuración RwC"
+
+#. module: rewards_codes
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_tree
+msgid "RwC Configurations"
+msgstr "Configuraciones RwC"
+
+#. module: rewards_codes
+#: model:ir.model.fields,help:rewards_codes.field_rewardscodes_config__mode
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid "Select the type of rewards: Visits or Products."
+msgstr "Selecciona el tipo de recompensas: Visitas, Productos o dinero electrínico."
+
+#. module: rewards_codes
+#: model:ir.model.fields,help:rewards_codes.field_rewardscodes_config__default_phone_code
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid "The country code used for customer numbers. Example: +52 or +1."
+msgstr "El código de país usado para los números de cliente. Ejemplo: +52 o +1."
+
+#. module: rewards_codes
+#: code:addons/rewards_codes/models/pos_rewards_codes.py:0
+msgid "To disable Demo Mode, please fill the following fields: %s"
+msgstr "Para desactivar el modo de demostración, completa los siguientes campos: %s"
+
+#. module: rewards_codes
+#: model:ir.model.fields.selection,name:rewards_codes.selection__rewardscodes_config__mode__visit
+msgid "Visits Mode"
+msgstr "Modo por visitas"
+
+#. module: rewards_codes
+#: model:ir.model.fields.selection,name:rewards_codes.selection__rewardscodes_config__mode__emoney
+msgid "E-Money Mode"
+msgstr "Modo por dinero electrónico"
+
+#. module: rewards_codes
+#. odoo-python
+#: code:addons/rewards_codes/models/pos_rewards_codes.py:0
+#: model:ir.model.fields,field_description:rewards_codes.field_rewardscodes_config__emoney_percent
+msgid "E-Money Percentage"
+msgstr "Porcentaje de dinero electrónico"
+
+#. module: rewards_codes
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid ""
+"Percentage of the purchase amount returned as electronic money to the "
+"customer."
+msgstr "Porcentaje de la compra regresado como dinero electrónico al cliente"
+
+#. module: rewards_codes
+#: model:ir.model.fields,help:rewards_codes.field_rewardscodes_config__api_key
+#: model_terms:ir.ui.view,arch_db:rewards_codes.view_rwc_config_form
+msgid ""
+"Your developer key located at the bottom of the Settings page in "
+"https://partner.rewards.codes."
+msgstr "Tu clave de desarrollador ubicada al final de la página de Configuración en https://partner.rewards.codes."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Bad credentials — please create your account in https://rewards.codes and enter a valid user phone and API (located at bottom of settings)"
+msgstr "Credenciales incorrectas — crea tu cuenta en https://rewards.codes e ingresa un teléfono y API válidos (al final de Configuración)."
+
+#. module: rewards_codes
+msgid "Rewards Codes has not been configured!"
+msgstr "¡Rewards Codes no ha sido configurado!"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "An error occurred while retrieving Rewards Codes settings!"
+msgstr "¡Ocurrió un error al obtener la configuración de Rewards Codes!"
+
+#. module: rewards_codes
+msgid "Mexico"
+msgstr "México"
+
+#. module: rewards_codes
+msgid "Error"
+msgstr "Error"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Phone number"
+msgstr "Número telefónico"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Points to add"
+msgstr "Puntos a agregar"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "📞 Register number"
+msgstr "📞 Registrar número"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "💳 Check balance"
+msgstr "💳 Consultar saldo"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Security code"
+msgstr "Código de seguridad"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "📤 Send code"
+msgstr "📤 Enviar código"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Number of visits"
+msgstr "Número de visitas"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "🏆 Redeem prize"
+msgstr "🏆 Canjear premio"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "🎁 Rewards"
+msgstr "🎁 Rewards"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "💎 Codes"
+msgstr "💎 Codes"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Security code cannot be empty"
+msgstr "El código de seguridad no puede estar vacío"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Number of visits must be a number greater than 0"
+msgstr "El número de visitas debe ser un número mayor que 0"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "The phone number is not valid"
+msgstr "El número telefónico no es válido"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "has"
+msgstr "tiene"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "points in"
+msgstr "puntos en"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Unlocked promotions"
+msgstr "Promociones desbloqueadas"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "points"
+msgstr "puntos"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "History"
+msgstr "Historial"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Network error. Please try again."
+msgstr "Error de red. Por favor intenta de nuevo."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Unexpected response"
+msgstr "Respuesta inesperada"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Number registered"
+msgstr "Número registrado"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Redeem successful"
+msgstr "Canje exitoso"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Loading..."
+msgstr "Cargando..."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Click here to open Rewards Codes. To disable this tutorial, uncheck “Demo Mode” in POS → Configuration → RwC Configuration."
+msgstr "Haz clic aquí para abrir Rewards Codes. Para desactivar este tutorial, desmarca “Modo de demostración” en POS → Configuración → Configuración RwC."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Enter a customer phone to test and select its country. They will receive a WhatsApp message."
+msgstr "Ingresa el teléfono del cliente para probar y selecciona su país. Recibirá un mensaje por WhatsApp."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Click to register 1 point and trigger the welcome flow. After, please check the phone whatsapp."
+msgstr "Haz clic para registrar 1 punto e iniciar el flujo de bienvenida. Después, revisa el WhatsApp del teléfono."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Switch to “Codes” to check balance and redeem prizes."
+msgstr "Cambia a “Códigos” para consultar el saldo y canjear premios."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Enter the phone here and press “Check balance” to view points and unlocked prizes."
+msgstr "Ingresa aquí el teléfono y presiona “Consultar saldo” para ver puntos y premios desbloqueados."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Send the security code to WhatsApp (verifies customer identity)."
+msgstr "Envía el código de seguridad por WhatsApp (verifica la identidad del cliente)."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Enter the number of visits and the received security code, then redeem the prize."
+msgstr "Ingresa el número de visitas y el código recibido, luego canjea el premio."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "After completing a sale, a QR is printed on the ticket. Scan it with the Rewards Codes app to view visit details."
+msgstr "Al finalizar una venta, se imprime un QR en el ticket. Escanéalo con la app de Rewards Codes para ver los detalles de la visita."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Back"
+msgstr "Atrás"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Skip"
+msgstr "Omitir"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Next"
+msgstr "Siguiente"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Finish"
+msgstr "Finalizar"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Getting things ready…"
+msgstr "Preparando todo…"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Missing country code"
+msgstr "Falta el código de país"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Invalid code"
+msgstr "Código inválido"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Code sent"
+msgstr "Código enviado"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Prize not found. Please check balance."
+msgstr "Premio no encontrado. Por favor, consulta el saldo."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Points at maximum. Please redeem first."
+msgstr "Puntos al máximo. Por favor, realiza un canje primero."
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "COUNTRIES ERROR"
+msgstr "ERROR AL CARGAR PAÍSES"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "Error loading countries"
+msgstr "Error cargando países"
+
+#. module: rewards_codes
+#. odoo-javascript
+#: code:addons/rewards_codes/static/src/js/navbar.js:0
+#, python-format
+msgid "RwC"
+msgstr "RwC"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_pos_limit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos_limit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+                <setting
+                        help="Restrict new POS order creation after reaching the limit."
+                        string="Order Limit" groups="base.group_system">
+                    <field name="pos_enable_order_limit"/>
+                    <div class="content-group" invisible="not pos_enable_order_limit">
+                        <div class="row mt16">
+                            <label string="Maximum Orders" for="pos_max_orders" class="col-lg-5 o_light_label"/>
+                            <field name="pos_max_orders"/>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

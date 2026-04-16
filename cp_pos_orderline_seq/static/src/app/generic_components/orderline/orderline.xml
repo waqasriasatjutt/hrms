@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="cp_pos_orderline_seq.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//li[hasclass('orderline')]" position="attributes">
+            <attribute name="class" remove="align-items-center" add="align-items-start" separator=" "/>
+        </xpath>
+        <xpath expr="//div[hasclass('product-order')]" position="before">
+            <h4 class="me-2"><t t-esc="line.sequence"/>.</h4>
+        </xpath>
+    </t>
+</templates>

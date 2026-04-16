@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//ul[hasclass('info-list')]//li[hasclass('price-per-unit')]" position="attributes">
+            <attribute name="class" add="d-flex" separator=" "/>
+        </xpath>
+        <xpath expr="//ul[hasclass('info-list')]//li[hasclass('price-per-unit')]//t[@t-if='line.unit']"
+               position="after">
+            <t t-if="line.taxAmount">
+                <span style="display: inline-flex; margin-left: auto;color:#008000;font-weight:450;font-size:0.8rem"
+                      class="flex-shrink-0">Tax: +<t
+                        t-esc="line.taxAmount"/>
+                </span>
+            </t>
+        </xpath>
+    </t>
+</templates>

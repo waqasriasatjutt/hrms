@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Unicobros POS Odoo 18</title>
+</head>
+
+<body>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">
+            Configuraci&oacute;n y Uso del Medio de Pago Unicobros
+        </h2>
+        <h3 class="oe_slogan">
+            Punto de Venta (POS) &ndash; Odoo 18
+        </h3>
+        <p class="oe_mt32 text-center">
+            Este m&oacute;dulo permite integrar la terminal de pago
+            <strong>Unicobros</strong> con el Punto de Venta de Odoo 18,
+            facilitando la gesti&oacute;n de cobros electr&oacute;nicos de forma directa,
+            segura y totalmente automatizada.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3>1. Creaci&oacute;n del M&eacute;todo de Pago</h3>
+        <p>
+            Como primer paso, es necesario crear el m&eacute;todo de pago que luego
+            podr&aacute; ser utilizado en las distintas cajas del Punto de Venta.
+        </p>
+
+        <p>Para ello, acceder a:</p>
+
+        <pre>Punto de Venta &rarr; Configuraci&oacute;n &rarr; M&eacute;todos de Pago</pre>
+
+        <p>
+            Una vez all&iacute;, hacer clic en <strong>&ldquo;Nuevo&rdquo;</strong> para crear
+            un nuevo m&eacute;todo de pago y completar el formulario con la siguiente informaci&oacute;n:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Nombre del m&eacute;todo de pago:</strong><br/>
+                Definir un nombre de referencia identificable, por ejemplo:
+                <em>&ldquo;POS Unicobros&rdquo;</em>.
+            </li>
+            <li>
+                <strong>Diario:</strong><br/>
+                Asignar el diario contable correspondiente seg&uacute;n la operatoria definida
+                (por ejemplo, <em>Banco</em>).
+            </li>
+            <li>
+                <strong>Integraci&oacute;n:</strong><br/>
+                Seleccionar la opci&oacute;n <em>&ldquo;Terminal&rdquo;</em>.
+                Esta selecci&oacute;n habilitar&aacute; el campo adicional
+                <em>&ldquo;Integrar con&rdquo;</em>.
+            </li>
+            <li>
+                <strong>Integrar con:</strong><br/>
+                Seleccionar <em>&ldquo;Unicobros&rdquo;</em>.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3>2. Configuraci&oacute;n de Credenciales Unicobros</h3>
+        <p>
+            Una vez seleccionada la integraci&oacute;n con Unicobros, se deber&aacute;n completar
+            los siguientes campos obligatorios:
+        </p>
+
+        <ul>
+            <li><strong>API Key de la entidad</strong></li>
+            <li><strong>Access Token de la entidad</strong></li>
+            <li><strong>POS Device ID</strong></li>
+        </ul>
+
+        <p>
+            El <strong>POS Device ID</strong> corresponde al identificador de la terminal f&iacute;sica
+            de Unicobros con la cual se desea operar.
+        </p>
+
+        <p>Este dato puede obtenerse directamente desde la terminal Unicobros, accediendo a:</p>
+
+        <pre>Men&uacute; &rarr; Ajustes &rarr; Referencia</pre>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3>3. Asignaci&oacute;n del M&eacute;todo de Pago a las Cajas</h3>
+        <p>
+            Una vez creado y configurado el m&eacute;todo de pago, este podr&aacute; ser asignado
+            a las cajas de Punto de Venta que lo requieran.
+        </p>
+
+        <p>
+            Para ello, ingresar a la configuraci&oacute;n de cada caja y seleccionar el m&eacute;todo
+            de pago <strong>POS Unicobros</strong> dentro de los medios de pago habilitados.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3>4. Uso en el Punto de Venta</h3>
+        <p>
+            Con el m&eacute;todo de pago correctamente configurado y asignado,
+            este quedar&aacute; disponible en la pantalla de cobros del Punto de Venta de Odoo.
+        </p>
+
+        <p>El flujo de operaci&oacute;n es el siguiente:</p>
+
+        <ol>
+            <li>El usuario selecciona <strong>POS Unicobros</strong> como m&eacute;todo de pago.</li>
+            <li>Odoo env&iacute;a autom&aacute;ticamente la intenci&oacute;n de pago a la terminal Unicobros.</li>
+            <li>El cliente realiza el pago directamente en la terminal.</li>
+            <li>
+                Una vez finalizada la operaci&oacute;n:
+                <ul>
+                    <li>El resultado de la transacci&oacute;n se sincroniza autom&aacute;ticamente con Odoo.</li>
+                    <li>El Punto de Venta refleja el estado del pago (aprobado o rechazado).</li>
+                    <li>En caso de rechazo, Odoo informa el motivo correspondiente.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p class="oe_mt32">
+            Este proceso garantiza una integraci&oacute;n directa y segura entre Odoo y la terminal
+            Unicobros, evitando cargas manuales y asegurando la trazabilidad de cada operaci&oacute;n.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>

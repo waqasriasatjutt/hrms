@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_payment_method_view_form_inherit_pos_bank_api" model="ir.ui.view">
+        <field name="name">pos.payment.method.form.inherit.qr30</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+        <field name="arch" type="xml">
+            <group name="Payment methods" position='after'>
+                <notebook invisible="qr_code_method != 'qr30'">
+                    <page string="Details" name="details">
+                        <group name="provider_details">
+                            <field name="qr30_provider" required="qr_code_method == 'qr30'"/>
+                            <field name="qr30_biller_name"/>
+                            <field name="qr30_has_callback"/>
+                            <field name="qr30_callback_url" invisible="qr30_has_callback == False"/>
+
+
+                        </group>
+                    </page>
+                    <page string="Configuration" name="configuration">
+                        <group name="provider_config">
+                            <field name="qr30_biller_code" required="qr_code_method == 'qr30'"/>
+                            <field name="qr30_ref3_prefix" required="qr_code_method == 'qr30'"/>
+                            <field name="qr30_payment_timer"/>
+                            <field name="qr30_api_key" password="True" required="qr_code_method == 'qr30'"/>
+                            <field name="qr30_api_secret" password="True" required="qr_code_method == 'qr30'"/>
+                            <field name="qr30_api_base_url"/>
+                            <button string="Test Connection" class="btn-primary" type="object" name="action_test_connection"/>
+
+                        </group>
+                    </page>
+                    <page string="Limit and Fee" name="price">
+                        <group name="provider_config">
+                            <field name="qr30_payment_fee"/>
+                            <field name="qr30_payment_fee_product_id" required="qr30_payment_fee &gt; 0" invisible="qr30_payment_fee &lt;= 0" context="{'default_available_in_pos': True, 'default_type': 'service', 'taxes_id': False}" domain="[('type', '=', 'service'),('available_in_pos', '=', True)]"/>
+                            <field name="qr30_minimum_price" help="Minimum price to allow QR payment – Zero means no limit"/>
+                            <field name="qr30_maximum_price" help="Maximum price to allow QR payment – Zero means no limit"/>
+                        </group>
+                    </page>
+                </notebook>
+            </group>
+        </field>
+    </record>
+</odoo>

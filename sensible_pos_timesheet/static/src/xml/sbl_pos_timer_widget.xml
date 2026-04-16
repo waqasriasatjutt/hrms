@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sensible_pos_timesheet.SblPosTimerWidget">
+        <div class="sbl-pos-timer-widget" t-if="sbl_should_show">
+            <div class="sbl-timer-display" t-att-class="sbl_timer_class">
+                <i class="fa fa-clock-o sbl-timer-icon"></i>
+                <span class="sbl-timer-text" t-esc="state.sbl_timer_display"></span>
+            </div>
+        </div>
+    </t>
+</templates>

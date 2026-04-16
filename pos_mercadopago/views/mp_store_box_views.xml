@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_mp_box_form" model="ir.ui.view" >
+            <field name="name">Caja</field>
+            <field name="model">mp.store.box</field>
+            <field name="arch" type="xml">
+                <form string="Caja">
+                    <header>
+                        <button name="publish_box" type="object" string="Publicar" class="btn-primary" invisible="state != 'draft'"/>
+                        <button name="to_draft" type="object" string="Volver a borrador" invisible="state != 'publish'"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,publish"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="store_id" required="1"/>
+                            <field name="external_store_id" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Puntos de ventas" name="pos_store">
+                                <group>
+                                    <field name="box_line_ids" widget="one2many" nolabel="1" mode="list" editable="bottom">
+                                        <list editable="bottom" delete="0">
+                                            <field name="config_id"/>
+                                            <field name="name" readonly="0"/>
+                                            <field name="external_id" readonly="True"/>
+                                            <field name="category"/>
+                                            <field name="fixed_amount"/>
+                                            <field name="store_box_id" column_invisible="True"/>
+                                            <field name="box_id" column_invisible="True"/>
+                                            <field name="active_box" widget="boolean_toggle" readonly="1"/>
+                                            <button name="edit_point_box"
+                                                class="o_stat_button"
+                                                icon="fa-edit" title="Editar"
+                                                type="object"/>
+                                            <button name="remove_point_box"
+                                                class="o_stat_button"
+                                                icon="fa-trash-o" title="Eliminar"
+                                                type="object"/>
+                                        </list>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pos_mp_box_list" model="ir.ui.view">
+            <field name="name">Caja</field>
+            <field name="model">mp.store.box</field>
+            <field name="arch" type="xml">
+                <list string="Caja">
+                    <field name="store_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_box_mp" model="ir.actions.act_window">
+            <field name="name">Caja</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mp.store.box</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem parent="pos_mercadopago.menu_mp_credential_config" action="pos_mercadopago.action_box_mp" id="menu_pos_box_mp_config" sequence="36"/>
+    </data>
+</odoo>

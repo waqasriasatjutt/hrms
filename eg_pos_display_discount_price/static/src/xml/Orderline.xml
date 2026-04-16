@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="eg_pos_display_discount_price.Orderline" t-inherit="point_of_sale.Orderline"
+       t-inherit-mode="extension" owl="1">
+        <xpath expr="//li[hasclass('price-per-unit')]" position="replace">
+                <li class="price-per-unit">
+                        <span class="qty px-1 border rounded text-bg-view fw-bolder me-1" t-esc="line.qty"/>
+                        <t t-if="!props.basic_receipt">
+                            x
+                            <t t-if="line.price !== 0">
+                                <s t-esc="line.oldUnitPrice" t-if="line.oldUnitPrice" />
+
+                                <t t-if="this.env.services.pos.config.display_discount_price and line.discount_price > 0">
+                                    <span class="product-stock text-center">
+                                        <span style="text-decoration:line-through; color:red;">
+                                            <t t-esc="line.original_price"/>
+                                        </span>
+                                        <span style="color:#27ae60;">
+                                            $<t t-esc="line.discount_price"/>
+                                        </span>
+                                    </span>
+                                </t>
+                                <t t-else="">
+                                    <t t-esc="line.unitPrice" />
+                                </t>
+                            </t>
+                            /
+                        </t>
+                        <t t-if="line.unit" t-esc="line.unit" />
+                    </li>
+        </xpath>
+    </t>
+</templates>
+
+

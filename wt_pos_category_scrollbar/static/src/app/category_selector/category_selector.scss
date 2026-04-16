@@ -1,0 +1,7 @@
+.wt_category_scroller{
+	display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap;
+    max-width: 300px;
+    overflow-y: hidden;
+}

@@ -1,0 +1,66 @@
+<templates id="template" xml:space="preserve">
+    <t t-name="Plugin_Leal.ProductSelectionPopup" owl="1">
+        <Dialog
+            title="props.title"
+            size="'xl'"
+            footer="false"
+            header="false"
+        >
+            <div class="modal-body" style="max-height: 80vh; overflow-y: auto; padding: 15px;">
+                    <div class="container-fluid">
+                        <div class="row g-3">
+                            <span class="h3 text-bolder" t-out="props.title" />
+                            <t t-foreach="props.products" t-as="product" t-key="product_index">
+                                <div class="col-md-4">
+                                    <div class="card rounded-md w-100 p-0 m-0 d-flex flex-column justify-content-evenly" t-on-click="this.isProductClickable(product) ? (ev) => this.onSelectProduct(product, props.customer_uid) : () => {}" t-att-class="this.isProductAvailable(product) ? 'product-available' : 'product-unavailable'" style="max-height: 105px; min-height: 101px; height: 320px;">
+                                        <div class="row w-100" style="margin-left: unset;">
+                                            <!-- Categoría y puntos -->
+                                            <div t-if="this.isProductAvailable(product)" class="row w-100 m-0 p-0">
+                                                <div class="col-6 p-0 m-0" style="color: #48C2D4; font-size: 12px; font-weight: 600;">
+                                                    <div class="ml-2" style="background-color: #EDF9FB; width: fit-content; padding: 2px 6px;">
+                                                        <i class="fa fa-trophy"></i>
+                                                        <span class="p-2">Premio</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 p-0 m-0 d-flex justify-content-end" style="color: #48C2D4; font-size: 12px; font-weight: 600;">
+                                                    <span class="">
+                                                        <t t-out="product.puntos || 0" />
+                                                    </span>
+                                                    <span class="text-muted px-1">pts</span>
+                                                </div>
+                                            </div>
+                                            <div t-att-class="this.isProductAvailable(product) ? 'py-1' : 'py-2'"></div>
+                                            <!-- Imagen y descripción -->
+                                            <div style="width: 20%;" class="p-0">
+                                                <img t-att-src="this.getProductImageUrl(product)" class="img img-fluid" t-att-alt="product.premio" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="max-width: 100%; border-radius: 8px; object-fit: cover; margin-left: 4px;" />
+                                            </div>
+                                            <div t-att-style="this.shouldShowPosImage(product) ? 'width: 80%;' : 'width: 80%;'" class="m-0 p-0 ml-1">
+                                                <div t-att-class="!this.isProductAvailable(product) ? 'row px-2' : 'row'">
+                                                    <span class=" col-12 h6 text-bold text-break" style="margin-left: 6px;">
+                                                        <t t-out="product.premio"></t>
+                                                    </span>
+                                                    <span class="col-12 text-muted text-break" style="font-size: 12px; margin-left: 6px;">
+                                                        <t t-out="product.descripcion_premio"></t> - Código interno: 
+                                                        <t t-out="product.codigo_premio"></t>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div t-if="!this.isProductAvailable(product)" class="row p-0 m-0 px-2">
+                                                <span class="p-0 m-0" style="color: #fd7d22; font-size:small; font-weight: 600; width: 100%; text-align: start;">Debes crear el producto para poder redimirlo</span>
+
+                                            </div>
+
+                                            <div class="py-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="w-100 text-center p-4">
+                        <button type="button" class="btn btn-secondary" t-on-click="(ev) => this.cancel()">Cancelar</button>
+                    </div>
+                </div>
+        </Dialog>
+    </t>
+</templates>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+	<t t-name="wt_pos_category_scrollbar.CategorySelector" t-inherit="point_of_sale.CategorySelector" t-inherit-mode="extension">
+		<xpath expr="//div[@t-att-class='props.class']" position="before">
+			<div class="wt_category_identify_cl"/>
+			<t t-set="style" t-value="props.style"/>
+			<t t-set="style" t-value="style + ('max-width:'+ state.category_scroll_width +'px; min-height:'+ state.category_scroll_height +'rem;')"/>
+		</xpath>
+		<xpath expr="//div[@t-att-class='props.class']" position="attributes">
+			<attribute name="t-att-style">style</attribute>
+			<attribute name="class" add="wt_category_scroller" separator=" "/>
+		</xpath>
+	</t>
+</templates>

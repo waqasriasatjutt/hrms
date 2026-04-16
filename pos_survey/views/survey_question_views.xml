@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="survey_question_form" model="ir.ui.view">
+        <field name="name">survey.question.view.form.pos</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='question_type']" position="before">
+                <field name="pos_question_type" widget="radio" invisible="survey_type!='pos_survey'" />
+            </xpath>
+            <xpath expr="//field[@name='question_type']" position="attributes">
+                <attribute name="invisible">survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//page[@name='survey_description']" position="attributes">
+                <attribute name="invisible">survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//page[@name='options']" position="before">
+                <page name="pos_options" string="Pos Options" invisible="survey_type!='pos_survey'">
+                    <group>
+                        <field name="question_placeholder" string="Placeholder" invisible="question_type not in ('char_box', 'text_box')"/>
+                        <field name="constr_mandatory" string="Required?"/>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//page[@name='options']" position="attributes">
+                <attribute name="invisible">survey_type=='pos_survey'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='question_type']" position="after">
+                <field name="survey_type" invisible="True"/>
+            </xpath>
+            <xpath expr="//field[@name='suggested_answer_ids']//field[@name='value_image']" position="attributes">
+                <attribute name="column_invisible">parent.question_type == 'matrix' or parent.survey_type=='pos_survey'</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

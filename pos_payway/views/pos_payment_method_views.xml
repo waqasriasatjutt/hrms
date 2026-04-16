@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="pos_payment_method_view_form" model="ir.ui.view">
+            <field name="name">Payment Method</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='use_payment_terminal']" position="after">
+                    <field name="pos_payway_config_id" invisible="use_payment_terminal != 'payway'" required="use_payment_terminal == 'payway'"/>
+                    <field name="payway_test_mode" widget="boolean_toggle" invisible="use_payment_terminal != 'payway'" required="use_payment_terminal == 'payway'"/>
+                    <field name="card_brand" invisible="use_payment_terminal != 'payway'"/>
+                    <field name="payway_terminal_number" invisible="use_payment_terminal != 'payway'"/>
+                    <field name="terminal_operation" invisible="use_payment_terminal != 'payway'"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+demo/
+
+# Virtual environments
+venv/
+ENV/
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-*
+
+# Odoo specific files
+*.log
+*.pot
+*.pyc
+*.pyo
+.settings/
+.project
+.pydevproject
+.ropeproject/
+
+# Database files
+*.sql
+*.sqlite
+*.db
+
+# Backup files
+*~
+*.bak
+*.swp
+
+# Local configuration
+local_config.py
+.env
+
+# Mac OSX
+.DS_Store
+
+# Custom files that might be added during development
+/todo.txt
+/notes.txt
+custom_config.py

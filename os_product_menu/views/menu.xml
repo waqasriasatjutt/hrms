@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!-- Top-level Menu -->
+        <menuitem
+            id="menu_pos_products_root"
+            name="Produits"
+            sequence="1"  
+            web_icon="os_product_menu,static/description/icon.png" 
+        />
+
+        <!-- Sub-menu linking to the action -->
+        <menuitem
+            id="menu_pos_product_item"
+            name="Produits Point de Vente"
+            parent="menu_pos_products_root"
+            action="point_of_sale.product_template_action_pos_product"
+            sequence="10"
+        />
+
+    </data>
+</odoo>

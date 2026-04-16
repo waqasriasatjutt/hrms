@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sensible_restaurant_access_rights_employee.ControlButtons"
+       t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+
+        <!-- Hide Bill Button (inside t-if wrapper, add condition to button itself) -->
+        <xpath expr="//t[@t-if='pos.config.iface_printbill']/button[@t-on-click='clickPrintBill']" position="attributes">
+            <attribute name="t-if">!current_employee?.sbl_hide_pos_action_bill</attribute>
+        </xpath>
+
+        <!-- Hide Guests Button -->
+        <xpath expr="//button[@t-on-click='clickTableGuests']" position="attributes">
+            <attribute name="t-if">!current_employee?.sbl_hide_pos_action_guests</attribute>
+        </xpath>
+
+        <!-- Hide Split Button (use contains for the arrow function) -->
+        <xpath expr="//button[contains(@t-on-click, 'SplitBillScreen')]" position="attributes">
+            <attribute name="t-if">!current_employee?.sbl_hide_pos_action_split</attribute>
+        </xpath>
+
+        <!-- Hide Transfer/Merge Button -->
+        <xpath expr="//button[contains(@t-on-click.stop, 'clickTransferOrder')]" position="attributes">
+            <attribute name="t-if">!current_employee?.sbl_hide_pos_action_transfer_merge</attribute>
+        </xpath>
+
+        <!-- Hide Edit Order Name Button (preserve original t-if condition) -->
+        <xpath expr="//button[contains(@t-on-click, 'editFloatingOrderName')]" position="attributes">
+            <attribute name="t-if">!pos.get_order()?.table_id and !current_employee?.sbl_hide_pos_action_edit_order_name</attribute>
+        </xpath>
+
+        <!-- Hide Switch to Dine in/Takeaway Button (preserve original t-if condition) -->
+        <xpath expr="//button[@t-on-click='clickTakeAway']" position="attributes">
+            <attribute name="t-if">pos.config.takeaway and !current_employee?.sbl_hide_pos_action_switch_dine_takeaway</attribute>
+        </xpath>
+    </t>
+</templates>

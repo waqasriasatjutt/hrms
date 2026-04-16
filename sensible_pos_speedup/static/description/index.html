@@ -1,0 +1,484 @@
+<section class="container" style="font-size:18px;">
+    <div class="col-12">
+        <div class="row mt-3">
+            <div class="col-12 mt4">
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs justify-content-center mb-4" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#features">
+                            <i class="fa fa-star"></i> Features
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#changelog">
+                            <i class="fa fa-history"></i> Changelog
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <div id="features" class="tab-pane show active">
+                        <section>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xl-6 offset-xl-3 col-md-12 col-12">
+                                        <div class="text-center">
+                                            <h2 class="fw-bold mt-5">
+                                                <u class="text-warning">
+                                                    <span class="text-primary">Feature Highlight</span>
+                                                </u>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="row row-cols-3 g-4">
+                            <div class="col">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary">
+                                            <i class="fa fa-tachometer"></i>
+                                            80-90% Faster Startup
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary">
+                                            <i class="fa fa-cog"></i>
+                                            Per-POS Configuration
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary">
+                                            <i class="fa fa-star"></i>
+                                            Priority Product Loading
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary">
+                                            <i class="fa fa-search"></i>
+                                            Dynamic Search & Load
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary">
+                                            <i class="fa fa-users"></i>
+                                            Smart Customer Loading
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary">
+                                            <i class="fa fa-database"></i>
+                                            Scales to 100k+ Products
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="alert alert-info" role="alert">
+                                    <h4 class="alert-heading">
+                                        <i class="fa fa-info-circle"></i> Technical Implementation Notice
+                                    </h4>
+                                    <p class="mb-2">
+                                        <strong>This module uses optimized SQL queries</strong> to achieve exceptional performance improvements.
+                                        These SQL queries are carefully designed to:
+                                    </p>
+                                    <ul class="mb-2">
+                                        <li>Work within Odoo's ORM framework and security layer</li>
+                                        <li>Respect all record rules, access rights, and domain filters</li>
+                                        <li>Follow PostgreSQL best practices for query optimization</li>
+                                        <li>Use Odoo's SQL() helper for safe query construction</li>
+                                    </ul>
+                                    <p class="mb-0">
+                                        <strong>Rest assured:</strong> This is a standard practice in Odoo development for performance-critical operations.
+                                        The module has been thoroughly tested and follows Odoo's security guidelines.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <h2 class="text-center fw-bold">
+                                    <u class="text-warning">
+                                        <span class="text-primary">Configuration Guide</span>
+                                    </u>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6 mt-2">
+                                <div class="p-3 border bg-light h-100">
+                                    <h4>Step 1: POS Configuration</h4>
+                                    <h6>Navigate to Point of Sale > Configuration > Point of Sale and open your POS configuration. Enable "POS Speedup" and configure initial loading limits for products and customers.</h6>
+                                    <div>
+                                        <img class="w-100" src="pos_config.webp" alt="POS Configuration" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <div class="p-3 border bg-light h-100">
+                                    <h4>Step 2: Set Loading Limits</h4>
+                                    <h6>Configure the number of products and customers to load initially. Recommended: 1000 products and 50-100 customers for optimal performance.</h6>
+                                    <div>
+                                        <img class="w-100" src="loading_limits.webp" alt="Loading Limits" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6 mt-2">
+                                <div class="p-3 border bg-light h-100">
+                                    <h4>Step 3: Mark Priority Products</h4>
+                                    <h6>Open any product and go to the Point of Sale tab. Enable "Always Load in POS" for critical products that should be immediately available.</h6>
+                                    <div>
+                                        <img class="w-100" src="product_always_load.webp" alt="Priority Product" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <div class="p-3 border bg-light h-100">
+                                    <h4>Step 4: Mark VIP Customers</h4>
+                                    <h6>Open any customer and go to the Point of Sale section. Enable "Always Load in POS" for VIP customers and frequent buyers.</h6>
+                                    <div>
+                                        <img class="w-100" src="customer_always_load.webp" alt="VIP Customer" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <h2 class="text-center fw-bold">
+                                    <u class="text-warning">
+                                        <span class="text-primary">Video Tutorial</span>
+                                    </u>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <div class="card border-0" style="max-width: 800px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    <a href="https://www.youtube.com/watch?v=csMenG6SE4g" target="_blank" style="text-decoration: none; display: block; position: relative;">
+                                        <img src="https://img.youtube.com/vi/csMenG6SE4g/maxresdefault.jpg" alt="POS Speedup Video Tutorial" class="card-img-top" style="width: 100%; height: auto;" loading="lazy">
+                                    </a>
+                                    <div class="card-body bg-light">
+                                        <h4 class="card-title text-primary mb-3">
+                                            <i class="fa fa-youtube-play text-danger" style="font-size: 28px;"></i>
+                                            Watch Complete Video Tutorial
+                                        </h4>
+                                        <p class="card-text text-muted mb-3">
+                                            Learn how to configure and use the POS Speedup module to dramatically improve your Point of Sale performance.
+                                        </p>
+                                        <a href="https://www.youtube.com/watch?v=csMenG6SE4g" target="_blank" class="btn btn-danger btn-lg" style="font-size: 18px; padding: 12px 40px;">
+                                            <i class="fa fa-play-circle"></i> Watch on YouTube
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <h2 class="text-center fw-bold">
+                                    <u class="text-warning">
+                                        <span class="text-primary">Performance Benefits</span>
+                                    </u>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h4 class="text-primary"><i class="fa fa-rocket"></i> Dramatic Speed Improvement</h4>
+                                        <ul>
+                                            <li><strong>Small Business (5k products):</strong> Startup time reduced from 45s to 3s (93% improvement)</li>
+                                            <li><strong>Medium Business (20k products):</strong> Startup time reduced from 55s to 5s (91% improvement)</li>
+                                            <li><strong>Large Business (100k products):</strong> Startup time reduced from 60s to 8s (87% improvement)</li>
+                                            <li><strong>Memory Usage:</strong> 80-90% reduction in initial data transfer</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6 mt-2">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary"><i class="fa fa-check-circle"></i> Smart Loading Strategy</h5>
+                                        <ul>
+                                            <li>Loads only essential products initially</li>
+                                            <li>Priority products always available</li>
+                                            <li>Favorite products loaded first</li>
+                                            <li>Recently used products prioritized</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary"><i class="fa fa-bolt"></i> Dynamic On-Demand Loading</h5>
+                                        <ul>
+                                            <li>Search loads products instantly</li>
+                                            <li>5-minute search cache</li>
+                                            <li>No impact on existing workflows</li>
+                                            <li>Fully compatible with all POS features</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <h2 class="text-center fw-bold">
+                                    <u class="text-warning">
+                                        <span class="text-primary">Technical Features</span>
+                                    </u>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-6 mt-2">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary"><i class="fa fa-database"></i> Backend Optimization</h5>
+                                        <ul>
+                                            <li>Optimized SQL queries with smart ordering</li>
+                                            <li>Uses Odoo's _where_calc for proper domain filtering</li>
+                                            <li>Respects all security rules and access rights</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <div class="card border-1">
+                                    <div class="card-body">
+                                        <h5 class="text-primary"><i class="fa fa-code"></i> Frontend Intelligence</h5>
+                                        <ul>
+                                            <li>Automatic cache management</li>
+                                            <li>Asynchronous search without UI blocking</li>
+                                            <li>Real-time product availability updates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="alert alert-warning" role="alert">
+                                    <h4 class="alert-heading">
+                                        <i class="fa fa-exclamation-triangle"></i> Important: Testing & Compatibility
+                                    </h4>
+                                    <p class="mb-2">
+                                        <strong>We strongly recommend thorough testing</strong> before deploying this module to your production environment.
+                                        Please take the following steps:
+                                    </p>
+                                    <ol class="mb-2">
+                                        <li><strong>Test Environment First:</strong> Install and test in a staging/test environment that mirrors your production setup</li>
+                                        <li><strong>Test with Your Modules:</strong> Verify compatibility with all other third-party modules you have installed, especially:
+                                            <ul>
+                                                <li>Other POS customization modules</li>
+                                                <li>Inventory and stock management modules</li>
+                                                <li>Product management extensions</li>
+                                                <li>Customer relationship management modules</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Test Core Workflows:</strong> Verify all your critical POS workflows work as expected:
+                                            <ul>
+                                                <li>Product search and selection</li>
+                                                <li>Customer search and selection</li>
+                                                <li>Order creation and payment processing</li>
+                                                <li>Refunds and exchanges</li>
+                                                <li>Session opening and closing</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Monitor Performance:</strong> Compare POS startup times and overall responsiveness before and after installation</li>
+                                    </ol>
+                                    <p class="mb-2">
+                                        <strong><i class="fa fa-bug"></i> Found an Issue?</strong>
+                                    </p>
+                                    <p class="mb-0">
+                                        We're here to help! If you encounter any problems, unexpected behavior, or compatibility issues with other modules,
+                                        please don't hesitate to reach out to us at <a href="mailto:info@sensiblecs.com" class="alert-link"><strong>info@sensiblecs.com</strong></a>.
+                                        We're committed to resolving issues quickly and ensuring this module works seamlessly with your Odoo setup.
+                                        Your feedback helps us improve the module for everyone in the Odoo community!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                    </div>
+                    <!-- End Features Tab -->
+
+                    <!-- Changelog Tab -->
+                    <div id="changelog" class="tab-pane">
+                        <section>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xl-8 offset-xl-2 col-md-12 col-12">
+                                        <div class="text-center">
+                                            <h2 class="fw-bold mt-5">
+                                                <u class="text-warning">
+                                                    <span class="text-primary">Version History</span>
+                                                </u>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                    <div class="card border-1 mb-3">
+                                            <div class="card-body">
+                                                <h5 class="text-primary">
+                                                    <i class="fa fa-calendar"></i>
+                                                    Version 18.0.1.0.2 - January 2026
+                                                </h5>
+                                                <div class="alert alert-info" role="alert">
+                                                    <i class="fa fa-wrench"></i> <strong>Remove</strong>
+                                                </div>
+                                                <ul>
+                                                    <li>Remove unused data file</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card border-1 mb-3">
+                                            <div class="card-body">
+                                                <h5 class="text-primary">
+                                                    <i class="fa fa-calendar"></i>
+                                                    Version 18.0.1.0.1 - January 2026
+                                                </h5>
+                                                <div class="alert alert-info" role="alert">
+                                                    <i class="fa fa-wrench"></i> <strong>Bug Fix</strong>
+                                                </div>
+                                                <ul>
+                                                    <li>Pricelist and Fiscal Position now correctly applied for customers loaded via server-side search</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card border-1">
+                                            <div class="card-body">
+                                                <h5 class="text-primary">
+                                                    <i class="fa fa-calendar"></i>
+                                                    Version 18.0.1.0.0 - October 2025
+                                                </h5>
+                                                <div class="alert alert-success" role="alert">
+                                                    <i class="fa fa-rocket"></i> <strong>Initial Release</strong> - Welcome to Sensible POS Speedup!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- End Changelog Tab -->
+                </div>
+                <!-- End Tab Content -->
+
+                <div class="card border-0 mt-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-center fw-bold">
+                            <u class="text-warning">
+                                <span class="text-primary">Need Support</span>
+                            </u>
+                        </h2>
+                        <h5 class="text-primary mt-3">
+                            <i class="fa fa-bug"></i>
+                            Bug reporting
+                        </h5>
+                        <h6>If you encounter any issues or inconsistencies with our product, don't hesitate to contact us at <a href="mailto:info@sensiblecs.com">info@sensiblecs.com</a>.
+                            we remain dedicated to continuously enhancing our tools to provide you with the best possible experience.
+                        </h6>
+                        <h5 class="text-primary mt-3">
+                            <i class="fa fa-lightbulb-o"></i>
+                            Share Your Feature Requests and Module Ideas (Complimentary Development)
+                        </h5>
+                        <h6>
+                            At <a href="https://www.sensiblecs.com" target="_blank">Sensible Consulting Services</a>,
+                            we're deeply committed to continuously improving our product and ensuring they meet your needs.
+                            We value your input and would greatly appreciate any feedback or suggestions you may have, don't hesitate to contact us at <a href="mailto:info@sensiblecs.com">info@sensiblecs.com</a>.
+                            If your requirements align with public use cases and can be efficiently integrated, we will prioritize them on our development roadmap.
+                        </h6>
+                        <h6>
+                            This to-do list is processed regularly at no additional cost. While we cannot guarantee specific deadlines or the final design,
+                            it's a great opportunity to request desired features without any financial commitment or risks.
+                            It's an excellent way to influence the development of our product, helping us better meet your needs over time.
+                        </h6>
+                        <h5 class="text-primary mt-3">
+                            <i class="fa fa-life-ring"></i>
+                            General Inquiries and Miscellaneous Issues
+                        </h5>
+                        <h6>
+                            Don't hesitate to reach out with any questions, concerns, or uncertainties
+                        </h6>
+                        <h6>
+                            If you have any additional questions or concerns, don't hesitate to contact us at <a href="mailto:info@sensiblecs.com">info@sensiblecs.com</a>.
+                            Feel free to contact us anytime, and we'll provide the support you need to resolve any doubts.
+                        </h6>
+                    </div>
+                </div>
+                <div class="card border-0 mt-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-center fw-bold">
+                            <u class="text-warning">
+                                <span class="text-primary">Our Services</span>
+                            </u>
+                        </h2>
+                        <img src="https://res.cloudinary.com/dfdynqpep/image/upload/v1740471668/ourservices_nnxnbz.png" class="img-fluid" alt="Our Services" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

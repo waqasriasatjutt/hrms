@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/kb_pos_digi_pay/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/kb_pos_digi_pay/static/src/js/digi_pay.js"></script>
+            <script type="text/javascript" src="/kb_pos_digi_pay/static/src/js/digi_qr_popup.js"></script>
+            <script type="text/javascript" src="/kb_pos_digi_pay/static/src/js/PaymentScreen.js"></script>
+        </xpath>
+        <xpath expr="//link[@id='pos-stylesheet']" position="after">
+            <link rel="stylesheet" href="/kb_pos_digi_pay/static/src/css/digi_pay.css" />
+        </xpath>
+    </template>
+</odoo>

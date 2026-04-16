@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherited" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="display_category_product_count"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="display_category_product_count" string="Display Category Product Count"/>
+                        <div class="text-muted">
+                            Display the total number of products in the category on the POS interface.
+                        </div>
+
+                        <div invisible="not display_category_product_count">
+                            <div>
+                                <span>Count Label</span>
+                                <field name="your_label"/>
+                            </div>
+
+                            <div class="w-50 row">
+                                <span class="d-block w-75 py-2">Label Color</span>
+                                <field name="primary_color_code" class="d-block w-25 p-0 m-0" widget="color"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

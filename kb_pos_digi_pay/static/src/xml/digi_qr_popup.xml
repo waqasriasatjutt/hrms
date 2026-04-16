@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="kb_pos_digi_pay.DigiPayQrPopup" owl="1">
+        <Dialog title="props.title" size="'md'">
+            <div style="padding: 10px; text-align: center;">
+                <div style="margin-bottom: 10px;">
+                    <img class="digipay_class_qr_data" id="digipay_qr" 
+                         t-att-src="qrData" 
+                         style="max-width: 300px; max-height: 300px; padding: 10px; background-color: white;"/>
+                </div>
+                <div style="margin: 5px;">
+                    <p style="font-size: 18px; font-weight: bold; color: #333; margin: 0;">
+                        <t t-esc="'Төлөх дүн: ' + this.env.utils.formatCurrency(amount)" />
+                    </p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <p class="class_inv_response_paid" 
+                       style="color: green; font-weight: bold; font-size: 16px; margin: 10px 0; display: none;"/>
+                    <p class="class_inv_response_unpaid" 
+                       style="color: orange; font-weight: bold; font-size: 16px; margin: 10px 0; display: none;"/>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-secondary" t-on-click="onCancel"
+                        style="padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; border-radius: 4px; background-color: #dc3545; color: white;">
+                    <t t-esc="props.cancelLabel or 'Cancel'"/>
+                </button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

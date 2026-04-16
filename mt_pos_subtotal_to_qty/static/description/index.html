@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+        ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+        ul ul {
+            list-style-type: circle;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Module Configuration</h1>
+
+    <h2>Step-1</h2>
+    <ul>
+        <li>Go to <strong>Point Of Sale &gt; Product Variant</strong></li>
+        <ul>
+            <li>Create/Edit -&gt; Enable <strong>"Is subtotal to qty product(?)"</strong></li>
+        </ul>
+    </ul>
+
+    <h2>Step-2</h2>
+    <ul>
+        <li>Go to <strong>Point Of Sale Frontend Screen</strong></li>
+        <ul>
+            <li>Actions Button Control</li>
+            <ul>
+                <li>If there are no lines, <strong>"Set Sub Total"</strong> will be disabled.</li>
+                <li><strong>"Set Sub Total"</strong> will be enabled when records are located in lines.</li>
+            </ul>
+        </ul>
+    </ul>
+</div>
+
+</body>
+</html>

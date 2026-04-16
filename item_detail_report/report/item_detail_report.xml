@@ -1,0 +1,67 @@
+<odoo>
+    <template id="template_item_detail">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Item Detail Report</h2>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="products.items()" t-as="p">
+                                <tr>
+                                    <td>
+                                        <t t-esc="p[0].name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="p[1]['qty']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(p[1]['subtotal'])"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_daily_sales" model="report.paperformat">
+        <field name="name">Daily Sales Report</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">52</field>
+        <field name="dpi">90</field>
+    </record>
+
+
+    <record id="action_item_detail_pdf" model="ir.actions.report">
+        <field name="name">Item Details Report</field>
+        <field name="model">item.detail.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">item_detail_report.template_item_detail</field>
+        <field name="report_file">item_detail_report.template_item_detail</field>
+        <field name="paperformat_id" ref="paperformat_daily_sales"/>
+    </record>
+
+
+    <record id="action_item_detail_xlsx" model="ir.actions.report">
+        <field name="name">Item Details XLSX</field>
+        <field name="model">item.detail.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">item_detail_report.item_detail_xlsx</field>
+    </record>
+</odoo>

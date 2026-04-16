@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Plugin_Leal.CustomerSearchPopup">
+        <Dialog size="'lg'" title="props.title" footer="false">
+            <t t-set-slot="default">
+                <div class="w-100" style="min-height: 200px;">
+                    <div class="input-group mb-3"
+                        style="background:#fafbfc; border:1.5px solid #cfd4db; border-radius:12px;">
+                        <div class="input-group-prepend py-2">
+                            <span class="input-group-text bg-transparent border-0 pr-0 pl-3 text-center"
+                                style="font-size:18px; color:#444343; background:#fafbfc; border-right:0;">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control border-0 bg-transparent pl-2 py-2"
+                            placeholder="Buscar por nombre o documento" aria-label="Buscar por nombre o documento"
+                            aria-describedby="basic-addon1" t-model="state.inputValue" t-on-input="onInputChange"
+                            t-on-keydown="onInputKeydown" t-ref="input" autofocus="autofocus"
+                            maxlength="20"
+                            style="box-shadow:none; font-size:14px; color:#888; background: #F9FAFA;" />
+                    </div>
+                    <!-- Dropdown de resultados -->
+                    <t t-if="state.searchResults.length &gt; 0">
+                        <div class="w-100" style="position:relative;">
+                            <div class="dropdown-menu show w-100 p-0 border-0 shadow"
+                                style="position:static; margin-top:-16px; border-radius:0 0 12px 12px; background:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.1); overflow:hidden; max-height:300px; overflow-y:auto;">
+                                <t t-foreach="state.searchResults" t-as="result" t-key="result.uid || result.id">
+                                    <div class="dropdown-item px-4 py-3 d-flex align-items-center"
+                                        style="cursor:pointer; border-bottom:1px solid #f0f0f0; font-size:16px; transition:background-color 0.2s;"
+                                        t-on-click="() =&gt; this.selectCustomer(result)"
+                                        t-on-mouseenter="(event) =&gt; event.target.style.backgroundColor = '#f8f9fa'"
+                                        t-on-mouseleave="(event) =&gt; event.target.style.backgroundColor = '#fff'">
+                                        <!-- Bandera de país -->
+                                        <div class="me-3">
+                                            <img src="/Plugin_Leal/static/img/colombia-flag.svg" alt="Colombia" style="width:20px; height:14px; border-radius:2px;" />
+                                        </div>
+                                        <!-- Información del cliente -->
+                                        <span style="color:#000; font-size:14px;">
+                                            <t t-out="result.fullname || result.nombre || result.name" />
+                                            <span style="margin:0 8px;">|</span>
+                                            <span><t t-out="result.siglas"></t></span>
+                                            <span style="font-weight:700; margin-left:4px;">
+                                                <t t-out="result.cedula || 'N/A'" />
+                                            </span>
+                                        </span>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                    <!-- Mensaje de carga -->
+                    <t t-if="state.isLoading">
+                        <div class="w-100 text-center py-3" style="color:#6c757d;">
+                            <i class="fa fa-spinner fa-spin me-2"></i>
+                            Buscando...
+                        </div>
+                    </t>
+                    <!-- Mensaje sin resultados -->
+                    <t t-if="displayNoResults">
+                        <div class="w-100 text-center py-3" style="color:#6c757d;">
+                            <i class="fa fa-search me-2"></i>
+                            No se encontraron resultados
+                        </div>
+                    </t>
+                    <span>Ingresa el número sin espacios ni caracteres especiales</span>
+                    
+                    <!-- Botón centrado -->
+                    <div class="d-flex justify-content-center mt-4">
+                        <button class="btn" t-on-click="confirm" t-att-disabled="isConfirmDisabled"
+                            style="background-color: #ffc107; border-color: #ffc107; color: #000; font-weight: 500; padding: 8px 32px; border-radius: 6px;">
+                            <t t-out="props.confirmText" />
+                        </button>
+                    </div>
+                </div>
+            </t>
+        </Dialog>
+    </t>
+</templates>
+

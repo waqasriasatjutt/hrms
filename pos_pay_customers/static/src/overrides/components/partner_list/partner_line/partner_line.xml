@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="hme_pos_pay_customers.PartnerLine" t-inherit="point_of_sale.PartnerLine" t-inherit-mode="extension">
+        <xpath expr="//td[hasclass('edit-partner-button-cell')]//DropdownItem[last()]" position="after">
+            <DropdownItem t-if="this.payLaterPaymentExists()" onSelected="() => this.createCustomerPayment()">
+                Create Payment
+            </DropdownItem>
+        </xpath>
+    </t>
+</templates>

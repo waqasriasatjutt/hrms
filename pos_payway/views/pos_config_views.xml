@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="pos_config_payway_view_form" model="ir.ui.view">
+            <field name="name">Token</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="access_token" invisible="1"/>
+                    <field name="api_key" invisible="1"/>
+                    <field name="settlement" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

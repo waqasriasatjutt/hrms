@@ -1,0 +1,2 @@
+# Requirements for Leal Redeem Module
+requests>=2.25.1

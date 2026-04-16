@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('flex-column')]" position="after">
+            <t t-if="this.env.services.pos.config.allow_remove_orderline">
+                <button class="delete-button btn btn-link mx-2 px-3"
+                        t-on-click="() => removeOrderline(line.line_id)"
+                        aria-label="Delete" title="Delete">
+                        <i class="oi oi-close text-danger"/>
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>

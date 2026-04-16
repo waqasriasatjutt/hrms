@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Form para Datos del Usuario Leal -->
+    <record id="view_leal_user_data_form" model="ir.ui.view">
+        <field name="name">leal.user.data.form</field>
+        <field name="model">leal.user.data</field>
+        <field name="arch" type="xml">
+            <form string="Datos Usuario Leal" class="o_leal_user_form">
+                <header>
+                    <button name="refresh_user_data" type="object" string="Refrescar Datos" class="btn-primary" icon="fa-refresh"/>
+                </header>
+                <sheet>
+                    <div class="container-fluid mt-4">
+                        <div class="row">
+                            <!-- Información del Usuario -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0">
+                                            <i class="fa fa-user mr-2" title="Usuario"></i> Información del Usuario
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Usuario:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="username" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Nombre:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="nombre" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Correo:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="correo" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>UID CMS:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="uid_cms" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>País:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="cod_pais" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Moneda:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="cod_moneda" readonly="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Información del Comercio -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0">
+                                            <i class="fa fa-building mr-2" title="Comercio"></i> Información del Comercio
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Comercio:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="nombre_comercio" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Nombre Corto:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="nombre_corto" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>ID Comercio:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="id_comercio" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>ID Sucursal:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="id_sucursal" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Tipo:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="tipo_comercio" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2" invisible="imagen_comercio == False">
+                                            <div class="col-sm-12">
+                                                <strong>Imagen:</strong>
+                                                <br/>
+                                                <img class="img-fluid" style="max-height: 100px;" alt="Logo Comercio"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <!-- Información de Rol y Permisos -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0">
+                                            <i class="fa fa-shield mr-2" title="Rol"></i> Rol y Permisos
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Rol:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="rol_name" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>ID Rol:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="id_rol" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Tipo Rol:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="rol" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>ID Plan:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="id_plan" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Tiene PIN:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="tiene_pin" readonly="1" widget="boolean_button"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <strong>Tiene OTP:</strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <field name="tiene_otp" readonly="1" widget="boolean_button"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Información de Puntos y Moneda -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h5 class="mb-0">
+                                            <i class="fa fa-star mr-2" title="Puntos"></i> Puntos y Moneda
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-sm-6">
+                                                <strong>Miles COP:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <field name="miles_cop1" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-6">
+                                                <strong>Puntos Termómetro:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <field name="puntos_termometro" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-6">
+                                                <strong>Marca Blanca:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <field name="marca_blanca" readonly="1" widget="boolean_button"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-6">
+                                                <strong>Tipo LC:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <field name="tipo_lc" readonly="1"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-sm-6">
+                                                <strong>Fecha Obtención:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <field name="fecha_obtencion" readonly="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Configuraciones -->
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header bg-secondary text-white">
+                                        <h5 class="mb-0">
+                                            <i class="fa fa-cogs mr-2" title="Configuraciones"></i> Configuraciones del Comercio
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <field name="config_ids" readonly="1">
+                            <list>
+                                <field name="config_key" string="Configuración"/>
+                                <field name="config_value" string="Valor"/>
+                                <field name="config_value_int" string="Valor Entero"/>
+                                <field name="config_value_bool" string="Valor Booleano" widget="boolean_button"/>
+                                <field name="descripcion" string="Descripción"/>
+                            </list>
+                        </field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Campos ocultos -->
+                        <field name="api_settings_id" invisible="1"/>
+                        <field name="activo" invisible="1"/>
+                        <field name="iat" invisible="1"/>
+                        <field name="exp" invisible="1"/>
+                        <field name="id_franquicia" invisible="1"/>
+                        <field name="imagen_comercio" invisible="1"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_leal_user_data_tree" model="ir.ui.view">
+        <field name="name">leal.user.data.tree</field>
+        <field name="model">leal.user.data</field>
+        <field name="arch" type="xml">
+            <list decoration-success="activo==True" decoration-muted="activo==False">
+                <field name="username" string="Usuario"/>
+                <field name="nombre" string="Nombre"/>
+                <field name="nombre_comercio" string="Comercio"/>
+                <field name="rol_name" string="Rol"/>
+                <field name="fecha_obtencion" string="Fecha Obtención"/>
+                <field name="activo" string="Activo" widget="boolean_button"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action para Datos del Usuario -->
+    <record id="action_leal_user_data" model="ir.actions.act_window">
+        <field name="name">Datos Usuario Leal</field>
+        <field name="res_model">leal.user.data</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <!-- TODO: Descomentar para visualizar reportes -->
+    <!-- Menú Principal Leal -->
+    <!-- <menuitem id="menu_leal_main" name="Leal" sequence="100"/> -->
+    <!-- Menu Item -->
+    <!-- <menuitem id="menu_leal_user_data" name="Datos Usuario Leal" parent="menu_leal_main" action="action_leal_user_data" sequence="10"/> -->
+</odoo>

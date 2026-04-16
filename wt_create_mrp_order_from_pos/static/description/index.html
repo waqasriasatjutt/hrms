@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Odoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://apps.odoocdn.com/web/content/7297172-19e3d31/1/web.assets_frontend.css" rel="stylesheet">
+
+    <style>
+        .oe_screenshot img {
+            /* width: 100%; */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main container with relative positioning -->
+    <div class="container position-relative">
+        <!-- Header section -->
+        <div class="position-relative my-5">
+            <div class="row no-gutters shadow-sm">
+                <!-- Header content -->
+                <div class="col-md-12">
+                    <div class="bg-white h-100 d-flex justify-content-between align-items-center shadow p-4">
+                        <!-- Logo -->
+                        <div class="text-center mr-lg-5 mb-3 mb-lg-0">
+                            <a class="btn p-2" href="http://warlocktechnologies.com/" target="_blank">
+                                <img src="icon.png" alt="warlock-logo" style="height: 125px">
+                            </a>
+                        </div>
+                        
+                        <!-- Title -->
+                        <div class="text-center flex-grow-1">
+                            <h4 style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: #045373 !important; font-size: 1.7rem !important; margin-bottom: 0;">
+                                Create MRP Order From POS
+                            </h4>
+                        </div>
+
+                        <!-- Badges -->
+                        <div class="d-flex align-items-center">
+                            <div style="background-color: #7C7BAD !important; color: #fff !important; font-weight: 600 !important; padding: 5px 15px 8px !important; margin: 0 5px !important;">
+                                <i class="fa fa-check mr-1">Community</i>
+                            </div>
+                            <div style="background-color: #7C7BAD !important; color: #fff !important; font-weight: 600 !important; padding: 5px 15px 8px !important; margin: 0 5px !important;">
+                                <i class="fa fa-check mr-1">Enterprise</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of hotel resrvation section -->
+        <!-- explore module section -->
+        <div class="row">
+            <div class="col-md-12" style="border-bottom: 1px solid #d5d5d5 !important; margin-bottom: 2rem !important">
+                <h2
+                    style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: #714B67 !important; font-size: 2.5rem !important;">
+                    <i class="fa fa-compass mr-2"></i>Explore this module
+                </h2>
+            </div>
+
+            <div class="col-md-4">
+                <a href="#overview" style="text-decoration: none !important;">
+                    <div class="row"
+                        style="background-color: #f5f2f5 !important; border-radius: 10px !important; margin: 1rem !important; padding: 1.5em !important; height: auto !important;">
+                        <div class="col-8">
+                            <h3
+                                style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: #714B67 !important; font-size: 1.0rem !important;">
+                                Overview</h3>
+                            <p
+                                style="font-family: 'Roboto', sans-serif !important; font-weight: 400 !important; color: #714B67 !important; font-size: 0.8rem !important;">
+                                Learn more about this module</p>
+                        </div>
+                        <div class="col-4 text-right d-flex justify-content-end align-items-center">
+                            <i class="fa fa-chevron-right" style="color: #714B67 !important;"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="#features" style="text-decoration: none !important;">
+                    <div class="row"
+                        style="background-color: #f5f2f5 !important; border-radius: 10px !important; margin: 1rem !important; padding: 1.5em !important; height: auto !important;">
+                        <div class="col-8">
+                            <h3
+                                style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: #714B67 !important; font-size: 1.0rem !important;">
+                                Features</h3>
+                            <p
+                                style="font-family: 'Roboto', sans-serif !important; font-weight: 400 !important; color: #714B67 !important; font-size: 0.8rem !important;">
+                                View features of this module</p>
+                        </div>
+                        <div class="col-4 text-right d-flex justify-content-end align-items-center">
+                            <i class="fa fa-chevron-right" style="color: #714B67 !important;"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="#configuration" style="text-decoration: none !important;">
+                    <div class="row"
+                        style="background-color: #f5f2f5 !important; border-radius: 10px !important; margin: 1rem !important; padding: 1.5em !important; height: auto !important;">
+                        <div class="col-8">
+                            <h3
+                                style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: #714B67 !important; font-size: 1.0rem !important;">
+                                Configuration</h3>
+                            <p
+                                style="font-family: 'Roboto', sans-serif !important; font-weight: 400 !important; color: #714B67 !important; font-size: 0.8rem !important;">
+                                See key configuration of this module.</p>
+                        </div>
+                        <div class="col-4 text-right d-flex justify-content-end align-items-center">
+                            <i class="fa fa-chevron-right" style="color: #714B67 !important;"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row" id="overview">
+            <div class="col-md-12" style="border-bottom: 1px solid #d5d5d5 !important; margin: 2rem 0 !important">
+                <h2
+                    style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: #714B67 !important; font-size: 2.5rem !important;justify-content: center !important;">
+                    <i class="fa fa-pie-chart mr-2"></i> Overview
+                </h2>
+            </div>
+            <div class="col-md-12 pl-3 py-3 d-flex">
+                <div>
+                    <p
+                        style="font-family: 'Roboto', sans-serif !important; font-weight: 400 !important; color: #000000 !important; font-size: 1.4rem !important;"><b>
+                            The "Create MRP Order From POS" module enhances the functionality of your Point of Sale (POS) system by seamlessly integrating with the Manufacturing Resource Planning (MRP) module. This module streamlines the process of generating MRP orders directly from POS transactions, ensuring a more efficient and cohesive workflow.</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="features">
+            <div class="col-md-12" style="border-bottom: 1px solid #d5d5d5 !important; margin: 2rem 0 !important">
+                <h2
+                    style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; color: #714B67 !important; font-size: 2.5rem !important;">
+                    <i class="fa fa-star mr-2"></i> Features
+                </h2>
+            </div>
+
+            <div class="col-md-12 pl-3 py-1 d-flex">
+                <div>
+                    <img src="check.png">
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Roboto', sans-serif !important; font-weight: 600 !important; color: #000000 !important; font-size: 1.5rem !important;">
+                        Generate MRP orders from pos.
+                    </h4>
+                </div>
+            </div>
+            <div class="col-md-12 pl-3 py-1 d-flex">
+                <div>
+                    <img src="check.png">
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Roboto', sans-serif !important; font-weight: 600 !important; color: #000000 !important; font-size: 1.5rem !important;">
+                        Creating orders: confirm and done.
+                    </h4>
+                </div>
+            </div>
+            <!-- <div class="col-md-12 pl-3 py-1 d-flex">
+                <div>
+                    <img src="check.png">
+                </div>
+                <div>
+                    <h4
+                        style="font-family: 'Roboto', sans-serif !important; font-weight: 600 !important; color: #000000 !important; font-size: 1.5rem !important;">
+                        Easy to adjust the Decimal precision.
+                    </h4>
+                </div>
+            </div> -->
+            
+            
+            
+            
+        </div>
+
+        <div class="row" id="configuration">
+            <div class="col-md-12" style="border-bottom: 1px solid #d5d5d5 !important; margin: 2rem 0 !important">
+                <h2
+                    style="font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important    ; color: #714B67 !important; font-size: 2.5rem !important;">
+                    <i class="fa fa-image mr-2"></i> Configuration
+                </h2>
+            </div>
+           
+
+            <div class="oe_row oe_spaced">
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">Module Configuration</li><hr/>
+                    Following the installation of this module, After that enable "pos create mrp order" in pos configuration.
+                </ul>
+                
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="first.png">
+                </div>
+                </br>   
+            <div class="oe_row oe_spaced">
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">Product Configuration</li><hr/>
+                    Then go to product and select "Manufacture" in route_ids.</br></br>
+                    Then create the product's bill of materials.</li>
+                </ul>
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_2.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+<!--                 <ul>
+                    <li>Then create the product's bill of materials.</li>
+                </ul> -->
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_3.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">
+                    Product Selection In POS</li><hr/>
+                    Go to the POS session and place an order for the product for which the bill of materials was created.<br/><br/>
+                </ul>
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_4.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">
+                    MRP Order</li><hr/>
+                    Then, validate the payment for this order.The mrp order will be created when you click the Validate button.</li>
+                </ul>
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_5.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+                <ul>
+                    <li>Go to Manufacturing to view that order.This order will be in confirm state.</li>
+                </ul>
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_6.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">
+                    MRP Order In Done State</li><hr/>
+                    You can also create a done order by enabling "done mrp order" in the pos configuration.</br></br>
+                    Go to the POS session and place an order for the product for which the bill of materials was created.</br></br>
+                    Then, validate the payment for this order.The mrp order will be created when you click the Validate button.</br></br>
+                    Go to Manufacturing to view that order.This order will be in done state.
+                </li>
+                </ul>
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_7.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+                <!-- <ul>
+                    <li>Go to the POS session and place an order for the product for which the bill of materials was created.</li>
+                </ul> -->
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_8.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+                <!-- <ul>
+                    <li>Then, validate the payment for this order.The mrp order will be created when you click the Validate button.</li>
+                </ul> -->
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_9.png">
+                </div>
+                </br>
+            <div class="oe_row oe_spaced">
+                <!-- <ul>
+                    <li >Go to Manufacturing to view that order.This order will be in done state.</li>
+                </ul> -->
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="pos_10.png">
+                </div>
+                </br>
+                
+                <!-- <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;"></li><hr/>
+                    <p></p>
+                </ul> -->
+               
+                <!-- <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">SALE MODULE</li><hr/>
+                    
+                    Once set decimal accuracy go to the sale module. here you can find select option for company after selection enter product details to see result.
+                </ul>
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="multisfirst.jpeg">
+                </div> -->
+
+               
+                
+                <!-- <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">APPOINTMENT CREATION</li>
+                    <hr/>
+                    <P>For create new appointment select the time slot and after that fill up the details regarding the user access.</P>
+                </ul> -->
+                <!-- <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="6.png">
+                </div> -->
+                <!-- <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="new2.jpeg">
+                </div>
+                <div class="oe_screenshot mt-5">
+                    <img style="width: 95%; height: 60%;" src="new3.jpeg">
+                </div>
+                <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="new8.jpeg">
+                </div>
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">PAY WITH OPTION </li>
+                    <hr/>
+                    <P>After fill up the user details here you can find the Pay now option. In that select your payment method and book the appointment</P>
+                </ul>
+                <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="new17.jpeg">
+                </div>
+                <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="new20.jpeg">
+                </div>
+                -->
+                <!-- <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">PRINT CONFIRMATION</li>
+                    <hr/>
+                    <P>For User acknowledgement here you can find a print confirmation option to print acknowledgement.</P>
+                </ul> -->
+                <!-- <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="download3.jpg">
+                </div> -->
+                <!-- <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="new13.jpeg">
+                </div>
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">RESCHEDULING APPOINTMENT</li>
+                    <hr/>
+                    <P>If you want to change the time slot here you can find the Re-Schedule option so,using this option you can reshedule appointment.</P>
+                </ul> -->
+                <!-- <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="new14.jpeg">
+                </div>
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">CANCEL APPOINTMENT</li>
+                    <hr/>
+                    <P>We can see option like a cancel appointment in which we cancel booked appointment.</P>
+                </ul>
+                <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="new15.jpeg">
+                </div>
+                <ul>
+                    <li class="mt-5" style="color:#000000;font-weight:bold; font-size:20px;">SCHEDULE APPOINTMENT</li>
+                    <hr/>
+                    <P>We can see option like a shedule now appointment for new appointment in which you book new appointment.</P>
+                </ul>
+                <div class="oe_screenshot mt-5 row" style="text-align: left;">
+                    <img style="width: 95%; height: 60%;" src="new16.jpeg">
+                </div> -->
+    </div> 
+        <div class="container-fluid">
+            <div class="row h-100">
+                <div class="col-12 h-100 d-flex align-items-center justify-content-center" style="border-top: 1px solid black;margin-top:50px;">
+                    <div class="d-flex align-items-center "></div>
+                    <div class="mb-sm-0 mb-3 d-flex align-items-center">
+                        <img src="letter.png" style="width: 60px;height: 60px;margin-right: 20px" />
+                        <span class="text-center my-4" style="font-size: 18px; color: #045373;">sales@warlocktechnologies.com</span>
+                    </div>
+                    <div class="d-flex align-items-center"></div>
+                </div>
+            </div>
+        </div>        
+</body>
+
+</html>

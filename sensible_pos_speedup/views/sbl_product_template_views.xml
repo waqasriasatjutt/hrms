@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Product Template Form View Enhancement - Add to Point of Sale Tab -->
+    <record id="sbl_product_template_form_speedup" model="ir.ui.view">
+        <field name="name">sbl.product.template.form.speedup</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="point_of_sale.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='pos']//group[@name='pos']/field[@name='to_weight']" position="after">
+                <field name="sbl_always_load_in_pos"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

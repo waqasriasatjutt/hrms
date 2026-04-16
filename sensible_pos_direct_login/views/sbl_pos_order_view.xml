@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sbl_pos_login" model="ir.actions.server">
+        <field name="name">POS Direct Login</field>
+        <field name="model_id" ref="sensible_pos_direct_login.model_pos_order"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.sbl_open_pos()
+        </field>
+    </record>
+</odoo>

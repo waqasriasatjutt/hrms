@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_payment_method_mp_qr_view_form" model="ir.ui.view">
+        <field name="name">Caja</field>
+        <field name="model">mp.store.box</field>
+        <field name="inherit_id" ref="pos_mercadopago.view_mp_box_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='box_line_ids']/list/field[@name='active_box']" position="after">
+                <field name="image_qr" column_invisible="True"/>
+                <field name="template_document_qr" column_invisible="True"/>
+                <field name="template_image_qr" column_invisible="True"/>
+                <field name="qr_code" column_invisible="True"/>
+                <field name="qr_code" column_invisible="True"/>
+                <button name="action_get_qr_label"
+                        class="o_stat_button"
+                        icon="fa-check"
+                        type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

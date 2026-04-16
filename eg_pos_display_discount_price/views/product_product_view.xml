@@ -1,0 +1,13 @@
+<odoo>
+    <record id="product_product_view_for_pos_display_discount_price" model="ir.ui.view">
+        <field name="name">product.product.form.for.pos.display.discount.price</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='list_price_uom']" position="after">
+                <field name="discount_price" invisible="not is_display_discount_price"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

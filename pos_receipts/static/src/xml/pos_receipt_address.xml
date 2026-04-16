@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="custom_pos_receipt.ReceiptHeader"
+       t-inherit="point_of_sale.ReceiptHeader"
+       t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.data.company.vat']" position="replace">
+            <div>
+
+            </div>
+        </xpath>
+         <xpath expr="//div[@t-if='props.data.company.name']" position="replace">
+            <div t-if="props.data.company.name"
+                 t-esc="props.data.company.name"
+                 style="font-weight: bold; font-size: 20px; margin-top: 0;" />
+        </xpath>
+        <xpath expr="//t[@t-if='props.data.company.phone']" position="before">
+            <div t-if="props.data.company.street">
+                <div t-esc="props.data.company.street"/>
+            </div>
+            <div t-if="props.data.company.street2">
+                <div t-esc="props.data.company.street2"/>
+            </div>
+
+
+             <!-- ✅ Show VAT No instead of Tax ID -->
+            <div t-if="props.data.company.vat or props.data.company.cr_no">
+    VAT No: <t t-esc="props.data.company.vat"/>    |
+    CR No: 128541-3<t t-esc="props.data.company.cr_no"/>
+</div>
+
+<!--            <div t-if="props.data.company.vat">-->
+<!--                VAT No: <t t-esc="props.data.company.vat"/>-->
+<!--&lt;!&ndash;                 CR No: <t t-esc="props.data.company.cr_no"/>&ndash;&gt;-->
+<!--        </div>-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--             <div >-->
+<!--            CR No: 128541-1<t t-esc="props.data.company.cr_no"/>-->
+<!--        </div>-->
+        </xpath>
+    </t>
+</templates>

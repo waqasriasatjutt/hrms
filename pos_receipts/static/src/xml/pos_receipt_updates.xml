@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="custom_pos_receipt.ReceiptHeader"
+       t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+
+        <xpath expr="//div[hasclass('cashier')]" position="replace">
+            <div t-if="props.data.cashier" class="cashier">
+                    <div>--------------------------------</div>
+                <!--                    <div t-esc="props.data.cashier" />-->
+                </div>
+        </xpath>
+
+        <xpath expr="//div[span[contains(@class, 'tracking-number')]]" position="attributes">
+            <attribute name="style">margin-left:0px;</attribute>
+        </xpath>
+
+        <xpath expr="//div[span[contains(@class, 'tracking-number')]]" position="replace">
+<!--        <div style="text-align:left; margin-left:0px;">-->
+<!--        <div t-if="props.data.company.vat">Tax ID: <t t-esc="props.data.company.vat"/></div>-->
+<!--        <div t-if="props.data.cashier">Cashier: <t t-esc="props.data.cashier"/></div>-->
+<!--        <div t-if="props.data.trackingNumber">Tax Invoice No: <t t-esc="props.data.trackingNumber" /></div>-->
+<!--        <div>Date: <t t-esc="props.data.date_order"/></div>-->
+<!--    </div>-->
+        </xpath>
+
+
+
+
+
+    </t>
+</templates>
+

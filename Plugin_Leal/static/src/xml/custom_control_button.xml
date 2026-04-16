@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Plugin_Leal.ControlButtons" 
+       t-inherit="point_of_sale.ControlButtons" 
+       t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton" 
+               position="after">
+            <t t-if="state.mostrarBoton">
+                <button t-att-class="buttonClass + ' leal-yellow-bg'"
+                        t-on-click="() => this.onClick()">
+                    <span>Leal</span>
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>

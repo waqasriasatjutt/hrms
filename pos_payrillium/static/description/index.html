@@ -1,0 +1,90 @@
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Payrillium Payment Integration</h2>
+        <h3 class="oe_slogan">Seamless Payment Terminal Integration for Odoo POS</h3>
+        <div class="oe_span12">
+            <p class="oe_mt32 text-justify">
+                This module provides comprehensive integration between Payrillium physical payment terminals and Odoo Point of Sale (POS) system. 
+                It enables merchants to process payments directly through Payrillium devices, manage payment terminals, process tokenized card payments, 
+                create payment links, and handle refunds with full session-scoped terminal selection.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Key Features</h2>
+        <div class="oe_span12">
+            <ul class="oe_mt32">
+                <li>
+                    <strong>Physical Terminal Support:</strong> Connect and manage Payrillium payment terminals directly from your POS sessions.
+                </li>
+                <li>
+                    <strong>Tokenized Card Payments:</strong> Process payments using saved customer card tokens for faster checkout.
+                </li>
+                <li>
+                    <strong>Pay-by-Link:</strong> Generate secure payment links for invoices that customers can pay online.
+                </li>
+                <li>
+                    <strong>Session-Scoped Terminal Selection:</strong> Assign specific terminals to POS sessions for better control and organization.
+                </li>
+                <li>
+                    <strong>Refund Management:</strong> Process refunds directly through the integrated payment system.
+                </li>
+                <li>
+                    <strong>Automatic Payment Sync:</strong> Optional automatic synchronization of payment statuses via scheduled jobs.
+                </li>
+                <li>
+                    <strong>Payment Link Management:</strong> View and manage all payment links with status tracking (active, paid, expired, inactive).
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Requirements</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                This module requires a Payrillium/Mirillium account and API token for full functionality. 
+                The module can be installed without a token, but payment processing features will require proper configuration.
+            </p>
+            <p>
+                After installation, you will be prompted to configure your Payrillium credentials through a setup wizard.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Installation & Configuration</h2>
+        <div class="oe_span12">
+            <ol class="oe_mt32">
+                <li>Install the module from the Odoo Apps menu</li>
+                <li>Complete the configuration wizard with your Payrillium API token</li>
+                <li>Configure accounting accounts (receivable and outstanding payment accounts)</li>
+                <li>Add the Payrillium payment method to your POS configuration</li>
+                <li>Assign terminals to POS sessions as needed</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color:#875A7B;">Technical Details</h2>
+        <div class="oe_span12">
+            <p class="oe_mt32">
+                The module integrates with the Payrillium/Mirillium API for terminal management, payment processing, 
+                and transaction synchronization. All sensitive credentials are stored securely and are not exposed in logs or responses.
+            </p>
+            <p>
+                The module follows Odoo best practices and does not require vendor lock-in. It can be installed and uninstalled 
+                without breaking your Odoo instance, and all data remains under your control.
+            </p>
+        </div>
+    </div>
+</section>

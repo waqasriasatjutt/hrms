@@ -1,0 +1,19 @@
+.dojo-loader {
+    background: url(/smart_pos_dojo/static/src/img/terminal2.gif);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    margin-left:45%;
+}
+
+.paymentlines .electronic_payment .signature_confirm_dojo {
+    flex-grow: 1;
+    text-align: center;
+    padding: map-get($spacers, 3);
+}
+.paymentlines .electronic_payment .send_payment_request {
+    flex-grow: 1;
+    text-align: center;
+    padding: map-get($spacers, 3);
+}

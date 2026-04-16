@@ -1,0 +1,93 @@
+<odoo>
+
+    <template id="template_daily_sales">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <!-- provide record for layout -->
+                <!--                <t t-set="o" t-value="docs and docs[0]"/>-->
+
+                <div class="page">
+                    <h2>POS Daily Sales Report</h2>
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Order</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Cash</th>
+                                <th>Card</th>
+                                <th>Customer Account</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ✅ FIX: use 'line' instead of 'o' -->
+                            <t t-foreach="orders" t-as="line">
+                                <tr>
+                                    <td>
+                                        <t t-esc="line['order'].date_order"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line['order'].name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line['order'].partner_id.name or 'Guest'"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(line['order'].amount_total)"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(line['cash'])"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(line['card'])"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="'{:,.2f}'.format(line['customer_account'])"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+    <!-- Paper Format -->
+    <record id="paperformat_daily_sales" model="report.paperformat">
+        <field name="name">Daily Sales Report</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">52</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">52</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Report Action -->
+    <record id="action_daily_sales_report" model="ir.actions.report">
+        <field name="name">Daily Sales Report</field>
+        <field name="model">daily.sales.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">daily_sales_report.template_daily_sales</field>
+        <field name="report_file">daily_sales_report.template_daily_sales</field>
+        <field name="paperformat_id" ref="paperformat_daily_sales"/>
+    </record>
+
+    <record id="action_daily_sales_xlsx" model="ir.actions.report">
+        <field name="name">Daily Sales XLSX</field>
+        <field name="model">daily.sales.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">daily_sales_report.daily_sales_xlsx</field>
+    </record>
+
+</odoo>

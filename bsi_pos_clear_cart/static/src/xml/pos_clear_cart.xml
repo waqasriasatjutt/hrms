@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="bsi_pos_clear_cart.ClearCart" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton" position="after">
+            <button class="btn btn-secondary btn-lg lh-lg flex-grow-1 flex-shrink-1" t-on-click="() => this.click()">
+                <i class="fa fa-eraser" role="img" aria-label="Clear Cart" title="Clear Cart" />
+                Clear Cart
+            </button>
+        </xpath>
+    </t>
+</templates>

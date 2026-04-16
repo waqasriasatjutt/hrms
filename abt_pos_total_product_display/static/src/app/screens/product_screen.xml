@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="abt_pos_total_product_display.ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension">
+        <xpath expr="//div/div[2]/div/div[3]" position="before">
+            <t t-if="pos.config.your_label and pos.config.display_category_product_count">
+                <div class="product-count-container" t-att-style="'color: #f8f9fa; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin: 15px 0; display: flex; align-items: center; justify-content: space-between;'">
+                    <span class="product-count-label" t-att-style="'color: ' + pos.config.primary_color_code + '; font-size: 18px; font-weight: 600;'">
+                        <t t-esc="pos.config.your_label"/>
+                    </span>
+                    <div class="product-count-box" t-att-style="'background: ' + pos.config.primary_color_code + '; color: white; padding: 6px 10px; border-radius: 5px; font-size: 16px; font-weight: 600;'">
+                        <t t-esc="productsToDisplay.length"/>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <t t-name="OrderWidget" t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension" owl="1">
+	    <xpath expr="//div[hasclass('order-container')]" position="replace">
+            <div t-ref="scrollable" t-att-style="props.style" t-att-class="props.class" class="order-container d-flex flex-column flex-grow-1 overflow-y-auto text-start">
+                    <t t-foreach="props.lines" t-as="line" t-key="line_index">
+                        <t t-if="props.slots?.default" t-slot="default" line="line"/>
+                        <Orderline t-else="" line="line" />
+                    </t>
+                    <t t-if="env.services.pos.config.show_product_cost">
+                        <t t-if="env.services.pos.mainScreen.component.name == 'ProductScreen'">
+                        <div style="color: black; background-color: bisque; padding: 12px; width: fit-content;
+                                        margin-left: 15px; margin-bottom: 5px; font-weight: 700; margin-top: 10px;">
+                            <t t-foreach="env.services.pos.get_order().get_orderlines()" t-as="line" t-key="line.id">
+                                    <t t-if="line.isSelected()">
+                                        Product Cost : <t t-esc="line.product_id.standard_price"/>
+                                    </t>
+                                    
+                            </t>
+                        </div>
+                        </t>
+                        
+                    </t>
+                    <div class="mt-1 bg-opacity-75" t-attf-class="{{ props.screenName == 'ReceiptScreen' ? 'p-0' : 'p-2 border-bottom border-top border-opacity-75'}}" t-if="props.generalNote">
+                        <b class="fw-bolder">General Note</b>
+                        <t t-foreach="props.generalNote.split('\n')" t-as="subNote" t-key="subNote_index">
+                            <br/>• <t t-esc="subNote"/>
+                        </t>
+                    </div>
+                </div>
+
+        </xpath>
+    </t>
+</odoo>

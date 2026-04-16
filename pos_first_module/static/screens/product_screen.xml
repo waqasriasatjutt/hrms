@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="jai_shree_ram" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('pos-centerheader')]" position="before">
+            <div style="min-width: fit-content;text-align: center;font-size: large;font-weight: bold;background: #ff542a;color: black;">
+                <div style="overflow: hidden; white-space: nowrap;">
+                    <p style="
+                        display: inline-block;
+                        margin-top: 10%;
+                        padding: 5px;
+                        animation: marquee 5s linear infinite;
+                        font-weight: bold;
+                    ">
+                        🙏NOORINA🙏
+                    </p>
+                </div>
+                <style>
+                    @keyframes marquee {
+                        0%   { transform: translateX(100%); }
+                        100% { transform: translateX(-100%); }
+                    }
+                </style>
+            </div>
+        </xpath>
+    </t>
+</templates>

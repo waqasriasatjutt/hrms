@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Plugin_Leal.CampaignDetailsPopup" owl="1">
+        <Dialog size="'lg'" header="false" footer="false">
+            <div class="modal-dialog modal-lg campaign-details-popup">
+                <div class="modal-content" style="border-radius: 1rem; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                    <div class="modal-header" style="background-color: #FFD700; color: #333; border-radius: 1rem 1rem 0 0;">
+                        <h4 class="modal-title d-flex align-items-center">
+                            <i class="fa fa-trophy me-2"></i>
+                            <t t-out="props.title"/>
+                        </h4>
+                    </div>
+                    <div class="modal-body" style="padding: 2rem; max-height: 70vh; overflow-y: auto;">
+                        <t t-if="props.campaigns.length === 0">
+                            <div class="text-center py-4">
+                                <i class="fa fa-info-circle fa-3x text-muted mb-3"></i>
+                                <h5 class="text-muted">No hay campañas disponibles</h5>
+                                <p class="text-muted">Este cliente no tiene campañas activas en este momento.</p>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="row g-3">
+                                <t t-foreach="processedCampaigns" t-as="campaign" t-key="campaign_index">
+                                    <div class="col-12">
+                                        <div class="card h-100 shadow-sm" style="border: none; border-radius: 12px; transition: transform 0.2s;">
+                                            <div class="card-body p-4">
+                                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                                    <h5 class="card-title mb-0" style="font-weight: 600; color: #FF8C00;">
+                                                        <i class="fa fa-tag me-2"></i>
+                                                        <t t-out="campaign.campaign_name || 'Campaña sin nombre'"/>
+                                                    </h5>
+                                                    <span class="badge" style="font-size: 0.8rem; background-color: #FFD700; color: #333;">Activa</span>
+                                                </div>
+                                                
+                                                <t t-if="campaign.campaign_description">
+                                                    <p class="card-text text-muted mb-3">
+                                                        <t t-out="campaign.campaign_description"/>
+                                                    </p>
+                                                </t>
+                                                
+                                                <div class="row g-3">                                                
+                                                    <!-- Cantidad mínima -->
+                                                    <div class="col-md-6">
+                                                        <div class="d-flex align-items-center p-3" style="background: #f8f9fa; border-radius: 8px;">
+                                                            <i class="fa fa-shopping-cart me-3 fa-lg" style="color: #FFD700;"></i>
+                                                            <div>
+                                                                <small class="text-muted d-block">Cantidad Mínima</small>
+                                                                <strong t-out="campaign.minimum_quantity || 0"></strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Límite de beneficio -->
+                                                    <div class="col-md-6">
+                                                        <div class="d-flex align-items-center p-3" style="background: #f8f9fa; border-radius: 8px;">
+                                                            <i class="fa fa-gift me-3 fa-lg" style="color: #FFA500;"></i>
+                                                            <div>
+                                                                <small class="text-muted d-block">Límite de Beneficio</small>
+                                                                <strong t-out="campaign.benefit_unit_limit || 0"></strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Monto mínimo -->
+                                                    <div class="col-md-6">
+                                                        <div class="d-flex align-items-center p-3" style="background: #f8f9fa; border-radius: 8px;">
+                                                            <i class="fa fa-dollar-sign me-3 fa-lg" style="color: #FF8C00;"></i>
+                                                            <div>
+                                                                <small class="text-muted d-block">Monto Mínimo</small>
+                                                                <strong t-out="formatCurrency(campaign.minimum_amount)"></strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Descuento máximo -->
+                                                    <div class="col-md-6">
+                                                        <div class="d-flex align-items-center p-3" style="background: #f8f9fa; border-radius: 8px;">
+                                                            <i class="fa fa-percentage me-3 fa-lg" style="color: #FFD700;"></i>
+                                                            <div>
+                                                                <small class="text-muted d-block">Descuento Máximo</small>
+                                                                <strong t-out="formatCurrency(campaign.max_discount_amount)"></strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Fechas -->
+                                                    <div class="col-md-6">
+                                                        <div class="d-flex align-items-center p-3" style="background: #f8f9fa; border-radius: 8px;">
+                                                            <i class="fa fa-calendar me-3 fa-lg" style="color: #FFA500;"></i>
+                                                            <div>
+                                                                <small class="text-muted d-block">Vigencia</small>
+                                                                <strong class="d-block" style="font-size: 0.9rem;">
+                                                                    <t t-out="formatDate(campaign.start_date)"/>
+                                                                </strong>
+                                                                <small class="text-muted">hasta</small>
+                                                                <strong class="d-block" style="font-size: 0.9rem;">
+                                                                    <t t-out="formatDate(campaign.end_date)"/>
+                                                                </strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Información del producto (solo si rule_type es "rule_type") -->
+                                                <t t-if="campaign.rule_type === 'product'">
+                                                    <div class="mt-3 p-3" style="background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+                                                        <h6 class="mb-2" style="color: #856404;">
+                                                            <i class="fa fa-box me-2"></i>
+                                                            Información del Producto
+                                                        </h6>
+                                                        <t t-if="campaign.product_exists">
+                                                            <div class="row g-2">
+                                                                <div class="col-md-6">
+                                                                    <small class="text-muted d-block">Nombre del Producto</small>
+                                                                    <strong t-out="campaign.product_info.name"></strong>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <small class="text-muted d-block">Código</small>
+                                                                    <strong t-out="campaign.product_info.default_code"></strong>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <small class="text-muted d-block">Precio</small>
+                                                                    <strong t-out="formatCurrency(campaign.product_info.list_price)"></strong>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <small class="text-muted d-block">Categoría</small>
+                                                                    <strong t-out="campaign.product_info.categ_id[1] || 'N/A'"></strong>
+                                                                </div>
+                                                            </div>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <div class="alert alert-warning mb-0" style="background: #fff3cd; border: 1px solid #ffeaa7; color: #856404;">
+                                                                <i class="fa fa-exclamation-triangle me-2"></i>
+                                                                <t t-out="campaign.product_warning || 'Producto no encontrado'"></t>
+                                                            </div>
+                                                        </t>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="modal-footer" style="padding: 1.5rem 2rem; background-color: #f8f9fa; border-top: 1px solid #dee2e6; border-radius: 0 0 1rem 1rem;">
+                        <button type="button" class="btn" t-on-click="confirm" style="background-color: #FFD700; border: none; border-radius: 8px; padding: 0.75rem 2rem; font-weight: 600; color: #333;">
+                            <i class="fa fa-check me-2"></i>
+                            <t t-out="props.confirmText"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </Dialog>
+    </t>
+</templates>

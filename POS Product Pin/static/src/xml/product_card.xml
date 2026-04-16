@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension" t-name="pos_stocks.ProductCardExtension">
+        <xpath expr="//div[@t-if='props.imageUrl']" position="inside">
+            <t t-if="!props.disablePin">
+                <button type="button"
+                    t-on-click.stop="() => props.onTogglePin()"
+                    title="Pin this product"
+                    style="position: absolute; top: 5px; left: 5px; background: none; border: none;">
+                    <i class="fa fa-thumb-tack"
+                       t-attf-style="color: {{ props.product.is_pin_product ? '#007bff' : '#444' }};"
+                       aria-hidden="true" />
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>

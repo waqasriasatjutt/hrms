@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <!-- Created a new template for pos order details popup. #T6479 -->
+    <t t-name="OrderDetailsPopup" owl="1">
+        <Dialog size="'xl'">
+            <div class="popup order-info-popup">
+                <t t-set-slot="header">
+                    <div class="d-flex flex-grow-1 justify-content-between">
+                        <h4 class="align-middle my-66">Order Details</h4>
+                    </div>
+                </t>
+                <table style="border-collapse: separate; border-spacing: 20px;">
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <tr t-if="props.order">
+                                <td class="order-details-title">POS Order Number:</td>
+                                <td t-esc="props.order.pos_reference" />
+                            </tr>
+                            <tr t-if="props.order.partner_id">
+                                <td class="order-details-title">Customer:</td>
+                                <td t-esc="props.order.partner_id?.name" />
+                            </tr>
+                            <tr t-if="props.order.session_id">
+                                <td class="order-details-title">Session:</td>
+                                <td t-esc="props.order.session_id.name" />
+                            </tr>
+                            <tr t-if="props.order.employee_id">
+                                <td class="order-details-title">Cashier:</td>
+                                <td t-esc="getCashier()" />
+                            </tr>
+                        </td>
+                        <td style="padding-left: 100px;vertical-align: top;">
+                            <tr t-if="getDate()">
+                                <td class="order-details-title">Date:</td>
+                                <td t-esc="getDate()" />
+                            </tr>
+                            <tr t-if="props.order.pricelist_id">
+                                <td class="order-details-title">Pricelist:</td>
+                                <td t-esc="getPricelist()" />
+                            </tr>
+                            <tr t-if="props.order.company_id">
+                                <td class="order-details-title">Company:</td>
+                                <td t-esc="props.order.company_id.name" />
+                            </tr>
+                            <tr t-if="props.order.fiscal_position_id">
+                                <td class="order-details-title">Fiscal Position:</td>
+                                <td
+                                    t-esc="props.order.fiscal_position_id.display_name"
+                                />
+                            </tr>
+                        </td>
+                    </tr>
+                </table>
+                <table style="border-collapse: separate;border-spacing: 40px;">
+                    <tr class="order-details-title">
+                        <td>Product Name</td>
+                        <td>Quantity</td>
+                        <td>UoM</td>
+                        <td>Unit Price</td>
+                        <td>Disc.%</td>
+                        <td>Taxes</td>
+                        <td>Tax Excl.</td>
+                        <td>Tax Incl.</td>
+                    </tr>
+                    <t t-foreach="props.order.lines" t-as="line" t-key="line.id">
+                        <tr>
+                            <td t-esc="line.full_product_name" />
+                            <td t-esc="line.qty" />
+                            <td t-esc="line.product_id.uom_id.name" />
+                            <td t-esc="formatDecimal(line.price_unit)" />
+                            <td t-esc="getDiscount(line)" />
+                            <td t-esc="getTax(line)" />
+                            <td t-esc="getPriceExclTax(line)" />
+                            <td t-esc="getPriceInclTax(line)" />
+                        </tr>
+                    </t>
+                </table>
+                <table class="total-table">
+                    <tr>
+                        <td class="order-details-title">Total</td>
+                        <td t-esc="getTotal()" />
+                    </tr>
+                </table>
+                <t t-set-slot="footer">
+                    <div class="button-group">
+                        <button class="btn btn-secondary" t-on-click="props.close">
+                            Close
+                        </button>
+                    </div>
+                </t>
+            </div>
+        </Dialog>
+    </t>
+</templates>

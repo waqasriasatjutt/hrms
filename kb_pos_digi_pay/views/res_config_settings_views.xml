@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_inherit_pos_cache" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.pos.digipay</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='restaurant_on_create']" position="after">
+                <div id="digipay_configs" class="row mt16 o_settings_container" invisible="not context.get('pos_config_create_mode', False)">
+                    <setting>
+                        <div class="row mt16">
+                            <label for="digipay_ecommerce_token" class="col-lg-3 o_light_label"/>
+                            <field name="digipay_ecommerce_token" password="True"/>
+                        </div>
+                    </setting>
+                </div>
+                <!-- <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="digipay_ecommerce_token" class="col-lg-3 o_light_label"/>
+                                <field name="digipay_ecommerce_token" password="True"/>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </xpath>
+        </field>
+    </record>
+        
+    <record id="res_config_settings_view_form_inherit_digipay" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.digipay</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='point_of_sale']" position="inside">
+                <block title="DigiPay info" id="digipay_section">
+                    <setting>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="row">
+                                    <label for="digipay_invoice_create_url" string="Invoice create url"/>
+                                    <field name="digipay_invoice_create_url"/>
+                                </div>
+                                <div class="row">
+                                    <label for="digipay_invoice_check_url" string="Invoice check url"/>
+                                    <field name="digipay_invoice_check_url"/>
+                                </div>
+                                <div class="row">
+                                    <label for="digipay_invoice_cancel_url" string="Invoice cancel url"/>
+                                    <field name="digipay_invoice_cancel_url"/>
+                                </div>
+                                <div class="row">
+                                    <label for="digipay_settlement_url" string="Settlement url"/>
+                                    <field name="digipay_settlement_url"/>
+                                </div>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="pos_session_digipay_inherit" model="ir.ui.view">
+        <field name="name">POS Session DigiPay inherit</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='cash_register_balance_end_real']" position="after">
+                <field name="digipay_sale_count"/>
+                <field name="digipay_sale_total"/>
+                <field name="digipay_void_count"/>
+                <field name="digipay_void_total"/>
+                <field name="digipay_description"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

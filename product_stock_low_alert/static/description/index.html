@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Low stock warning - Odoo Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background-color: #fff;
+            color: #212529;
+        }
+        .shadow-lg {
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+        }
+    </style>
+</head>
+<body>
+
+<section class="py-3">
+
+    <!-- Hero Section -->
+    <div style="padding: 85px 48px 32px 48px; margin-top: 35px; border-radius: 20px; margin-left: calc(-40vw + 50%); width: 80vw; background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); box-shadow: 0 1rem 3rem rgba(0,0,0,.1);" class="position-relative">
+    <div class="align-items-center d-flex justify-content-center">
+        <div style="background-color: white; color:#f2994a; font-size:2.5rem; font-weight:700; line-height:1.2; padding:16px 32px; border-radius:12px; box-shadow:0 1rem 3rem rgba(0,0,0,.1); text-align:center; text-decoration:underline; margin-top:-165px;">
+            Product Stock Alert (Low Stock)
+        </div>
+    </div>
+    <div class="container">
+        <div class="row gx-6">
+            <div style="font-size:2rem; font-weight:700; text-align:center; padding-bottom:24px; color:#333;">Visual Low Stock Alerts in Products & POS</div>
+            <div style="font-size:1.5rem; font-weight:700; text-align:center; padding-bottom:24px; color:#333;">Stay Notified and Manage Inventory Efficiently</div>
+            <div class="col">
+                <p style="font-size:15px; line-height:1.6; color:#333;">
+                    Enhance your Odoo inventory management with Product Stock Alert. This module provides visual indicators for low stock levels on product forms, tree/kanban views, and POS screens. Never run out of stock unnoticed and streamline your sales and warehouse operations.
+                </p>
+                <p style="font-size:15px; line-height:1.6; color:#333;">
+                    Key features include:
+                </p>
+                <ul style="font-size:15px; line-height:1.8; padding:0; list-style:none; color:#333;">
+                    <li>✅ Low Stock Indicators - Highlight products visually when stock is below threshold.</li>
+                    <li>✅ POS Alerts - Show alert badges directly in POS product cards.</li>
+                    <li>✅ Customizable Thresholds - Set minimum stock levels per product or globally.</li>
+                </ul>
+            </div>
+            <div class="col-auto p-0">
+                <div style="width:1px; height:100%; background-color:#f2994a;"></div>
+            </div>
+            <div class="col-auto">
+                <ul style="font-size:1.25rem; font-weight:700; list-style:none; padding:0;">
+                    <li style="display:flex; align-items:center; padding:4px 0;">
+                        <span style="color:#f2994a; font-size:24px; margin-right:10px;">✓</span>Works in Community
+                    </li>
+                    <li style="display:flex; align-items:center; padding:4px 0;">
+                        <span style="color:#f2994a; font-size:24px; margin-right:10px;">✓</span>Compatible with POS
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Key Features Highlights -->
+    <div style="padding:48px; margin-top:35px; border-radius:20px; margin-left:calc(-40vw + 50%); width:80vw; background-color:white; box-shadow:0 1rem 3rem rgba(0,0,0,.1);" class="position-relative">
+    <div class="container">
+        <div style="font-size:2rem; font-weight:700; text-align:center; padding-bottom:40px; color:#f2994a;">Highlights of Product Stock Alert</div>
+        <div class="row gy-4">
+            <div class="col-md-4">
+                <div style="border-radius:12px; padding:24px; text-align:center; box-shadow:0 0.5rem 1.5rem rgba(0,0,0,.1);" class="d-flex flex-column align-items-center justify-content-center">
+                    <div style="font-size:48px; color:#f2994a; margin-bottom:12px;">⚠️</div>
+                    <h4 style="font-weight:700;">Low Stock Indicators</h4>
+                    <p style="font-size:14px; color:#666;">Highlight products visually in tree, kanban, and POS when stock is below the set threshold.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="border-radius:12px; padding:24px; text-align:center; box-shadow:0 0.5rem 1.5rem rgba(0,0,0,.1);" class="d-flex flex-column align-items-center justify-content-center">
+                    <div style="font-size:48px; color:#f2994a; margin-bottom:12px;">🛒</div>
+                    <h4 style="font-weight:700;">POS Alerts</h4>
+                    <p style="font-size:14px; color:#666;">Display alert badges directly on POS product cards for quick visibility during sales.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="border-radius:12px; padding:24px; text-align:center; box-shadow:0 0.5rem 1.5rem rgba(0,0,0,.1);" class="d-flex flex-column align-items-center justify-content-center">
+                    <div style="font-size:48px; color:#f2994a; margin-bottom:12px;">⚙️</div>
+                    <h4 style="font-weight:700;">Customizable Thresholds</h4>
+                    <p style="font-size:14px; color:#666;">Set minimum stock levels globally or per product to control when alerts trigger.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="border-radius:12px; padding:24px; text-align:center; box-shadow:0 0.5rem 1.5rem rgba(0,0,0,.1);" class="d-flex flex-column align-items-center justify-content-center">
+                    <div style="font-size:48px; color:#f2994a; margin-bottom:12px;">📊</div>
+                    <h4 style="font-weight:700;">Kanban & Tree View</h4>
+                    <p style="font-size:14px; color:#666;">Get visual cues on products in kanban and list/tree views for easy inventory monitoring.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="border-radius:12px; padding:24px; text-align:center; box-shadow:0 0.5rem 1.5rem rgba(0,0,0,.1);" class="d-flex flex-column align-items-center justify-content-center">
+                    <div style="font-size:48px; color:#f2994a; margin-bottom:12px;">💡</div>
+                    <h4 style="font-weight:700;">Quick Stock Insights</h4>
+                    <p style="font-size:14px; color:#666;">Instantly know which products need replenishment without running reports.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="border-radius:12px; padding:24px; text-align:center; box-shadow:0 0.5rem 1.5rem rgba(0,0,0,.1);" class="d-flex flex-column align-items-center justify-content-center">
+                    <div style="font-size:48px; color:#f2994a; margin-bottom:12px;">🔔</div>
+                    <h4 style="font-weight:700;">Enhanced Inventory Control</h4>
+                    <p style="font-size:14px; color:#666;">Stay ahead of low stock situations and reduce missed sales or stock-outs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Screenshots Section -->
+    <div style="padding:48px; margin-top:35px; border-radius:20px; margin-left:calc(-40vw + 50%); width:80vw; background-color:white; box-shadow:0 1rem 3rem rgba(0,0,0,.1);" class="position-relative">
+        <div class="container">
+            <div style="font-size:2rem; font-weight:700; text-align:center; padding-bottom:40px; color:#f2c94c;">Screenshots</div>
+
+            <div style="margin-bottom:40px;">
+                <img src="assets/screenshots/img_1.png" class="img-fluid rounded shadow mb-3" alt="Install Module">
+                <h4 style="font-weight:700; text-align:center; margin-bottom:8px;">Install Product Stock Alert from Odoo
+                    Apps</h4>
+                <p style="text-align:center; color:#666; font-size:15px;">
+                    Go to the <strong>Apps</strong> menu in Odoo and search for <strong>Product Stock Alert</strong>.
+                    Click on the module and install it to enable visual low stock alerts in Products and POS.
+                </p>
+            </div>
+
+            <div style="margin-bottom:40px;">
+                <img src="assets/screenshots/img_2.png" class="img-fluid rounded shadow mb-3" alt="Access Settings">
+                <h4 style="font-weight:700; text-align:center; margin-bottom:8px;">Enable Low Stock Alert from
+                    Settings</h4>
+                <p style="text-align:center; color:#666; font-size:15px;">
+                    After installing the module, go to <strong>Settings</strong> &gt; search for
+                    <strong>Products</strong>. You will see a checkbox labeled <strong>Low Stock Alert</strong>. Enable
+                    it, and an input field will appear where you can set the threshold quantity (e.g., 10). Products
+                    with stock below this number will show alerts in POS, Kanban, and List views.
+                </p>
+            </div>
+
+            <div style="margin-bottom:40px;">
+                <img src="assets/screenshots/img_3.png" class="img-fluid rounded shadow mb-3" alt="POS Product Alert">
+                <h4 style="font-weight:700; text-align:center; margin-bottom:8px;">See Low Stock Alerts in POS</h4>
+                <p style="text-align:center; color:#666; font-size:15px;">
+                    After enabling the Low Stock Alert and setting the threshold, you can see visual warnings directly
+                    on products in the POS. The alert badge shows the current product quantity when it falls below the
+                    set threshold.
+                </p>
+            </div>
+
+
+            <div style="margin-bottom:40px;">
+                <img src="assets/screenshots/img_4.png" class="img-fluid rounded shadow mb-3"
+                     alt="Product Kanban Alert">
+                <h4 style="font-weight:700; text-align:center; margin-bottom:8px;">See Low Stock Alerts in Kanban
+                    View</h4>
+                <p style="text-align:center; color:#666; font-size:15px;">
+                    After setting the Low Stock Alert, you can also view alerts on products in the <strong>Kanban
+                    view</strong>. Visual warnings make it easy to identify products that are below the stock threshold
+                    at a glance.
+                </p>
+            </div>
+
+            <div style="margin-bottom:40px;">
+                <img src="assets/screenshots/img_5.png" class="img-fluid rounded shadow mb-3" alt="Product List Alert">
+                <h4 style="font-weight:700; text-align:center; margin-bottom:8px;">See Low Stock Alerts in List
+                    View</h4>
+                <p style="text-align:center; color:#666; font-size:15px;">
+                    After enabling the Low Stock Alert, you can view warnings directly in the <strong>List view</strong>
+                    of products. This makes it easy to identify products below the threshold quantity at a glance.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Support Section -->
+    <div style="margin-top:35px; border-radius:20px; margin-left:calc(-40vw + 50%); width:80vw; box-shadow:0 1rem 3rem rgba(0,0,0,.1);">
+        <div style="background: linear-gradient(135deg, #a3d8f4 0%, #fff4a3 100%); color: #333; padding:48px 24px; border-radius:20px; text-align:center;">
+            <h2 style="margin:0 0 16px 0; font-size:2.5rem; font-weight:700;">Need Help?</h2>
+            <p style="margin:0 0 24px 0; font-size:1.1rem;">For support or questions, please contact us:</p>
+            <div style="background-color: rgba(255,255,255,0.2); padding:16px; border-radius:12px; display:inline-block;">
+                <a href="mailto:evnazodoo@gmail.com" style="color:#333; font-weight:600; text-decoration:none;">📧 evnazodoo@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom:48px"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

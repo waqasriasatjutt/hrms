@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_return_reason_user,access_pos_return_reason_user,model_pos_return_reason,,1,0,0,0
+access_pos_return_reason_employee,access_pos_return_reason_employee,model_pos_return_reason,base.group_user,1,0,0,0
+access_pos_return_reason_manager,access_pos_return_reason_manager,model_pos_return_reason,point_of_sale.group_pos_manager,1,1,1,1

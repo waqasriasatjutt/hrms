@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sbl_pos_session_view_form_inherit" model="ir.ui.view">
+        <field name="name">pos.session.form.inherit.timesheet</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button name="action_view_attendance_records" type="object"
+                        class="oe_stat_button" icon="fa-clock-o"
+                        invisible="not sbl_attendance_count">
+                    <field name="sbl_attendance_count" widget="statinfo" string="Attendance"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

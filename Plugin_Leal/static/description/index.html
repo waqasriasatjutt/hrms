@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leal: Integración de Puntos para Odoo POS</title>
+    <style>
+        /* Colores de Marca Leal */
+        :root {
+            --leal-yellow: #FFD100;
+            --leal-dark: #212529;
+            --leal-primary: #333;
+        }
+        /* Estilos generales */
+        body {
+            font-family: 'Roboto', 'Odoo Unicode Support Noto', sans-serif;
+        }
+        .oe_container { color: var(--leal-dark); }
+        .oe_slogan { color: var(--leal-primary) !important; }
+        .leal-feature-icon {
+            color: var(--leal-yellow);
+            font-size: 2.5em;
+            margin-right: 15px;
+            float: left;
+        }
+        .feature-box {
+            overflow: hidden;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .feature-box h4 { margin-top: 5px; font-size: 1.3em; }
+
+        /* Estilo para todas las imágenes de captura */
+        .oe_screenshot {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .leal-section-title {
+            border-bottom: 2px solid var(--leal-yellow);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        /* Estilo para los textos debajo de las imágenes */
+        .caption {
+            text-align: center;
+            margin-top: 15px;
+            padding: 0 15px;
+            font-size: 1.1em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sección de Cabecera (Hero) -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                <h2 class="oe_slogan" style="color:#212529;">Integración de Puntos Leal para Odoo POS</h2>
+                <h3 class="oe_slogan">Fidelice a sus clientes permitiéndoles redimir puntos Leal directamente en su Punto de Venta.</h3>
+                <div class="oe_demo oe_screenshot_container">
+                    <img src="images/PantallaInicial.png" alt="Integración de Leal en el Punto de Venta de Odoo" class="oe_screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios Clave -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                <h3 class="oe_slogan" style="color:#212529;">Beneficios Clave</h3>
+            </div>
+            <div class="oe_span6">
+                <div class="feature-box">
+                    <i class="fa fa-heart leal-feature-icon"></i><h4>Fidelización Aumentada</h4>
+                    <p>Ofrezca una recompensa instantánea y tangible a sus clientes más leales, incentivando futuras compras.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa fa-shopping-cart leal-feature-icon"></i><h4>Experiencia de Compra Fluida</h4>
+                    <p>Integre la redención de puntos de forma nativa en el flujo de pago del POS, sin interrumpir al cajero.</p>
+                </div>
+                 <div class="feature-box">
+                    <i class="fa fa-shield leal-feature-icon"></i><h4>Transacciones Seguras</h4>
+                    <p>Valide la identidad del cliente y confirme las redenciones con códigos OTP para máxima seguridad.</p>
+                </div>
+            </div>
+            <div class="oe_span6">
+                 <div class="feature-box">
+                    <i class="fa fa-rocket leal-feature-icon"></i><h4>Aumento de la Frecuencia de Compra</h4>
+                    <p>Motive a sus clientes a volver más a menudo para usar sus puntos acumulados.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa fa-cogs leal-feature-icon"></i><h4>Fácil Configuración</h4>
+                    <p>Active la integración en minutos introduciendo sus credenciales de API de Leal en los ajustes de Odoo.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fa fa-history leal-feature-icon"></i><h4>Trazabilidad Completa</h4>
+                    <p>Cada redención queda registrada en Odoo, permitiendo un seguimiento y una contabilidad precisos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Título de la sección de funcionalidades -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                 <h2 class="oe_slogan leal-section-title">Funcionalidades Detalladas</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona - Título y descripción -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12 text-center">
+                <h3 style="font-size: 1.8em;">Cómo Funciona (Paso a Paso)</h3>
+                <p>Un flujo simple y potente integrado en su Punto de Venta.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paso 1 -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                <div class="oe_demo oe_screenshot_container">
+                <img src="images/PantallaInicial.png" class="oe_screenshot" alt="Botón de Puntos Leal en Odoo POS">
+                </div>
+                <p class="caption"><b>Paso 1:</b> El cajero hace clic en el nuevo botón "Puntos Leal" en la pantalla de pago.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paso 2 -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                <div class="oe_demo oe_screenshot_container">
+                <img src="images/BuscaClientes.png" class="oe_screenshot" alt="Popup de búsqueda de cliente Leal">
+                </div>
+                <p class="caption"><b>Paso 2:</b> Se introduce el documento o correo del cliente para buscarlo en la base de datos de Leal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paso 3 -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                <div class="oe_demo oe_screenshot_container">
+                <img src="images/SelecccionaProducto.png" class="oe_screenshot" alt="Visualización de saldo de puntos Leal">
+                </div>
+                <p class="caption"><b>Paso 3:</b> El sistema muestra el saldo de puntos disponible y las opciones de redención.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paso 4 -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                <div class="oe_demo oe_screenshot_container">
+                <img src="images/RedimeCodigoOTP.png" class="oe_screenshot" alt="Redención de puntos como método de pago en Odoo">
+                </div>
+                <p class="caption"><b>Paso 4:</b> Tras validar con OTP, los puntos se aplican como un método de pago, cubriendo total o parcialmente la compra.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características Principales -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12">
+                <h3 class="text-center" style="font-size: 1.8em; margin-bottom: 30px;">Características Principales</h3>
+                <ul style="padding-left: 40px; font-size: 1.1em; list-style: none;">
+                    <li style="margin-bottom: 10px;"><i class="fa fa-check-circle" style="color: var(--leal-yellow); margin-right: 10px;"></i><strong>Integración Nativa en el Punto de Venta</strong></li>
+                    <li style="margin-bottom: 10px;"><i class="fa fa-check-circle" style="color: var(--leal-yellow); margin-right: 10px;"></i><strong>Consulta de Saldo en Tiempo Real</strong></li>
+                    <li style="margin-bottom: 10px;"><i class="fa fa-check-circle" style="color: var(--leal-yellow); margin-right: 10px;"></i><strong>Redención Flexible como Método de Pago</strong></li>
+                    <li style="margin-bottom: 10px;"><i class="fa fa-check-circle" style="color: var(--leal-yellow); margin-right: 10px;"></i><strong>Flujo Seguro con Verificación OTP</strong></li>
+                    <li style="margin-bottom: 10px;"><i class="fa fa-check-circle" style="color: var(--leal-yellow); margin-right: 10px;"></i><strong>Compatibilidad con Múltiples Diarios Contables</strong></li>
+                    <li style="margin-bottom: 10px;"><i class="fa fa-check-circle" style="color: var(--leal-yellow); margin-right: 10px;"></i><strong>Registro Detallado de Transacciones</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configuración -->
+    <section class="oe_container oe_spaced">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12 text-center">
+                <h3 style="font-size: 1.8em; margin-bottom: 20px;">Configuración Rápida y Centralizada</h3>
+                <p>Vaya a <b>Punto de Venta > Configuración > Ajustes</b> y encontrará la nueva sección para Leal.</p>
+            </div>
+            <div class="oe_span12">
+                <div class="oe_demo oe_screenshot_container">
+                    <img src="images/ConfiguracionesMetododePago.png" class="oe_screenshot" alt="Panel de configuración de Leal en los ajustes de Odoo">
+                </div>
+                <p class="caption">Simplemente ingrese sus credenciales de API y seleccione los diarios correspondientes. ¡Eso es todo!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Soporte y Contacto -->
+    <section class="oe_container" style="background-color: #f8f9fa;">
+        <div class="oe_row oe_spaced">
+            <div class="oe_span12 text-center">
+                <div class="oe_demo oe_screenshot_container">
+                <img src="images/Icon.png" alt="Logo de Leal" style="max-width: 150px; margin-bottom: 20px; border: none; box-shadow: none;">
+                </div>
+                <h3 class="oe_slogan" style="color:#212529;">¿Necesita Ayuda?</h3>
+                <p>Nuestro equipo está listo para ayudarle con la instalación, configuración o cualquier personalización que necesite.</p>
+                <p>Contáctenos en <a href="mailto:pparra@leal.co">pparra@leal.co</a> o visite nuestro sitio web <a href="https://www.leal.co" target="_blank">www.leal.co</a>.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

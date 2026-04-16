@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> 
+    <record id="view_pos_pos_form2" model="ir.ui.view">
+        <field name="name">pos.order.form.view2</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_survey_answers"
+                    type="object"
+                    invisible="survey_answers_count == 0">
+                    <field name="survey_answers_count" widget="statinfo" string="Survey Answers" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

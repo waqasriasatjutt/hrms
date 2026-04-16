@@ -1,0 +1,27 @@
+.address-dropdown{
+    display: flex !important;
+    position: relative;
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    flex-direction: column;
+    gap: 1px;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 200px;
+    margin-bottom: 5px;
+    border-top: 0;
+}
+
+/* Autocomplete dropdown positioning for street field */
+.dropdown-menu.show {
+    position: absolute;
+    top: 100%;
+    margin-top: 8px !important;
+    z-index: 1050;
+}
+
+.address-item{
+    background: white;
+    padding: 7px 5px;
+    cursor: pointer;
+}

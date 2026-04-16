@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_leal_api_settings_manager,leal.api.settings.manager,model_leal_api_settings,base.group_system,1,1,1,1
+access_leal_user_data_manager,leal.user.data.manager,model_leal_user_data,base.group_system,1,1,1,1
+access_leal_user_config_manager,leal.user.config.manager,model_leal_user_config,base.group_system,1,1,1,1
+access_leal_api_client_manager,leal.api.client.manager,model_leal_api_client,base.group_system,1,1,1,1
+access_leal_redeem_response_manager,leal.redeem.response.manager,model_leal_redeem_response,base.group_system,1,1,1,1
+access_leal_redeem_response_user,leal.redeem.response.user,model_leal_redeem_response,base.group_user,1,1,1,1
+access_leal_redeem_response_pos,leal.redeem.response.pos,model_leal_redeem_response,point_of_sale.group_pos_user,1,1,1,1
+access_leal_customer_campaign_manager,leal.customer.campaign.manager,model_leal_customer_campaign,base.group_system,1,1,1,1
+access_leal_customer_campaign_user,leal.customer.campaign.user,model_leal_customer_campaign,base.group_user,1,1,1,1
+access_leal_customer_campaign_pos,leal.customer.campaign.pos,model_leal_customer_campaign,point_of_sale.group_pos_user,1,1,1,1
+access_leal_accumulate_response_manager,leal.accumulate.response.manager,model_leal_accumulate_response,base.group_system,1,1,1,1
+access_leal_accumulate_response_user,leal.accumulate.response.user,model_leal_accumulate_response,base.group_user,1,1,1,1
+access_leal_accumulate_response_pos,leal.accumulate.response.pos,model_leal_accumulate_response,point_of_sale.group_pos_user,1,1,1,1

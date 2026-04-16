@@ -1,0 +1,114 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_mercadopagoqr
+# 
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-09 00:01+0000\n"
+"PO-Revision-Date: 2025-09-09 00:01+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
+"Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#. module: pos_mercadopagoqr
+#. odoo-javascript
+#: code:addons/pos_mercadopagoqr/static/src/xml/PaymentScreenPaymentLines.xml:0
+msgid "Cancel MPQR Payment and Delete from Terminal"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#. odoo-javascript
+#: code:addons/pos_mercadopagoqr/static/src/xml/PaymentScreenPaymentLines.xml:0
+msgid "Cancelar MPQR Payment"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#. odoo-javascript
+#: code:addons/pos_mercadopagoqr/static/src/xml/PaymentScreenPaymentLines.xml:0
+msgid "Cancelar Pago MPQR"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,field_description:pos_mercadopagoqr.field_mp_store_box_line__image_qr
+msgid "Image QR"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,field_description:pos_mercadopagoqr.field_pos_payment_method__pos_mp_config_id
+msgid "MP Credentials"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields.selection,name:pos_mercadopagoqr.selection__mp_credential__payment_type__mpqr
+msgid "MP QR"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#. odoo-javascript
+#: code:addons/pos_mercadopagoqr/static/src/js/payment_mpqr.js:0
+msgid "MP QR Error"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,field_description:pos_mercadopagoqr.field_pos_order__mpqr_payment_token
+msgid "Payment token"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model,name:pos_mercadopagoqr.model_mp_credential
+msgid "Point of Sale MP Configuration"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model,name:pos_mercadopagoqr.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del TPV"
+
+#. module: pos_mercadopagoqr
+#: model:ir.model,name:pos_mercadopagoqr.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de pago en el punto de venta "
+
+#. module: pos_mercadopagoqr
+#: model:ir.model,name:pos_mercadopagoqr.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_mercadopagoqr
+#: model:ir.model,name:pos_mercadopagoqr.model_mp_store_box_line
+msgid "Pos Terminal mp"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,field_description:pos_mercadopagoqr.field_mp_store_box_line__qr_code
+msgid "QR code"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,field_description:pos_mercadopagoqr.field_mp_store_box_line__template_document_qr
+msgid "Template document QR"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,field_description:pos_mercadopagoqr.field_mp_store_box_line__template_image_qr
+msgid "Template image QR"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,help:pos_mercadopagoqr.field_pos_payment_method__pos_mp_config_id
+msgid "The configuration of MP used for this journal"
+msgstr ""
+
+#. module: pos_mercadopagoqr
+#: model:ir.model.fields,field_description:pos_mercadopagoqr.field_mp_credential__payment_type
+msgid "Tipo"
+msgstr ""

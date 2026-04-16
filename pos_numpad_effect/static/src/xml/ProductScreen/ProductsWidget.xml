@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <!-- Inherit the template to add a div for effect on numpad button click. #T6510 -->
+    <t
+        t-name="ProductsWidgetBlinkEffect"
+        t-inherit="point_of_sale.ProductScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('rightpane')]" position="inside">
+            <div
+                class="show-number-on-screen scale-animation"
+                t-ref="NumpadWidgetBlinkEffect"
+            />
+        </xpath>
+    </t>
+</templates>

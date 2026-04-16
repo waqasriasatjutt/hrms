@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- HR Attendance Search View with POS Session -->
+    <record id="sbl_hr_attendance_view_filter_inherit" model="ir.ui.view">
+        <field name="name">hr.attendance.search.inherit.pos</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+        <field name="arch" type="xml">
+            <field name="employee_id" position="after">
+                <field name="sbl_pos_session_id"/>
+            </field>
+            <filter name="employee" position="after">
+                <filter name="group_by_pos_session" string="POS Session"
+                        context="{'group_by': 'sbl_pos_session_id'}"
+                        help="Group attendance records by POS session"/>
+            </filter>
+        </field>
+    </record>
+
+    <!-- HR Attendance List View with POS Session -->
+    <record id="sbl_hr_attendance_view_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.inherit.pos</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <field name="employee_id" position="after">
+                <field name="sbl_pos_session_id" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>

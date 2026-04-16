@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-name="POSScreenSaver">
+    <div class="pos-screensaver hidden">
+      <img t-att-src="screensaverImage" class="screensaver-img"/>
+      <div class="screensaver-timer">Idle...</div>
+    </div>
+  </t>
+</templates>

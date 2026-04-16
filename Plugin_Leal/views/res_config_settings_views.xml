@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_leal_api_settings_form" model="ir.ui.view">
+        <field name="name">leal.api.settings.form</field>
+        <field name="model">leal.api.settings</field>
+        <field name="arch" type="xml">
+            <form string="Configuración Leal API" style="height: 100%;" class="h-100 o_leal_config_form">
+                <sheet class="h-100 w-100">
+                    <div class="row h-100 justify-content-center align-items-center">
+                        <div class="card w-50">
+                            <div class="card-body p-5f orm-group">
+                                <h3 class="bold pb-2">Autenticación Leal</h3>
+                                <h6 class="text-muted">Ingresa tus credenciales</h6>
+                                <h6 class="text-muted">haz click en guardar y autenticar</h6>
+                                <div class="py-2"></div>
+                                <div class="form-group">
+                                    <label for="username">Usuario<span class="text-danger">*</span>
+                                    </label>
+                                    <field name="username" class="form-control w-100" placeholder="Escribe tu usuario" required="1" />
+                                </div>
+                                <div class="form-group position-relative ">
+                                    <label for="password">Contraseña<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <field name="password" password="True" placeholder="Escribe tu contraseña" class="form-control w-100" required="1"/>
+                                        <span class="input-group-text bg-white border-left-0 border-0" style="cursor:pointer; position:absolute; right:10px; top:50%; transform:translateY(-50%); z-index:10;" onclick="var input=this.parentNode.querySelector(&quot;input[type='password'],input[type='text']&quot;); if(input.type==='password'){input.type='text'; this.innerHTML='&lt;i class=&quot;fa fa-eye-slash&quot;&gt;&lt;/i&gt;';}else{input.type='password'; this.innerHTML='&lt;i class=&quot;fa fa-eye&quot;&gt;&lt;/i&gt;';}">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="is_production" class="form-label">
+                                                <strong>Ambiente</strong>
+                                            </label>
+                                            <div class="form-control border-0">
+                                                <field name="is_production" widget="boolean_toggle" string="Ambiente"/>
+                                                <small class="form-text text-muted">
+                                                    <span invisible="is_production == True">🧪 Pruebas (Test)</span>
+                                                    <span invisible="is_production == False">🚀 Producción (Live)</span>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="allow_zero_invoices" class="form-label">
+                                                <strong>Facturas en $0</strong>
+                                            </label>
+                                            <div class="form-control border-0">
+                                                <field name="allow_zero_invoices" widget="boolean_toggle" string="Permitir facturas en $0"/>
+                                                <small class="form-text text-muted">
+                                                    <span invisible="allow_zero_invoices == True">❌ No permitidas</span>
+                                                    <span invisible="allow_zero_invoices == False">✅ Permitidas</span>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-12" invisible="True">
+                                        <div class="form-group">
+                                            <label for="api_url" class="form-label">
+                                                <strong>URL de API</strong>
+                                            </label>
+                                            <field name="api_url" readonly="1" class="form-control"/>
+                                            <small class="form-text text-muted">Se configura automáticamente según el ambiente</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <field name="active" invisible="1"/>
+                                <field name="is_authenticated" invisible="1"/>
+                                <div class="w-100 text-center">
+                                    <button name="authenticate_api" type="object" string="Guardar y autenticar" class="btn leal-yellow-bg py-2 px-5"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_leal_api_settings_tree" model="ir.ui.view">
+        <field name="name">leal.api.settings.tree</field>
+        <field name="model">leal.api.settings</field>
+        <field name="arch" type="xml">
+            <list class="table table-striped table-bordered" decoration-success="is_authenticated==True" decoration-muted="is_authenticated==False">
+                <field name="username"/>
+                <field name="is_production" widget="boolean_button" string="Producción"/>
+                <field name="allow_zero_invoices" widget="boolean_button" string="Facturas $0"/>
+                <field name="api_url" string="URL API"/>
+                <field name="is_authenticated" widget="boolean_button" string="Autenticado"/>
+                <field name="last_auth_date" string="Última Auth."/>
+                <field name="active" invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_leal_api_settings" model="ir.actions.act_window">
+        <field name="name">Configuración Leal</field>
+        <field name="res_model">leal.api.settings</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_leal_api_settings" name="Leal API Settings" parent="base.menu_administration" action="action_leal_api_settings" sequence="10"/>
+</odoo>

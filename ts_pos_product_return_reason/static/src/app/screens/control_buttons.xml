@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ts_pos_product_return_reason.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton" position="after">
+             <button class="btn btn-secondary btn-lg py-5" t-on-click="() => this.onClickReturnReason()"
+                t-att-disabled="!currentOrder._isRefundOrder()"
+                >
+                 <i class="fa fa-pencil me-1" role="img" aria-label="Return Reason" title="Return Reason"/>Return Reason
+             </button>
+        </xpath>
+    </t>
+</templates>

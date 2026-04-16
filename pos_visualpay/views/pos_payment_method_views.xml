@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_payment_method_form_inherit_visualpay" model="ir.ui.view">
+        <field name="name">pos.payment.method.form.visualpay</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_method_type']" position="after">
+
+                <group invisible="payment_method_type != 'visualpay'">
+                    <div class="card border-0 shadow-sm mt-3 o_visualpay_card" style="max-width: 800px;">
+                        <!-- Encabezado -->
+                        <div class="o_visualpay_header mb-3 d-flex align-items-center">
+                            <div class="fw-semibold fs-5 text-dark">
+                                <i class="fa fa-qrcode text-primary me-2"></i>Configuración de VisualPay
+                            </div>
+                        </div>
+
+                        <!-- Contenido -->
+                        <div class="card-body p-3">
+                            <!-- Imagen -->
+                            <div class="mb-4 text-center">
+                                <div class="form-label fw-bold mb-1">Imagen de VisualPay</div>
+                                <field name="visualpay_image" widget="image" class="border rounded p-1"
+                                    help="Sube el código QR o una imagen representativa de VisualPay." />
+                                <small class="text-muted d-block mt-1">
+                                    Tamaño recomendado: hasta 1000×1000 px
+                                </small>
+                            </div>
+
+                            <!-- Descripción -->
+                            <div class="mb-4">
+                                <div class="form-label fw-bold mb-1">Descripción / Instrucciones</div>
+                                <field name="visualpay_description" widget="text"
+                                    placeholder="Ingresa una descripción o instrucciones..."
+                                    help="Texto mostrado al cliente durante la transacción con VisualPay."
+                                    translate="True" />
+                            </div>
+
+                            <!-- Confirmación -->
+                            <div class="mb-2">
+                                <div class="form-label fw-bold mb-1">Solicitar comprobante de pago
+                                    <field name="visualpay_require_confirmation" help="Actívalo si VisualPay requiere confirmación después del pago." />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </group>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ========== RWC CONFIGURATION FORM ========== -->
+    <record id="view_rwc_config_form" model="ir.ui.view">
+        <field name="name">RwC Configuration form</field>
+        <field name="model">rewardscodes.config</field>
+        <field name="arch" type="xml">
+            <form string="RwC Configuration" duplicate="false" delete="false">
+                <sheet>
+                    <!-- Keep your 4-col grid JUST for fields -->
+                    <group col="4" style="margin-top: 10px;">
+                        <field name="demo"
+                               help="If enabled, Rewards Codes will run in demo mode with sample data."/>
+                        <field name="phone" readonly="demo"
+                               help="Phone number used to create your account at https://partner.rewards.codes. Must include the country code, e.g. +52XXXXXXXXXX."/>
+                        <field name="api_key" readonly="demo"
+                               help="Your developer key located at the bottom of the Settings page in https://partner.rewards.codes."/>
+                        <field name="default_phone_code" readonly="demo"
+                               help="The country code used for customer numbers. Example: +52 or +1."/>
+                        <field name="qr" readonly="demo"
+                               help="Enable this option to print a Rewards Codes QR on customer receipts or tickets."/>
+                        <field name="mode" readonly="demo"
+                               help="Select the type of rewards: Visits, Products or E-Money."/>
+
+                        <!-- NUEVO: porcentaje para modo dinero electrónico, SIN attrs -->
+                        <field name="emoney_percent"
+                               invisible="mode != 'emoney'"
+                               required="mode == 'emoney'"
+                               help="Percentage of the purchase amount returned as electronic money to the customer."/>
+                    </group>
+
+                    <!-- Full-width banner in its own row so it doesn't affect the grid -->
+                    <div class="o_row" invisible="not demo">
+                        <div class="o_col-12">
+                            <div class="o_alert alert alert-info"
+                                 style="width:100%;
+                                        margin-top: 12px;
+                                        padding: 14px 18px;
+                                        border-radius: 12px;
+                                        font-size: 15px;
+                                        line-height: 1.4;
+                                        color: #0b3d91;
+                                        background: linear-gradient(135deg, #eef5ff, #f6f9ff);
+                                        border: 1px solid #c7d8ff;
+                                        box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                                <strong>Demo Mode Active</strong><br/>
+                                The system is currently running with <b>demo credentials</b> and <b>sample data</b>.<br/>
+                                Uncheck <b>“Demo Mode”</b> to connect your real Rewards Codes account.
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ========== RWC CONFIGURATION LIST ========== -->
+    <record id="view_rwc_config_tree" model="ir.ui.view">
+        <field name="name">RwC Configuration tree</field>
+        <field name="model">rewardscodes.config</field>
+        <field name="arch" type="xml">
+            <list string="RwC Configurations" delete="false">
+                <field name="demo"/>
+                <field name="phone"/>
+                <field name="api_key"/>
+                <field name="default_phone_code"/>
+                <field name="qr"/>
+                <field name="mode"/>
+                <field name="emoney_percent"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- ========== ACTION / MENU ========== -->
+    <record id="action_rwc_config_form" model="ir.actions.act_window">
+        <field name="name">RwC Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rewardscodes.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new RwC configuration
+            </p>
+            <p>
+                A Rewards Codes configuration allows you to reward your customers.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_rwc_config"
+              parent="point_of_sale.menu_point_config_product"
+              action="action_rwc_config_form"
+              sequence="10"/>
+
+</odoo>

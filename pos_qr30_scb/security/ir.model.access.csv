@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pos_qr30_scb.access_pos_bank,access_pos_bank,pos_qr30_scb.model_pos_bank,base.group_user,1,0,0,0
