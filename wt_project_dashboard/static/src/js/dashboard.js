@@ -1,6 +1,6 @@
 /** @odoo-module **/
 import { registry } from "@web/core/registry";
-import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
+import { Component, onWillStart, onMounted, onWillUnmount, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 const P = ["#4F46E5","#7C3AED","#06B6D4","#3B82F6","#8B5CF6","#6366F1","#4338CA","#2563EB","#818CF8","#A5B4FC"];
@@ -48,6 +48,11 @@ export class ProjectDashboard extends Component {
             this.state.loading = false;
             await this._renderTabCharts("overview");
             this._autoRefreshTimer = setInterval(() => this._applyFilters(), 5 * 60 * 1000);
+        });
+        onWillUnmount(() => {
+            clearInterval(this._autoRefreshTimer);
+            Object.values(this._charts).forEach(c => c.destroy());
+            this._charts = {};
         });
     }
 

@@ -1,6 +1,6 @@
 /** @odoo-module **/
 import { registry } from "@web/core/registry";
-import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
+import { Component, onWillStart, onMounted, onWillUnmount, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 const P = ["#0D9488","#0284C7","#14B8A6","#06B6D4","#0891B2","#0E7490","#0F766E","#115E59","#5EEAD4","#2DD4BF"];
@@ -44,6 +44,11 @@ export class InventoryDashboard extends Component {
             this._autoRefreshTimer = setInterval(async () => {
                 if (!this.state.loading) await this._applyFilters();
             }, 5 * 60 * 1000);
+        });
+        onWillUnmount(() => {
+            clearInterval(this._autoRefreshTimer);
+            Object.values(this._charts).forEach(c => c.destroy());
+            this._charts = {};
         });
     }
 

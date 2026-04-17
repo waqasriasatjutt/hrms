@@ -1,6 +1,6 @@
 /** @odoo-module **/
 import { registry } from "@web/core/registry";
-import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
+import { Component, onWillStart, onMounted, onWillUnmount, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 const P = ["#E11D48","#F97316","#FBBF24","#FB7185","#F43F5E","#E879A3","#FF6B6B","#FCA5A5","#FDA4AF","#FECDD3"];
@@ -44,6 +44,11 @@ export class CrmDashboard extends Component {
             this.state.loading = false;
             await this._renderTabCharts("overview");
             this._autoRefreshTimer = setInterval(() => this._applyFilters(), 5 * 60 * 1000);
+        });
+        onWillUnmount(() => {
+            clearInterval(this._autoRefreshTimer);
+            Object.values(this._charts).forEach(c => c.destroy());
+            this._charts = {};
         });
     }
 

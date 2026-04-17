@@ -1,6 +1,6 @@
 /** @odoo-module **/
 import { registry } from "@web/core/registry";
-import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
+import { Component, onWillStart, onMounted, onWillUnmount, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 const P = ["#7C3AED","#2563EB","#EC4899","#A855F7","#3B82F6","#8B5CF6","#6366F1","#C026D3","#4F46E5","#7C3AED"];
@@ -44,6 +44,11 @@ export class PurchaseDashboard extends Component {
             this._autoRefreshTimer = setInterval(async () => {
                 if (!this.state.loading) await this._applyFilters();
             }, 5 * 60 * 1000);
+        });
+        onWillUnmount(() => {
+            clearInterval(this._autoRefreshTimer);
+            Object.values(this._charts).forEach(c => c.destroy());
+            this._charts = {};
         });
     }
 
