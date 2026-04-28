@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_lawfirm_services" name="WT Theme Law Firm Services">
+    <section id="services" class="py-5" style="background:#FAF7F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Practice Areas</span>
+                <h2 class="wtt-h2 mt-3">Practice Areas</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Eight disciplines. Senior partners only.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-balance-scale"/></div>
+                        <h3>Corporate Law</h3>
+                        <p>Mergers, acquisitions, joint ventures, regulatory compliance and board advisory.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-gavel"/></div>
+                        <h3>Litigation</h3>
+                        <p>Civil, commercial and constitutional matters in High Court and Supreme Court.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-file-text-o"/></div>
+                        <h3>Tax Law</h3>
+                        <p>Direct + indirect tax disputes, FBR appeals, transfer pricing and tax structuring.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-handshake-o"/></div>
+                        <h3>Family Law</h3>
+                        <p>Marriage, divorce, custody, succession and family business mediation.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-building-o"/></div>
+                        <h3>Real Estate</h3>
+                        <p>Property due-diligence, transfer, title disputes and developer agreements.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-shield"/></div>
+                        <h3>Criminal Defence</h3>
+                        <p>White-collar, financial-crime and reputation-sensitive criminal matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

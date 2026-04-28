@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_construction_stats" name="Construction Stats">
+    <section class="py-5" style="background:#FF6B35;color:#fff;">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-6 col-md-3">
+                    <div class="wtc-stat">
+                        <div class="num" style="color:#fff;">240+</div>
+                        <div class="label" style="color:rgba(255,255,255,.85);">Projects Delivered</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="wtc-stat">
+                        <div class="num" style="color:#fff;">19</div>
+                        <div class="label" style="color:rgba(255,255,255,.85);">Years In Business</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="wtc-stat">
+                        <div class="num" style="color:#fff;">350</div>
+                        <div class="label" style="color:rgba(255,255,255,.85);">Skilled Crew</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="wtc-stat">
+                        <div class="num" style="color:#fff;">99%</div>
+                        <div class="label" style="color:rgba(255,255,255,.85);">Repeat Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

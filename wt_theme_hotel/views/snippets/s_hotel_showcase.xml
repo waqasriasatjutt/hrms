@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_hotel_showcase" name="WT Theme Hotel Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The Story</span>
+                <h2 class="wtt-h2 mt-3">The Story</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">How sixteen rooms came to be.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">2009</span>
+                            <h4>Bought The Property</h4>
+                            <p>A run-down clifftop villa.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">2011</span>
+                            <h4>First Six Rooms</h4>
+                            <p>Open to first guests after a two-year restoration.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">2014</span>
+                            <h4>Restaurant</h4>
+                            <p>Resident chef, garden produce, set menu.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">2017</span>
+                            <h4>Heritage Wing</h4>
+                            <p>Six more rooms. Same hand. Same scale.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">2020</span>
+                            <h4>Cottage Built</h4>
+                            <p>Stand-alone cottage for two added.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">2024</span>
+                            <h4>Treatment Room</h4>
+                            <p>Wellness added. Same scale. Same craft.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

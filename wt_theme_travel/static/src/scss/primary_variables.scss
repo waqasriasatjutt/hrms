@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Travel & Tours — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-travel': (
+            'o-color-1': #0891B2,   // primary
+            'o-color-2': #F59E0B,   // secondary
+            'o-color-3': #F97316,   // accent
+            'o-color-4': #0F172A,   // dark
+            'o-color-5': #F0FDFA,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-travel': (
+            'font':          'Poppins',
+            'headings-font': 'Playfair Display',
+            'navbar-font':   'Poppins',
+            'buttons-font':  'Poppins',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         50rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-travel' !default;
+$o-selected-website-values-palette-name: 'wt-travel' !default;

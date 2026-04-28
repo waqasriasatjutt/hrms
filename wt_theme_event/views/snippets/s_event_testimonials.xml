@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_event_testimonials" name="WT Theme Events Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Best three days of the year. The hallway track is unmatched. Tickets pay for themselves in week one."</blockquote>
+                        <cite>VP Product</cite>
+                        <span class="role">returning attendee</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Practitioners only. No "the future of X" panels. That's why I keep coming back."</blockquote>
+                        <cite>Founder</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"The matchmaking app set up 18 conversations for me. Came home with 3 hires + 1 client."</blockquote>
+                        <cite>Hiring manager</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

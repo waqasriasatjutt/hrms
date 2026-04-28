@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ecommerce_features" name="WT Theme eCommerce Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why People Buy From Us</span>
+                <h2 class="wtt-h2 mt-3">Why People Buy From Us</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Old-fashioned, in the good way.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-globe"/></div>
+                        <h4>Real Makers</h4>
+                        <p>We visit every workshop. We name every maker on every product page.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-leaf"/></div>
+                        <h4>Made To Last</h4>
+                        <p>Lifetime repair on leather goods. Free re-soling on shoes for 5 years.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-shipping-fast"/></div>
+                        <h4>Free Shipping</h4>
+                        <p>Orders over $50 ship free worldwide. 30-day no-questions returns.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-heart"/></div>
+                        <h4>Real Service</h4>
+                        <p>Real humans on email + chat. Median first-response 12 minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

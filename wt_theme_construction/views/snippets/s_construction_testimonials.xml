@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_construction_testimonials" name="Construction Testimonials">
+    <section class="py-5" style="background:#F8F9FA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtc-eyebrow">Client Voices</span>
+                <h2 class="wtc-display mt-3">What Owners Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-quote">
+                        <blockquote>"They delivered the structural shell three weeks ahead of schedule. We had retail tenants moving in before our pessimistic plan said we'd even finish the façade."</blockquote>
+                        <cite>Erika Olsson</cite>
+                        <span class="role">Project Director, Skyline Holdings</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-quote">
+                        <blockquote>"The interior fit-out was museum-grade work. Joinery, lighting, MEP — every detail. Our hotel opened to 5-star reviews on day one."</blockquote>
+                        <cite>Jonas Reinhardt</cite>
+                        <span class="role">GM, Grand Continental</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-quote">
+                        <blockquote>"They restored a 1920s landmark theatre without losing a single original detail. Heritage authority approved the as-built without conditions."</blockquote>
+                        <cite>Mira Costa</cite>
+                        <span class="role">Director, Heritage Trust</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

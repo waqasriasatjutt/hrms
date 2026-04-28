@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- About -->
+<record id="page_about" model="website.page">
+    <field name="name">About Us</field>
+    <field name="url">/about-us</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_clinic.page_about</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="About Us" t-name="wt_theme_clinic.page_about">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">About the Clinic</span>
+                            <h1 style="font-weight:800;color:#1E293B;">Healthcare With Heart Since 2008</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_clinic.s_clinic_features"/>
+                    <t t-call="wt_theme_clinic.s_clinic_doctors"/>
+                    <t t-call="wt_theme_clinic.s_clinic_stats"/>
+                    <t t-call="wt_theme_clinic.s_clinic_appointment"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- Services -->
+<record id="page_services" model="website.page">
+    <field name="name">Services</field>
+    <field name="url">/services</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_clinic.page_services</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Services" t-name="wt_theme_clinic.page_services">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">Our Specialities</span>
+                            <h1 style="font-weight:800;color:#1E293B;">Care For Every Stage Of Life</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_clinic.s_clinic_services"/>
+                    <t t-call="wt_theme_clinic.s_clinic_features"/>
+                    <t t-call="wt_theme_clinic.s_clinic_appointment"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- Doctors -->
+<record id="page_doctors" model="website.page">
+    <field name="name">Doctors</field>
+    <field name="url">/doctors</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_clinic.page_doctors</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Doctors" t-name="wt_theme_clinic.page_doctors">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">Meet The Team</span>
+                            <h1 style="font-weight:800;color:#1E293B;">Specialists You Can Trust</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_clinic.s_clinic_doctors"/>
+                    <t t-call="wt_theme_clinic.s_clinic_testimonials"/>
+                    <t t-call="wt_theme_clinic.s_clinic_appointment"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- Contact -->
+<record id="page_contact" model="website.page">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_clinic.page_contact</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Contact" t-name="wt_theme_clinic.page_contact">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">Get In Touch</span>
+                            <h1 style="font-weight:800;color:#1E293B;">We're Easy To Find &amp; Easier To Talk To</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_clinic.s_clinic_contact"/>
+                    <t t-call="wt_theme_clinic.s_clinic_faq"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- Top menu entries -->
+<record id="menu_about" model="website.menu">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_about"/>
+    <field name="sequence" type="int">10</field>
+</record>
+<record id="menu_services" model="website.menu">
+    <field name="name">Services</field>
+    <field name="url">/services</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_services"/>
+    <field name="sequence" type="int">20</field>
+</record>
+<record id="menu_doctors" model="website.menu">
+    <field name="name">Doctors</field>
+    <field name="url">/doctors</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_doctors"/>
+    <field name="sequence" type="int">30</field>
+</record>
+<record id="menu_contact" model="website.menu">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_contact"/>
+    <field name="sequence" type="int">40</field>
+</record>
+
+</odoo>

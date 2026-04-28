@@ -1,0 +1,213 @@
+// =====================================================================
+//  WT Theme Construction — frontend custom styles
+// =====================================================================
+
+// ── Theme tokens (mirrors primary_variables for use inside selectors) ─
+$wtc-primary:   #FF6B35;
+$wtc-secondary: #2B3A55;
+$wtc-accent:    #FFB627;
+$wtc-dark:      #1F2937;
+$wtc-light:     #F8F9FA;
+$wtc-muted:     #6B7280;
+
+// ── Industrial typography vibe ────────────────────────────────────────
+.wtc-eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-weight: 700;
+    font-size: .85rem;
+    color: $wtc-primary;
+    padding: .35rem .85rem;
+    background: rgba($wtc-primary, .1);
+    border-left: 3px solid $wtc-primary;
+}
+.wtc-display {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    line-height: .95;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+}
+
+// ── Hero ─────────────────────────────────────────────────────────────
+.wtc-hero {
+    position: relative;
+    padding: 8rem 0 6rem;
+    background:
+        linear-gradient(135deg, rgba($wtc-secondary,.92) 0%, rgba($wtc-dark,.85) 100%),
+        url('/wt_theme_construction/static/src/img/hero_bg.jpg') center/cover;
+    color: #fff;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute; left: 0; bottom: 0;
+        width: 100%; height: 8px;
+        background: repeating-linear-gradient(
+            45deg,
+            $wtc-accent 0 28px,
+            $wtc-dark 28px 56px
+        );
+    }
+    h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.25rem; }
+    .lead { font-size: 1.25rem; opacity: .9; max-width: 640px; }
+}
+
+// ── Service / Feature cards ──────────────────────────────────────────
+.wtc-card {
+    background: #fff;
+    border: 1px solid rgba($wtc-secondary, .08);
+    border-radius: 4px;
+    padding: 2rem;
+    height: 100%;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    position: relative;
+
+    .wtc-icon {
+        display: inline-flex;
+        align-items: center; justify-content: center;
+        width: 64px; height: 64px;
+        background: rgba($wtc-primary, .08);
+        color: $wtc-primary;
+        border-radius: 4px;
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+        transition: all .25s ease;
+    }
+    h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: .75rem; color: $wtc-dark; }
+    p  { color: $wtc-muted; line-height: 1.6; margin-bottom: 0; }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 40px rgba($wtc-secondary, .12);
+        border-color: $wtc-primary;
+        .wtc-icon { background: $wtc-primary; color: #fff; }
+    }
+}
+
+// ── Project tile ──────────────────────────────────────────────────────
+.wtc-project {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 4 / 3;
+    background: $wtc-secondary;
+
+    img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        transition: transform .5s ease;
+    }
+    .wtc-project__overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(180deg, transparent 40%, rgba($wtc-dark, .92) 100%);
+        display: flex; flex-direction: column; justify-content: flex-end;
+        padding: 1.5rem;
+        color: #fff;
+    }
+    .wtc-project__cat {
+        display: inline-block;
+        font-size: .75rem; text-transform: uppercase; letter-spacing: .15em;
+        color: $wtc-accent; margin-bottom: .35rem;
+    }
+    .wtc-project__title {
+        font-size: 1.25rem; font-weight: 700; margin: 0;
+    }
+    &:hover img { transform: scale(1.06); }
+}
+
+// ── Stats strip ───────────────────────────────────────────────────────
+.wtc-stat {
+    text-align: center;
+    padding: 2rem 1rem;
+    .num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 4rem; line-height: 1;
+        color: $wtc-primary;
+    }
+    .label {
+        text-transform: uppercase; letter-spacing: .15em;
+        font-size: .85rem; font-weight: 600;
+        color: $wtc-muted;
+        margin-top: .5rem;
+    }
+}
+
+// ── Testimonial ───────────────────────────────────────────────────────
+.wtc-quote {
+    background: $wtc-light;
+    border-left: 4px solid $wtc-primary;
+    padding: 2rem;
+    height: 100%;
+    border-radius: 0 4px 4px 0;
+    blockquote { font-size: 1.05rem; font-style: italic; color: $wtc-dark; margin-bottom: 1rem; }
+    cite      { font-style: normal; font-weight: 700; color: $wtc-secondary; display: block; }
+    .role     { color: $wtc-muted; font-size: .85rem; }
+}
+
+// ── Team card ─────────────────────────────────────────────────────────
+.wtc-member {
+    text-align: center;
+    img {
+        width: 100%; aspect-ratio: 1; object-fit: cover;
+        border-radius: 4px; margin-bottom: 1rem;
+        filter: grayscale(.25);
+        transition: filter .3s ease;
+    }
+    h4   { font-weight: 700; margin-bottom: .25rem; color: $wtc-dark; }
+    span { color: $wtc-primary; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; font-weight: 600; }
+    &:hover img { filter: grayscale(0); }
+}
+
+// ── CTA banner ────────────────────────────────────────────────────────
+.wtc-cta-band {
+    background: $wtc-secondary;
+    color: #fff;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute; right: -100px; top: -100px;
+        width: 400px; height: 400px;
+        background: radial-gradient(circle, rgba($wtc-primary,.15) 0%, transparent 70%);
+    }
+    h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1rem; }
+    .btn-cta {
+        background: $wtc-primary;
+        color: #fff !important;
+        text-transform: uppercase;
+        letter-spacing: .12em;
+        font-weight: 700;
+        padding: 1rem 2rem;
+        border-radius: 0;
+        border: none;
+        transition: background .2s ease;
+        &:hover { background: lighten($wtc-primary, 5%); }
+    }
+}
+
+// ── Contact strip ─────────────────────────────────────────────────────
+.wtc-contact-info {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.25rem 0;
+
+    .wtc-icon {
+        flex-shrink: 0;
+        width: 48px; height: 48px;
+        background: rgba($wtc-primary, .12);
+        color: $wtc-primary;
+        border-radius: 4px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.25rem;
+    }
+    h5    { font-weight: 700; margin-bottom: .25rem; color: $wtc-dark; }
+    p     { margin: 0; color: $wtc-muted; }
+}
+
+// ── Responsive tweaks ─────────────────────────────────────────────────
+@media (max-width: 768px) {
+    .wtc-hero        { padding: 5rem 0 4rem; }
+    .wtc-stat .num   { font-size: 3rem; }
+}

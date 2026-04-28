@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_consulting_faq" name="WT Theme Consulting FAQ">
+    <section class="py-5" style="background:#F9FAFB;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_consulting_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_consulting_faq_0">How are engagements scoped?</button>
+                </h3>
+                <div id="wtt_consulting_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_consulting_faq">
+                    <div class="accordion-body">Free 60-min initial scoping. Written proposal in 5 working days. Fixed-fee or T&amp;M depending on engagement type.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_consulting_faq_1">Do you take retainers?</button>
+                </h3>
+                <div id="wtt_consulting_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_consulting_faq">
+                    <div class="accordion-body">Yes — quarterly retainers for ongoing strategy support. Subject to senior-partner availability.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_consulting_faq_2">Industries you serve?</button>
+                </h3>
+                <div id="wtt_consulting_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_consulting_faq">
+                    <div class="accordion-body">SaaS, financial services, manufacturing, healthcare, logistics. We avoid sectors we don't know.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_consulting_faq_3">Is the senior partner billable hours?</button>
+                </h3>
+                <div id="wtt_consulting_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_consulting_faq">
+                    <div class="accordion-body">Yes. The same partner who pitched runs the project. We don't flip work to juniors after sale.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

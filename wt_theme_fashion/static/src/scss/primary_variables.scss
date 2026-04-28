@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Fashion — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-fashion': (
+            'o-color-1': #000000,   // primary
+            'o-color-2': #C8A45C,   // secondary
+            'o-color-3': #FFFFFF,   // accent
+            'o-color-4': #0A0A0A,   // dark
+            'o-color-5': #F5F2EE,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-fashion': (
+            'font':          'Inter',
+            'headings-font': 'Bodoni Moda',
+            'navbar-font':   'Inter',
+            'buttons-font':  'Inter',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         0,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-fashion' !default;
+$o-selected-website-values-palette-name: 'wt-fashion' !default;

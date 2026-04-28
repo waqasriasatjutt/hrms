@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="page_about" model="website.page">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_travel.page_about</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="About" t-name="wt_theme_travel.page_about">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">About</span>
+                            <h1 class="wtt-h1">Curated Trips. Designed By Travellers.</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_travel.s_travel_features"/>
+                    <t t-call="wt_theme_travel.s_travel_team"/>
+                    <t t-call="wt_theme_travel.s_travel_testimonials"/>
+                    <t t-call="wt_theme_travel.s_travel_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_services" model="website.page">
+    <field name="name">Services</field>
+    <field name="url">/services</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_travel.page_services</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Services" t-name="wt_theme_travel.page_services">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">Trip Styles</span>
+                            <h1 class="wtt-h1">Trip Styles</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_travel.s_travel_services"/>
+                    <t t-call="wt_theme_travel.s_travel_features"/>
+                    <t t-call="wt_theme_travel.s_travel_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_showcase" model="website.page">
+    <field name="name">Featured Trips</field>
+    <field name="url">/trips</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_travel.page_showcase</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Featured Trips" t-name="wt_theme_travel.page_showcase">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">Featured Trips</span>
+                            <h1 class="wtt-h1">Featured Trips</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_travel.s_travel_showcase"/>
+                    <t t-call="wt_theme_travel.s_travel_testimonials"/>
+                    <t t-call="wt_theme_travel.s_travel_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_contact" model="website.page">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_travel.page_contact</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Contact" t-name="wt_theme_travel.page_contact">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">Plan Your Trip</span>
+                            <h1 class="wtt-h1">Plan Your Trip</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_travel.s_travel_contact"/>
+                    <t t-call="wt_theme_travel.s_travel_faq"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="menu_about" model="website.menu">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_about"/>
+    <field name="sequence" type="int">10</field>
+</record>
+<record id="menu_services" model="website.menu">
+    <field name="name">Trip Styles</field>
+    <field name="url">/services</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_services"/>
+    <field name="sequence" type="int">20</field>
+</record>
+<record id="menu_showcase" model="website.menu">
+    <field name="name">Featured Trips</field>
+    <field name="url">/trips</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_showcase"/>
+    <field name="sequence" type="int">30</field>
+</record>
+<record id="menu_contact" model="website.menu">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_contact"/>
+    <field name="sequence" type="int">40</field>
+</record>
+
+</odoo>

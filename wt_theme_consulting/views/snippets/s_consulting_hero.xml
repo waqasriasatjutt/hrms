@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_consulting_hero" name="WT Theme Consulting Hero">
+    <section class="wtt-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="wtt-eyebrow mb-3">Strategy &amp; Execution</span>
+                    <h1 class="wtt-h1">We Don't Write <span style="color:#000000;">Decks.</span></h1>
+                    <p class="wtt-lead">A senior-only firm. We build things that ship: strategies that get implemented, products that launch, teams that perform. No interns, no decks for the deck's sake.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-lg wtt-btn-primary">Start A Conversation</a>
+                        <a href="#services" class="btn btn-lg wtt-btn-outline">Case Studies</a>
+                    </div>
+                    <div class="wtt-hero__stats"><div class="stat"><div class="num">120+</div><div class="label">Engagements</div></div><div class="stat"><div class="num">17</div><div class="label">Senior Consultants</div></div><div class="stat"><div class="num">11</div><div class="label">Years Practising</div></div></div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="wtt-hero__visual">
+                        <i class="bg-glyph fa fa-circle-o-notch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_lawfirm_testimonials" name="WT Theme Law Firm Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They turned a hopeless tax appeal into a reversed assessment. Our CFO calls them every quarter for opinions now."</blockquote>
+                        <cite>Corporate CFO</cite>
+                        <span class="role">listed manufacturer</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Genuinely senior counsel actually showing up to court. After three other firms — refreshing."</blockquote>
+                        <cite>Promoter</cite>
+                        <span class="role">family group</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Discreet, fast, and remarkably economical for the calibre of work. We retain them on a permanent basis."</blockquote>
+                        <cite>GC</cite>
+                        <span class="role">fintech</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

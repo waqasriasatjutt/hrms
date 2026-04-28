@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="page_about" model="website.page">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_restaurant.page_about</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="About" t-name="wt_theme_restaurant.page_about">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">About</span>
+                            <h1 class="wtt-h1">Three Generations. One Wood-Fired Oven.</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_restaurant.s_restaurant_features"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_team"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_testimonials"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_services" model="website.page">
+    <field name="name">Services</field>
+    <field name="url">/services</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_restaurant.page_services</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Services" t-name="wt_theme_restaurant.page_services">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">On The Menu</span>
+                            <h1 class="wtt-h1">On The Menu</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_restaurant.s_restaurant_services"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_features"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_showcase" model="website.page">
+    <field name="name">From The Kitchen</field>
+    <field name="url">/menu</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_restaurant.page_showcase</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="From The Kitchen" t-name="wt_theme_restaurant.page_showcase">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">From The Kitchen</span>
+                            <h1 class="wtt-h1">From The Kitchen</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_restaurant.s_restaurant_showcase"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_testimonials"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_contact" model="website.page">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_restaurant.page_contact</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Contact" t-name="wt_theme_restaurant.page_contact">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">Find Us. Book Us.</span>
+                            <h1 class="wtt-h1">Find Us. Book Us.</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_restaurant.s_restaurant_contact"/>
+                    <t t-call="wt_theme_restaurant.s_restaurant_faq"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="menu_about" model="website.menu">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_about"/>
+    <field name="sequence" type="int">10</field>
+</record>
+<record id="menu_services" model="website.menu">
+    <field name="name">On The Menu</field>
+    <field name="url">/services</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_services"/>
+    <field name="sequence" type="int">20</field>
+</record>
+<record id="menu_showcase" model="website.menu">
+    <field name="name">From The Kitchen</field>
+    <field name="url">/menu</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_showcase"/>
+    <field name="sequence" type="int">30</field>
+</record>
+<record id="menu_contact" model="website.menu">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_contact"/>
+    <field name="sequence" type="int">40</field>
+</record>
+
+</odoo>

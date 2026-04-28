@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Education — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-education': (
+            'o-color-1': #1E40AF,   // primary
+            'o-color-2': #F59E0B,   // secondary
+            'o-color-3': #06B6D4,   // accent
+            'o-color-4': #1E293B,   // dark
+            'o-color-5': #F0F9FF,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-education': (
+            'font':          'Nunito',
+            'headings-font': 'Merriweather',
+            'navbar-font':   'Nunito',
+            'buttons-font':  'Nunito',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         50rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-education' !default;
+$o-selected-website-values-palette-name: 'wt-education' !default;

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_construction_projects" name="Construction Projects">
+    <section class="py-5" style="background:#1F2937;color:#fff;">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end mb-5">
+                <div>
+                    <span class="wtc-eyebrow" style="color:#FFB627;background:rgba(255,182,39,.12);border-left-color:#FFB627;">Featured Work</span>
+                    <h2 class="wtc-display mt-3 text-white">Projects We're Proud Of</h2>
+                </div>
+                <a href="#" class="btn btn-outline-light"
+                   style="border-radius:0;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.75rem 1.5rem;">
+                    Browse All
+                </a>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="d-block wtc-project text-decoration-none">
+                        <img src="/web/image/website.library_image_03"
+                             onerror="this.style.background='linear-gradient(135deg,#2B3A55 0%,#1F2937 100%)';this.style.height='100%'"
+                             alt="Skyline Tower"/>
+                        <div class="wtc-project__overlay">
+                            <span class="wtc-project__cat">Commercial</span>
+                            <h3 class="wtc-project__title">Skyline Tower District</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="d-block wtc-project text-decoration-none">
+                        <img src="/web/image/website.library_image_05"
+                             onerror="this.style.background='linear-gradient(135deg,#FF6B35 0%,#2B3A55 100%)';this.style.height='100%'"
+                             alt="Coastal Residences"/>
+                        <div class="wtc-project__overlay">
+                            <span class="wtc-project__cat">Residential</span>
+                            <h3 class="wtc-project__title">Coastal Residences</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="d-block wtc-project text-decoration-none">
+                        <img src="/web/image/website.library_image_07"
+                             onerror="this.style.background='linear-gradient(135deg,#FFB627 0%,#FF6B35 100%)';this.style.height='100%'"
+                             alt="Industrial Park"/>
+                        <div class="wtc-project__overlay">
+                            <span class="wtc-project__cat">Industrial</span>
+                            <h3 class="wtc-project__title">Northgate Industrial Park</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="d-block wtc-project text-decoration-none">
+                        <img src="/web/image/website.library_image_09"
+                             onerror="this.style.background='linear-gradient(135deg,#1F2937 0%,#FF6B35 100%)';this.style.height='100%'"
+                             alt="Heritage Restoration"/>
+                        <div class="wtc-project__overlay">
+                            <span class="wtc-project__cat">Renovation</span>
+                            <h3 class="wtc-project__title">Heritage Theatre Restore</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="d-block wtc-project text-decoration-none">
+                        <img src="/web/image/website.library_image_11"
+                             onerror="this.style.background='linear-gradient(135deg,#2B3A55 0%,#FFB627 100%)';this.style.height='100%'"
+                             alt="Hotel Fit-Out"/>
+                        <div class="wtc-project__overlay">
+                            <span class="wtc-project__cat">Interior</span>
+                            <h3 class="wtc-project__title">Grand Hotel Fit-Out</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#" class="d-block wtc-project text-decoration-none">
+                        <img src="/web/image/website.library_image_13"
+                             onerror="this.style.background='linear-gradient(135deg,#FF6B35 0%,#FFB627 100%)';this.style.height='100%'"
+                             alt="Civic Centre"/>
+                        <div class="wtc-project__overlay">
+                            <span class="wtc-project__cat">Civic</span>
+                            <h3 class="wtc-project__title">Riverside Civic Centre</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

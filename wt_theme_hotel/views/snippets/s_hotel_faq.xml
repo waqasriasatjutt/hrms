@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_hotel_faq" name="WT Theme Hotel FAQ">
+    <section class="py-5" style="background:#F8F5EE;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_hotel_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_hotel_faq_0">Cancellation policy?</button>
+                </h3>
+                <div id="wtt_hotel_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_hotel_faq">
+                    <div class="accordion-body">Free cancellation up to 14 days. Within 14 days, first night is non-refundable.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_hotel_faq_1">Children?</button>
+                </h3>
+                <div id="wtt_hotel_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_hotel_faq">
+                    <div class="accordion-body">Kids 12+ welcome. Cottage and Garden Studio family-suitable. Main hotel adults-only.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_hotel_faq_2">Pets?</button>
+                </h3>
+                <div id="wtt_hotel_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_hotel_faq">
+                    <div class="accordion-body">Two well-behaved dogs welcome in the cottage only. $40/stay cleaning fee.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_hotel_faq_3">Whole-property buyout?</button>
+                </h3>
+                <div id="wtt_hotel_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_hotel_faq">
+                    <div class="accordion-body">Yes — minimum 3 nights. Includes restaurant, treatment room and garden. Book 6+ months ahead.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

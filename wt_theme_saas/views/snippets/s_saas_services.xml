@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_saas_services" name="WT Theme SaaS Startup Services">
+    <section id="services" class="py-5" style="background:#F8FAFC;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Product Features</span>
+                <h2 class="wtt-h2 mt-3">Product Features</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six things that replace your stack.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-bolt"/></div>
+                        <h3>Real-Time Sync</h3>
+                        <p>Sub-100ms updates across every device, every team. Conflict-free CRDTs under the hood.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-magic"/></div>
+                        <h3>AI Assist</h3>
+                        <p>GPT-class autocomplete, summarisation, and review — without sending data to third parties.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-puzzle-piece"/></div>
+                        <h3>100+ Integrations</h3>
+                        <p>Slack, GitHub, Linear, Notion, Salesforce — bidirectional, with webhook escape hatches.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-line-chart"/></div>
+                        <h3>Built-In Analytics</h3>
+                        <p>Dashboards out of the box. Custom queries via SQL. Export to your warehouse.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-shield"/></div>
+                        <h3>Enterprise Security</h3>
+                        <p>SSO, SCIM, audit logs, role-based access, SOC2-Type-II, GDPR-compliant.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-code"/></div>
+                        <h3>Developer API</h3>
+                        <p>REST, GraphQL, and SDKs in 6 languages. Webhooks for everything.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

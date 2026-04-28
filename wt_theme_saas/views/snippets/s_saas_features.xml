@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_saas_features" name="WT Theme SaaS Startup Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why Teams Switch</span>
+                <h2 class="wtt-h2 mt-3">Why Teams Switch</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Replace 5 tools. Save 80% of the bill.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-rocket"/></div>
+                        <h4>5-Minute Setup</h4>
+                        <p>Sign up, import from your existing tool, invite your team. We'll be useful by lunch.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-money"/></div>
+                        <h4>5x Cheaper</h4>
+                        <p>One platform replaces Slack + Notion + Linear + Loom + Figma-comments. The math works.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-users"/></div>
+                        <h4>Used By Top Teams</h4>
+                        <p>Stripe, Notion, Vercel-style companies use us. 12K+ teams in production.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-life-ring"/></div>
+                        <h4>Real Humans</h4>
+                        <p>Founders read every support ticket. Median first-response 4 minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

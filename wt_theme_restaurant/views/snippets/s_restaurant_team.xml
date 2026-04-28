@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_restaurant_team" name="WT Theme Restaurant Team">
+    <section class="py-5" style="background:#FFF8F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">In The Kitchen</span>
+                <h2 class="wtt-h2 mt-3">In The Kitchen</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">The people who actually cook your food.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Marco Rossi</h4>
+                        <div class="role">Head Chef</div>
+                        <p class="creds">Trained in Bologna · 18 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Elena Conti</h4>
+                        <div class="role">Pastry Chef</div>
+                        <p class="creds">Maître Pâtissier · 14 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Luca Romano</h4>
+                        <div class="role">Sous Chef</div>
+                        <p class="creds">Modena native · 9 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Sofia Greco</h4>
+                        <div class="role">Sommelier</div>
+                        <p class="creds">WSET Diploma · 11 yrs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

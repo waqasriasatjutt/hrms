@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_education_features" name="WT Theme Education Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why Families Choose Us</span>
+                <h2 class="wtt-h2 mt-3">Why Families Choose Us</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Smaller. Sharper. Sustained.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-users"/></div>
+                        <h4>12:1 Class Sizes</h4>
+                        <p>Every student knows every teacher. Every teacher knows every parent.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-graduation-cap"/></div>
+                        <h4>University Outcomes</h4>
+                        <p>92% acceptance to top-50 universities. Average 5 offers per student.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-flask"/></div>
+                        <h4>Modern Labs</h4>
+                        <p>Three science labs, one CS lab, one design-build maker space, all redone in 2023.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-heart"/></div>
+                        <h4>Pastoral Care</h4>
+                        <p>One full-time counsellor per 80 students. Mental health is taken as seriously as maths.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

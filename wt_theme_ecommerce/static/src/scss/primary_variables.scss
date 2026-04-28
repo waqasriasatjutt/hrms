@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme eCommerce — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-ecommerce': (
+            'o-color-1': #000000,   // primary
+            'o-color-2': #F59E0B,   // secondary
+            'o-color-3': #EF4444,   // accent
+            'o-color-4': #0A0A0A,   // dark
+            'o-color-5': #FAFAFA,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-ecommerce': (
+            'font':          'Inter',
+            'headings-font': 'Bricolage Grotesque',
+            'navbar-font':   'Inter',
+            'buttons-font':  'Inter',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         50rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-ecommerce' !default;
+$o-selected-website-values-palette-name: 'wt-ecommerce' !default;

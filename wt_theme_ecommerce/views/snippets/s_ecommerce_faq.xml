@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ecommerce_faq" name="WT Theme eCommerce FAQ">
+    <section class="py-5" style="background:#FAFAFA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_ecommerce_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ecommerce_faq_0">Returns?</button>
+                </h3>
+                <div id="wtt_ecommerce_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_ecommerce_faq">
+                    <div class="accordion-body">30-day no-questions returns. Free return shipping for orders within country. International return at customer cost.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ecommerce_faq_1">Sizing?</button>
+                </h3>
+                <div id="wtt_ecommerce_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_ecommerce_faq">
+                    <div class="accordion-body">Detailed size guide on every product page. Free size exchanges within 30 days.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ecommerce_faq_2">Lifetime repair?</button>
+                </h3>
+                <div id="wtt_ecommerce_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_ecommerce_faq">
+                    <div class="accordion-body">Yes — for all leather goods. Send it back at any age, we'll repair or replace.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ecommerce_faq_3">Sustainability?</button>
+                </h3>
+                <div id="wtt_ecommerce_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_ecommerce_faq">
+                    <div class="accordion-body">Every product page lists material origin, factory location, and care instructions. We avoid suppliers we haven't visited.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

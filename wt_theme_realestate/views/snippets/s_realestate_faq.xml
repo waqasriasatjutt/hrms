@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_realestate_faq" name="WT Theme Real Estate FAQ">
+    <section class="py-5" style="background:#F8FAFC;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_realestate_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_realestate_faq_0">Do you charge buyers a fee?</button>
+                </h3>
+                <div id="wtt_realestate_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_realestate_faq">
+                    <div class="accordion-body">No — buyer-side commission is paid by the seller. You only pay if/when we identify legal or due-diligence work.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_realestate_faq_1">How quickly can you arrange a viewing?</button>
+                </h3>
+                <div id="wtt_realestate_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_realestate_faq">
+                    <div class="accordion-body">Same-day for properties already on our books. 24-48 hours for ones we need to confirm.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_realestate_faq_2">Do you handle the mortgage too?</button>
+                </h3>
+                <div id="wtt_realestate_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_realestate_faq">
+                    <div class="accordion-body">We don't lend, but we have referral relationships with three top brokers — usually 0.2-0.4% better than going direct.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_realestate_faq_3">Off-market listings?</button>
+                </h3>
+                <div id="wtt_realestate_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_realestate_faq">
+                    <div class="accordion-body">Yes — about 30% of our deals are off-market. Tell us your search and we'll dig.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

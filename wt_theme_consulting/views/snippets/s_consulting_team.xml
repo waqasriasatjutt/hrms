@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_consulting_team" name="WT Theme Consulting Team">
+    <section class="py-5" style="background:#F9FAFB;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The Partners</span>
+                <h2 class="wtt-h2 mt-3">The Partners</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Each from a top-tier firm. None still there.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Anya Kowalski</h4>
+                        <div class="role">Managing Partner</div>
+                        <p class="creds">ex-McKinsey · 18 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Daniel Cho</h4>
+                        <div class="role">Senior Partner</div>
+                        <p class="creds">ex-BCG · ex-PE · 15 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Reza Najafi</h4>
+                        <div class="role">Partner — Data</div>
+                        <p class="creds">ex-Palantir · 13 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Mira Patel</h4>
+                        <div class="role">Partner — M&amp;A</div>
+                        <p class="creds">ex-Bain · ex-banking · 12 yrs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

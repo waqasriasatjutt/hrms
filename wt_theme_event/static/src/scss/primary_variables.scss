@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Events — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-event': (
+            'o-color-1': #7C3AED,   // primary
+            'o-color-2': #F59E0B,   // secondary
+            'o-color-3': #EC4899,   // accent
+            'o-color-4': #0F172A,   // dark
+            'o-color-5': #FAFAFA,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-event': (
+            'font':          'Inter',
+            'headings-font': 'Sora',
+            'navbar-font':   'Inter',
+            'buttons-font':  'Inter',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         50rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-event' !default;
+$o-selected-website-values-palette-name: 'wt-event' !default;

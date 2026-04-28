@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_photography_team" name="WT Theme Photography Team">
+    <section class="py-5" style="background:#F5F5F5;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Studio</span>
+                <h2 class="wtt-h2 mt-3">Studio</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">A two-person studio. Hand-printed everything.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Lou Andersen</h4>
+                        <div class="role">Lead Photographer</div>
+                        <p class="creds">14 yrs · Nikon ambassador</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Marc Rivera</h4>
+                        <div class="role">Producer &amp; Second Shooter</div>
+                        <p class="creds">9 yrs · Editorial</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

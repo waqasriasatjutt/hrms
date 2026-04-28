@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_consulting_features" name="WT Theme Consulting Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why Boards Hire Us</span>
+                <h2 class="wtt-h2 mt-3">Why Boards Hire Us</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">No juniors. No theatre. No surprises.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-user-tie"/></div>
+                        <h4>Senior-Only Teams</h4>
+                        <p>Every consultant has 10+ years and partner-grade pedigree. We don't train on your dime.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-calendar"/></div>
+                        <h4>Fixed Timelines</h4>
+                        <p>5-week diagnostic, 12-week strategy, 24-week execution. Posted on the wall, kept on the calendar.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-chart-bar"/></div>
+                        <h4>Outcomes, Tracked</h4>
+                        <p>Every engagement closes with measurable outcome. We publish our hit rate annually.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-handshake-o"/></div>
+                        <h4>Senior Continuity</h4>
+                        <p>Same partner from kickoff to closeout. No bait-and-switch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

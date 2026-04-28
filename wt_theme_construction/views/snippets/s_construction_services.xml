@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_construction_services" name="Construction Services">
+    <section class="py-5" style="background:#F8F9FA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtc-eyebrow">What We Do</span>
+                <h2 class="wtc-display mt-3">Services That Build Cities</h2>
+                <p class="text-muted lead mx-auto" style="max-width:680px;">Six core capabilities. Decades of muscle memory. Zero subcontracting nightmares.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-card">
+                        <div class="wtc-icon"><i class="fa fa-building"/></div>
+                        <h3>Commercial Construction</h3>
+                        <p>Office towers, retail complexes, mixed-use developments — built to schedule, on budget, with full BIM coordination.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-card">
+                        <div class="wtc-icon"><i class="fa fa-home"/></div>
+                        <h3>Residential Projects</h3>
+                        <p>From custom luxury homes to multi-unit developments. Every brick laid by craftsmen who care about the finish.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-card">
+                        <div class="wtc-icon"><i class="fa fa-industry"/></div>
+                        <h3>Industrial &amp; Plant</h3>
+                        <p>Warehouses, factories, processing plants, logistics hubs — heavy structures designed for hard work.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-card">
+                        <div class="wtc-icon"><i class="fa fa-cogs"/></div>
+                        <h3>Renovation &amp; Refit</h3>
+                        <p>Modernise without demolishing. Structural upgrades, MEP overhauls, façade refreshes — minimal downtime.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-card">
+                        <div class="wtc-icon"><i class="fa fa-paint-brush"/></div>
+                        <h3>Interior Fit-Out</h3>
+                        <p>Turnkey interiors for offices, hotels, restaurants. Joinery, millwork, MEP, and final styling — single point of contact.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-card">
+                        <div class="wtc-icon"><i class="fa fa-drafting-compass"/></div>
+                        <h3>Design &amp; Engineering</h3>
+                        <p>In-house architects and structural engineers. Concept to permit drawings to as-built — no handoff gaps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ===========================================================
+     About Us page
+     =========================================================== -->
+<record id="page_about" model="website.page">
+    <field name="name">About Us</field>
+    <field name="url">/about-us</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_construction.page_about</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="About Us" t-name="wt_theme_construction.page_about">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:6rem 0 4rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">About the Firm</span>
+                            <h1 class="wtc-display text-white">Building With Precision Since 2005</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_construction.s_construction_features"/>
+                    <t t-call="wt_theme_construction.s_construction_team"/>
+                    <t t-call="wt_theme_construction.s_construction_stats"/>
+                    <t t-call="wt_theme_construction.s_construction_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- ===========================================================
+     Services page
+     =========================================================== -->
+<record id="page_services" model="website.page">
+    <field name="name">Services</field>
+    <field name="url">/services</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_construction.page_services</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Services" t-name="wt_theme_construction.page_services">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:6rem 0 4rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">What We Build</span>
+                            <h1 class="wtc-display text-white">Six Services. One Accountable Team.</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_construction.s_construction_services"/>
+                    <t t-call="wt_theme_construction.s_construction_projects"/>
+                    <t t-call="wt_theme_construction.s_construction_testimonials"/>
+                    <t t-call="wt_theme_construction.s_construction_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- ===========================================================
+     Projects page
+     =========================================================== -->
+<record id="page_projects" model="website.page">
+    <field name="name">Projects</field>
+    <field name="url">/projects</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_construction.page_projects</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Projects" t-name="wt_theme_construction.page_projects">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:6rem 0 4rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">Our Portfolio</span>
+                            <h1 class="wtc-display text-white">240+ Projects Delivered</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_construction.s_construction_projects"/>
+                    <t t-call="wt_theme_construction.s_construction_stats"/>
+                    <t t-call="wt_theme_construction.s_construction_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- ===========================================================
+     Contact page
+     =========================================================== -->
+<record id="page_contact" model="website.page">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_construction.page_contact</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Contact" t-name="wt_theme_construction.page_contact">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtc-hero" style="padding:6rem 0 4rem;">
+                        <div class="container">
+                            <span class="wtc-eyebrow mb-3">Talk to Us</span>
+                            <h1 class="wtc-display text-white">Free Site Visit. Same-Week Quote.</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_construction.s_construction_contact"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<!-- ===========================================================
+     Top menu
+     =========================================================== -->
+<record id="menu_about" model="website.menu">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_about"/>
+    <field name="sequence" type="int">10</field>
+</record>
+<record id="menu_services" model="website.menu">
+    <field name="name">Services</field>
+    <field name="url">/services</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_services"/>
+    <field name="sequence" type="int">20</field>
+</record>
+<record id="menu_projects" model="website.menu">
+    <field name="name">Projects</field>
+    <field name="url">/projects</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_projects"/>
+    <field name="sequence" type="int">30</field>
+</record>
+<record id="menu_contact" model="website.menu">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_contact"/>
+    <field name="sequence" type="int">40</field>
+</record>
+
+</odoo>

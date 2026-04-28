@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_salon_testimonials" name="WT Theme Salon &amp; Spa Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"First salon where I didn't over-explain my hair. Eva just got it. I drive 40 km for cuts now."</blockquote>
+                        <cite>Regular</cite>
+                        <span class="role">3 yrs</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"My bridal trial was so good I cancelled the second one. Mia is a magician."</blockquote>
+                        <cite>Bride</cite>
+                        <span class="role">summer 2023</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"The vibe is genuinely calm. Soft music, espresso, real towels. Nobody yelling about appointments."</blockquote>
+                        <cite>First-timer</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

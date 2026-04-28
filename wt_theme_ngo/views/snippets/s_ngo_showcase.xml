@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ngo_showcase" name="WT Theme NGO &amp; Nonprofit Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Recent Impact</span>
+                <h2 class="wtt-h2 mt-3">Recent Impact</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">2024 in numbers and stories.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Education</span>
+                            <h4>12 New Schools</h4>
+                            <p>Built or renovated in rural Kenya &amp; Bangladesh.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Health</span>
+                            <h4>2.4K Babies Delivered</h4>
+                            <p>Through our maternal-care mobile clinics.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Water</span>
+                            <h4>38 Wells</h4>
+                            <p>Drilled in drought-prone communities in West Africa.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Food</span>
+                            <h4>840K Meals</h4>
+                            <p>Served via school nutrition in three countries.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Women</span>
+                            <h4>1.2K Microloans</h4>
+                            <p>Disbursed with a 96% repayment rate.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Climate</span>
+                            <h4>120K Trees</h4>
+                            <p>Planted with community ownership programmes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

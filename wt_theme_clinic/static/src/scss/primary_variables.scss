@@ -1,0 +1,44 @@
+// =====================================================================
+//  WT Theme Clinic — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-clinic': (
+            'o-color-1': #00A8A8,   // primary  — medical teal
+            'o-color-2': #0066CC,   // secondary — trust blue
+            'o-color-3': #4ADE80,   // accent   — health mint
+            'o-color-4': #1E293B,   // dark
+            'o-color-5': #F0F9FF,   // light bg
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-clinic': (
+            'font':          'Inter',
+            'headings-font': 'Plus Jakarta Sans',
+            'navbar-font':   'Inter',
+            'buttons-font':  'Inter',
+            'font-size-base':            1rem,
+            'header-font-size':          1rem,
+            'header-links-style':        'plain',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'footer-scrolltop':          true,
+            'h1-font-size':              3.5rem,
+            'h2-font-size':              2.25rem,
+            'h3-font-size':              1.5rem,
+            'btn-ripple':                true,
+            'btn-border-radius':         50rem,
+            'menu-shadow':               true,
+            'hamburger-type':            'simple',
+            'body-image-bg-style':       'plain',
+            'overlay-background-color': '#0066CC',
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-clinic' !default;
+$o-selected-website-values-palette-name: 'wt-clinic' !default;

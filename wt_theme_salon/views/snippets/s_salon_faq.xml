@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_salon_faq" name="WT Theme Salon &amp; Spa FAQ">
+    <section class="py-5" style="background:#FBF9F4;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_salon_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_salon_faq_0">Walk-ins?</button>
+                </h3>
+                <div id="wtt_salon_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_salon_faq">
+                    <div class="accordion-body">We hold a few slots daily but recommend booking. Mondays + Thursdays are usually open same-day.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_salon_faq_1">Cancellation policy?</button>
+                </h3>
+                <div id="wtt_salon_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_salon_faq">
+                    <div class="accordion-body">24-hour notice, no charge. Less than 24 hrs we charge 50%. We hate it as much as you do.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_salon_faq_2">Bridal — how far ahead?</button>
+                </h3>
+                <div id="wtt_salon_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_salon_faq">
+                    <div class="accordion-body">Trial 3 months ahead, day-of locked once trial is approved. Group bookings available.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_salon_faq_3">Are products vegan / cruelty-free?</button>
+                </h3>
+                <div id="wtt_salon_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_salon_faq">
+                    <div class="accordion-body">Yes — every product line we stock is cruelty-free. Most vegan, all sulphate- and ammonia-free.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

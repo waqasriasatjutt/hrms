@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_event_faq" name="WT Theme Events FAQ">
+    <section class="py-5" style="background:#FAFAFA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_event_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_event_faq_0">Refund policy?</button>
+                </h3>
+                <div id="wtt_event_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_event_faq">
+                    <div class="accordion-body">Full refund up to 30 days before. 50% refund up to 14 days. Tickets transferable any time.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_event_faq_1">Can I get a sponsor pass?</button>
+                </h3>
+                <div id="wtt_event_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_event_faq">
+                    <div class="accordion-body">Yes — but sponsor demos are limited to the showcase floor. Speaking slots aren't for sale.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_event_faq_2">Workshops included in the main ticket?</button>
+                </h3>
+                <div id="wtt_event_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_event_faq">
+                    <div class="accordion-body">No — workshops are paid add-ons. Limited to 24 people each.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_event_faq_3">Hybrid online ticket?</button>
+                </h3>
+                <div id="wtt_event_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_event_faq">
+                    <div class="accordion-body">Yes — full talks streamed live + on-demand 30 days. Doesn't include workshops or hallway-track.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

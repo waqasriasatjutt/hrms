@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_consulting_testimonials" name="WT Theme Consulting Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They sold our group at 2x the indicative range and closed in five months. Both numbers were a surprise. Both in our favour."</blockquote>
+                        <cite>CEO</cite>
+                        <span class="role">family group</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"After three other firms left us with decks, this team gave us an org chart, a calendar and a P&amp;L. We were live in 12 weeks."</blockquote>
+                        <cite>COO</cite>
+                        <span class="role">mid-cap manufacturer</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They're expensive. They're also worth it. Best engagement I've run in twenty years."</blockquote>
+                        <cite>Chairperson</cite>
+                        <span class="role">listed bank</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

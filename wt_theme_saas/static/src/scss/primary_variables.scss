@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme SaaS Startup — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-saas': (
+            'o-color-1': #7C3AED,   // primary
+            'o-color-2': #0EA5E9,   // secondary
+            'o-color-3': #EC4899,   // accent
+            'o-color-4': #0F172A,   // dark
+            'o-color-5': #F8FAFC,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-saas': (
+            'font':          'Inter',
+            'headings-font': 'Space Grotesk',
+            'navbar-font':   'Inter',
+            'buttons-font':  'Inter',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         .5rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-saas' !default;
+$o-selected-website-values-palette-name: 'wt-saas' !default;

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_education_testimonials" name="WT Theme Education Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Our daughter went from shy to leading the debate team in 18 months. The teachers actually know her."</blockquote>
+                        <cite>Parent</cite>
+                        <span class="role">current Year 11</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They didn't just get me into Oxford. They made me ready for it."</blockquote>
+                        <cite>Alumna</cite>
+                        <span class="role">class of 2023</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"The science labs are better than my undergraduate ones."</blockquote>
+                        <cite>Visiting university faculty</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

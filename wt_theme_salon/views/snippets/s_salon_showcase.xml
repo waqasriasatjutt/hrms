@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_salon_showcase" name="WT Theme Salon &amp; Spa Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Style Gallery</span>
+                <h2 class="wtt-h2 mt-3">Style Gallery</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Recent looks from our chairs.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Hair</span>
+                            <h4>Bronde Balayage</h4>
+                            <p>Painted dimensional colour with toner gloss.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Aesthetic</span>
+                            <h4>Glow Facial</h4>
+                            <p>Enzyme exfoliation + LED + bespoke serum.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Hair</span>
+                            <h4>Pixie Restyle</h4>
+                            <p>Texturised pixie cut, lived-in finish.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Brows</span>
+                            <h4>Brow Lamination</h4>
+                            <p>Fluffy brushed-up brow set + tint.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Nails</span>
+                            <h4>Almond French</h4>
+                            <p>Gel almond nails with sheer beige base.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Bridal</span>
+                            <h4>Bridal Hair Up-Do</h4>
+                            <p>Soft braided up-do with face-frame pieces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_hotel_team" name="WT Theme Hotel Team">
+    <section class="py-5" style="background:#F8F5EE;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The People</span>
+                <h2 class="wtt-h2 mt-3">The People</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Twelve people for sixteen rooms.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Sara Levy</h4>
+                        <div class="role">Owner &amp; Innkeeper</div>
+                        <p class="creds">15 yrs · started here</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Marco Rossi</h4>
+                        <div class="role">Resident Chef</div>
+                        <p class="creds">11 yrs · two starred kitchens</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Lina Pereira</h4>
+                        <div class="role">Sommelier</div>
+                        <p class="creds">8 yrs · WSET Diploma</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Tom Becker</h4>
+                        <div class="role">Concierge</div>
+                        <p class="creds">7 yrs · local expert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

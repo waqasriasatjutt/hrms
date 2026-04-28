@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_fashion_services" name="WT Theme Fashion Services">
+    <section id="services" class="py-5" style="background:#F5F2EE;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The Collections</span>
+                <h2 class="wtt-h2 mt-3">The Collections</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Two seasons. Two intentions.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-tshirt"/></div>
+                        <h3>Outerwear</h3>
+                        <p>Coats, blazers, jackets — wool melton, cashmere flannel, technical shells.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-female"/></div>
+                        <h3>Eveningwear</h3>
+                        <p>Silk gowns, crepe-jersey jumpsuits, bias-cut slips. For occasions that matter.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-male"/></div>
+                        <h3>Daywear</h3>
+                        <p>Tailoring, knits, denim. The wardrobe you reach for at 8 AM.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-magic"/></div>
+                        <h3>Atelier</h3>
+                        <p>Made-to-measure tailoring + bridal couture. By appointment.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-shopping-bag"/></div>
+                        <h3>Accessories</h3>
+                        <p>Bags, scarves, jewellery. Made by partner ateliers we've known for years.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-leaf"/></div>
+                        <h3>Archive</h3>
+                        <p>Past-season pieces, recoloured + remade. Limited edition, never restocked.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

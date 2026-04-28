@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_education_team" name="WT Theme Education Team">
+    <section class="py-5" style="background:#F0F9FF;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Faculty</span>
+                <h2 class="wtt-h2 mt-3">Faculty</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">PhDs in 70% of senior positions. Teachers first, researchers second.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Dr. Elena Voss</h4>
+                        <div class="role">Head of School</div>
+                        <p class="creds">PhD Education · 22 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Dr. Tariq Mahmood</h4>
+                        <div class="role">Dean of Sciences</div>
+                        <p class="creds">PhD Physics (MIT) · 18 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Sarah Liang</h4>
+                        <div class="role">Head of Humanities</div>
+                        <p class="creds">MA Cambridge · 14 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Dr. James O'Brien</h4>
+                        <div class="role">Athletics Director</div>
+                        <p class="creds">PhD Sports Science · 11 yrs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

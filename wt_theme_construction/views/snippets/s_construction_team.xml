@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_construction_team" name="Construction Team">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtc-eyebrow">The Crew</span>
+                <h2 class="wtc-display mt-3">People Who Build It</h2>
+                <p class="text-muted lead mx-auto" style="max-width:640px;">Architects, engineers, project managers — the small group that makes sure every site runs right.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtc-member">
+                        <img src="/web/image/website.s_team_default_image_1"
+                             onerror="this.style.background='linear-gradient(135deg,#2B3A55,#FF6B35)';this.style.aspectRatio='1';"
+                             alt="Founder"/>
+                        <h4>Marcus Hale</h4>
+                        <span>Founder &amp; Principal</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtc-member">
+                        <img src="/web/image/website.s_team_default_image_2"
+                             onerror="this.style.background='linear-gradient(135deg,#FF6B35,#FFB627)';this.style.aspectRatio='1';"
+                             alt="Operations"/>
+                        <h4>Sara Nadir</h4>
+                        <span>Head of Operations</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtc-member">
+                        <img src="/web/image/website.s_team_default_image_3"
+                             onerror="this.style.background='linear-gradient(135deg,#FFB627,#2B3A55)';this.style.aspectRatio='1';"
+                             alt="Engineering"/>
+                        <h4>Daniel Park</h4>
+                        <span>Chief Engineer</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtc-member">
+                        <img src="/web/image/website.s_team_default_image_4"
+                             onerror="this.style.background='linear-gradient(135deg,#1F2937,#FF6B35)';this.style.aspectRatio='1';"
+                             alt="Architecture"/>
+                        <h4>Aisha Karim</h4>
+                        <span>Lead Architect</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

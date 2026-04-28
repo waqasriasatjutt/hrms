@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_salon_services" name="WT Theme Salon &amp; Spa Services">
+    <section id="services" class="py-5" style="background:#FBF9F4;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Service Menu</span>
+                <h2 class="wtt-h2 mt-3">Service Menu</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Curated treatments. Honest pricing.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-cut"/></div>
+                        <h3>Hair Studio</h3>
+                        <p>Cuts, colour, balayage, keratin, extensions — by senior stylists only.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-magic"/></div>
+                        <h3>Aesthetic</h3>
+                        <p>Facials, peels, microneedling, dermaplaning — medical-grade, calm-room delivered.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-leaf"/></div>
+                        <h3>Spa</h3>
+                        <p>Swedish, deep-tissue, hot-stone, prenatal massage. 50- and 80-minute formats.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-eye"/></div>
+                        <h3>Brow &amp; Lash</h3>
+                        <p>Brow lamination, microblading, lash lifts, extensions — all hypoallergenic.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-paint-brush"/></div>
+                        <h3>Nail Studio</h3>
+                        <p>Manicure, gel, builder, dip, nail art — sterile tools, breathable polish.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-female"/></div>
+                        <h3>Bridal</h3>
+                        <p>Bridal trial + day-of styling for hair, makeup, nails — booked 3+ months ahead.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

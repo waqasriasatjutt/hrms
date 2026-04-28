@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_realestate_testimonials" name="WT Theme Real Estate Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"We saw 23 houses with a previous agent. Helena showed us 4 — we bought the third. She just listened."</blockquote>
+                        <cite>First-time buyer</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Negotiated $87K off list. Closed in 18 days. We refer them to everyone."</blockquote>
+                        <cite>Repeat client</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They sold our investment portfolio at the top of the market. The data they brought was unreal."</blockquote>
+                        <cite>Investor</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_consulting_services" name="WT Theme Consulting Services">
+    <section id="services" class="py-5" style="background:#F9FAFB;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">What We Do</span>
+                <h2 class="wtt-h2 mt-3">What We Do</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six practice areas. Always senior-led.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-line-chart"/></div>
+                        <h3>Growth Strategy</h3>
+                        <p>Pricing, positioning, go-to-market. Diagnostic to roadmap in 4 weeks.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-cogs"/></div>
+                        <h3>Operating Model</h3>
+                        <p>Org design, process redesign, performance management. Measured by P&amp;L, not by deck pages.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-database"/></div>
+                        <h3>Data &amp; AI</h3>
+                        <p>From "we should use AI" to a working pipeline in production. Vendor-agnostic.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-handshake-o"/></div>
+                        <h3>M&amp;A Advisory</h3>
+                        <p>Buy-side and sell-side support. Diligence, integration, post-merger ops.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-bullhorn"/></div>
+                        <h3>Brand &amp; GTM</h3>
+                        <p>Repositioning, messaging, launch. Including campaign execution, not just strategy.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-shield"/></div>
+                        <h3>Transformation</h3>
+                        <p>Multi-year change programmes. We stay in the room during execution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

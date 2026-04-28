@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_education_showcase" name="WT Theme Education Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Recent Graduates</span>
+                <h2 class="wtt-h2 mt-3">Recent Graduates</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Where last year's class ended up.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">STEM</span>
+                            <h4>Caltech, Aerospace</h4>
+                            <p>Full scholarship to Caltech engineering.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Humanities</span>
+                            <h4>Oxford, History</h4>
+                            <p>PPE at Oxford with merit award.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Business</span>
+                            <h4>Wharton, Finance</h4>
+                            <p>Wharton undergrad with $40K scholarship.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Arts</span>
+                            <h4>RISD, Industrial Design</h4>
+                            <p>Rhode Island School of Design.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Stem</span>
+                            <h4>MIT, Mathematics</h4>
+                            <p>MIT mathematics, USA olympiad medallist.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Athletics</span>
+                            <h4>Stanford, Tennis</h4>
+                            <p>D1 tennis scholarship at Stanford.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

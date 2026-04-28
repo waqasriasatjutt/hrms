@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ecommerce_services" name="WT Theme eCommerce Services">
+    <section id="services" class="py-5" style="background:#FAFAFA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Categories</span>
+                <h2 class="wtt-h2 mt-3">Categories</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six things we make well.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-tshirt"/></div>
+                        <h3>Apparel</h3>
+                        <p>Cotton, linen, merino. Made in Portugal, Italy, Japan. Built for years of wear.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-shoe-prints"/></div>
+                        <h3>Footwear</h3>
+                        <p>Goodyear-welted, hand-finished, repairable. The opposite of disposable.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-briefcase"/></div>
+                        <h3>Bags</h3>
+                        <p>Vegetable-tanned leather, lifetime repairs. Designed once, made forever.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-watch"/></div>
+                        <h3>Accessories</h3>
+                        <p>Watches, wallets, belts, eyewear. The small things you'll touch every day.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-home"/></div>
+                        <h3>Home</h3>
+                        <p>Linen sheets, ceramics, glassware. Things that go with you between houses.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-gift"/></div>
+                        <h3>Gifts</h3>
+                        <p>Curated gift edits, hand-written notes, free wrap. We do this part well.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

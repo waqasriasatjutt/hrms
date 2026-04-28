@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_event_team" name="WT Theme Events Team">
+    <section class="py-5" style="background:#FAFAFA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Speakers</span>
+                <h2 class="wtt-h2 mt-3">Speakers</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Founders + senior practitioners. No "thought leaders."</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Mira Tan</h4>
+                        <div class="role">CEO, scaling SaaS</div>
+                        <p class="creds">Ex-Stripe</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Lukas Bauer</h4>
+                        <div class="role">CTO, dev-tools unicorn</div>
+                        <p class="creds">Ex-GitHub</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Priya Shah</h4>
+                        <div class="role">Head of Product, fintech</div>
+                        <p class="creds">Ex-Linear</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Marcus Park</h4>
+                        <div class="role">Head of Eng, agency</div>
+                        <p class="creds">Ex-Vercel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

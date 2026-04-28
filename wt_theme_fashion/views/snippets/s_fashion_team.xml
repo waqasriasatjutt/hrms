@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_fashion_team" name="WT Theme Fashion Team">
+    <section class="py-5" style="background:#F5F2EE;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The Atelier</span>
+                <h2 class="wtt-h2 mt-3">The Atelier</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">A house. A team. A craft.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Sasha Vol</h4>
+                        <div class="role">Creative Director</div>
+                        <p class="creds">14 yrs · ex-Saint Laurent</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Marie Beaulieu</h4>
+                        <div class="role">Head Cutter</div>
+                        <p class="creds">22 yrs · couture-trained</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Eli Rashid</h4>
+                        <div class="role">Tailor</div>
+                        <p class="creds">17 yrs · Savile Row trained</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Nina Costa</h4>
+                        <div class="role">Atelier Manager</div>
+                        <p class="creds">9 yrs · production</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

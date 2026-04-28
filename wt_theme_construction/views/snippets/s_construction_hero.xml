@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ===========================================================
+     Hero — full-width brand statement with two CTAs
+     =========================================================== -->
+<template id="s_construction_hero" name="Construction Hero">
+    <section class="wtc-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="wtc-eyebrow mb-4">Trusted Builders Since 2005</span>
+                    <h1 class="wtc-display fw-bold text-white">
+                        We Build <span style="color:#FFB627">Iconic</span> Structures.
+                    </h1>
+                    <p class="lead">From towering skylines to private residences — every line we draw is engineered to last decades. End-to-end design, build, and delivery from one accountable team.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#" class="btn btn-lg btn-cta wtc-cta-band-btn"
+                           style="background:#FF6B35;color:#fff;border:none;border-radius:0;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:1rem 2rem;">
+                            Get a Free Quote
+                        </a>
+                        <a href="#" class="btn btn-lg btn-outline-light"
+                           style="border-radius:0;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:1rem 2rem;">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="text-end">
+                        <div style="display:inline-block;background:rgba(255,182,39,.12);border:2px solid #FFB627;padding:2rem;border-radius:4px;">
+                            <div style="font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:#FFB627;">19+</div>
+                            <div style="text-transform:uppercase;letter-spacing:.15em;font-weight:600;color:#fff;font-size:.85rem;">Years on Site</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<!-- Register snippet in the website builder -->
+<template id="s_construction_hero_options"
+          inherit_id="website.snippets" name="WT Construction — Hero option">
+    <xpath expr="//*[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+        <t t-snippet="wt_theme_construction.s_construction_hero"
+           t-thumbnail="/wt_theme_construction/static/src/img/snippets/s_construction_hero.svg"/>
+    </xpath>
+</template>
+
+</odoo>

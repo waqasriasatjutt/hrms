@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_construction_cta" name="Construction CTA">
+    <section class="wtc-cta-band">
+        <div class="container position-relative">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h2 class="wtc-display mb-2">Got a project? Let's break ground.</h2>
+                    <p class="lead mb-0" style="opacity:.85;">Free site visit. No-obligation feasibility report within 5 working days.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#" class="btn btn-cta btn-lg">Request a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

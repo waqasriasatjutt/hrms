@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_restaurant_showcase" name="WT Theme Restaurant Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">From The Kitchen</span>
+                <h2 class="wtt-h2 mt-3">From The Kitchen</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">A peek at this week's menu.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Pasta</span>
+                            <h4>Tagliatelle Al Tartufo</h4>
+                            <p>Hand-rolled tagliatelle, fresh black truffle, parmesan butter.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Pizza</span>
+                            <h4>Margherita Bufala DOP</h4>
+                            <p>San Marzano tomatoes, buffalo mozzarella, basil, sea salt.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Mains</span>
+                            <h4>Bistecca Fiorentina</h4>
+                            <p>1.2 kg dry-aged T-bone, rosemary, lemon, sea salt — for two.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Antipasti</span>
+                            <h4>Burrata Pugliese</h4>
+                            <p>Imported burrata, heritage tomatoes, basil oil, sourdough.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Dessert</span>
+                            <h4>Tiramisu Pistacchio</h4>
+                            <p>Classic tiramisu reimagined with Sicilian pistachio cream.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Drinks</span>
+                            <h4>Aperol Spritz</h4>
+                            <p>The classic. Aperol, prosecco, soda, orange — a balcony in every glass.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

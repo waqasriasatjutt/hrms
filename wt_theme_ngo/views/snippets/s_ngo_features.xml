@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ngo_features" name="WT Theme NGO &amp; Nonprofit Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why People Give</span>
+                <h2 class="wtt-h2 mt-3">Why People Give</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Honest. Transparent. Effective.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-money"/></div>
+                        <h4>84¢ Per Dollar</h4>
+                        <p>84% of every donation reaches the field. We publish our overhead numbers quarterly.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-eye"/></div>
+                        <h4>Open Books</h4>
+                        <p>Audited financials, project P&amp;Ls, impact metrics — all on our website. Updated quarterly.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-users"/></div>
+                        <h4>Community-Led</h4>
+                        <p>Every programme led by people from the community. Not flown in. Not parachuted.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-line-chart"/></div>
+                        <h4>Measured Impact</h4>
+                        <p>Third-party impact audits annually. Including the failures, including the lessons.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

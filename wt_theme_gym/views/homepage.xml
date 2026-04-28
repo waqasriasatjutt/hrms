@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="homepage" inherit_id="website.homepage" name="WT Theme Gym &amp; Fitness Homepage" priority="40">
+    <xpath expr="//div[@id='wrap']" position="replace">
+        <div id="wrap" class="oe_structure oe_empty">
+            <t t-call="wt_theme_gym.s_gym_hero"/>
+            <t t-call="wt_theme_gym.s_gym_services"/>
+            <t t-call="wt_theme_gym.s_gym_features"/>
+            <t t-call="wt_theme_gym.s_gym_showcase"/>
+            <t t-call="wt_theme_gym.s_gym_team"/>
+            <t t-call="wt_theme_gym.s_gym_testimonials"/>
+            <t t-call="wt_theme_gym.s_gym_faq"/>
+            <t t-call="wt_theme_gym.s_gym_cta"/>
+            <t t-call="wt_theme_gym.s_gym_contact"/>
+        </div>
+    </xpath>
+</template>
+</odoo>

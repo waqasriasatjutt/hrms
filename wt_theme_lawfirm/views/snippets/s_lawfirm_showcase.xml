@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_lawfirm_showcase" name="WT Theme Law Firm Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Recent Wins</span>
+                <h2 class="wtt-h2 mt-3">Recent Wins</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">A sample of resolved matters (anonymised).</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Corporate</span>
+                            <h4>$48M Acquisition Closed</h4>
+                            <p>Cross-border M&amp;A advised end-to-end.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Tax</span>
+                            <h4>FBR Appeal Reversed</h4>
+                            <p>Reversed PKR 320M tax demand at appellate level.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Real Estate</span>
+                            <h4>Title Dispute Won</h4>
+                            <p>Multi-generation property dispute settled in plaintiff favour.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Litigation</span>
+                            <h4>Bank Loan Defended</h4>
+                            <p>Defended a corporate group against a $12M loan recall.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Family</span>
+                            <h4>Cross-Border Custody</h4>
+                            <p>Hague Convention case for relocating parent.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Criminal</span>
+                            <h4>White Collar Acquittal</h4>
+                            <p>Acquittal on financial-crime charges after 4-year trial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

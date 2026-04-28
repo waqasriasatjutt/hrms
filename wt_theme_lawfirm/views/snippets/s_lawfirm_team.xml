@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_lawfirm_team" name="WT Theme Law Firm Team">
+    <section class="py-5" style="background:#FAF7F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Senior Partners</span>
+                <h2 class="wtt-h2 mt-3">Senior Partners</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">The faces behind every brief.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>M. Hassan</h4>
+                        <div class="role">Managing Partner</div>
+                        <p class="creds">LLB, LLM (Harvard) · 27 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Ayesha Khan</h4>
+                        <div class="role">Senior Partner</div>
+                        <p class="creds">LLB, Bar-at-Law · 22 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>David Park</h4>
+                        <div class="role">Partner — Tax</div>
+                        <p class="creds">LLM Tax (NYU) · 18 yrs</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Rina Mehta</h4>
+                        <div class="role">Partner — Family</div>
+                        <p class="creds">LLB, mediator · 15 yrs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

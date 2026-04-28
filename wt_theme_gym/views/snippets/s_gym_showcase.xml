@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_gym_showcase" name="WT Theme Gym &amp; Fitness Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Membership</span>
+                <h2 class="wtt-h2 mt-3">Membership</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">No surprise fees. No 12-month locks.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Drop-In · $25</span>
+                            <h4>Pay-per-class</h4>
+                            <p>Try any class. Pay at the door. Walk in, walk out.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Open Gym · $89/mo</span>
+                            <h4>For self-led training</h4>
+                            <p>24/7 access. All equipment. No coaching fee.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Classes · $159/mo</span>
+                            <h4>Unlimited classes</h4>
+                            <p>All group classes. Open-gym access included.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">1-on-1 · $899/mo</span>
+                            <h4>Dedicated coach</h4>
+                            <p>Programming + 8 sessions/mo + nutrition consult.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Family · $269/mo</span>
+                            <h4>Two-person plan</h4>
+                            <p>Same household. All access. Two memberships, one bill.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Annual · 2 mo free</span>
+                            <h4>Pre-paid</h4>
+                            <p>Same plan, 12 months billed up front. Save two months' fees.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

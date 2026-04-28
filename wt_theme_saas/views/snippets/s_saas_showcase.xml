@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_saas_showcase" name="WT Theme SaaS Startup Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Pricing</span>
+                <h2 class="wtt-h2 mt-3">Pricing</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Simple. Honest. Per-seat.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Free</span>
+                            <h4>For Individuals</h4>
+                            <p>Up to 3 projects · 100MB storage · Community support</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Pro · $12/seat</span>
+                            <h4>For Small Teams</h4>
+                            <p>Unlimited projects · 10GB storage · Email support · 8 integrations</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Business · $32/seat</span>
+                            <h4>For Growing Teams</h4>
+                            <p>Unlimited storage · SSO · Priority support · All integrations</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Enterprise</span>
+                            <h4>For Big Orgs</h4>
+                            <p>SCIM · Audit logs · SLA · Dedicated CSM · Custom contract</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Startup</span>
+                            <h4>-90% for first 12 months</h4>
+                            <p>For YC / TechStars / accelerators-backed teams under 25 employees</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Open Source</span>
+                            <h4>Free forever</h4>
+                            <p>For verified OSS projects with 1K+ stars</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

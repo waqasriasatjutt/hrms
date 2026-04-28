@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_education_contact" name="WT Theme Education Contact">
+    <section id="contact" class="py-5" style="background:#F0F9FF;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Visit Campus</span>
+                <h2 class="wtt-h2 mt-3">Visit Campus</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Tour the school. Sit in on a class. Meet a teacher.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="wtt-contact-card">
+                        <h3>Reach Us</h3>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-map-marker"/></div>
+                            <div><h5>Address</h5><p>12 Academy Drive
+University District 51000</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-phone"/></div>
+                            <div><h5>Phone</h5><p>+1 555 010 0420</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-envelope"/></div>
+                            <div><h5>Email</h5><p>admissions@your-school.com</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-clock-o"/></div>
+                            <div><h5>Hours</h5><p>Mon–Fri 8:00–17:00 · School visits weekdays 10:00 + 14:00</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="wtt-contact-card">
+                        <h3>Send A Message</h3>
+                        <form action="/website_form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="mail.mail" data-success-mode="redirect" data-success-page="/contactus-thank-you">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold" for="ct_education_name">Full Name *</label>
+                                    <input type="text" class="form-control" name="name" id="ct_education_name" required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold" for="ct_education_phone">Phone</label>
+                                    <input type="tel" class="form-control" name="phone" id="ct_education_phone"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_education_email">Email *</label>
+                                    <input type="email" class="form-control" name="email_from" id="ct_education_email" required="required"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_education_subject">Subject</label>
+                                    <input type="text" class="form-control" name="subject" id="ct_education_subject"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_education_msg">Message</label>
+                                    <textarea class="form-control" name="description" id="ct_education_msg" rows="4"/>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-lg wtt-btn-primary" style="width:100%;">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

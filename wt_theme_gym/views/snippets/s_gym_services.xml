@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_gym_services" name="WT Theme Gym &amp; Fitness Services">
+    <section id="services" class="py-5" style="background:#F7F8F3;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Train With Us</span>
+                <h2 class="wtt-h2 mt-3">Train With Us</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six ways to get to work.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-fire"/></div>
+                        <h3>Strength</h3>
+                        <p>Heavy lifts, accessories, periodisation. Real powerlifters and bodybuilders coaching.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-bolt"/></div>
+                        <h3>Conditioning</h3>
+                        <p>HIIT, intervals, metabolic conditioning. 45-min sessions, max sweat per minute.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-leaf"/></div>
+                        <h3>Yoga &amp; Mobility</h3>
+                        <p>Vinyasa, yin, mobility flows. For when your body wants something other than another deadlift.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-trophy"/></div>
+                        <h3>CrossFit</h3>
+                        <p>Sanctioned WODs, certified L2 coaches, real Olympic platforms.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-fist-raised"/></div>
+                        <h3>Boxing</h3>
+                        <p>Boxing fundamentals + heavy bag conditioning + sparring nights for those who want it.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-user"/></div>
+                        <h3>1-On-1 Coaching</h3>
+                        <p>Individual programming with a dedicated coach. Track everything, progress measurably.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

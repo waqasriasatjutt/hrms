@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_education_faq" name="WT Theme Education FAQ">
+    <section class="py-5" style="background:#F0F9FF;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_education_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_education_faq_0">What's the application process?</button>
+                </h3>
+                <div id="wtt_education_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_education_faq">
+                    <div class="accordion-body">Online application + entrance assessment + family interview. Decisions in 4 weeks.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_education_faq_1">Do you offer scholarships?</button>
+                </h3>
+                <div id="wtt_education_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_education_faq">
+                    <div class="accordion-body">Merit + need-based scholarships up to 100% of fees. About 18% of students receive some aid.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_education_faq_2">Curriculum?</button>
+                </h3>
+                <div id="wtt_education_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_education_faq">
+                    <div class="accordion-body">IB Diploma in upper school. Cambridge IGCSE in middle. Bilingual options through Year 6.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_education_faq_3">What about university counselling?</button>
+                </h3>
+                <div id="wtt_education_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_education_faq">
+                    <div class="accordion-body">Full-time counsellors from Year 9 onwards. Personal advisor from Year 11.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

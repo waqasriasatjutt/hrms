@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_restaurant_features" name="WT Theme Restaurant Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why Diners Stay</span>
+                <h2 class="wtt-h2 mt-3">Why Diners Stay</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Small kitchen. Big standards.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-leaf"/></div>
+                        <h4>Farm-To-Table</h4>
+                        <p>Daily delivery from our own organic farm. If it's not in season, it's not on the menu.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-fire"/></div>
+                        <h4>Wood-Fired Oven</h4>
+                        <p>One 900°F oven runs the kitchen. Naples-trained pizzaiolo at the peel.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-heart"/></div>
+                        <h4>Family Recipes</h4>
+                        <p>Three generations of cooking. Our nonna still proofreads the menu.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-glass"/></div>
+                        <h4>Curated Wine</h4>
+                        <p>120 labels, mostly Italian, all hand-picked by our resident sommelier.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

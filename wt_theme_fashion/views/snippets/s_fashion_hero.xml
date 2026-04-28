@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_fashion_hero" name="WT Theme Fashion Hero">
+    <section class="wtt-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="wtt-eyebrow mb-3">AW · 26 Collection</span>
+                    <h1 class="wtt-h1">Quiet Luxury, <span style="color:#000000;">Loud Craft.</span></h1>
+                    <p class="wtt-lead">A small atelier producing 200 pieces per season. Every garment cut, sewn and finished in-house. Made for keeping, not for trending.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-lg wtt-btn-primary">Shop AW26</a>
+                        <a href="#services" class="btn btn-lg wtt-btn-outline">Lookbook</a>
+                    </div>
+                    <div class="wtt-hero__stats"><div class="stat"><div class="num">14</div><div class="label">Years Cutting</div></div><div class="stat"><div class="num">200</div><div class="label">Pieces / Season</div></div><div class="stat"><div class="num">100%</div><div class="label">Made In-House</div></div></div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="wtt-hero__visual">
+                        <i class="bg-glyph fa fa-circle-o-notch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

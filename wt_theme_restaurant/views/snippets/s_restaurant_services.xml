@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_restaurant_services" name="WT Theme Restaurant Services">
+    <section id="services" class="py-5" style="background:#FFF8F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">On The Menu</span>
+                <h2 class="wtt-h2 mt-3">On The Menu</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six signatures we're known for.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-fire"/></div>
+                        <h3>Wood-Fired Pizzas</h3>
+                        <p>Naples-style 90-second pizzas from a 900°F oven. Ten signatures plus a daily special.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-cutlery"/></div>
+                        <h3>Hand-Rolled Pasta</h3>
+                        <p>Made every morning at 6 AM. Tagliatelle, ravioli, gnocchi — the way nonna did it.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-leaf"/></div>
+                        <h3>Garden Salads</h3>
+                        <p>Greens from our own farm 18 km out. Picked the same day they hit your table.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-ice-cream"/></div>
+                        <h3>Tiramisu Bar</h3>
+                        <p>Six tiramisu variations. Yes, six. Yes, all good. Yes, you should try the pistachio.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-glass"/></div>
+                        <h3>Wine Cellar</h3>
+                        <p>120 labels. Mostly Italian. Sommelier-curated pairings, no upsell pressure.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-coffee"/></div>
+                        <h3>Espresso Bar</h3>
+                        <p>Lavazza beans, Marzocco machine, baristas who actually compete in barista competitions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

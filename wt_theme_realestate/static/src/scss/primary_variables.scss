@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Real Estate — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-realestate': (
+            'o-color-1': #1E3A8A,   // primary
+            'o-color-2': #F59E0B,   // secondary
+            'o-color-3': #10B981,   // accent
+            'o-color-4': #0F172A,   // dark
+            'o-color-5': #F8FAFC,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-realestate': (
+            'font':          'Inter',
+            'headings-font': 'Manrope',
+            'navbar-font':   'Inter',
+            'buttons-font':  'Inter',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         .5rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-realestate' !default;
+$o-selected-website-values-palette-name: 'wt-realestate' !default;

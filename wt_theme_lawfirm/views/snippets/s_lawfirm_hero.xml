@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_lawfirm_hero" name="WT Theme Law Firm Hero">
+    <section class="wtt-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="wtt-eyebrow mb-3">Trusted Counsel Since 1998</span>
+                    <h1 class="wtt-h1">Justice Demands <span style="color:#B8860B;">Excellence.</span></h1>
+                    <p class="wtt-lead">A boutique firm of senior advocates with 25+ years of courtroom experience. We take fewer cases. We win more of them.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-lg wtt-btn-primary">Free Consultation</a>
+                        <a href="#services" class="btn btn-lg wtt-btn-outline">Practice Areas</a>
+                    </div>
+                    <div class="wtt-hero__stats"><div class="stat"><div class="num">250+</div><div class="label">Cases Won</div></div><div class="stat"><div class="num">27</div><div class="label">Years In Practice</div></div><div class="stat"><div class="num">98%</div><div class="label">Client Retention</div></div></div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="wtt-hero__visual">
+                        <i class="bg-glyph fa fa-circle-o-notch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

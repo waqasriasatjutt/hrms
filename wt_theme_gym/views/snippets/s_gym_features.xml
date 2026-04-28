@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_gym_features" name="WT Theme Gym &amp; Fitness Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why People Stay</span>
+                <h2 class="wtt-h2 mt-3">Why People Stay</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Pay for results, not for the towels.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-line-chart"/></div>
+                        <h4>Real Programming</h4>
+                        <p>Periodised by your coach, not pulled from an app. We measure progress every 6 weeks.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-heart"/></div>
+                        <h4>Community</h4>
+                        <p>Open gym, member meetups, monthly throw-downs. The hardest part of staying consistent? Showing up. We make it easier.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-cogs"/></div>
+                        <h4>Pro Equipment</h4>
+                        <p>Eleiko bars, Rogue racks, Concept-2 rowers, BoxJump platforms. No machines that pretend to be exercise.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-trophy"/></div>
+                        <h4>Coaches You Can Name</h4>
+                        <p>Every coach has a national-level qualification. Not "personal trainers" — actual coaches.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_travel_faq" name="WT Theme Travel &amp; Tours FAQ">
+    <section class="py-5" style="background:#F0FDFA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_travel_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_travel_faq_0">Are you a travel agent or tour operator?</button>
+                </h3>
+                <div id="wtt_travel_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_travel_faq">
+                    <div class="accordion-body">Tour operator — we design and run our trips, we don't just book yours through someone else. ATOL/IATA bonded.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_travel_faq_1">Do you do custom trips?</button>
+                </h3>
+                <div id="wtt_travel_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_travel_faq">
+                    <div class="accordion-body">Yes — most of our work is bespoke. Tell us where, when, and we'll design it.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_travel_faq_2">Cancellation policy?</button>
+                </h3>
+                <div id="wtt_travel_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_travel_faq">
+                    <div class="accordion-body">Tiered: 60+ days = small admin fee, 30-60 = part-refund, under 30 = limited. We strongly recommend trip insurance.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_travel_faq_3">Solo / family / group?</button>
+                </h3>
+                <div id="wtt_travel_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_travel_faq">
+                    <div class="accordion-body">All three. Solo travellers get senior trip-designer access. Group sizes capped at 12.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

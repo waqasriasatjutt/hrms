@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_salon_hero" name="WT Theme Salon &amp; Spa Hero">
+    <section class="wtt-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="wtt-eyebrow mb-3">Boutique Salon · Est. 2014</span>
+                    <h1 class="wtt-h1">Walk In Tired. <span style="color:#D4A574;">Walk Out You.</span></h1>
+                    <p class="wtt-lead">A handful of senior stylists. Two treatment rooms. Imported product lines. We don't do high-volume — we do high-quality.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-lg wtt-btn-primary">Book Now</a>
+                        <a href="#services" class="btn btn-lg wtt-btn-outline">Service Menu</a>
+                    </div>
+                    <div class="wtt-hero__stats"><div class="stat"><div class="num">11+</div><div class="label">Years Open</div></div><div class="stat"><div class="num">8</div><div class="label">Senior Stylists</div></div><div class="stat"><div class="num">4.9★</div><div class="label">Rating</div></div></div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="wtt-hero__visual">
+                        <i class="bg-glyph fa fa-circle-o-notch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

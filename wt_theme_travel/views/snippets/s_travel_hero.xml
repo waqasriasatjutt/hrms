@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_travel_hero" name="WT Theme Travel &amp; Tours Hero">
+    <section class="wtt-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="wtt-eyebrow mb-3">Curated Trips · Since 2011</span>
+                    <h1 class="wtt-h1">Better Trips Start <span style="color:#0891B2;">Here.</span></h1>
+                    <p class="wtt-lead">A boutique tour operator that designs trips you couldn't book on autopilot. Hand-picked stays, local fixers, real itineraries — and someone on call when things go sideways.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-lg wtt-btn-primary">Browse Trips</a>
+                        <a href="#services" class="btn btn-lg wtt-btn-outline">Plan A Custom Trip</a>
+                    </div>
+                    <div class="wtt-hero__stats"><div class="stat"><div class="num">14</div><div class="label">Years Of Trips</div></div><div class="stat"><div class="num">64</div><div class="label">Destinations</div></div><div class="stat"><div class="num">4.9★</div><div class="label">Tripadvisor</div></div></div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="wtt-hero__visual">
+                        <i class="bg-glyph fa fa-circle-o-notch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_fashion_features" name="WT Theme Fashion Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The House Codes</span>
+                <h2 class="wtt-h2 mt-3">The House Codes</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">What we hold onto.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-cut"/></div>
+                        <h4>In-House Atelier</h4>
+                        <p>Patterns drafted, garments cut and sewn in our own atelier. No outsourcing.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-leaf"/></div>
+                        <h4>Natural Fibres</h4>
+                        <p>Wool, silk, linen, cotton. We avoid synthetics unless function demands it.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-archive"/></div>
+                        <h4>Lifetime Repair</h4>
+                        <p>Free repair on all garments, indefinitely. We design for keeping.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-trophy"/></div>
+                        <h4>Limited Runs</h4>
+                        <p>Maximum 200 pieces of any silhouette. Once it's gone, it's gone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

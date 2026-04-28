@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_restaurant_contact" name="WT Theme Restaurant Contact">
+    <section id="contact" class="py-5" style="background:#FFF8F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Find Us. Book Us.</span>
+                <h2 class="wtt-h2 mt-3">Find Us. Book Us.</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">No bookings dropped at the door — promise.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="wtt-contact-card">
+                        <h3>Reach Us</h3>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-map-marker"/></div>
+                            <div><h5>Address</h5><p>42 Riverside Lane
+Old Town 51000</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-phone"/></div>
+                            <div><h5>Phone</h5><p>+1 555 010 0420</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-envelope"/></div>
+                            <div><h5>Email</h5><p>reserve@your-restaurant.com</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-clock-o"/></div>
+                            <div><h5>Hours</h5><p>Tue–Sun 17:00–23:00 · Closed Mondays</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="wtt-contact-card">
+                        <h3>Send A Message</h3>
+                        <form action="/website_form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="mail.mail" data-success-mode="redirect" data-success-page="/contactus-thank-you">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold" for="ct_restaurant_name">Full Name *</label>
+                                    <input type="text" class="form-control" name="name" id="ct_restaurant_name" required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold" for="ct_restaurant_phone">Phone</label>
+                                    <input type="tel" class="form-control" name="phone" id="ct_restaurant_phone"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_restaurant_email">Email *</label>
+                                    <input type="email" class="form-control" name="email_from" id="ct_restaurant_email" required="required"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_restaurant_subject">Subject</label>
+                                    <input type="text" class="form-control" name="subject" id="ct_restaurant_subject"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_restaurant_msg">Message</label>
+                                    <textarea class="form-control" name="description" id="ct_restaurant_msg" rows="4"/>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-lg wtt-btn-primary" style="width:100%;">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

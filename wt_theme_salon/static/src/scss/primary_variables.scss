@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Salon & Spa — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-salon': (
+            'o-color-1': #D4A574,   // primary
+            'o-color-2': #1F2937,   // secondary
+            'o-color-3': #E8B4BC,   // accent
+            'o-color-4': #111827,   // dark
+            'o-color-5': #FBF9F4,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-salon': (
+            'font':          'Lato',
+            'headings-font': 'Italiana',
+            'navbar-font':   'Lato',
+            'buttons-font':  'Lato',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         0,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-salon' !default;
+$o-selected-website-values-palette-name: 'wt-salon' !default;

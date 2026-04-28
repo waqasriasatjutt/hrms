@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_realestate_showcase" name="WT Theme Real Estate Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Featured Listings</span>
+                <h2 class="wtt-h2 mt-3">Featured Listings</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Hand-picked. Move-in ready.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Apartment</span>
+                            <h4>Riverside Penthouse</h4>
+                            <p>3 BR · 2,400 sqft · river view · $1.2M</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">House</span>
+                            <h4>Oakwood Lane Family Home</h4>
+                            <p>5 BR · 3,800 sqft · pool · $1.8M</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Commercial</span>
+                            <h4>Downtown Office Floor</h4>
+                            <p>12,000 sqft · prime CBD · $4.5M</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Apartment</span>
+                            <h4>Heritage Loft Conversion</h4>
+                            <p>2 BR · 1,400 sqft · industrial chic · $620K</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">House</span>
+                            <h4>Coastal Beach Bungalow</h4>
+                            <p>3 BR · 1,900 sqft · ocean view · $980K</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Land</span>
+                            <h4>Hillside Buildable Plot</h4>
+                            <p>2.4 acres · approved permits · $480K</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

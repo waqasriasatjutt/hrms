@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Gym & Fitness — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-gym': (
+            'o-color-1': #84CC16,   // primary
+            'o-color-2': #0F172A,   // secondary
+            'o-color-3': #FACC15,   // accent
+            'o-color-4': #020617,   // dark
+            'o-color-5': #F7F8F3,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-gym': (
+            'font':          'Barlow',
+            'headings-font': 'Anton',
+            'navbar-font':   'Barlow Condensed',
+            'buttons-font':  'Barlow',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         0,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-gym' !default;
+$o-selected-website-values-palette-name: 'wt-gym' !default;

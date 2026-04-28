@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_travel_testimonials" name="WT Theme Travel &amp; Tours Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They built us a Japan trip we couldn't have built ourselves in three months of research. Every meal, every train, every guide — perfect."</blockquote>
+                        <cite>Honeymoon couple</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Flight cancelled at 11 PM, they had us re-routed by 11:30. Single phone call. That's what you pay for."</blockquote>
+                        <cite>Family of four</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"The Patagonia trek was hard. The trip planning was effortless. Both done by experts."</blockquote>
+                        <cite>Adventure traveller</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

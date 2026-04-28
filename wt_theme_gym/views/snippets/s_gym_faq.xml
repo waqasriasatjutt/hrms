@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_gym_faq" name="WT Theme Gym &amp; Fitness FAQ">
+    <section class="py-5" style="background:#F7F8F3;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_gym_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_gym_faq_0">Free trial?</button>
+                </h3>
+                <div id="wtt_gym_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_gym_faq">
+                    <div class="accordion-body">One full week, all classes, all equipment, no card needed.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_gym_faq_1">Beginner-friendly?</button>
+                </h3>
+                <div id="wtt_gym_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_gym_faq">
+                    <div class="accordion-body">Most members start as beginners. Every class scales. Free intro session before your first class.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_gym_faq_2">Open hours?</button>
+                </h3>
+                <div id="wtt_gym_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_gym_faq">
+                    <div class="accordion-body">Coached classes 6:00–21:00 weekdays, 8:00–18:00 weekends. Open gym 24/7 for members.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_gym_faq_3">Lock-in contracts?</button>
+                </h3>
+                <div id="wtt_gym_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_gym_faq">
+                    <div class="accordion-body">Never. Monthly memberships, cancel anytime with 7 days notice.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

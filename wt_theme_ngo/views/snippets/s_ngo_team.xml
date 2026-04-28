@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ngo_team" name="WT Theme NGO &amp; Nonprofit Team">
+    <section class="py-5" style="background:#FEF7F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The Team</span>
+                <h2 class="wtt-h2 mt-3">The Team</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Lean global staff. Strong local partners.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Aisha Diallo</h4>
+                        <div class="role">Executive Director</div>
+                        <p class="creds">15 yrs in development</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Tom Whitfield</h4>
+                        <div class="role">Programs Director</div>
+                        <p class="creds">12 yrs · ex-UNICEF</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Liu Mei</h4>
+                        <div class="role">Field Operations</div>
+                        <p class="creds">10 yrs · in-region</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Ravi Shankar</h4>
+                        <div class="role">Finance &amp; Audit</div>
+                        <p class="creds">13 yrs · CPA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

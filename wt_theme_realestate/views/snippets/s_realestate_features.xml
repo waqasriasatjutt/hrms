@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_realestate_features" name="WT Theme Real Estate Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why Buyers Choose Us</span>
+                <h2 class="wtt-h2 mt-3">Why Buyers Choose Us</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Old-fashioned hustle. Modern data.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-search"/></div>
+                        <h4>Curated Listings</h4>
+                        <p>We pre-vet every property. If it's on our site, it's worth seeing.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-handshake-o"/></div>
+                        <h4>Hard Negotiation</h4>
+                        <p>Median 4.2% off list price. Median across 1,200+ closings.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-database"/></div>
+                        <h4>Data-Driven</h4>
+                        <p>Comparables, neighbourhood trends, and ROI projections on every listing.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-life-ring"/></div>
+                        <h4>Post-Sale Support</h4>
+                        <p>Mortgage, contractor and decorator referrals. We stay involved past closing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

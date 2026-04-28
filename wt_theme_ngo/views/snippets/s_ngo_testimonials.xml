@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ngo_testimonials" name="WT Theme NGO &amp; Nonprofit Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"We've given for six years. Every quarter we get a report. Every visit, we see the work. They're the real deal."</blockquote>
+                        <cite>Donor since 2018</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They asked the village what we needed before they planned anything. That's not how most NGOs operate."</blockquote>
+                        <cite>Community partner</cite>
+                        <span class="role">Kenya</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Their financials are audited and published. That's why we partner with them on grants."</blockquote>
+                        <cite>Foundation partner</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

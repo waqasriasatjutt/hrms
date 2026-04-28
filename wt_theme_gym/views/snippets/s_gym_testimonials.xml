@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_gym_testimonials" name="WT Theme Gym &amp; Fitness Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Down 18 kg, up two squat plate-belts, off blood-pressure meds. The programming actually works."</blockquote>
+                        <cite>Member</cite>
+                        <span class="role">2.5 yrs</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"It's the only gym I've stuck with for more than 4 months. The community is what does it."</blockquote>
+                        <cite>Member</cite>
+                        <span class="role">3.5 yrs</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"They taught me to deadlift properly. Now my back doesn't hurt for the first time in 10 years."</blockquote>
+                        <cite>Member</cite>
+                        <span class="role">1.5 yrs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

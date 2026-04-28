@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_photography_testimonials" name="WT Theme Photography Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Shot our wedding like a documentary. We didn't notice they were there. The gallery felt like watching the day again."</blockquote>
+                        <cite>Wedding couple</cite>
+                        <span class="role">2024</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Delivered a campaign that won industry awards. They saw a story we couldn't articulate."</blockquote>
+                        <cite>Brand director</cite>
+                        <span class="role">hospitality group</span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Quiet, observational, technically perfect. The album is a family heirloom."</blockquote>
+                        <cite>Family portrait client</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

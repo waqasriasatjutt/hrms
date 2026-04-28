@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_event_services" name="WT Theme Events Services">
+    <section id="services" class="py-5" style="background:#FAFAFA;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">What's On</span>
+                <h2 class="wtt-h2 mt-3">What's On</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six tracks. Three days. No sponsor pitches.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-microphone"/></div>
+                        <h3>Keynotes</h3>
+                        <p>Founder + practitioner talks. 30-min slots, no slides allowed past slide 5.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-users"/></div>
+                        <h3>Workshops</h3>
+                        <p>Hands-on, capped at 24 people. Bring your laptop.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-cogs"/></div>
+                        <h3>Builder Sessions</h3>
+                        <p>Live demos. Ship something on stage. Q&amp;A from the floor.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-comments-o"/></div>
+                        <h3>Hallway Track</h3>
+                        <p>Curated 1-on-1s with speakers + matchmaking app. The real reason people come.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-cocktail"/></div>
+                        <h3>After-Hours</h3>
+                        <p>Three rooftop nights, hosted dinners, side events. Always crew-friendly.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-trophy"/></div>
+                        <h3>Builder Awards</h3>
+                        <p>Annual awards in 6 categories — voted by attendees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

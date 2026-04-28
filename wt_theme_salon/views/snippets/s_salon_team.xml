@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_salon_team" name="WT Theme Salon &amp; Spa Team">
+    <section class="py-5" style="background:#FBF9F4;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">The Stylists</span>
+                <h2 class="wtt-h2 mt-3">The Stylists</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Each one a senior — pick by personality, not seniority.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Eva Larsen</h4>
+                        <div class="role">Owner &amp; Master Stylist</div>
+                        <p class="creds">15 yrs · Vidal Sassoon</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Mia Hofstedt</h4>
+                        <div class="role">Senior Colourist</div>
+                        <p class="creds">12 yrs · Wella</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Lea Park</h4>
+                        <div class="role">Aesthetician</div>
+                        <p class="creds">10 yrs · CIDESCO</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Ana Costa</h4>
+                        <div class="role">Master Brow Artist</div>
+                        <p class="creds">9 yrs · Phibrows</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

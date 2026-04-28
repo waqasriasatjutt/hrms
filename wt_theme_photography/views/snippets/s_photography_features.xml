@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_photography_features" name="WT Theme Photography Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Working Together</span>
+                <h2 class="wtt-h2 mt-3">Working Together</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">A small process, kept simple.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-comments-o"/></div>
+                        <h4>Discovery Call</h4>
+                        <p>30-min call to map out story, vibe, logistics. Free, no commitment.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-calendar"/></div>
+                        <h4>Production</h4>
+                        <p>Shot day(s) — quiet, observational, never intrusive. Assistant on every shoot.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-image"/></div>
+                        <h4>Edit &amp; Deliver</h4>
+                        <p>3-week edit window. Curated gallery + full set delivered via private link.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-print"/></div>
+                        <h4>Prints &amp; Album</h4>
+                        <p>Optional fine-art prints on Hahnemühle paper + linen-bound albums.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

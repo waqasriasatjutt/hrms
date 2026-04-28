@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_restaurant_hero" name="WT Theme Restaurant Hero">
+    <section class="wtt-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="wtt-eyebrow mb-3">Since 2009</span>
+                    <h1 class="wtt-h1">Food That Tastes Like <span style="color:#C0392B;">Home.</span></h1>
+                    <p class="wtt-lead">A 32-seat dining room. Three generations of family recipes. Wood-fired everything. We don't do "fast" — we do "worth it."</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-lg wtt-btn-primary">Reserve A Table</a>
+                        <a href="#services" class="btn btn-lg wtt-btn-outline">See Menu</a>
+                    </div>
+                    <div class="wtt-hero__stats"><div class="stat"><div class="num">15+</div><div class="label">Years Open</div></div><div class="stat"><div class="num">32</div><div class="label">Seats</div></div><div class="stat"><div class="num">4.9★</div><div class="label">Rating</div></div></div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="wtt-hero__visual">
+                        <i class="bg-glyph fa fa-circle-o-notch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

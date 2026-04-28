@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_clinic_appointment" name="Clinic Appointment Band">
+    <section class="py-5">
+        <div class="container">
+            <div class="wtc-appt-band">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <h2 class="mb-3">Book An Appointment Online</h2>
+                        <p class="lead mb-4" style="opacity:.92;">Pick a doctor, pick a slot, walk in. Same-day appointments usually available.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <span style="background:rgba(255,255,255,.18);padding:.4rem 1rem;border-radius:50rem;font-size:.85rem;font-weight:600;">
+                                <i class="fa fa-check me-1"/> No referral required
+                            </span>
+                            <span style="background:rgba(255,255,255,.18);padding:.4rem 1rem;border-radius:50rem;font-size:.85rem;font-weight:600;">
+                                <i class="fa fa-check me-1"/> Insurance accepted
+                            </span>
+                            <span style="background:rgba(255,255,255,.18);padding:.4rem 1rem;border-radius:50rem;font-size:.85rem;font-weight:600;">
+                                <i class="fa fa-check me-1"/> Free cancellation
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-lg-end">
+                        <a href="#" class="btn btn-cta btn-lg">
+                            <i class="fa fa-calendar-check-o me-2"/> Book Now
+                        </a>
+                        <div style="margin-top:.85rem;color:rgba(255,255,255,.85);font-size:.9rem;">
+                            or call <strong style="color:#fff;">+1 555 010 0420</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

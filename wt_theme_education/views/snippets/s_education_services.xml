@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_education_services" name="WT Theme Education Services">
+    <section id="services" class="py-5" style="background:#F0F9FF;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Programmes</span>
+                <h2 class="wtt-h2 mt-3">Programmes</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six pathways. Built for thinkers.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-flask"/></div>
+                        <h3>STEM</h3>
+                        <p>Science, Technology, Engineering, Maths — research-led, lab-heavy, AP-aligned.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-pencil"/></div>
+                        <h3>Humanities</h3>
+                        <p>Literature, history, philosophy, languages. Small seminars, real debates.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-line-chart"/></div>
+                        <h3>Business</h3>
+                        <p>Economics, finance, entrepreneurship — real case studies with regional CEOs.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-paint-brush"/></div>
+                        <h3>Arts</h3>
+                        <p>Visual art, drama, music, film — proper studios, proper instruments, proper audiences.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-globe"/></div>
+                        <h3>Languages</h3>
+                        <p>English, French, Spanish, Mandarin, Arabic — native-speaker faculty.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-trophy"/></div>
+                        <h3>Athletics</h3>
+                        <p>12 varsity sports, 6 club sports, real coaches who played at university level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

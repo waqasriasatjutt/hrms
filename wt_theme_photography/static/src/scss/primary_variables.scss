@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Photography — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-photography': (
+            'o-color-1': #000000,   // primary
+            'o-color-2': #FFFFFF,   // secondary
+            'o-color-3': #FF3366,   // accent
+            'o-color-4': #0A0A0A,   // dark
+            'o-color-5': #F5F5F5,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-photography': (
+            'font':          'Inter',
+            'headings-font': 'Marcellus',
+            'navbar-font':   'Inter',
+            'buttons-font':  'Inter',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         0,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-photography' !default;
+$o-selected-website-values-palette-name: 'wt-photography' !default;

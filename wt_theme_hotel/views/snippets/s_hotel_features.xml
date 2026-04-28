@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_hotel_features" name="WT Theme Hotel Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">On Property</span>
+                <h2 class="wtt-h2 mt-3">On Property</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Small. Considered. Quiet.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-utensils"/></div>
+                        <h4>Restaurant</h4>
+                        <p>Set menu nightly, by our resident chef. Wine list, garden seating.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-leaf"/></div>
+                        <h4>Garden &amp; Cliffs</h4>
+                        <p>3-acre garden, cliff path to private beach. Beach-towels at the door.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-spa"/></div>
+                        <h4>Treatment Room</h4>
+                        <p>Two therapists, four rituals, by appointment.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-wifi"/></div>
+                        <h4>Honest Service</h4>
+                        <p>Concierge but no front-desk theatre. Ask anything, real answer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

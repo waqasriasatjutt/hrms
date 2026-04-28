@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_lawfirm_features" name="WT Theme Law Firm Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why The Firm</span>
+                <h2 class="wtt-h2 mt-3">Why The Firm</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Old-school discipline. Modern strategy.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-user-secret"/></div>
+                        <h4>Senior Partners Only</h4>
+                        <p>No junior associate runs your matter without a senior partner attached.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-clock-o"/></div>
+                        <h4>Same-Week Response</h4>
+                        <p>First written opinion delivered within 5 business days, guaranteed.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-lock"/></div>
+                        <h4>Confidentiality</h4>
+                        <p>Privileged comms, secure document vault, NDA on every brief.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-trophy"/></div>
+                        <h4>Track Record</h4>
+                        <p>Reported judgments in 60+ jurisdictions, 250+ matters favourably resolved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

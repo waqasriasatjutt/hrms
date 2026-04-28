@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ecommerce_showcase" name="WT Theme eCommerce Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Bestsellers</span>
+                <h2 class="wtt-h2 mt-3">Bestsellers</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">What our customers come back for.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Apparel</span>
+                            <h4>Heavyweight Cotton Tee</h4>
+                            <p>$45 · Made in Portugal · Reviewed 4.9★</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Footwear</span>
+                            <h4>Hand-Welted Derby</h4>
+                            <p>$320 · Made in England · Lifetime repair</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Bags</span>
+                            <h4>Veg-Tan Tote</h4>
+                            <p>$280 · Made in Italy · Patinas with use</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Apparel</span>
+                            <h4>Merino Crewneck</h4>
+                            <p>$180 · Made in Italy · Anti-pilling</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Home</span>
+                            <h4>French Linen Sheet Set</h4>
+                            <p>$220 · Made in Portugal · Stonewashed</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Accessories</span>
+                            <h4>Steel Watch</h4>
+                            <p>$540 · Made in Switzerland · Sapphire crystal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

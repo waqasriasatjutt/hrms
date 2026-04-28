@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_travel_showcase" name="WT Theme Travel &amp; Tours Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Featured Trips</span>
+                <h2 class="wtt-h2 mt-3">Featured Trips</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">A sample of what our travellers are booking.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Italy · 9 nights</span>
+                            <h4>Tuscan Truffle Trail</h4>
+                            <p>Hilltop villas + truffle hunts + private vineyard dinners.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Japan · 12 nights</span>
+                            <h4>Tokyo + Kyoto + Hokkaido</h4>
+                            <p>Ryokan + sushi temple + Niseko ski lodge.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Maldives · 7 nights</span>
+                            <h4>Overwater Honeymoon</h4>
+                            <p>Private water villa + reef snorkel + spa daily.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Tanzania · 10 nights</span>
+                            <h4>Serengeti &amp; Zanzibar</h4>
+                            <p>Tented camp + migration + post-safari beach.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Patagonia · 14 nights</span>
+                            <h4>Trek + Glacier</h4>
+                            <p>Torres del Paine W-trek + Perito Moreno lodge.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Vietnam · 11 nights</span>
+                            <h4>Hanoi to Saigon</h4>
+                            <p>North to south by train + private guide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

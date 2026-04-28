@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Law Firm — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-lawfirm': (
+            'o-color-1': #B8860B,   // primary
+            'o-color-2': #1A2E4D,   // secondary
+            'o-color-3': #D4AF37,   // accent
+            'o-color-4': #0F1A2E,   // dark
+            'o-color-5': #FAF7F0,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-lawfirm': (
+            'font':          'Lora',
+            'headings-font': 'Playfair Display',
+            'navbar-font':   'Lora',
+            'buttons-font':  'Lora',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         0,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-lawfirm' !default;
+$o-selected-website-values-palette-name: 'wt-lawfirm' !default;

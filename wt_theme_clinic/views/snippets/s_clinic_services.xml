@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_clinic_services" name="Clinic Services">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtc-eyebrow">Specialities</span>
+                <h2 class="mt-3" style="font-weight:800;color:#1E293B;">Care For Every Stage Of Life</h2>
+                <p class="text-muted lead mx-auto" style="max-width:680px;">From routine check-ups to advanced procedures — board-certified specialists across nine disciplines.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-service">
+                        <div class="wtc-service__icon"><i class="fa fa-heartbeat"/></div>
+                        <h3>Cardiology</h3>
+                        <p>ECG, echocardiogram, stress tests, and ongoing care for hypertension and heart disease.</p>
+                        <a href="#" class="wtc-service__link">Learn More <i class="fa fa-arrow-right"/></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-service">
+                        <div class="wtc-service__icon"><i class="fa fa-child"/></div>
+                        <h3>Pediatrics</h3>
+                        <p>Newborn care, immunizations, growth tracking, and treatment for childhood illnesses.</p>
+                        <a href="#" class="wtc-service__link">Learn More <i class="fa fa-arrow-right"/></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-service">
+                        <div class="wtc-service__icon"><i class="fa fa-tooth" aria-hidden="true"></i></div>
+                        <h3>Dental Care</h3>
+                        <p>General dentistry, cosmetic procedures, orthodontics, and emergency dental services.</p>
+                        <a href="#" class="wtc-service__link">Learn More <i class="fa fa-arrow-right"/></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-service">
+                        <div class="wtc-service__icon"><i class="fa fa-eye"/></div>
+                        <h3>Ophthalmology</h3>
+                        <p>Eye exams, vision correction, cataract surgery, glaucoma treatment, and retinal care.</p>
+                        <a href="#" class="wtc-service__link">Learn More <i class="fa fa-arrow-right"/></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-service">
+                        <div class="wtc-service__icon"><i class="fa fa-female"/></div>
+                        <h3>Gynaecology</h3>
+                        <p>Comprehensive women's health, prenatal care, fertility consultations, and gynae surgery.</p>
+                        <a href="#" class="wtc-service__link">Learn More <i class="fa fa-arrow-right"/></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtc-service">
+                        <div class="wtc-service__icon"><i class="fa fa-flask"/></div>
+                        <h3>Lab &amp; Diagnostics</h3>
+                        <p>On-site lab, X-ray, ultrasound, MRI referrals, and rapid-result blood work.</p>
+                        <a href="#" class="wtc-service__link">Learn More <i class="fa fa-arrow-right"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

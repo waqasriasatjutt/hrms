@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="homepage" inherit_id="website.homepage" name="WT Theme Real Estate Homepage" priority="40">
+    <xpath expr="//div[@id='wrap']" position="replace">
+        <div id="wrap" class="oe_structure oe_empty">
+            <t t-call="wt_theme_realestate.s_realestate_hero"/>
+            <t t-call="wt_theme_realestate.s_realestate_services"/>
+            <t t-call="wt_theme_realestate.s_realestate_features"/>
+            <t t-call="wt_theme_realestate.s_realestate_showcase"/>
+            <t t-call="wt_theme_realestate.s_realestate_team"/>
+            <t t-call="wt_theme_realestate.s_realestate_testimonials"/>
+            <t t-call="wt_theme_realestate.s_realestate_faq"/>
+            <t t-call="wt_theme_realestate.s_realestate_cta"/>
+            <t t-call="wt_theme_realestate.s_realestate_contact"/>
+        </div>
+    </xpath>
+</template>
+</odoo>

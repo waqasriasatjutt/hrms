@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_saas_contact" name="WT Theme SaaS Startup Contact">
+    <section id="contact" class="py-5" style="background:#F8FAFC;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Talk To Sales</span>
+                <h2 class="wtt-h2 mt-3">Talk To Sales</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Or skip the call — start free, on your own terms.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="wtt-contact-card">
+                        <h3>Reach Us</h3>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-map-marker"/></div>
+                            <div><h5>Address</h5><p>123 Market St, 9th Floor
+Tech District 51000</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-phone"/></div>
+                            <div><h5>Phone</h5><p>+1 555 010 0420</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-envelope"/></div>
+                            <div><h5>Email</h5><p>sales@your-saas.com</p></div>
+                        </div>
+                        <div class="info">
+                            <div class="icon"><i class="fa fa-clock-o"/></div>
+                            <div><h5>Hours</h5><p>Sales: 9:00–18:00 PST · Support: 24/7</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="wtt-contact-card">
+                        <h3>Send A Message</h3>
+                        <form action="/website_form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="mail.mail" data-success-mode="redirect" data-success-page="/contactus-thank-you">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold" for="ct_saas_name">Full Name *</label>
+                                    <input type="text" class="form-control" name="name" id="ct_saas_name" required="required"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold" for="ct_saas_phone">Phone</label>
+                                    <input type="tel" class="form-control" name="phone" id="ct_saas_phone"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_saas_email">Email *</label>
+                                    <input type="email" class="form-control" name="email_from" id="ct_saas_email" required="required"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_saas_subject">Subject</label>
+                                    <input type="text" class="form-control" name="subject" id="ct_saas_subject"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold" for="ct_saas_msg">Message</label>
+                                    <textarea class="form-control" name="description" id="ct_saas_msg" rows="4"/>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-lg wtt-btn-primary" style="width:100%;">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

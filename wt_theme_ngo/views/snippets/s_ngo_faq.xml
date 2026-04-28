@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ngo_faq" name="WT Theme NGO &amp; Nonprofit FAQ">
+    <section class="py-5" style="background:#FEF7F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_ngo_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ngo_faq_0">Where does my donation go?</button>
+                </h3>
+                <div id="wtt_ngo_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_ngo_faq">
+                    <div class="accordion-body">84¢ of every dollar reaches the field. The other 16¢ covers staff, audits, compliance and tech. Numbers published quarterly.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ngo_faq_1">Tax deductible?</button>
+                </h3>
+                <div id="wtt_ngo_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_ngo_faq">
+                    <div class="accordion-body">Yes — registered 501(c)(3) and EU equivalent. Receipts emailed automatically.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ngo_faq_2">Can I volunteer?</button>
+                </h3>
+                <div id="wtt_ngo_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_ngo_faq">
+                    <div class="accordion-body">Yes — both remote (skills-based) and in-field. Read our volunteer policy first.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_ngo_faq_3">Recurring giving?</button>
+                </h3>
+                <div id="wtt_ngo_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_ngo_faq">
+                    <div class="accordion-body">Yes — recurring donors are 60% of our funding. They get monthly impact updates.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

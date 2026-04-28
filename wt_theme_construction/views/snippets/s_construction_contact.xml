@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_construction_contact" name="Construction Contact">
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <span class="wtc-eyebrow">Get In Touch</span>
+                    <h2 class="wtc-display mt-3">Visit the Office. Tour a Site.</h2>
+                    <p class="text-muted lead mb-4">No middlemen. Talk straight to the principal — Marcus replies within one business day.</p>
+
+                    <div class="wtc-contact-info">
+                        <div class="wtc-icon"><i class="fa fa-map-marker"/></div>
+                        <div>
+                            <h5>Head Office</h5>
+                            <p>78 Industrial Avenue<br/>Suite 4B, City Centre 51000</p>
+                        </div>
+                    </div>
+                    <div class="wtc-contact-info">
+                        <div class="wtc-icon"><i class="fa fa-phone"/></div>
+                        <div>
+                            <h5>Phone</h5>
+                            <p>+1 555 010 0420</p>
+                        </div>
+                    </div>
+                    <div class="wtc-contact-info">
+                        <div class="wtc-icon"><i class="fa fa-envelope"/></div>
+                        <div>
+                            <h5>Email</h5>
+                            <p>hello@your-construction.com</p>
+                        </div>
+                    </div>
+                    <div class="wtc-contact-info">
+                        <div class="wtc-icon"><i class="fa fa-clock-o"/></div>
+                        <div>
+                            <h5>Hours</h5>
+                            <p>Mon–Fri 8:00–18:00 · Sat 9:00–13:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form action="/website_form/" method="post" enctype="multipart/form-data"
+                          class="o_mark_required" data-mark="*"
+                          data-model_name="mail.mail" data-success-mode="redirect"
+                          data-success-page="/contactus-thank-you">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold" for="contact_name">Full Name *</label>
+                                <input type="text" class="form-control form-control-lg"
+                                       name="name" id="contact_name" required="required"
+                                       style="border-radius:0;border:1px solid #E5E7EB;"/>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold" for="contact_phone">Phone *</label>
+                                <input type="tel" class="form-control form-control-lg"
+                                       name="phone" id="contact_phone" required="required"
+                                       style="border-radius:0;border:1px solid #E5E7EB;"/>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold" for="contact_email">Email *</label>
+                                <input type="email" class="form-control form-control-lg"
+                                       name="email_from" id="contact_email" required="required"
+                                       style="border-radius:0;border:1px solid #E5E7EB;"/>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold" for="contact_subject">Project Type</label>
+                                <select class="form-select form-select-lg" name="subject" id="contact_subject"
+                                        style="border-radius:0;border:1px solid #E5E7EB;">
+                                    <option>Commercial Construction</option>
+                                    <option>Residential Construction</option>
+                                    <option>Industrial / Plant</option>
+                                    <option>Renovation / Refit</option>
+                                    <option>Interior Fit-Out</option>
+                                    <option>Design &amp; Engineering</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold" for="contact_desc">Tell us about your project</label>
+                                <textarea class="form-control form-control-lg"
+                                          name="description" id="contact_desc" rows="5"
+                                          style="border-radius:0;border:1px solid #E5E7EB;"/>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-lg"
+                                        style="background:#FF6B35;color:#fff;border-radius:0;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:1rem 2.5rem;border:none;">
+                                    Send Enquiry
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_consulting_showcase" name="WT Theme Consulting Showcase">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Selected Engagements</span>
+                <h2 class="wtt-h2 mt-3">Selected Engagements</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">A sample of recent work (anonymised where required).</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-circle"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Strategy</span>
+                            <h4>SaaS Re-Pricing</h4>
+                            <p>+38% MRR in 6 months for a Series-B SaaS.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-square"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Operating Model</span>
+                            <h4>Manufacturing Redesign</h4>
+                            <p>Cut order-to-ship cycle from 28 to 9 days.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-star"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Data &amp; AI</span>
+                            <h4>Insurance Underwriting</h4>
+                            <p>ML-powered underwriting cut combined ratio by 4 pts.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-heart"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">M&amp;A</span>
+                            <h4>Sell-Side Mandate</h4>
+                            <p>Sold a family group at 11x EBITDA — 2x the initial estimate.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-bookmark"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Brand</span>
+                            <h4>Repositioning</h4>
+                            <p>Repositioned a B2B brand; doubled qualified pipeline in two quarters.</p>
+                        </div>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-showcase">
+                        <div class="wtt-showcase__visual"><i class="fa fa-trophy"/></div>
+                        <div class="wtt-showcase__body">
+                            <span class="wtt-showcase__cat">Transformation</span>
+                            <h4>Multi-Year Change</h4>
+                            <p>24-month operating-model transformation, on-time, on-budget.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

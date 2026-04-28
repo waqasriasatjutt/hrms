@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_hotel_services" name="WT Theme Hotel Services">
+    <section id="services" class="py-5" style="background:#F8F5EE;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Stay With Us</span>
+                <h2 class="wtt-h2 mt-3">Stay With Us</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Six room types. Each different.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-bed"/></div>
+                        <h3>Garden Rooms</h3>
+                        <p>12 m² · garden view · queen bed · private patio.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-tree"/></div>
+                        <h3>Cliff Suites</h3>
+                        <p>24 m² · ocean view · king bed · soaker tub.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-home"/></div>
+                        <h3>Heritage Suite</h3>
+                        <p>38 m² · panoramic view · king bed · separate sitting room.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-fire"/></div>
+                        <h3>The Cottage</h3>
+                        <p>Detached cottage · 2 bedrooms · private terrace · for two.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-leaf"/></div>
+                        <h3>Garden Studio</h3>
+                        <p>Stand-alone studio · garden plunge pool · for two.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-card">
+                        <div class="wtt-card__icon"><i class="fa fa-key"/></div>
+                        <h3>Whole-Property</h3>
+                        <p>Buy out the hotel for weddings, retreats, family gatherings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

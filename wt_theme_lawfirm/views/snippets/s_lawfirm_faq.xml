@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_lawfirm_faq" name="WT Theme Law Firm FAQ">
+    <section class="py-5" style="background:#FAF7F0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">FAQ</span>
+                <h2 class="wtt-h2 mt-3">Common Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="wtt-faq accordion" id="wtt_lawfirm_faq">
+                        <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_lawfirm_faq_0">What does a free consultation include?</button>
+                </h3>
+                <div id="wtt_lawfirm_faq_0" class="accordion-collapse collapse show" data-bs-parent="#wtt_lawfirm_faq">
+                    <div class="accordion-body">30 minutes with a senior partner, a written summary of how your matter looks legally, and a clear quote if you want to engage us. No obligation.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_lawfirm_faq_1">How do you charge?</button>
+                </h3>
+                <div id="wtt_lawfirm_faq_1" class="accordion-collapse collapse" data-bs-parent="#wtt_lawfirm_faq">
+                    <div class="accordion-body">Hourly for ongoing matters; fixed fee for transactional work; success fee available on commercial-litigation engagements where law permits.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_lawfirm_faq_2">Do you handle international matters?</button>
+                </h3>
+                <div id="wtt_lawfirm_faq_2" class="accordion-collapse collapse" data-bs-parent="#wtt_lawfirm_faq">
+                    <div class="accordion-body">Yes — corresponding counsel relationships in UK, UAE, US, Singapore. Bilingual filings done in-house.</div>
+                </div>
+            </div><div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#wtt_lawfirm_faq_3">Is privilege protected?</button>
+                </h3>
+                <div id="wtt_lawfirm_faq_3" class="accordion-collapse collapse" data-bs-parent="#wtt_lawfirm_faq">
+                    <div class="accordion-body">All communications are privileged from the first call. Document vault is encrypted, and NDAs are in place across the firm.</div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

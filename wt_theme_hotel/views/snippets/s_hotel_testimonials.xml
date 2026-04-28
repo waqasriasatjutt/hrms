@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_hotel_testimonials" name="WT Theme Hotel Testimonials">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Reviews</span>
+                <h2 class="wtt-h2 mt-3">What People Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"We came for two nights and stayed five. The kind of place you don't want to leave."</blockquote>
+                        <cite>Travel writer</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"Three generations of our family came for a wedding. The whole property. Best decision we made for the year."</blockquote>
+                        <cite>Family event guest</cite>
+                        <span class="role"></span>
+                    </div>
+                </div><div class="col-md-6 col-lg-4">
+                    <div class="wtt-quote">
+                        <blockquote>"The breakfast in the garden alone is worth the trip. Then the dinner happened. Then the room. Then the bath."</blockquote>
+                        <cite>Honeymoon couple</cite>
+                        <span class="role"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_realestate_cta" name="WT Theme Real Estate CTA">
+    <section class="py-5">
+        <div class="container">
+            <div class="wtt-cta">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <h2 class="wtt-h2 mb-2" style="color:#fff;">Search Listings.</h2>
+                        <p class="lead mb-0" style="opacity:.9;">A boutique brokerage with 1,200+ closings.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="#contact" class="btn btn-lg btn-cta">Search Listings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

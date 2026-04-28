@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_clinic_stats" name="Clinic Stats">
+    <section class="py-5">
+        <div class="container">
+            <div class="wtc-stats-band">
+                <div class="container">
+                    <div class="row text-center g-4">
+                        <div class="col-6 col-md-3">
+                            <div class="num">15K+</div>
+                            <div class="label">Happy Patients</div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="num">17</div>
+                            <div class="label">Specialists</div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="num">9</div>
+                            <div class="label">Departments</div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="num">98%</div>
+                            <div class="label">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+</odoo>

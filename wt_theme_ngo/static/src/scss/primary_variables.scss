@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme NGO & Nonprofit — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-ngo': (
+            'o-color-1': #EA580C,   // primary
+            'o-color-2': #0F766E,   // secondary
+            'o-color-3': #FACC15,   // accent
+            'o-color-4': #1F2937,   // dark
+            'o-color-5': #FEF7F0,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-ngo': (
+            'font':          'Source Sans Pro',
+            'headings-font': 'Source Serif Pro',
+            'navbar-font':   'Source Sans Pro',
+            'buttons-font':  'Source Sans Pro',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         50rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-ngo' !default;
+$o-selected-website-values-palette-name: 'wt-ngo' !default;

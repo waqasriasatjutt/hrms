@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="page_about" model="website.page">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_saas.page_about</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="About" t-name="wt_theme_saas.page_about">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">About</span>
+                            <h1 class="wtt-h1">Replace Five Tools. Save 80% Of The Bill.</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_saas.s_saas_features"/>
+                    <t t-call="wt_theme_saas.s_saas_team"/>
+                    <t t-call="wt_theme_saas.s_saas_testimonials"/>
+                    <t t-call="wt_theme_saas.s_saas_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_services" model="website.page">
+    <field name="name">Services</field>
+    <field name="url">/services</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_saas.page_services</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Services" t-name="wt_theme_saas.page_services">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">Product Features</span>
+                            <h1 class="wtt-h1">Product Features</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_saas.s_saas_services"/>
+                    <t t-call="wt_theme_saas.s_saas_features"/>
+                    <t t-call="wt_theme_saas.s_saas_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_showcase" model="website.page">
+    <field name="name">Pricing</field>
+    <field name="url">/pricing</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_saas.page_showcase</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Pricing" t-name="wt_theme_saas.page_showcase">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">Pricing</span>
+                            <h1 class="wtt-h1">Pricing</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_saas.s_saas_showcase"/>
+                    <t t-call="wt_theme_saas.s_saas_testimonials"/>
+                    <t t-call="wt_theme_saas.s_saas_cta"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="page_contact" model="website.page">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="website_indexed" eval="True"/>
+    <field name="is_published" eval="True"/>
+    <field name="key">wt_theme_saas.page_contact</field>
+    <field name="type">qweb</field>
+    <field name="arch" type="xml">
+        <t name="Contact" t-name="wt_theme_saas.page_contact">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="wtt-hero" style="padding:5rem 0 3rem;">
+                        <div class="container">
+                            <span class="wtt-eyebrow mb-3">Talk To Sales</span>
+                            <h1 class="wtt-h1">Talk To Sales</h1>
+                        </div>
+                    </section>
+                    <t t-call="wt_theme_saas.s_saas_contact"/>
+                    <t t-call="wt_theme_saas.s_saas_faq"/>
+                </div>
+            </t>
+        </t>
+    </field>
+</record>
+
+<record id="menu_about" model="website.menu">
+    <field name="name">About</field>
+    <field name="url">/about-us</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_about"/>
+    <field name="sequence" type="int">10</field>
+</record>
+<record id="menu_services" model="website.menu">
+    <field name="name">Product Features</field>
+    <field name="url">/services</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_services"/>
+    <field name="sequence" type="int">20</field>
+</record>
+<record id="menu_showcase" model="website.menu">
+    <field name="name">Pricing</field>
+    <field name="url">/pricing</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_showcase"/>
+    <field name="sequence" type="int">30</field>
+</record>
+<record id="menu_contact" model="website.menu">
+    <field name="name">Contact</field>
+    <field name="url">/contact</field>
+    <field name="parent_id" search="[('url', '=', '/default-main-menu')]"/>
+    <field name="page_id" ref="page_contact"/>
+    <field name="sequence" type="int">40</field>
+</record>
+
+</odoo>

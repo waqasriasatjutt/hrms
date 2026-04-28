@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Consulting — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-consulting': (
+            'o-color-1': #000000,   // primary
+            'o-color-2': #F59E0B,   // secondary
+            'o-color-3': #10B981,   // accent
+            'o-color-4': #1F2937,   // dark
+            'o-color-5': #F9FAFB,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-consulting': (
+            'font':          'IBM Plex Sans',
+            'headings-font': 'IBM Plex Serif',
+            'navbar-font':   'IBM Plex Sans',
+            'buttons-font':  'IBM Plex Sans',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         0,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-consulting' !default;
+$o-selected-website-values-palette-name: 'wt-consulting' !default;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_realestate_team" name="WT Theme Real Estate Team">
+    <section class="py-5" style="background:#F8FAFC;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Our Brokers</span>
+                <h2 class="wtt-h2 mt-3">Our Brokers</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Local. Licensed. Loyal.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Helena Cross</h4>
+                        <div class="role">Managing Broker</div>
+                        <p class="creds">15 yrs · 380+ closings</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Marcus Reyes</h4>
+                        <div class="role">Senior Broker</div>
+                        <p class="creds">12 yrs · 280+ closings</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Aisha Patel</h4>
+                        <div class="role">Commercial Specialist</div>
+                        <p class="creds">10 yrs · 120+ deals</p>
+                    </div>
+                </div><div class="col-sm-6 col-lg-3">
+                    <div class="wtt-member">
+                        <div class="photo"><i class="fa fa-user"/></div>
+                        <h4>Tom Beck</h4>
+                        <div class="role">Investment Advisor</div>
+                        <p class="creds">9 yrs · CFA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

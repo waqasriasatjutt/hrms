@@ -1,0 +1,33 @@
+// =====================================================================
+//  WT Theme WT Theme Restaurant — primary variables
+// =====================================================================
+
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'wt-restaurant': (
+            'o-color-1': #C0392B,   // primary
+            'o-color-2': #2C3E50,   // secondary
+            'o-color-3': #F1C40F,   // accent
+            'o-color-4': #1B2631,   // dark
+            'o-color-5': #FFF8F0,   // light
+        ),
+    )
+);
+
+$o-website-values-palettes: map-merge($o-website-values-palettes,
+    (
+        'wt-restaurant': (
+            'font':          'Poppins',
+            'headings-font': 'Cormorant Garamond',
+            'navbar-font':   'Poppins',
+            'buttons-font':  'Poppins',
+            'header-template':           'default',
+            'footer-template':           'descriptive',
+            'btn-border-radius':         50rem,
+            'menu-shadow':               true,
+        ),
+    )
+);
+
+$o-selected-color-palette-name: 'wt-restaurant' !default;
+$o-selected-website-values-palette-name: 'wt-restaurant' !default;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_salon_features" name="WT Theme Salon &amp; Spa Features">
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="wtt-eyebrow">Why Regulars Stay</span>
+                <h2 class="wtt-h2 mt-3">Why Regulars Stay</h2>
+                <p class="wtt-lead mx-auto" style="text-align:center;">Fewer chairs. Bigger care.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-star"/></div>
+                        <h4>Senior Stylists Only</h4>
+                        <p>Minimum 8 years training. No juniors take a chair.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-leaf"/></div>
+                        <h4>Clean Beauty</h4>
+                        <p>Sulphate-free, ammonia-free, vegan-tested products. We list every ingredient.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-clock-o"/></div>
+                        <h4>On-Time, Always</h4>
+                        <p>We over-book by 5 minutes per slot — never the other way. You're seen on time.</p>
+                    </div>
+                </div><div class="col-md-6 col-lg-3">
+                    <div class="wtt-pillar">
+                        <div class="icon"><i class="fa fa-glass"/></div>
+                        <h4>Wine On Arrival</h4>
+                        <p>Espresso, sparkling water, or a glass of bubbles while you settle in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

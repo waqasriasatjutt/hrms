@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_ecommerce_hero" name="WT Theme eCommerce Hero">
+    <section class="wtt-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="wtt-eyebrow mb-3">New Drop · Live Now</span>
+                    <h1 class="wtt-h1">Better Things, <span style="color:#000000;">Worn Often.</span></h1>
+                    <p class="wtt-lead">A small catalogue of well-made products, sourced from makers we've actually visited. No mystery suppliers, no fast-fashion turnover. Things you'll keep.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contact" class="btn btn-lg wtt-btn-primary">Shop New</a>
+                        <a href="#services" class="btn btn-lg wtt-btn-outline">Browse Categories</a>
+                    </div>
+                    <div class="wtt-hero__stats"><div class="stat"><div class="num">40K+</div><div class="label">Customers</div></div><div class="stat"><div class="num">4.9★</div><div class="label">Reviews</div></div><div class="stat"><div class="num">Free</div><div class="label">Shipping $50+</div></div></div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="wtt-hero__visual">
+                        <i class="bg-glyph fa fa-circle-o-notch"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>
